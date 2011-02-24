@@ -1,0 +1,26 @@
+// +----------------------------------------------------------------------+
+// | BoletoPhp - Versão Beta                                              |
+// +----------------------------------------------------------------------+
+// | Este arquivo está sujeito a versão 2 da GNU General Public License,  |
+// | que foi adicionada nesse pacote no arquivo COPYING e está disponível |
+// | pela Web em http://pt.wikipedia.org/wiki/GNU_General_Public_License  |
+// | Você deve ter recebido uma cópia da GNU Public License junto com     |
+// | esse pacote; se não, escreva para:                                   |
+// |                                                                      |
+// | Free Software Foundation, Inc.                                       |
+// | 59 Temple Place - Suite 330                                          |
+// | Boston, MA 02111-1307, USA.                                          |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
+// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa		  |
+// |									  |
+// | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
+// | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// +----------------------------------------------------------------------+
