@@ -135,11 +135,11 @@ $altura = 50 ;
   $barcodes[7] = "00011" ;
   $barcodes[8] = "10010" ;
   $barcodes[9] = "01010" ;
-  for($f1=9;$f1>=0;$f1--){ 
-    for($f2=9;$f2>=0;$f2--){  
+  for($f1=9;$f1>=0;$f1--){
+    for($f2=9;$f2>=0;$f2--){
       $f = ($f1 * 10) + $f2 ;
       $texto = "" ;
-      for($i=1;$i<6;$i++){ 
+      for($i=1;$i<6;$i++){
         $texto .=  substr($barcodes[$f1],($i-1),1) . substr($barcodes[$f2],($i-1),1);
       }
       $barcodes[$f] = $texto;
@@ -151,10 +151,10 @@ $altura = 50 ;
 
 
 //Guarda inicial
-?><img src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+?><img src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img
+src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img
+src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img
+src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img
 <?php
 $texto = $valor ;
 if((strlen($texto) % 2) <> 0){
@@ -173,7 +173,7 @@ while (strlen($texto) > 0) {
       $f1 = $largo ;
     }
 ?>
-    src=imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img 
+    src=imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img
 <?php
     if (substr($f,$i,1) == "0") {
       $f2 = $fino ;
@@ -181,16 +181,16 @@ while (strlen($texto) > 0) {
       $f2 = $largo ;
     }
 ?>
-    src=imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img 
+    src=imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img
 <?php
   }
 }
 
 // Draw guarda final
 ?>
-src=imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
+src=imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img
+src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img
+src=imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0>
   <?php
 } //Fim da função
 
@@ -204,7 +204,7 @@ function direita($entra,$comp){
 
 function fator_vencimento($data) {
   if ($data != "") {
-	$data = split("/",$data);
+	$data = explode("/",$data);
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];
@@ -234,7 +234,7 @@ function _dateToDays($year,$month,$day) {
                 $day +  1721119);
 }
 
-function modulo_10($num) { 
+function modulo_10($num) {
 		$numtotal10 = 0;
         $fator = 2;
 
@@ -243,7 +243,7 @@ function modulo_10($num) {
             // pega cada numero isoladamente
             $numeros[$i] = substr($num,$i-1,1);
             // Efetua multiplicacao do numero pelo (falor 10)
-            $temp = $numeros[$i] * $fator; 
+            $temp = $numeros[$i] * $fator;
             $temp0=0;
             foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
             $parcial10[$i] = $temp0; //$numeros[$i] * $fator;
@@ -255,7 +255,7 @@ function modulo_10($num) {
                 $fator = 2; // intercala fator de multiplicacao (modulo 10)
             }
         }
-		
+
         // várias linhas removidas, vide função original
         // Calculo do modulo 10
         $resto = $numtotal10 % 10;
@@ -263,9 +263,9 @@ function modulo_10($num) {
         if ($resto == 0) {
             $digito = 0;
         }
-		
+
         return $digito;
-		
+
 }
 
 function modulo_11($num, $base=9, $r=0)  {
@@ -274,9 +274,9 @@ function modulo_11($num, $base=9, $r=0)  {
      *           Pablo Costa <pablo@users.sourceforge.net>
      *
      *   Função:
-     *    Calculo do Modulo 11 para geracao do digito verificador 
-     *    de boletos bancarios conforme documentos obtidos 
-     *    da Febraban - www.febraban.org.br 
+     *    Calculo do Modulo 11 para geracao do digito verificador
+     *    de boletos bancarios conforme documentos obtidos
+     *    da Febraban - www.febraban.org.br
      *
      *   Entrada:
      *     $num: string numérica para a qual se deseja calcularo digito verificador;
@@ -289,7 +289,7 @@ function modulo_11($num, $base=9, $r=0)  {
      *   Observações:
      *     - Script desenvolvido sem nenhum reaproveitamento de código pré existente.
      *     - Assume-se que a verificação do formato das variáveis de entrada é feita antes da execução deste script.
-     */                                        
+     */
 
     $soma = 0;
     $fator = 2;
@@ -303,7 +303,7 @@ function modulo_11($num, $base=9, $r=0)  {
         // Soma dos digitos
         $soma += $parcial[$i];
         if ($fator == $base) {
-            // restaura fator de multiplicacao para 2 
+            // restaura fator de multiplicacao para 2
             $fator = 1;
         }
         $fator++;
@@ -324,7 +324,7 @@ function modulo_11($num, $base=9, $r=0)  {
 }
 
 function monta_linha_digitavel($codigo) {
-		
+
 		// Posição 	Conteúdo
         // 1 a 3    Número do banco
         // 4        Código da Moeda - 9 para Real
@@ -371,7 +371,7 @@ function monta_linha_digitavel($codigo) {
 		$p2 = substr($codigo, 9, 10);
 		$campo5 = "$p1$p2";
 
-        return "$campo1 $campo2 $campo3 $campo4 $campo5"; 
+        return "$campo1 $campo2 $campo3 $campo4 $campo5";
 }
 
 function geraCodigoBanco($numero) {
