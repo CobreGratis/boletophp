@@ -28,3 +28,8 @@ Alterações da Versão 0.16 para 0.17
 
 1. Acrescentado o Boleto Sicredi
 2. Correção do Boleto CEF-SIGCB
+
+Alterações da Versão 0.17 para 0.18
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+1. Acrescentado o Boleto Sofisa
