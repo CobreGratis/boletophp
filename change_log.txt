@@ -1,0 +1,5 @@
+Boleto 1.0 Beta, 2011-06-17
+----------------------
+- Complete code re-writting from v0.17 to make it more like a library (package) for better distribution and implementation
+- Applied some commom programming standards
+- Created code documentation

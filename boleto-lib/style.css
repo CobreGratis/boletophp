@@ -1,0 +1,29 @@
+ /**
+ * This code is released under the GNU General Public License.
+ * See COPYRIGHT.txt and LICENSE.txt.
+ *
+ * This library is built based on Boletophp v0.17
+ * Many thanks to the mantainers and collaborators of Boletophp project at boletophp.com.br.
+ * 
+ * @file Stylesheet for template files
+ * @link http://www.drupalista.com.br/downloads/bibliotecas/boleto
+ * @copyright 2011 Drupalista.com.br
+ * @author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
+ * @package Boleto
+ * @version 1.0 Beta
+ * 
+ */
+
+.cp {  font: bold 10px Arial; color: black}
+.ti {  font: 9px Arial, Helvetica, sans-serif}
+.ld { font: bold 15px Arial; color: #000000}
+.ct { FONT: 9px "Arial Narrow"; COLOR: #000033} 
+.cn { FONT: 9px Arial; COLOR: black }
+.bc { font: bold 20px Arial; color: #000000 }
+.ld2 { font: bold 12px Arial; color: #000000 }
+
+body{
+    background-color: #ffffff;
+    color: #000000;
+    margin-right: 0;
+}
