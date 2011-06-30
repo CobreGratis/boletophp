@@ -1,7 +1,7 @@
 <?php
 /**
- * Project:     Boletophp
- * File:        Boleto.class.php
+ * Project:  Boletophp
+ * File:     Boleto.class.php
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
