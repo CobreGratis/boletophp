@@ -64,7 +64,7 @@ TOPICOS
               argumentos possíveis.
 
         Leia o arquivo readme.txt da implementação de cada banco localizado em
-        www/bibliotecas/boleto/boleto-lib/bancos/XXX/readme.txt onde XXX é o código do banco,
+        www/bibliotecas/boleto-lib/bancos/XXX/readme.txt onde XXX é o código do banco,
         para saber mas detalhes no formato e requisitos de validação de campos específicos.
 
         Para o argumento 'library_location', em nosso exemplo, ficaria 'bibliotecas/boleto-lib'
