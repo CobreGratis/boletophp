@@ -297,7 +297,7 @@ TOPICOS
 
 7. PUBLICANDO A SUA IMPLEMENTAÇÃO
 
-   NOTA: Os releases de implementações precisam ser sob a versão versão 2 or higher da GNU General Public License
+   NOTA: Os releases de implementações precisam ser sob a versão 2 or higher da GNU General Public License
 
    Uma vez que sua nova implementação estiver pronta, você pode publica-la de duas formas:
 
@@ -338,7 +338,7 @@ TOPICOS
                Entretanto é imprecindivel que você saiba usar a ferramenta git. Informações sobre o git em
                http://pt.wikipedia.org/wiki/Git
  
-               Sim, o git pode ser usado no Windows, antes que você pergunte. Entretanto peço gentilmente
+               Sim, o git pode ser usado no Windows, antes que alguém pergunte. Entretanto peço gentilmente
                que não poste perguntas sobre o git na lista de Issues pois existem varios lugares
                mais apropriados na internet que melhor podem sanar suas dúvidas a respeito do assunto.
 
