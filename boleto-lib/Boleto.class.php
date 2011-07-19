@@ -149,12 +149,13 @@ class Boleto {
         }
         $this->bank_code = trim($arguments['bank_code']);
 
-        //check if the issuer bank is implemented by a child class   
-        if(!@file_exists(getcwd().'/boleto-lib/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php') ) {
+        //check if the issuer bank is implemented by a child class
+        if(!@file_exists(dirname(__FILE__).'/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php') ) {
             $this->is_implemented = 0;
         }else{
+            
             //include class implementation file
-            include_once(getcwd().'/boleto-lib/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php');
+            include_once(dirname(__FILE__).'/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php');
             //get methods declared at child class
             $methods = get_class_methods('Banco_'.$this->bank_code);
             $child = TRUE;
@@ -433,7 +434,7 @@ class Boleto {
         $this->settings['images']    = $this->arguments['library_location'].'/imagens';
         $this->settings['bank_logo'] = $this->settings['images'].'/bank_logo_default.jpg';
         $this->settings['style']     = $this->arguments['library_location'].'/style.css';
-        $this->settings['template']  = $this->arguments['library_location'].'/boleto.tpl.php';
+        $this->settings['template']  = dirname(__FILE__).'/boleto.tpl.php';
   
         //calculate valor_cobrado (total amount)
         $subtractions = $this->arguments['desconto_abatimento'] + $this->arguments['outras_deducoes'];
@@ -474,6 +475,7 @@ class Boleto {
             //check if child method is implemented
             if(in_array('setUp', $this->methods['child']) && in_array('febraban_20to44', $this->methods['child'])){
                 $childClass = 'Banco_'.$this->bank_code;
+                //call_user_func(array($childClass, 'setUp'));
                 $childClass::setUp();
             }else{
                 //set warning
@@ -639,7 +641,7 @@ class Boleto {
         }
         //it's time for rendering it. Yaaay!!!
         if($render){
-            include_once(getcwd().'/'.$this->settings['template']);    
+            include_once($this->settings['template']);    
         }
     }
     /**
