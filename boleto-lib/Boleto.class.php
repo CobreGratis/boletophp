@@ -149,11 +149,10 @@ class Boleto {
         }
         $this->bank_code = trim($arguments['bank_code']);
 
-        //check if the issuer bank is implemented by a child class
+        //check if the issuer bank is implemented by a child class   
         if(!@file_exists(dirname(__FILE__).'/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php') ) {
             $this->is_implemented = 0;
         }else{
-            
             //include class implementation file
             include_once(dirname(__FILE__).'/bancos/'.$this->bank_code.'/Banco_'.$this->bank_code.'.php');
             //get methods declared at child class
@@ -347,7 +346,8 @@ class Boleto {
             if(in_array('febraban_20to44', $this->methods['child'])){
                 //positions 20 to 44 vary from bank to bank, so we call the child extention
                 $child = 'Banco_'.$this->bank_code;
-                $child::febraban_20to44();
+                call_user_func(array($child, 'febraban_20to44'), $this);
+                //$child::febraban_20to44();
             }
         }
         //calculate the check digit (position 5) of all 43 number set
@@ -381,7 +381,8 @@ class Boleto {
             if(in_array('custom', $this->methods['child'])){
                 //when present, this is the last method to be called in the construction chain
                 $childClass = 'Banco_'.$this->bank_code;
-                $childClass::custom();
+                call_user_func(array($childClass, 'custom'), $this);
+                //$childClass::custom();
             }
         }
 
@@ -475,8 +476,8 @@ class Boleto {
             //check if child method is implemented
             if(in_array('setUp', $this->methods['child']) && in_array('febraban_20to44', $this->methods['child'])){
                 $childClass = 'Banco_'.$this->bank_code;
-                //call_user_func(array($childClass, 'setUp'));
-                $childClass::setUp();
+                call_user_func(array($childClass, 'setUp'), $this);
+                //$childClass::setUp();
             }else{
                 //set warning
                 $this->setWarning(array('settings', 'Os metodos setUp e febraban_20to44 nao foram encontradas na implementacao do banco. Leia o arquivo readme.txt para mais informacoes.'));
@@ -636,7 +637,8 @@ class Boleto {
             if(in_array('outputValues', $this->methods['child'])){
                 $childClass = 'Banco_'.$this->bank_code;
                 //call child class method
-                $childClass::outputValues();
+                call_user_func(array($childClass, 'outputValues'), $this);
+                //$childClass::outputValues();
             }
         }
         //it's time for rendering it. Yaaay!!!
