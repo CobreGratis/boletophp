@@ -450,24 +450,29 @@ class Boleto {
         //check some basic settings
         if($this->is_implemented){
             //check if these files exists
-            $files = array('bank_logo' => array('#file_name' => 'logo.jpg',
-                                                '#required'  => 1,),
-                           'template'  => array('#file_name' => 'layout.tpl.php',
-                                                '#required'  => 0,),
-                           'style'     => array('#file_name' => 'style.css',
-                                                '#required'  => 0),
-                           'readme'    => array('#file_name' => 'readme.txt',
-                                                '#required'  => 1),
+            $files = array('bank_logo' => array('#file_name'     => 'logo.jpg',
+                                                '#required'      => 1,),
+                           'template'  => array('#file_name'     => 'layout.tpl.php',
+                                                '#required'      => 0,),
+                           'style'     => array('#file_name'     => 'style.css',
+                                                '#required'      => 0,),
+                           'readme'    => array('#file_name'     => 'readme.txt',
+                                                '#required'      => 1),
                           );
             $location = $this->arguments['library_location'].'/bancos/'.$this->bank_code;
+            $true_path = dirname(__FILE__).'/bancos/'.$this->bank_code;
             
             foreach($files as $key => $value){
                 $filename = $value['#file_name'];
-                $required = $value['#required'];
                 
-                if(@file_exists($location.'/'.$filename)){
-                    $this->settings[$key] = $location.'/'.$filename;
-                }elseif($required){
+                if(@file_exists($true_path.'/'.$filename)){
+                    if($key == 'template'){
+                        $this->settings[$key] = $true_path.'/'.$filename;
+                    }else{
+                        $this->settings[$key] = $location.'/'.$filename;    
+                    }
+                    
+                }elseif($value['#required']){
                     //set warning
                     $this->setWarning(array($key, "O arquivo $location/$filename nao pode ser encontrado."));
                 }
