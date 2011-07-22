@@ -308,7 +308,7 @@ class Boleto {
             $from_date = mktime(0, 0, 0, $from_month, $from_day, $from_year); 
             $to_date = mktime(0, 0, 0, $to_month, $to_day, $to_year);
             
-            $days = ceil(($to_date - $from_date) / 86400);
+            $days = round(($to_date - $from_date) / 86400);
         }
         //assign value to febraban array property
         $this->febraban['6-9'] = $days;
