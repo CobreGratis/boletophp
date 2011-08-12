@@ -52,27 +52,27 @@
  */
 
 $myArguments = array('library_location'       => 'boleto-lib', //adjust to the location where you have stored Boleto's library. If it is outside your current application folder you gotta use ../ 
-                     'bank_code'              => '341', //Merchant's bank code (NO check digit). Note that this is not the same as the branch number
+                     'bank_code'              => '001', //Merchant's bank code (NO check digit). Note that this is not the same as the branch number
                      'agencia'                => 9999, //Merchant's branch number (NO check digit)
                      //'agencia_dv'           => 2,
                      'conta'                  => 87414, //Merchant's account number (NO check digit)
                      'conta_dv'               => 3, //check digit of Merchant's account number
                      'valor_boleto'           => '2952.95', //No thousand separator. Comma for decimal separator. This is the total amount before deductions/additions
-                     'numero_documento'       => '27.030195.10', //Generally this is used to place the order number
+                     'numero_documento'       => '27.030195.10', //Generally this is used for placing the order number
                      'endereco'               => 'street name and number', //Merchant's address
                      'cidade_uf'              => 'city and state', //Merchant's city and state
                      'cedente'                => 'ABC Company Ltd', //Merchant's name
                      'sacado'                 => 'John Doe', //Client's name (payer)
                      'merchant_logo'          => 'images/logo.jpg', //Image location of merchant's logo
-                     'carteira'               => '175', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt                     
-                     //'carteira_nosso_numero'  => '22222', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
+                     'carteira'               => '18', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt                     
+                     'carteira_nosso_numero'  => '22222111-666666-22', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
                      'nosso_numero'           => '123456', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
                      //'desconto_abatimento'  => '0.00', //Comma as decimal separator. This is the discount field (-)
                      //'outras_deducoes'      => '0.00', //Comma as decimal separator. Combined general deductions (-)
                      //'mora_multa'           => '0.00', //Comma as decimal separator. Interest and overdue fees (+)
                      //'outros_acrescimos'    => '50.55', //Comma as decimal separator. Combined general additions (+)
                      'cpf_cnpj'               => '000.000.000-00', //Merchant's tax file number, see http://en.wikipedia.org/wiki/CNPJ for more info
-                     //'data_vencimento'      => '', //'dd-mm-yyyy', //This is the "Due to" date field. Default == 5 days from issuing. Set -1 to make it "Contra Apresentação" which means "cash against document"
+                     //'data_vencimento'      => '25-07-2011', //'dd-mm-yyyy', //This is the "Due to" date field. Default == 5 days from issuing. Set -1 to make it "Contra Apresentação" which means "cash against document"
                      'endereco1'              => 'street name and number', //Client's address line 1, includes street name and number
                      'endereco2'              => 'city and state', //Client's address line 2, includes city, state and zip code
                      'demonstrativo1'         => 'Your text here', //check with your issuer bank for instructions on how to fill up this line
@@ -99,6 +99,14 @@ include_once($myArguments['library_location'].'/Boleto.class.php');
 
 //instantiate an object and send the array of arguments through
 $myBoleto = new Boleto($myArguments);
+//$myBoleto->settings['bank_logo']  = 'teste';
+
+
+echo '<pre>';
+
+
+
+print_r($myBoleto);
 
 //if you wanna print out the html then call
 $myBoleto->output();

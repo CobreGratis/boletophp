@@ -290,7 +290,7 @@ class Boleto {
     
     /**
      * Calculates the "Due date" 4 digits factor number.
-     * It is the positions from 6 to 9 in Febraban array
+     * It is the positions from 6 to 9 in the Febraban array
      * 
      * script from http://phpbrasil.com/articles/print.php/id/1034
      */
