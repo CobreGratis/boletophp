@@ -211,6 +211,9 @@ class Boleto {
 		
         $resto  = $numtotal10 % 10;
         $digito = 10 - $resto;
+        
+        //make it zero if check digit is 10
+        $digito = ($digito == 10)?0:$digito;
 
         return $digito;
     }
@@ -390,6 +393,7 @@ class Boleto {
     
     //assembles the human readable code set (linha digitavel)
     public function linha_digitavel(){
+        
        //break down febraban positions 20 to 44 into 3 blocks of 5, 10 and 10 characters each
        $blocks = array('20-24' => substr($this->febraban['20-44'], 0, 5), 
                        '25-34' => substr($this->febraban['20-44'], 5, 10),
