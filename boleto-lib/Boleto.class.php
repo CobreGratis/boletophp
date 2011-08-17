@@ -431,6 +431,13 @@ class Boleto {
        
        //now put everything together
        $this->computed['linha_digitavel'] = "$part1 $part2 $part3 $cd $part4";
+       
+       $lengh = strlen($this->computed['linha_digitavel']);
+       
+       if($lengh != 54){
+            $lengh -= 7; 
+            $this->setWarning(array("linha_digitavel", "possui $lengh digitos enquanto deveria ter 47.")); 
+       }
     }
     
     //pre set stuff
@@ -503,10 +510,8 @@ class Boleto {
         }
         
         //get bar code values from settings
-        $barcodes = array();
-        foreach($this->settings['bar_code']['bar_codes'] as $value){
-            $barcodes[] = $value;    
-        }
+        $barcodes = $this->settings['bar_code']['bar_codes'];
+
         //apply bar codes to the febraban code
         for($f1=9;$f1>=0;$f1--){ 
           for($f2=9;$f2>=0;$f2--){  
