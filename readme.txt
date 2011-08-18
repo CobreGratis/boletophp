@@ -36,7 +36,7 @@ TOPICOS
       Por exemplo: www/bibliotecas/boleto-lib
  
    b) Acesse https://github.com/drupalista-br/Boleto/wiki/Projeto-Boletophp-API e faça o download dos 
-      pacote(s) que implementa(m) o(s) os banco(s) que você trabalha para a emissão de boletos.
+      plugin(s) que implementa(m) o(s) os banco(s) que você trabalha para a emissão de boletos.
 
    c) Vá até a pasta boleto-lib/bancos e crie uma sub pasta. O nome desta sub-pasta deverá ser o código
       do banco. Seguindo o nosso exemplo, se baixarmos a implementação do Banco do Brasil então ficaria 
@@ -223,8 +223,8 @@ TOPICOS
 
    class Banco_XXX extends Boleto{
 
-   /**IMPORTANTE: Nunca sobrescreva qualquer valor da propriedade $this->arguments
-                  Ao invés disto salve resultados em $this->computed['..nome do campo ..'] */
+   /**IMPORTANTE: Nunca sobrescreva qualquer valor da propriedade $boleto->arguments
+                  Ao invés disto salve resultados em $boleto->computed['..nome do campo ..'] */
 
        //Este método é obrigatório
        function setUp(){
@@ -236,7 +236,7 @@ TOPICOS
 
           //Para imprimir na tela todas as propriedades do objeto disponiveis:
           echo '<pre>';
-          print_r($this);
+          print_r($boleto);
 
        }
 
@@ -245,7 +245,7 @@ TOPICOS
       
           //Para imprimir na tela todas as propriedades do objeto disponiveis:
           echo '<pre>';
-          print_r($this);
+          print_r($boleto);
 
           //aqui será onde você deverá construir os 25 dígitos que fazem parte do
           //campo livre de uso do banco
@@ -254,7 +254,7 @@ TOPICOS
        
           //no final salve o seu valor na propriedade febraban, assim:
 
-          $this->febraban['20-44'] = $meu_valor_com_25_dígitos;
+          $boleto->febraban['20-44'] = $meu_valor_com_25_dígitos;
 
        }
 
@@ -341,18 +341,5 @@ TOPICOS
                Sim, o git pode ser usado no Windows, antes que alguém pergunte. Entretanto peço gentilmente
                que não poste perguntas sobre o git na lista de Issues pois existem varios lugares
                mais apropriados na internet que melhor podem sanar suas dúvidas a respeito do assunto.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

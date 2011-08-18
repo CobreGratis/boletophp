@@ -131,7 +131,7 @@ class Boleto {
                              '6-9'   => '', //Fator de vencimento
                              '10-19' => '', //Valor Nominal do Titulo
                              '20-44' => '', //Campo Livre. Set by child class (issuer bank implementation).
-                              );
+                            );
     //see output()
     public $output = array();
     
