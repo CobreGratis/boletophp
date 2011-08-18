@@ -36,7 +36,9 @@
  */
 
 class Boleto {
-    //issuer bank info
+    /**
+     * Issuer bank code
+     */
     public $bank_code;
     public $bank_name;
     private $is_implemented = TRUE;
@@ -132,7 +134,9 @@ class Boleto {
                              '10-19' => '', //Valor Nominal do Titulo
                              '20-44' => '', //Campo Livre. Set by child class (issuer bank implementation).
                             );
-    //see output()
+    /**
+     * @see the method output()
+     */
     public $output = array();
     
     public function __construct($arguments){
@@ -186,7 +190,13 @@ class Boleto {
         }
      }
 
-    // Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+    /**
+     * Calculates a check digit from any given number based on the modulo 10 specifications
+     *
+     * @param string $num The number you wish to calcule the check digit from
+     * @see Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+     * @return string The check digit number
+     */
     public function modulo_10($num) {
 	$numtotal10 = 0;
         $fator      = 2;
@@ -219,9 +229,12 @@ class Boleto {
     }
     
     /**
-     * @return array The returned array keys are digito and resto
+     * Calculates a check digit from any given number based on the modulo 11 specifications
      *
-     * Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+     * @param string $num The number you wish to calcule the check digit from
+     * @param string $base Optional. This is defaulted to 9
+     * @see Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+     * @return array The returned array keys are digito and resto
      */
     public function modulo_11($num, $base=9){
         $fator = 2;
