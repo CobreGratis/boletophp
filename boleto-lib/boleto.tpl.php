@@ -57,7 +57,7 @@ foreach($this->output as $key => $value){
 	<li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.<br>
 	<li>Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras.<br>
 	<li>Caso n&atilde;o apare&ccedil;a o c&oacute;digo de barras no final, clique em F5 para atualizar esta tela.
-	<li>Caso tenha problemas ao imprimir, copie a seqüencia num&eacute;rica abaixo e pague no caixa eletrônico ou no internet banking:<br><br>
+	<li>Caso tenha problemas ao imprimir, copie a sequencia num&eacute;rica abaixo e pague no caixa eletr&ocirc;nico ou no internet banking:<br><br>
 	<span class="ld2">
 	  &nbsp;&nbsp;&nbsp;&nbsp;Linha Digit&aacute;vel: &nbsp;<?php echo $linha_digitavel; ?><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;Valor: &nbsp;&nbsp;R$ <?php echo $valor_cobrado; ?><br>
