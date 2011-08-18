@@ -15,15 +15,15 @@
  *
  *  --------------------------------C O N T R A T A C A O ---------------------------------------------------
  *  
- * - Estou disponível para trabalhos freelance, contrato temporario ou permanente. (falo ingles fluente)
+ * - Estou dispon&iacute;vel para trabalhos freelance, contrato temporario ou permanente. (falo ingles fluente)
  * - Aberto para propostas de parcerias. Nao quer dizer necessariamente que vou aceita-las :)
- * - Tambem presto serviços de treinamento em Drupal para empresas e profissionais da área de
+ * - Tambem presto servi&ccedil;os de treinamento em Drupal para empresas e profissionais da &aacute;rea de
  *   desenvolvimento web ou para empresas / pessoas usuarias da plataforma Drupal que queiram capacitar
  *   sua equipe interna para tirar o maximo proveito do poder do Drupal.
- * - Trabalho com soluções como o Open Public (http://openpublicapp.com), ideal para prefeituras e
+ * - Trabalho com solu&ccedil;&otilde;es como o Open Public (http://openpublicapp.com), ideal para prefeituras e
  *   autarquias publicas.
  * - Trabalho ainda com o Open Publish (http://openpublishapp.com), uma solucao completa de websites
- *   para canais de tv, jornais, revistas, notícias, etc...
+ *   para canais de tv, jornais, revistas, not&iacute;cias, etc...
  *
  *   Acesse o meu website http://www.drupalista.com.br para me contactar.
  *
@@ -43,23 +43,23 @@ foreach($this->output as $key => $value){
   <HEAD>
     <TITLE><?php echo $title; ?></TITLE>
       <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-      <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+      <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licen&ccedil;a GPL" />
       <link type="text/css" rel="stylesheet" media="all" href="<?php echo $style; ?>" /> 
   </head>
 <BODY>
   <table cellspacing=0 cellpadding=0 border=0 width=666>
     <tr>
-      <td valign=top class=cp><DIV ALIGN="CENTER">Instruções de Impressão</DIV></TD>
+      <td valign=top class=cp><DIV ALIGN="CENTER">Instru&ccedil;&otilde;es de Impress&atilde;o</DIV></TD>
     </TR>
     <TR>
       <TD valign=top class=cp><DIV ALIGN="left"><p>
-	<li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
-	<li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
-	<li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.<br>
-	<li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.
-	<li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking:<br><br>
+	<li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (N&atilde;o use modo econômico).<br>
+	<li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.<br>
+	<li>Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras.<br>
+	<li>Caso n&atilde;o apare&ccedil;a o c&oacute;digo de barras no final, clique em F5 para atualizar esta tela.
+	<li>Caso tenha problemas ao imprimir, copie a seqüencia num&eacute;rica abaixo e pague no caixa eletrônico ou no internet banking:<br><br>
 	<span class="ld2">
-	  &nbsp;&nbsp;&nbsp;&nbsp;Linha Digitável: &nbsp;<?php echo $linha_digitavel; ?><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;Linha Digit&aacute;vel: &nbsp;<?php echo $linha_digitavel; ?><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;Valor: &nbsp;&nbsp;R$ <?php echo $valor_cobrado; ?><br>
 	</span></DIV>
       </td>
@@ -112,13 +112,13 @@ foreach($this->output as $key => $value){
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=268 height=13>Cedente</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=156 height=13>Agência/Código do Cedente</td>
+	<td class=ct valign=top width=156 height=13>Ag&ecirc;ncia/C&oacute;digo do Cedente</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=34 height=13>Espécie</td>
+	<td class=ct valign=top width=34 height=13>Esp&eacute;cie</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=53 height=13>Quantidade</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=120 height=13>Nosso número</td>
+	<td class=ct valign=top width=120 height=13>Nosso n&uacute;mero</td>
     </tr>
       <tr>
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -151,7 +151,7 @@ foreach($this->output as $key => $value){
   <tbody>
       <tr>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top colspan=3 height=13>Número do documento</td>
+	<td class=ct valign=top colspan=3 height=13>N&uacute;mero do documento</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=132 height=13>CPF/CNPJ</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -189,11 +189,11 @@ foreach($this->output as $key => $value){
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=113 height=13>(-) Desconto / Abatimentos</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=112 height=13>(-) Outras deduções</td>
+	<td class=ct valign=top width=112 height=13>(-) Outras dedu&ccedil;&otilde;es</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=113 height=13>(+) Mora / Multa</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=113 height=13>(+) Outros acréscimos</td>
+	<td class=ct valign=top width=113 height=13>(+) Outros acr&eacute;scimos</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=180 height=13>(=) Valor cobrado</td>
     </tr>
@@ -245,7 +245,7 @@ foreach($this->output as $key => $value){
 	<td class=ct width=7 height=12></td>
 	<td class=ct width=564>Demonstrativo</td>
 	<td class=ct width=7 height=12></td>
-	<td class=ct width=88>Autenticação mecânica</td>
+	<td class=ct width=88>Autentica&ccedil;&atilde;o mec&acirc;nica</td>
     </tr>
       <tr>
 	<td width=7></td>
@@ -309,7 +309,7 @@ foreach($this->output as $key => $value){
     </tr>
       <tr>
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=472 height=12>Pagável em qualquer Banco até o vencimento</td>
+	<td class=cp valign=top width=472 height=12>Pag&aacute;vel em qualquer Banco at&eacute; o vencimento</td>
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=cp valign=top align=right width=180 height=12>
 	  <span class="campo"><?php echo $data_vencimento; ?></span>
@@ -329,7 +329,7 @@ foreach($this->output as $key => $value){
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=ct valign=top width=472 height=13>Cedente</td>
 	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=180 height=13>Agência/Código cedente</td>
+	<td class=ct valign=top width=180 height=13>Ag&ecirc;ncia/C&oacute;digo cedente</td>
     </tr>
       <tr>
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -353,13 +353,13 @@ foreach($this->output as $key => $value){
       <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=ct valign=top width=133 height=13>N<u>o</u> documento</td>
       <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=62 height=13>Espécie doc.</td>
+      <td class=ct valign=top width=62 height=13>Esp&eacute;cie doc.</td>
       <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=ct valign=top width=34 height=13>Aceite</td>
       <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=ct valign=top width=102 height=13>Data processamento</td>
       <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>Nosso número</td>
+      <td class=ct valign=top width=180 height=13>Nosso n&uacute;mero</td>
   </tr>
     <tr>
       <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -401,7 +401,7 @@ foreach($this->output as $key => $value){
       <td class=ct valign=top height=13 width=7> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=ct valign=top width=83 height=13>Carteira</td>
       <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=43 height=13>Espécie</td>
+      <td class=ct valign=top width=43 height=13>Esp&eacute;cie</td>
       <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=ct valign=top width=103 height=13>Quantidade</td>
       <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -462,7 +462,7 @@ foreach($this->output as $key => $value){
 </tbody>
 </table></td>
       <td valign=top width=468 rowspan=5>
-        <font class=ct>Instruções (Texto de responsabilidade do cedente)</font>
+        <font class=ct>Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)</font>
         <br><br>
         <span class=cp><FONT class=campo><?php echo $instrucoes1; ?>
         <br><?php echo $instrucoes2; ?>
@@ -511,7 +511,7 @@ foreach($this->output as $key => $value){
 <tbody> 
     <tr>
       <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>(-) Outras deduções</td>
+      <td class=ct valign=top width=180 height=13>(-) Outras dedu&ccedil;&otilde;es</td>
   </tr>
     <tr>
       <td class=cp valign=top width=7 height=12> <img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -579,7 +579,7 @@ foreach($this->output as $key => $value){
 <tbody>
     <tr>
       <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>(+) Outros acréscimos</td>
+      <td class=ct valign=top width=180 height=13>(+) Outros acr&eacute;scimos</td>
   </tr>
     <tr>
       <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -653,7 +653,7 @@ foreach($this->output as $key => $value){
       <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
       <td class=cp valign=top width=472 height=13><span class="campo"><?php echo $endereco2; ?></span></td>
       <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>Cód. baixa</td>
+      <td class=ct valign=top width=180 height=13>C&oacute;d. baixa</td>
   </tr>
     <tr>
       <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
@@ -668,7 +668,7 @@ foreach($this->output as $key => $value){
     <tr>
       <td class=ct width=7 height=12></TD>
       <td class=ct width=409>Sacador/Avalista</TD>
-      <td class=ct width=250><div align=right>Autenticação mecânica - <b class=cp>Ficha de Compensação</b></div></TD>
+      <td class=ct width=250><div align=right>Autentica&ccedil;&atilde;o mec&acirc;nica - <b class=cp>Ficha de Compensa&ccedil;&atilde;o</b></div></TD>
     </tr>
     <tr>
       <td class=ct  colspan=3><?php echo $avalista; ?></TD>
