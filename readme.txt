@@ -227,9 +227,9 @@ TOPICOS
                   Ao invés disto salve resultados em $boleto->computed['..nome do campo ..'] */
 
        //Este método é obrigatório
-       function setUp(){
+       function setUp($boleto){
 
-           //Este método "setUp()" é chamado logo no comeco da criação do objeto.
+           //Este método "setUp($boleto)" é chamado logo no comeco da criação do objeto.
            //Aqui você tem a chance de configurar informações da biblioteca, como o nome do banco por exemplo.
 
            ....Seu código vai aqui.....
@@ -241,7 +241,7 @@ TOPICOS
        }
 
        //Este método é obrigatório
-       function febraban_20to44(){
+       function febraban_20to44($boleto){
       
           //Para imprimir na tela todas as propriedades do objeto disponiveis:
           echo '<pre>';
@@ -259,7 +259,7 @@ TOPICOS
        }
 
        //Este método é opcional
-       function custom(){
+       function custom($boleto){
 
           //Este é o ultimo método chamado pelo construtor e aqui você tem a chance de fazer os retoques finais
           //no objeto caso seja necessário
@@ -272,7 +272,7 @@ TOPICOS
       //Este método também é opcional e não é chamado pelo construtor, ou seja,
       //ele so é chamado depois que o método output() é explicitamente chamado. Veja "INSTALAÇÃO (Integrar o API)".
 
-      function outputValues(){ 
+      function outputValues($boleto){ 
 
           //aqui você terá a chance de modificar ou incluir campos na propriedade "output" do objeto.
 
