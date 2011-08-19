@@ -109,117 +109,111 @@ foreach($this->output as $key => $value){
 <table cellspacing=0 cellpadding=0 border=0>
   <tbody>
     <tr>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=268 height=13>Cedente</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=156 height=13>Ag&ecirc;ncia/C&oacute;digo do Cedente</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=34 height=13>Esp&eacute;cie</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=53 height=13>Quantidade</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=120 height=13>Nosso n&uacute;mero</td>
+     <?php
+      $widths = array(268, 156, 34, 53, 120,);
+      $titles = array('Cedente', 'Ag&ecirc;ncia/C&oacute;digo do Cedente', 'Esp&eacute;cie', 'Quantidade', 'Nosso n&uacute;mero',);
+
+      foreach($widths as $key => $width){
+       $title = $titles[$key];
+       echo "<td class=ct valign=top width=7      height=13> <img height=13 src='$images/1.png' width=1 border=0></td>".
+            "<td class=ct valign=top width=$width height=13>$title</td>";
+      }
+     ?>
     </tr>
       <tr>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=268 height=12><span class="campo"><?php echo $cedente; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=156 height=12><span class="campo"><?php echo $agencia_codigo_cedente; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=34 height=12><span class="campo"><?php echo $especie; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=53 height=12><span class="campo"><?php echo $quantidade; ?></span> 
-   </td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=120 height=12><span class="campo"><?php echo $nosso_numero; ?></span></td>
+       <?php
+	$widths = array(268, 156, 34, 53,);
+	$values = array($cedente, $agencia_codigo_cedente, $especie, $quantidade);
+
+	foreach($widths as $key => $width){
+	 $value = $values[$key];
+	 echo "<td class=cp valign=top width=7      height=12><img height=12 src='$images/1.png' width=1 border=0></td>".
+	      "<td class=cp valign=top width=$width height=12 class='campo'>$value</td>";
+	}
+       ?>
     </tr>
       <tr>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=268 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=268 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=156 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=156 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=34 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=34 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=53 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=53 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=120 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=120 border=0></td>
+       <?php
+	$widths = array(7, 268, 7, 156, 7, 34, 7, 53, 7, 120);
+	foreach($widths as $width){
+	 echo "<td valign=top width=$width height=1><img height=1 src='$images/2.png' width=$width border=0></td>";
+	}
+       ?>
     </tr>
   </tbody>
 </table>
 <table cellspacing=0 cellpadding=0 border=0>
   <tbody>
       <tr>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top colspan=3 height=13>N&uacute;mero do documento</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=132 height=13>CPF/CNPJ</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=134 height=13>Vencimento</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=180 height=13>Valor documento</td>
+       <?php
+	$widths = array('colspan' => 3, 132, 134, 180,);
+	$titles = array('N&uacute;mero do documento', 'CPF/CNPJ', 'Vencimento', 'Valor documento', );
+	$count = 0;
+	foreach($widths as $key => $width){
+	 $title = $titles[$count]; $count += 1;
+	 $key   = (is_numeric($key)) ? 'width' : $key;
+	 echo "<td class=ct valign=top width=7      height=13> <img height=13 src='$images/1.png' width=1 border=0></td>".
+	      "<td class=ct valign=top $key=$width height=13>$title</td>";
+	}
+       ?>
     </tr>
       <tr>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top colspan=3 height=12><span class="campo"><?php echo $numero_documento; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=132 height=12><span class="campo"><?php echo $cpf_cnpj; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top width=134 height=12><span class="campo"><?php echo $data_vencimento; ?></span></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=180 height=12><span class="campo"><?php echo $valor_boleto; ?></span></td>
+       <?php
+	$widths = array('colspan' => 3, 132, 134, 180, );
+	$values = array($numero_documento, $cpf_cnpj, $data_vencimento, $valor_boleto,);
+	$alighs = array('left', 'left', 'left', 'right');
+	$count = 0;
+	foreach($widths as $key => $width){
+	 $value = $values[$count]; $aligh = $alighs[$count]; $count += 1;
+	 $key   = (is_numeric($key)) ? 'width' : $key;
+	 echo "<td class=cp valign=top width=7      height=12><img height=12 src='$images/1.png' width=1 border=0></td>".
+	      "<td class=cp valign=top $key=$width height=12 align=$aligh class='campo'>$value</td>";
+	}
+       ?>
     </tr>
       <tr>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=113 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=113 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=72 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=72 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=132 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=132 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=134 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=134 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=180 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=180 border=0></td>
+       <?php
+	$widths = array(7, 113, 7, 72, 7, 132, 7, 134, 7, 180);
+	foreach($widths as $width){
+	 echo "<td valign=top width=$width height=1><img height=1 src='$images/2.png' width=$width border=0></td>";
+	}
+       ?>
     </tr>
   </tbody>
 </table>
 <table cellspacing=0 cellpadding=0 border=0>
   <tbody>
       <tr>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=113 height=13>(-) Desconto / Abatimentos</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=112 height=13>(-) Outras dedu&ccedil;&otilde;es</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=113 height=13>(+) Mora / Multa</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=113 height=13>(+) Outros acr&eacute;scimos</td>
-	<td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=ct valign=top width=180 height=13>(=) Valor cobrado</td>
+       <?php
+	$widths = array(113, 112, 113, 113, 180,);
+	$titles = array('(-) Desconto / Abatimentos', '(-) Outras dedu&ccedil;&otilde;es', '(+) Mora / Multa', '(+) Outros acr&eacute;scimos', '(=) Valor cobrado', );
+
+	foreach($widths as $key => $width){
+	 $title = $titles[$key];
+	 echo "<td class=ct valign=top width=7      height=13><img height=13 src='$images/1.png' width=1 border=0></td>".
+	      "<td class=ct valign=top width=$width height=13>$title</td>";
+	}
+       ?>
     </tr>
       <tr>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=113 height=12><?php echo $desconto_abatimento; ?></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=112 height=12><?php echo $outras_deducoes; ?></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=113 height=12><?php echo $mora_multa; ?></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=113 height=12><?php echo $outros_acrescimos; ?></td>
-	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=180 height=12><?php echo $valor_cobrado; ?></td>
+       <?php
+	$widths = array(113, 112, 113, 113, 180,);
+	$values = array($desconto_abatimento, $outras_deducoes, $mora_multa, $outros_acrescimos, $valor_cobrado,);
+
+	foreach($widths as $key => $width){
+	 $value = $values[$key];
+	 echo "<td class=cp valign=top width=7      height=12><img height=12 src='$images/1.png' width=1 border=0></td>".
+	      "<td class=cp valign=top width=$width height=12 align=right class='campo'>$value</td>";
+	}
+       ?>
     </tr>
       <tr>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=113 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=113 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=112 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=112 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=113 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=113 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=113 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=113 border=0></td>
-	<td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-	<td valign=top width=180 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=180 border=0></td>
+       <?php
+	$widths = array(7, 113, 7, 112, 7, 113, 7, 113, 7, 180);
+	foreach($widths as $width){
+	 echo "<td valign=top width=$width height=1><img height=1 src='$images/2.png' width=$width border=0></td>";
+	}
+       ?>
     </tr>
   </tbody>
 </table>
@@ -311,8 +305,7 @@ foreach($this->output as $key => $value){
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
 	<td class=cp valign=top width=472 height=12>Pag&aacute;vel em qualquer Banco at&eacute; o vencimento</td>
 	<td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-	<td class=cp valign=top align=right width=180 height=12>
-	  <span class="campo"><?php echo $data_vencimento; ?></span>
+	<td class=cp valign=top align=right width=180 height=12><span class="campo"><?php echo $data_vencimento; ?></span>
 	</td>
     </tr>
       <tr>
@@ -348,66 +341,55 @@ foreach($this->output as $key => $value){
 <table cellspacing=0 cellpadding=0 border=0>
 <tbody>
     <tr>
-      <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=113 height=13>Data do documento</td>
-      <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=133 height=13>N<u>o</u> documento</td>
-      <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=62 height=13>Esp&eacute;cie doc.</td>
-      <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=34 height=13>Aceite</td>
-      <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=102 height=13>Data processamento</td>
-      <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>Nosso n&uacute;mero</td>
+     <?php
+      $widths = array(113, 133, 62, 34, 102, 180,);
+      $titles = array('Data do documento', 'N<u>o</u> documento', 'Esp&eacute;cie doc.', 'Aceite', 'Data processamento', 'Nosso n&uacute;mero',);
+
+      foreach($widths as $key => $width){
+       $title = $titles[$key];
+       echo "<td class=ct valign=top width=7      height=13> <img height=13 src='$images/1.png' width=1 border=0></td>".
+            "<td class=ct valign=top width=$width height=13>$title</td>";
+      }
+     ?>
   </tr>
     <tr>
-      <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top width=113 height=12><div align=left><span class="campo"><?php echo $data_documento; ?></span></div></td>
-      <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top width=133 height=12>
-    <span class="campo"><?php echo $numero_documento; ?></span></td>
-        <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top width=62 height=12><div align=left><span class="campo"><?php echo $especie_doc; ?></span></div></td>
-      <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top width=34 height=12><div align=left><span class="campo"><?php echo $aceite; ?></span></div></td>
-      <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top width=102 height=12><div align=left>
-   <span class="campo"><?php echo $data_processamento; ?></span></div></td>
-      <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=cp valign=top align=right width=180 height=12><span class="campo"><?php echo $nosso_numero; ?></span></td>
+     <?php
+      $widths = array(113, 133, 62, 34, 102, 180,);
+      $values = array($data_documento, $numero_documento, $especie_doc, $aceite, $data_processamento, $nosso_numero,);
+      $alighs = array('left', 'left','left','left','left','right',);
+      
+      foreach($widths as $key => $width){
+       $value = $values[$key]; $aligh = $alighs[$key];
+       echo "<td class=cp valign=top width=7      height=12><img height=12 src='$images/1.png' width=1 border=0></td>".
+            "<td class=cp valign=top width=$width height=12 align=$aligh class='campo'>$value</td>";
+      }
+     ?>
   </tr>
     <tr>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=113 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=113 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=133 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=133 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=62 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=62 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=34 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=34 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=102 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=102 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=180 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=180 border=0></td>
+      <?php
+       $widths = array(7, 113, 7, 133, 7, 62, 7, 34, 7, 102, 7, 180);
+       foreach($widths as $width){
+	echo "<td valign=top width=$width height=1><img height=1 src='$images/2.png' width=$width border=0></td>";
+       }
+      ?>
   </tr>
 </tbody>
 </table>
 <table cellspacing=0 cellpadding=0 border=0>
 <tbody>
     <tr>
-      <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top COLSPAN="3" height=13>Uso do banco</td>
-      <td class=ct valign=top height=13 width=7> <img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=83 height=13>Carteira</td>
-      <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=43 height=13>Esp&eacute;cie</td>
-      <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=103 height=13>Quantidade</td>
-      <td class=ct valign=top height=13 width=7><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=102 height=13>Valor Documento</td>
-      <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
-      <td class=ct valign=top width=180 height=13>(=) Valor documento</td>
+     <?php
+      $widths = array('COLSPAN' => 3, 83, 43, 103, 102, 180,);
+      $titles = array('Uso do banco', 'Carteira', 'Esp&eacute;cie', 'Quantidade', 'Valor Documento', '(=) Valor documento',);
+      $count = 0;
+      foreach($widths as $key => $width){
+       $title = $titles[$count]; $count += 1;
+       $key   = (is_numeric($key)) ? 'width' : $key;
+       
+       echo "<td class=ct valign=top width =7   height=13> <img height=13 src='$images/1.png' width=1 border=0></td>".
+            "<td class=ct valign=top $key=$width height=13>$title</td>";
+      }
+     ?>
   </tr>
     <tr>
       <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $images; ?>/1.png" width=1 border=0></td>
@@ -427,20 +409,12 @@ foreach($this->output as $key => $value){
       <td class=cp valign=top align=right width=180 height=12><span class="campo"><?php echo $valor_boleto; ?></span></td>
   </tr>
     <tr>
-      <td valign=top width=7 height=1> <img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=75 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=31 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=31 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=83 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=83 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=43 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=43 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=103 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=103 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=102 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=102 border=0></td>
-      <td valign=top width=7 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=7 border=0></td>
-      <td valign=top width=180 height=1><img height=1 src="<?php echo $images; ?>/2.png" width=180 border=0></td>
+      <?php
+       $widths = array(7, 75, 7, 31, 7, 83, 7, 43, 7, 103, 7, 102, 7, 180);
+       foreach($widths as $width){
+	echo "<td valign=top width=$width height=1><img height=1 src='$images/2.png' width=$width border=0></td>";
+       }
+      ?>
   </tr>
 </tbody> 
 
