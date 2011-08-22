@@ -310,7 +310,7 @@ class Boleto {
      * 
      * script from http://phpbrasil.com/articles/print.php/id/1034
      */
-    function fator_vencimento(){
+    public function fator_vencimento(){
         $from = $this->settings['fator_vencimento_base'];
         $to   = $this->computed['data_vencimento'];
         
@@ -347,7 +347,7 @@ class Boleto {
 	// 10-19 (10) -> Valor Nominal do Título
 	// 20-44 (25) -> Campo Livre. This is calculated at child's class implementation by febraban20to44().
 
-        //postions 1 to 3
+        //positions 1 to 3
         $this->febraban['1-3'] = $this->bank_code;
         //position 4 has a pre set value of 9
         //positions 6-9 is done at fator_vencimento()
@@ -363,7 +363,6 @@ class Boleto {
                 //positions 20 to 44 vary from bank to bank, so we call the child extention
                 $child = 'Banco_'.$this->bank_code;
                 call_user_func(array($child, 'febraban_20to44'), $this);
-                //$child::febraban_20to44();
             }
         }
         //calculate the check digit (position 5) of all 43 number set
@@ -445,8 +444,8 @@ class Boleto {
        //now put everything together
        $this->computed['linha_digitavel'] = "$part1 $part2 $part3 $cd $part4";
        
+       //now validates the human readable number
        $lengh = strlen($this->computed['linha_digitavel']);
-       
        if($lengh != 54){
             $lengh -= 7; 
             $this->setWarning(array("linha_digitavel", "possui $lengh digitos enquanto deveria ter 47.")); 
@@ -506,7 +505,6 @@ class Boleto {
             if(in_array('setUp', $this->methods['child']) && in_array('febraban_20to44', $this->methods['child'])){
                 $childClass = 'Banco_'.$this->bank_code;
                 call_user_func(array($childClass, 'setUp'), $this);
-                //$childClass::setUp();
             }else{
                 //set warning
                 $this->setWarning(array('settings', 'Os metodos setUp e febraban_20to44 nao foram encontradas na implementacao do banco. Leia o arquivo readme.txt para mais informacoes.'));
@@ -605,7 +603,7 @@ class Boleto {
 	return substr($entra,strlen($entra)-$comp,$comp);
     }
 
-    //Render boleto. This method is not trigged at start up. It gotta be called after instantiation
+    //Render boleto. This method is not trigged at the start up. It gotta be called after instantiation
     public function output($render = TRUE){
         //Boleto fields that get printed out in the template
         $this->output = array('title'                 => $this->arguments['title'],
