@@ -42,7 +42,7 @@ $myArguments = array('library_location'       => 'boleto-lib', //adjust to the l
                      'agencia'                => 1234, //Merchant's branch number (NO check digit)
                      'agencia_dv'             => '2',
                      'conta'                  => 12345, //Merchant's account number (NO check digit)
-                     //'conta_dv'               => 3, //check digit of Merchant's account number
+                     'conta_dv'               => 3, //check digit of Merchant's account number
                      'valor_boleto'           => '2952.95', //No thousand separator. Full stop for decimal separator. This is the total amount before deductions/additions
                      'numero_documento'       => '27.030195.10', //Generally this is used for placing the order number
                      'endereco'               => 'street name and number', //Merchant's address

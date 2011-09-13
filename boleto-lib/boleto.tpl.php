@@ -13,22 +13,6 @@
  * @package Boleto
  * @version 1.0 Beta
  *
- *  --------------------------------C O N T R A T A C A O ---------------------------------------------------
- *  
- * - Estou dispon&iacute;vel para trabalhos freelance, contrato temporario ou permanente. (falo ingles fluente)
- * - Aberto para propostas de parcerias. Nao quer dizer necessariamente que vou aceita-las :)
- * - Tambem presto servi&ccedil;os de treinamento em Drupal para empresas e profissionais da &aacute;rea de
- *   desenvolvimento web ou para empresas / pessoas usuarias da plataforma Drupal que queiram capacitar
- *   sua equipe interna para tirar o maximo proveito do poder do Drupal.
- * - Trabalho com solu&ccedil;&otilde;es como o Open Public (http://openpublicapp.com), ideal para prefeituras e
- *   autarquias publicas.
- * - Trabalho ainda com o Open Publish (http://openpublishapp.com), uma solucao completa de websites
- *   para canais de tv, jornais, revistas, not&iacute;cias, etc...
- *
- *   Acesse o meu website http://www.drupalista.com.br para me contactar.
- *
- *   Francisco Luz
- *   Junho / 2011 
  * 
  */
 
@@ -122,8 +106,8 @@ foreach($this->output as $key => $value){
     </tr>
       <tr>
        <?php
-	$widths = array(268, 156, 34, 53,);
-	$values = array($cedente, $agencia_codigo_cedente, $especie, $quantidade);
+	$widths = array(268, 156, 34, 53, 53);
+	$values = array($cedente, $agencia_codigo_cedente, $especie, $quantidade, $nosso_numero);
 
 	foreach($widths as $key => $width){
 	 $value = $values[$key];

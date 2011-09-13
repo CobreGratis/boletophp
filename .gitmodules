@@ -12,4 +12,4 @@
 	url = git@github.com:drupalista-br/Boleto-Bradesco.git
 [submodule "boleto-lib/bancos/341"]
 	path = boleto-lib/bancos/341
-	url = git@github.com:drupalista-br/Boleto-Itau.git
+	url = git@github.com:drupalista-br/Boleto-Sicredi.git
