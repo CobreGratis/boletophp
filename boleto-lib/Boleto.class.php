@@ -722,7 +722,7 @@ class Boleto {
     }
     
     /**
-     * Set Warnings
+     * Set Warnings.
      * 
      * @param Array $message
      *    The array key holds the field name and the array Value holds the Message to be set or unset.
