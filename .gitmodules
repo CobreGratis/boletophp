@@ -1,0 +1,3 @@
+[submodule "boleto-lib/bancos/748"]
+	path = boleto-lib/bancos/748
+	url = git@github.com:drupalista-br/Boleto.git

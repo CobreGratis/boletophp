@@ -19,22 +19,6 @@
  *
  * See change_log.txt for details about the latest version of this library package
  * See COPYRIGHT.txt and LICENSE.txt for information regarded to Copyrights
- *
- *  --------------------------------C O N T R A T A C A O ---------------------------------------------------
- *  
- * - Estou disponível para trabalhos freelance, contrato temporario ou permanente. (falo ingles fluente)
- * - Tambem presto serviços de treinamento em Drupal para empresas e profissionais da área de
- *   desenvolvimento web ou para empresas / pessoas usuarias da plataforma Drupal que queiram capacitar
- *   sua equipe interna para tirar o maximo proveito do poder do Drupal.
- * - Trabalho com soluções como o Open Public (http://openpublicapp.com), ideal para prefeituras e
- *   autarquias publicas.
- * - Trabalho ainda com o Open Publish (http://openpublishapp.com), uma solucao completa de websites
- *   para canais de tv, jornais, revistas, notícias, etc...
- *
- *   Acesse o meu website http://www.drupalista.com.br para me contactar.
- *
- *   Francisco Luz
- *   Junho / 2011 
  * 
  */
 
@@ -53,11 +37,12 @@
  */
 
 $myArguments = array('library_location'       => 'boleto-lib', //adjust to the location where you have stored Boleto's library. If it is outside your current application folder you gotta use ../ 
-                     'bank_code'              => '001', //Merchant's bank code (NO check digit). Note that this is not the same as the branch number
-                     'agencia'                => 2626, //Merchant's branch number (NO check digit)
-                     //'agencia_dv'           => 2,
-                     'conta'                  => 87414, //Merchant's account number (NO check digit)
-                     'conta_dv'               => 3, //check digit of Merchant's account number
+                     'bank_code'              => '748', //Merchant's bank code (NO check digit). Note that this is not the same as the branch number
+                     'bank_code_cd'           => 'X',
+                     'agencia'                => 1234, //Merchant's branch number (NO check digit)
+                     'agencia_dv'             => '2',
+                     'conta'                  => 12345, //Merchant's account number (NO check digit)
+                     //'conta_dv'               => 3, //check digit of Merchant's account number
                      'valor_boleto'           => '2952.95', //No thousand separator. Full stop for decimal separator. This is the total amount before deductions/additions
                      'numero_documento'       => '27.030195.10', //Generally this is used for placing the order number
                      'endereco'               => 'street name and number', //Merchant's address
@@ -65,9 +50,9 @@ $myArguments = array('library_location'       => 'boleto-lib', //adjust to the l
                      'cedente'                => 'ABC Company Ltd', //Merchant's name
                      'sacado'                 => 'John Doe', //Client's name (payer)
                      'merchant_logo'          => 'images/logo.jpg', //Image location of merchant's logo
-                     'carteira'               => '18', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt                     
-                     'carteira_nosso_numero'  => '1397615-17831605', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
-                     'nosso_numero'           => '888', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
+                     'carteira'               => 'A', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt                     
+                     'carteira_nosso_numero'  => '3-1-18-2', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
+                     'nosso_numero'           => '13871', //vary from bank to bank, so see readme file at boleto-lib/bancos/BANKCODE/readme.txt
                      //'desconto_abatimento'  => '0.00', //Comma as decimal separator. This is the discount field (-)
                      //'outras_deducoes'      => '0.00', //Comma as decimal separator. Combined general deductions (-)
                      //'mora_multa'           => '0.00', //Comma as decimal separator. Interest and overdue fees (+)
@@ -103,7 +88,7 @@ $myBoleto = new Boleto($myArguments);
 //$myBoleto->settings['bank_logo']  = 'teste';
 
 echo '<pre>';
-print_r($myBoleto);
+//print_r($myBoleto);
 
 //if you wanna print out the html then call
 $myBoleto->output();
