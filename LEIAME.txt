@@ -1,35 +1,36 @@
-
-Alterações da Versão 0.12 para 0.13
+Alteraï¿½ï¿½es da Versï¿½o 0.12 para 0.13
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto Caixa SINCO
 
 
-Alterações da Versão 0.13 para 0.14
+Alteraï¿½ï¿½es da Versï¿½o 0.13 para 0.14
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto Caixa SIGCB
 
 
-Alterações da Versão 0.14 para 0.15
+Alteraï¿½ï¿½es da Versï¿½o 0.14 para 0.15
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto Bancoob
 
 
-Alterações da Versão 0.15 para 0.16
+Alteraï¿½ï¿½es da Versï¿½o 0.15 para 0.16
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto BESC
 
 
-Alterações da Versão 0.16 para 0.17
+Alteraï¿½ï¿½es da Versï¿½o 0.16 para 0.17
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto Sicredi
-2. Correção do Boleto CEF-SIGCB
+2. Correï¿½ï¿½o do Boleto CEF-SIGCB
 
-Alterações da Versão 0.17 para 0.18
+Alteraï¿½ï¿½es da Versï¿½o 0.17 para 0.18
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 1. Acrescentado o Boleto Sofisa
+
+1. Acrescentando o Boleto Banrisul
