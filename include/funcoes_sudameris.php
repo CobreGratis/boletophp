@@ -170,7 +170,7 @@ function direita($entra,$comp){
 }
 
 function fator_vencimento($data) {
-	$data = split("/",$data);
+	$data = explode("/",$data);
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];
@@ -306,7 +306,7 @@ function monta_linha_digitavel($dados) {
 	// 31 a 34	Fator de vencimento
 	// 35 a 44	Valor
 
-	if (ereg('^([0-9]{5})([0-9]{4})([0-9]{5})([0-9]{5})([0-9]{5})([0-9]{5})([0-9]{1})([0-9]{4})([0-9]{10})$', $dados, $bloco))
+	if (preg_match('/^([0-9]{5})([0-9]{4})([0-9]{5})([0-9]{5})([0-9]{5})([0-9]{5})([0-9]{1})([0-9]{4})([0-9]{10})$/', $dados, $bloco))
 		{
 		$dv1 = modulo_10($bloco[1] . $bloco[2]);
 		if ($dv1 == 10) $dv1 = 0;

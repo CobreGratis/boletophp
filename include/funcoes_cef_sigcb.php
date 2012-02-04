@@ -218,7 +218,7 @@ function direita($entra,$comp){
 
 function fator_vencimento($data) {
   if ($data != "") {
-	$data = split("/",$data);
+	$data = explode("/",$data);
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];
