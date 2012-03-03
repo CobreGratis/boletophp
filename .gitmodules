@@ -1,0 +1,15 @@
+[submodule "boleto-lib/bancos/748"]
+	path = boleto-lib/bancos/748
+	url = git@github.com:drupalista-br/Boleto-Sicredi.git
+[submodule "boleto-lib/bancos/001"]
+	path = boleto-lib/bancos/001
+	url = git@github.com:drupalista-br/Boleto-BB.git
+[submodule "boleto-lib/bancos/104"]
+	path = boleto-lib/bancos/104
+	url = git@github.com:drupalista-br/Boleto-Caixa.git
+[submodule "boleto-lib/bancos/237"]
+	path = boleto-lib/bancos/237
+	url = git@github.com:drupalista-br/Boleto-Bradesco.git
+[submodule "boleto-lib/bancos/341"]
+	path = boleto-lib/bancos/341
+	url = git@github.com:drupalista-br/Boleto-Sicredi.git
