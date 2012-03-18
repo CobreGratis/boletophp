@@ -35,7 +35,7 @@ do Sacado</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cell
     <td width=41><IMG SRC="../imagens/logo_empresa.png"></td>
     <td class=ti width=455><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj) ? "<br>" . $cpf_cnpj : '' ?><br>
 	<?php echo $endereco; ?><br>
-	<?php echo $dadosboleto["cidade_uf"]; ?><br>
+	<?php echo $cidade_uf; ?><br>
     </td>
     <td align=RIGHT width=150 class=ti>&nbsp;</td>
   </tr>
@@ -44,47 +44,47 @@ do Sacado</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cell
   <span class="campo"><IMG
       src="../imagens/logocaixa.jpg" width="150" height="40"
       border=0></span></td>
-<td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $dadosboleto["codigo_banco_com_dv"]?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
+<td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv; ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
 <span class="campotitulo">
-<?php echo $dadosboleto["linha_digitavel"]?>
+<?php echo $linha_digitavel; ?>
 </span></span></td>
 </tr><tbody><tr><td colspan=5><img height=2 src=../imagens/2.png width=666 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=268 height=13>Cedente</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=156 height=13>Agência/Código
 do Cedente</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=34 height=13>Espécie</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=53 height=13>Quantidade</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=120 height=13>Nosso
 número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=268 height=12>
-  <span class="campo"><?php echo $dadosboleto["cedente"]; ?></span></td>
+  <span class="campo"><?php echo $cedente; ?></span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=156 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["agencia_codigo"]?>
+  <?php echo $agencia_codigo; ?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top  width=34 height=12><span class="campo">
-  <?php echo $dadosboleto["especie"]?>
+  <?php echo $especie; ?>
 </span>
  </td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top  width=53 height=12><span class="campo">
-  <?php echo $dadosboleto["quantidade"]?>
+  <?php echo $quantidade; ?>
 </span>
  </td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=120 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["nosso_numero"]?>
+  <?php echo $nosso_numero; ?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=268 height=1><img height=1 src=../imagens/2.png width=268 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=156 height=1><img height=1 src=../imagens/2.png width=156 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=34 height=1><img height=1 src=../imagens/2.png width=34 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=53 height=1><img height=1 src=../imagens/2.png width=53 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=120 height=1><img height=1 src=../imagens/2.png width=120 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top colspan=3 height=13>Número
 do documento</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=132 height=13>CPF/CNPJ</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=134 height=13>Vencimento</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Valor
 documento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top colspan=3 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["numero_documento"]?>
+  <?php echo $numero_documento; ?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=132 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["cpf_cnpj"]?>
+  <?php echo $cpf_cnpj; ?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=134 height=12>
   <span class="campo">
-  <?php echo ($data_venc != "") ? $dadosboleto["data_vencimento"] : "Contra Apresentação" ?>
+  <?php echo ($data_vencimento != "") ? $data_vencimento : "Contra Apresentação" ?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["valor_boleto"]?>
+  <?php echo $valor_boleto; ?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=../imagens/2.png width=113 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=72 height=1><img height=1 src=../imagens/2.png width=72 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=132 height=1><img height=1 src=../imagens/2.png width=132 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=134 height=1><img height=1 src=../imagens/2.png width=134 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=113 height=13>(-)
 Desconto / Abatimentos</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=112 height=13>(-)
@@ -93,14 +93,14 @@ Mora / Multa</td><td class=ct valign=top width=7 height=13><img height=13 src=..
 Outros acréscimos</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>(=)
 Valor cobrado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=112 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=../imagens/2.png width=113 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=112 height=1><img height=1 src=../imagens/2.png width=112 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=../imagens/2.png width=113 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=../imagens/2.png width=113 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=659 height=13>Sacado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=659 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["sacado"]?>
+  <?php echo $sacado; ?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=659 height=1><img height=1 src=../imagens/2.png width=659 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct  width=7 height=12></td><td class=ct  width=564 >Demonstrativo</td><td class=ct  width=7 height=12></td><td class=ct  width=88 >Autenticação
 mecânica</td></tr><tr><td  width=7 ></td><td class=cp width=564 >
 <span class="campo">
-  <?php echo $dadosboleto["demonstrativo1"]?><br>
-  <?php echo $dadosboleto["demonstrativo2"]?><br>
-  <?php echo $dadosboleto["demonstrativo3"]?><br>
+  <?php echo $demonstrativo1; ?><br>
+  <?php echo $demonstrativo2; ?><br>
+  <?php echo $demonstrativo3; ?><br>
   </span>
   </td><td  width=7 ></td><td  width=88 ></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tbody><tr><td width=7></td><td  width=500 class=cp>
 <br><br><br>
@@ -109,24 +109,24 @@ mecânica</td></tr><tr><td  width=7 ></td><td class=cp width=564 >
   <span class="campo"><IMG
       src="../imagens/logocaixa.jpg" width="150" height="40"
       border=0></span></td>
-<td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $dadosboleto["codigo_banco_com_dv"]?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
+<td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv; ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
 <span class="campotitulo">
-<?php echo $dadosboleto["linha_digitavel"]?>
+<?php echo $linha_digitavel; ?>
 </span></span></td>
 </tr><tbody><tr><td colspan=5><img height=2 src=../imagens/2.png width=666 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=472 height=13>Local
 de pagamento</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Vencimento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=472 height=12>Pagável
 em qualquer Banco até o vencimento</td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
   <span class="campo">
-  <?php echo ($data_venc != "") ? $dadosboleto["data_vencimento"] : "Contra Apresentação" ?>
+  <?php echo ($data_vencimento != "") ? $data_vencimento : "Contra Apresentação" ?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=../imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=472 height=13>Cedente</td><td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Agência/Código
 cedente</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=472 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["cedente"]?>
+  <?php echo $cedente; ?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
   <span class="campo">
-  <?php echo $dadosboleto["agencia_codigo"]?>
+  <?php echo $agencia_codigo; ?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=../imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13>
 <img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=113 height=13>Data
@@ -137,7 +137,7 @@ doc.</td><td class=ct valign=top width=7 height=13> <img height=13 src=../imagen
 processamento</td><td class=ct valign=top width=7 height=13> <img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Nosso
 número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top  width=113 height=12><div align=left>
   <span class="campo">
-  <?php echo $dadosboleto["data_documento"]?>
+  <?php echo $data_documento; ?>
   </span></div></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=133 height=12>
     <span class="campo">
     <?php echo $dadosboleto["numero_documento"]?>

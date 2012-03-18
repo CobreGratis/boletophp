@@ -6,6 +6,7 @@ $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
 $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
+$valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 
 
 $params = array(
@@ -21,7 +22,17 @@ $params = array(
         'nosso_numero' => 19525086,
         'identificacao' => 'BoletoPhp - Código Aberto de Sistema de Boletos',
         'cpf_cnpj' => '',
-        'endereco' => 'Coloque o endereço da sua empresa aqui'
+        'endereco' => 'Coloque o endereço da sua empresa aqui',
+        'cidade_uf' => 'Cidade / Estado',
+        'cedente' => 'Coloque a Razão Social da sua empresa aqui',
+        'especie' => 'R$',
+        'quantidade' => '',
+        'numero_documento' => '27.030195.10',
+        'sacado' => 'Nome do seu Cliente',
+        'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
+        'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
+        'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
+        'data_documento' => date("d/m/Y")
     );
 $boleto = new CaixaEconomicaFederal($params);
 echo $boleto;
