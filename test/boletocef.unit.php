@@ -1,23 +1,20 @@
 <?php
 
-require_once "../boleto_cef.php";
+require_once "../include/funcoes_cef.php";
 
-class TestBoletoCef extends PHPUnit_Framework_TestCase {
+class TestFatorVencimento extends PHPUnit_Framework_TestCase {
+    function testeDataPreenchida(){
+        $this->assertEquals(fator_vencimento("24/03/2012"), "5282");
+        $this->assertEquals(fator_vencimento("14/06/2010"), "4633");
+    }
+    
+    function testeDataVazia(){
+        $this->assertEquals(fator_vencimento(""), "0000");
+    }
 
-    function testeLinhaDigitavel() {
-        $boleto = new BoletoCef();
-        
-        $boleto->banco = "104";
-        $boleto->moeda = "9";
-        $boleto->dv = "9";
-        $boleto->fatorVencimento = "";
-        $boleto->valor = "";
-        $boleto->nNum = ""; 
-        $boleto->agencia = ""; 
-        $boleto->contaCedente = "";
-
-        $this->assertEquals(4, 1+3);
-
+    function testeDataInvalida(){
+        $this->setExpectedException('InvalidArgumentException');
+        fator_vencimento("07/10/1995");
     }
 }
 
