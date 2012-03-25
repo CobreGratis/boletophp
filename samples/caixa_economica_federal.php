@@ -32,7 +32,19 @@ $params = array(
         'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
         'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
-        'data_documento' => date("d/m/Y")
+        'data_documento' => date("d/m/Y"),
+        'especie_doc' => '',
+        'aceite' => '',
+        'data_processamento' => date("d/m/Y"),
+        'carteira' => 'SR',
+        'valor_unitario' => '',
+        'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
+        'instrucoes2' => '- Receber até 10 dias após o vencimento',
+        'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
+        'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
+        'endereco1' => 'Endereço do seu Cliente',
+        'endereco2' => 'Cidade - Estado -  CEP: 00000-000'
+
     );
 $boleto = new CaixaEconomicaFederal($params);
 echo $boleto;

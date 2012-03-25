@@ -25,7 +25,18 @@ class CaixaEconomicaFederal {
         'demonstrativo1',
         'demonstrativo2',
         'demonstrativo3',
-        'data_documento'
+        'data_documento',
+        'especie_doc',
+        'aceite',
+        'data_processamento',
+        'carteira',
+        'valor_unitario',
+        'instrucoes1',
+        'instrucoes2',
+        'instrucoes3',
+        'instrucoes4',
+        'endereco1',
+        'endereco2'
     );
     private $codigobanco = 104;
     private $codigo_banco_com_dv;
@@ -154,20 +165,17 @@ class CaixaEconomicaFederal {
             'demonstrativo2' => $this->params['demonstrativo2'],
             'demonstrativo3' => $this->params['demonstrativo3'],
             'data_documento' => $this->params['data_documento'],
-            'especie_doc',
-            'aceite',
-            'data_processamento',
-            'carteira',
-            'quantidade',
-            'valor_unitario',
-            'valor_boleto',
-            'instrucoes1',
-            'instrucoes2',
-            'instrucoes3',
-            'instrucoes4',
-            'sacado',
-            'endereco1',
-            'endereco2',
+            'especie_doc' => $this->params['especie_doc'],
+            'aceite' => $this->params['aceite'],
+            'data_processamento' => $this->params['data_processamento'],
+            'carteira' => $this->params['carteira'],
+            'valor_unitario' => $this->params['valor_unitario'],
+            'instrucoes1' => $this->params['instrucoes1'],
+            'instrucoes2' => $this->params['instrucoes2'],
+            'instrucoes3' => $this->params['instrucoes3'],
+            'instrucoes4' => $this->params['instrucoes4'],
+            'endereco1' => $this->params['endereco1'],
+            'endereco2' => $this->params['endereco2'],
             'codigo_barras'
         );
     }
