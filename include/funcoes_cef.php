@@ -212,7 +212,7 @@ function fator_vencimento($data) {
     $data_vencimento = new DateTime("$ano-$mes-$dia");
     
     $intervalo = $data_inicial->diff($data_vencimento);
-    $fator_vencimento = $intervalo->format('%R%a');
+    $fator_vencimento = $intervalo->format('%r%a');
     
     if($fator_vencimento < 0){
       throw new InvalidArgumentException('Data inválida.');
