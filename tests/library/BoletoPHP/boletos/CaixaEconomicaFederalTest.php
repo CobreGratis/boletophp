@@ -52,9 +52,11 @@ class CaixaEconomicaFederalTest extends PHPUnit_Framework_TestCase  {
         $this->boleto = new CaixaEconomicaFederal($params);
     }
 
-    public function testIdentificacaoValor(){
+    public function testGetViewVars(){
         $view_vars = $this->boleto->getViewVars();
         $this->assertEquals($view_vars['identificacao'], 'BoletoPhp - Código Aberto de Sistema de Boletos');
+        $this->assertEquals($view_vars['linha_digitavel'], '10498.01952 25086.156582 70000.004146 6 52950000295295');
+        $this->assertEquals($view_vars['valor_boleto'], '2952,95');
     }
 
 }
