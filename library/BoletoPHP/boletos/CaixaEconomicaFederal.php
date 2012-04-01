@@ -147,7 +147,7 @@ class CaixaEconomicaFederal {
         $this->codigo_barras = $this->fbarcode();
     }
 
-    private function getViewVars(){
+    public function getViewVars(){
         return array(
             'identificacao' => $this->params['identificacao'],
             'linha_digitavel' => $this->linha_digitavel,
