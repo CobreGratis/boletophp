@@ -47,4 +47,4 @@ $params = array(
 
     );
 $boleto = new CaixaEconomicaFederal($params);
-echo $boleto;
+echo $boleto->gerarBoleto();
