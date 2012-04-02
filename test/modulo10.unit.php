@@ -10,9 +10,9 @@ class TestModulo10 extends PHPUnit_Framework_TestCase {
         $this->assertEquals(modulo_10("2508615658"), 2);
         $this->assertEquals(modulo_10("7000000414"), 6); 
         
-    #Veriicando Erros
-	## Verificar configuração do PHPUnit de não para quando erro (por isso ta aqui)
-        $this->assertEquals(modulo_10("558855888"), 2);
+    }
+    function testeDigitoVerificadorErro(){
+    	$this->assertNotEquals(modulo_10("558855888"), 2);
     }
     
 }
