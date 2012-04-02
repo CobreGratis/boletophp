@@ -35,7 +35,7 @@ TOPICOS
    a) Copie a pasta boleto-lib para um diretorio dentro de sua pasta pública.
       Por exemplo: www/bibliotecas/boleto-lib
  
-   b) Acesse https://github.com/drupalista-br/Boleto/wiki/Projeto-Boletophp-API e faça o download dos 
+   b) Acesse https://github.com/drupalista-br/Boleto/wiki/Projeto-Boleto-API e faça o download dos 
       plugin(s) que implementa(m) o(s) os banco(s) que você trabalha para a emissão de boletos.
 
    c) Vá até a pasta boleto-lib/bancos e crie uma sub pasta. O nome desta sub-pasta deverá ser o código
