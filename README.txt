@@ -8,7 +8,7 @@ TOPICOS
 
 1. VISÃO GERAL
 
-   O que mudou entre Boletophp 0.17 e Boleto 1.0?
+   O que mudou nesta nova versão 2.x do projeto Boletophp?
 
    - O código foi totalmente re-escrito usando o conceito de OOP;
 
