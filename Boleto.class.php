@@ -15,8 +15,7 @@
  * by extending new issuer bank implamentations then please check out readme.txt
  *  
  * @file This is the main Boleto class
- * @copyright 2011 hmcservicos.com.br 
- * @author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
+ * @copyright 2012 boletophp.com.br
  * @package Boletophp
  *
  */

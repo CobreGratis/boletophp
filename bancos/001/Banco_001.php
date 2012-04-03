@@ -8,8 +8,7 @@
  * boletophp.com.br.
  * 
  * @file Implementation of Bank 001 - Banco do Brasil SA
- * @copyright 2011 hmcservicos.com.br
- * @author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
+ * @copyright 2012 boletophp.com.br
  * @package Boletophp
  *  
  */

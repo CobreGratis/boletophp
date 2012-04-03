@@ -7,8 +7,7 @@
  * Many thanks to the mantainers and collaborators of Boletophp project at boletophp.com.br.
  * 
  * @file Implementation of Bank 748 - Sicredi
- * @copyright 2011 hmcservicos.com.br
- * @author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
+ * @copyright 2012 boletophp.com.br
  * @package Boletophp
  *    
  */

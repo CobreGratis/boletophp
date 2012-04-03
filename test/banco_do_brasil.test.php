@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file Test example for Banco do Brasil Bank.
+ * @copyright 2012 boletophp.com.br
+ * @package Boletophp
+ *
+ */
 
 /**
  * Include the main boleto class file.

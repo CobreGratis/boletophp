@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file Test example for Sicredi Bank.
+ * @copyright 2012 boletophp.com.br
+ * @package Boletophp
+ *
+ */
 
 /**
  * Include the main boleto class file.
@@ -9,6 +15,7 @@ $myArguments = array(
   // Merchant's bank code (NO check digit). Note that this is not the same as
   // the branch number.
   'bank_code' => '748',
+  // Bank code check digit.
   'bank_code_cd' => 'X',
   // Merchant's branch number (NO check digit).
   'agencia' => 1234,
@@ -157,5 +164,6 @@ $myBoleto = Boleto::load_boleto($myArguments);
 // If you wanna print out the html then call
 $myBoleto->output();
 
-// Use $myBoleto->output(FALSE); to only populate the output property without rendering the html
+// Use $myBoleto->output(FALSE); to only populate the output property without
+// rendering the html
 

@@ -1,4 +1,3 @@
-@author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
 @package Boletophp
 
 TOPICOS
