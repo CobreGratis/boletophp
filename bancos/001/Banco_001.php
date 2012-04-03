@@ -60,7 +60,7 @@ class Banco_001 extends Boleto{
             // 43-44 -> Carteira                    2
             $convenio = str_pad($convenio, 14, 0, STR_PAD_LEFT);
             $nosso_numero = str_pad($this->arguments['nosso_numero'], 9, 0, STR_PAD_LEFT);
-           
+
             // 25 digits long.
             $code = $convenio.$nosso_numero.$carteira[0];
             break;
@@ -98,7 +98,7 @@ class Banco_001 extends Boleto{
               $nosso_numero = str_pad($this->arguments['nosso_numero'], 5, 0, STR_PAD_LEFT);
              
               // 25 digits long.
-              $code  = $convenio.$nosso_numero.$this->arguments['agencia'].$this->arguments['conta'].$carteira[0];             
+              $code  = $convenio.$nosso_numero . $this->arguments['agencia'] . $this->arguments['conta'] . $carteira[0];             
             }
             break;
         }
@@ -111,7 +111,7 @@ class Banco_001 extends Boleto{
     $this->febraban['20-44'] = $code;
      
     // Save nosso_numero.
-    $this->computed['nosso_numero'] = ltrim($convenio, 0).$nosso_numero.$checkDigit['digito'];
+    $this->computed['nosso_numero'] = ltrim($convenio, 0) . $nosso_numero.$checkDigit['digito'];
   }
 
   // Customize object to meet specific needs.

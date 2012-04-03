@@ -499,7 +499,7 @@ abstract class Boleto {
     // Calculates part2 check digit from 2nd block of 10 characters.
     $checkDigit = $this->modulo_10($blocks['25-34']);
      
-    $part2 = $blocks['25-34'].$checkDigit;
+    $part2 = $blocks['25-34'] . $checkDigit;
     // Shift in a dot at its 6th position.
     $part2 = substr_replace($part2, '.', 5, 0);
 
@@ -513,7 +513,7 @@ abstract class Boleto {
     // Check digit for the human readable number.
     $cd = $this->febraban['5-5'];
     // Put part4 together.
-    $part4  = $this->febraban['6-9'].$this->febraban['10-19'];
+    $part4  = $this->febraban['6-9'] . $this->febraban['10-19'];
      
     // Now put everything together.
     $this->computed['linha_digitavel'] = "$part1 $part2 $part3 $cd $part4";
@@ -611,12 +611,12 @@ abstract class Boleto {
     $barcodes = $this->settings['bar_code']['bar_codes'];
 
     // Apply bar codes to the febraban code.
-    for($f1=9; $f1>=0; $f1--){ 
-      for($f2=9; $f2>=0; $f2--){  
+    for($f1 = 9; $f1 >= 0; $f1--){ 
+      for($f2 = 9; $f2 >= 0; $f2--){  
         $f = ($f1 * 10) + $f2 ;
         $texto = '';
-        for($i=1; $i<6; $i++){ 
-          $texto .=  substr($barcodes[$f1],($i-1),1) . substr($barcodes[$f2],($i-1),1);
+        for($i = 1; $i < 6; $i++){ 
+          $texto .=  substr($barcodes[$f1], ($i - 1), 1) . substr($barcodes[$f2], ($i - 1), 1);
         }
         $barcodes[$f] = $texto;
       }
@@ -653,11 +653,11 @@ abstract class Boleto {
       $code = "0" . $code;
     }
     while (strlen($code) > 0) {
-      $i = round(substr($code,0,2));
-      $code = $this->direita($code, strlen($code)-2);
+      $i = round(substr($code, 0, 2));
+      $code = $this->direita($code, strlen($code) - 2);
       $f = $barcodes[$i];
-      for($i=1;$i<11;$i+=2){
-        if (substr($f,($i-1),1) == "0") {
+      for($i=1; $i<11; $i+=2){
+        if (substr($f, ($i-1), 1) == "0") {
           $f1 = $thinner;
         }
         else {
@@ -665,7 +665,7 @@ abstract class Boleto {
         }
         $img_widths[] = $f1;
     
-        if (substr($f,$i,1) == "0") {
+        if (substr($f, $i, 1) == "0") {
           $f2 = $thinner;
         }
         else {
@@ -689,6 +689,7 @@ abstract class Boleto {
       $this->computed['bar_code']['widths'] .=  $width;
     }
   }
+
   /**
    * Helper function for barcode().
    * 
@@ -742,7 +743,7 @@ abstract class Boleto {
       'local_pagamento' => $this->arguments['local_pagamento'],
       'data_documento' => $this->arguments['data_documento'],
       'numero_documento' => $this->arguments['numero_documento'],
-      'agencia_codigo_cedente'=> $this->arguments['agencia'].' / '.$this->arguments['conta'].'-'.$this->arguments['conta_dv'],
+      'agencia_codigo_cedente'=> $this->arguments['agencia'].' / '.$this->arguments['conta'] . '-' . $this->arguments['conta_dv'],
       'nosso_numero' => $this->computed['nosso_numero'],
       'especie_doc' => $this->arguments['especie_doc'],
       'aceite' => $this->arguments['aceite'],
