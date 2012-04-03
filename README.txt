@@ -25,7 +25,7 @@ TOPICOS
        git clone --branch refactoring
        https://github.com/BielSystems/boletophp.git boletophp
    
-   2.2 No seu navegador acesse chame os testes que estão dentro da pasta
+   2.2 No seu navegador chame os testes que estão dentro da pasta
        boletophp/test. Por exemplo:
        http://localhost/boletophp/test/caixa_economica.test.php
        

@@ -181,7 +181,7 @@ abstract class Boleto {
     
     if (@file_exists($plugin_location) ) {
       // Include the bank plugin.
-      include_once($plugin_location);
+      include_once $plugin_location;
       // Set the plugin class name.
       $bank_plugin = "Banco_$bank_code";
       // Instantiate the plugin objetc.
@@ -775,7 +775,7 @@ abstract class Boleto {
     }
     // It's time for rendering it. Yaaay!!!
     if ($render){
-      include_once($this->settings['template']);  
+      include_once $this->settings['template'];
     }
   }
   
