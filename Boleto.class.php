@@ -168,10 +168,13 @@ abstract class Boleto {
   protected $output = array();
   
   /**
-   * This the method that the library consumer must call statically.
+   * This is the method that the library consumer must call statically.
    * It first checks it there is an plugin implementation for the desired bank.
    * If the plugin is present than it instantiates and returns the object
    * otherwise otherwise it returns a error message.
+   *
+   * Check out the test folder to see how to instantiate the Boleto object and
+   * how to pass the necessary arguments.
    */
   public static function load_boleto($arguments) {
     $bank_code = trim($arguments['bank_code']);
@@ -220,7 +223,7 @@ abstract class Boleto {
       }
     }
 
-    // Call start up methods.
+    // Call the start up methods.
     $startUp = array(
       'settings',
       'data_vencimento',
