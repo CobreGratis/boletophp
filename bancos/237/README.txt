@@ -1,5 +1,5 @@
 1. INSTALACAO
-   Leia https://raw.github.com/drupalista-br/Boleto/master/readme.txt
+   Leia https://github.com/BielSystems/boletophp/blob/refactoring/README.txt
 
 2. ARGUMENTOS
  'carteira'     ->  06 ou 03 (Verifique com o gerente)

@@ -13,6 +13,9 @@
  */
 
 class Banco_748 extends Boleto{
+  /**
+   * Implementation of setUp().
+   */
   private function setUp(){
     $this->bank_name  = 'Sicredi';
   }

@@ -1,5 +1,5 @@
 1. INSTALACAO
-   Leia https://raw.github.com/drupalista-br/Boleto/master/readme.txt
+   Leia https://github.com/BielSystems/boletophp/blob/refactoring/README.txt
 
 2. ARGUMENTOS
 'carteira_nosso_numero' -> Carteira SR: 80, 81 or 82.  Carteira CR: 90 (double check with your bank manager)

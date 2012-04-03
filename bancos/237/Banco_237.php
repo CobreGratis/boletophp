@@ -13,6 +13,9 @@
  */
 
 class Banco_237 extends Boleto{
+  /**
+   * Implementation of setUp().
+   */
   public function setUp(){
     $this->bank_name = 'Bradesco SA';
   }

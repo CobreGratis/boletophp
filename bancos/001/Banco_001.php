@@ -10,14 +10,18 @@
  * @file Implementation of Bank 001 - Banco do Brasil SA
  * @copyright 2012 boletophp.com.br
  * @package Boletophp
- *  
  */
 class Banco_001 extends Boleto{
+  /**
+   * Implementation of setUp().
+   */
   public function setUp(){
     $this->bank_name  = 'Banco do Brasil SA';
   }
   
-  // Implementation of Febraban free range set from position 20 to 44.
+  /**
+   * Implementation of Febraban free range set from position 20 to 44.
+   */
   public function febraban_20to44(){
     // Get convenio number (convention) and contract number.
     // Set empty variable to avoid any eventuality.
@@ -114,7 +118,9 @@ class Banco_001 extends Boleto{
     $this->computed['nosso_numero'] = ltrim($convenio, 0) . $nosso_numero.$checkDigit['digito'];
   }
 
-  // Customize object to meet specific needs.
+  /**
+   * Customize object to meet specific needs.
+   */
   public function custom(){
     // Calculates check digit for branch number.
     $this->computed['agencia_dv'] = $this->arguments['agencia_dv'];
@@ -124,8 +130,10 @@ class Banco_001 extends Boleto{
     }
   }
 
-  // Manipulate output fields before them getting rendered.
-  // This method is called by output().
+  /**
+   * Manipulate output fields before them getting rendered.
+   * This method is called by output().
+   */
   public function outputValues(){
     $this->output['agencia_codigo_cedente'] = $this->arguments['agencia'] . '-' .
     $this->computed['agencia_dv'] . ' / ' . $this->arguments['conta'] . '-' . $this->arguments['conta_dv'];
