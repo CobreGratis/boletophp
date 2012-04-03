@@ -12,7 +12,7 @@
  */
 
 class Banco_341 extends Boleto{
-  function setUp(){
+  public function setUp(){
     $this->bank_name = 'Itau';
   }
   
@@ -34,17 +34,17 @@ class Banco_341 extends Boleto{
     $conta = str_pad($this->arguments['conta'], 5, 0, STR_PAD_LEFT);
     $nosso_numero_dv = $this->modulo_10($agencia . $conta . $carteira . $nosso_numero);
     
-    // Positons 20 to 22.
+    // Positions 20 to 22.
     $this->febraban['20-44'] = $carteira;
-    // Positons 23 to 30.
+    // Positions 23 to 30.
     $this->febraban['20-44'] .= $nosso_numero;
-    // Positons 31 to 31.
+    // Positions 31 to 31.
     $this->febraban['20-44'] .= $nosso_numero_dv;
-    // Positons 32 to 35.
+    // Positions 32 to 35.
     $this->febraban['20-44'] .= $agencia;
-    // Positons 36 to 40.
+    // Positions 36 to 40.
     $this->febraban['20-44'] .= $conta;
-    // Positons 41 to 41 and the 3 fixed zeros at the end (42 to 44).
+    // Positions 41 to 41 and the 3 fixed zeros at the end (42 to 44).
     $this->febraban['20-44'] .= $this->modulo_10($agencia.$conta) . '000';
 
     // Save nosso numero.
