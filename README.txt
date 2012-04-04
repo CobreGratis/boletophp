@@ -22,7 +22,7 @@ TOPICOS
 2. TESTANDO A BIBLIOTECA
    2.1 Vá até a pasta pública do seu servidor e baixe a biblioteca com o
        seguinte comando:
-       git clone --branch refactoring
+       git clone --branch 2.x-dev
        https://github.com/BielSystems/boletophp.git boletophp
    
    2.2 No seu navegador chame os testes que estão dentro da pasta
@@ -39,9 +39,12 @@ TOPICOS
 
 4. IMPLEMENTANDO NOVOS BANCOS ou CONTRIBUINDO COM CÓDIGO EM GERAL
 
+   Leia também http://help.github.com/fork-a-repo e
+               http://help.github.com/send-pull-requests
+        
    4.1 Acesse https://github.com/BielSystems/boletophp e clique e "Fork".
-   4.2 Baixe a sua cópia fork-eada com o seguinte comando:
-       git clone --branch refactoring
+   4.2 Baixe a sua cópia forkeada com o seguinte comando:
+       git clone --branch 2.x-dev
        git@github.com:USUARIO/boletophp.git boletophp
    
        Onde USUARIO deverá ser substituido pelo seu usuario no Github.
@@ -83,4 +86,4 @@ TOPICOS
     4.7 Uma vez que fizer o push dos seus commits, acesse o repositório em
         https://github.com/USUARIO/boletophp, onde USUARIO deverá ser substituido
         pelo seu usuário no Github, o solicite um Pull Request para o branch
-        refactoring.
+        2.x-dev.
