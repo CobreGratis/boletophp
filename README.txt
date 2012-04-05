@@ -25,7 +25,7 @@ TOPICOS
 
    2.1. Versões Estáveis
    
-        Acesse https://github.com/drupalista-br/boletophp/tags
+        Acesse https://github.com/BielSystems/boletophp/tags
   
    2.2. Desenvolvimento:
   
