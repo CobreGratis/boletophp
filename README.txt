@@ -23,31 +23,18 @@ TOPICOS
 
 2. DOWNLOADS
 
-   2.1. Versão 1.x:
+   2.1. Versões Estáveis
+   
+        Acesse https://github.com/drupalista-br/boletophp/tags
   
-        Via Git:
+   2.2. Desenvolvimento:
+  
+        Versão 1.x-dev:
         git clone --branch 1.x-dev https://github.com/BielSystems/boletophp.git
      
-        Download arquivo compactado:
-        Zip
-        https://github.com/BielSystems/boletophp/zipball/1.x-dev
-
-        Tar.gz
-        https://github.com/BielSystems/boletophp/tarball/1.x-dev
-
-   2.2. Versão 2.x:
-  
-        Via Git:
+        Versão 2.x-dev:
         git clone --branch 2.x-dev https://github.com/BielSystems/boletophp.git
      
-        Download arquivo compactado:
-     
-        Zip
-        https://github.com/BielSystems/boletophp/zipball/2.x-dev
-         
-        Tar.gz
-        https://github.com/BielSystems/boletophp/tarball/2.x-dev
-
 3. COMO CONTRIBUIR
   
    Leia http://help.github.com/fork-a-repo e também
