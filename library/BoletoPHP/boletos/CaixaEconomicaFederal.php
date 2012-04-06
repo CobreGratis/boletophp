@@ -164,7 +164,6 @@ class CaixaEconomicaFederal {
             'nosso_numero' => $this->nossonumero,
             'numero_documento' => $this->params['numero_documento'],
             'data_vencimento' => $this->params['data_vencimento'],
-            'valor_boleto' => $this->params['valor_boleto'],
             'sacado' => $this->params['sacado'],
             'demonstrativo1' => $this->params['demonstrativo1'],
             'demonstrativo2' => $this->params['demonstrativo2'],

@@ -55,8 +55,36 @@ class CaixaEconomicaFederalTest extends PHPUnit_Framework_TestCase  {
     public function testGetViewVars(){
         $view_vars = $this->boleto->getViewVars();
         $this->assertEquals($view_vars['identificacao'], 'BoletoPhp - Código Aberto de Sistema de Boletos');
-        $this->assertEquals($view_vars['linha_digitavel'], '10498.01952 25086.156582 70000.004146 6 52950000295295');
+        $this->assertEquals($view_vars['linha_digitavel'], '10498.01952 25086.156582 70000.004146 1 53000000295295');
         $this->assertEquals($view_vars['valor_boleto'], '2952,95');
+        $this->assertEquals($view_vars['cpf_cnpj'], '');
+        $this->assertEquals($view_vars['endereco'], 'Coloque o endereço da sua empresa aqui');
+        $this->assertEquals($view_vars['cidade_uf'], 'Cidade / Estado');
+        $this->assertEquals($view_vars['codigo_banco_com_dv'], '104-0');
+        $this->assertEquals($view_vars['cedente'], 'Coloque a Razão Social da sua empresa aqui');
+        $this->assertEquals($view_vars['agencia_codigo'], '1565 / 87000000414-3');
+        $this->assertEquals($view_vars['especie'], 'R$');
+        $this->assertEquals($view_vars['quantidade'], '');
+        $this->assertEquals($view_vars['nosso_numero'], '8019525086-7');
+        $this->assertEquals($view_vars['numero_documento'], '27.030195.10');
+        $this->assertEquals($view_vars['data_vencimento'], '11/04/2012');
+        $this->assertEquals($view_vars['sacado'], 'Nome do seu Cliente');
+        $this->assertEquals($view_vars['demonstrativo1'], 'Pagamento de Compra na Loja Nonononono');
+        $this->assertEquals($view_vars['demonstrativo2'], 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ 2,95');
+        $this->assertEquals($view_vars['demonstrativo3'], 'BoletoPhp - http://www.boletophp.com.br');
+        $this->assertEquals($view_vars['data_documento'], '06/04/2012');
+        $this->assertEquals($view_vars['especie_doc'], '');
+        $this->assertEquals($view_vars['aceite'], '');
+        $this->assertEquals($view_vars['data_processamento'], '06/04/2012');
+        $this->assertEquals($view_vars['carteira'], 'SR');
+        $this->assertEquals($view_vars['valor_unitario'], '');
+        $this->assertEquals($view_vars['instrucoes1'], '- Sr. Caixa, cobrar multa de 2% após o vencimento');
+        $this->assertEquals($view_vars['instrucoes2'], '- Receber até 10 dias após o vencimento');
+        $this->assertEquals($view_vars['instrucoes3'], '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br');
+        $this->assertEquals($view_vars['instrucoes4'], '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br');
+        $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
+        $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
+        $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
     }
 
 }
