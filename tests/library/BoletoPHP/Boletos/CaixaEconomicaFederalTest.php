@@ -1,8 +1,8 @@
 <?php
 
-require 'library/BoletoPHP/boletos/CaixaEconomicaFederal.php';
+namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederalTest extends PHPUnit_Framework_TestCase  {
+class CaixaEconomicaFederalTest extends \PHPUnit_Framework_TestCase  {
 
     protected function setUp(){
         $dias_de_prazo_para_pagamento = 5;
@@ -85,7 +85,7 @@ class CaixaEconomicaFederalTest extends PHPUnit_Framework_TestCase  {
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
         $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
-        $this->assertEquals($view_vars['codigo_barras'] , file_get_contents('tests/fixtures/codigo_de_barras'));
+        $this->assertEquals($view_vars['codigo_barras'], file_get_contents('tests/fixtures/codigo_de_barras'));
 
     }
 

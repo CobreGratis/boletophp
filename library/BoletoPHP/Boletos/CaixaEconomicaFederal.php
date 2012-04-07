@@ -1,5 +1,7 @@
 <?php
 
+namespace BoletoPHP\Boletos;
+
 class CaixaEconomicaFederal {
 
     public $params = array(
