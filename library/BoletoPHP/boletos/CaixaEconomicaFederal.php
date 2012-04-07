@@ -445,9 +445,9 @@ class CaixaEconomicaFederal {
 
     //Guarda inicial
     $retorno = "<img src=../imagens/p.png width={$fino} height={$altura} border=0><img
-    src=../imagens/b.png width={$fino} height={$altura} border=0><img
-    src=../imagens/p.png width={$fino} height={$altura} border=0><img
-    src=../imagens/b.png width={$fino} height={$altura} border=0><img ";
+src=../imagens/b.png width={$fino} height={$altura} border=0><img
+src=../imagens/p.png width={$fino} height={$altura} border=0><img
+src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
 
     $texto = $this->linha;
     if((strlen($texto) % 2) <> 0){
@@ -465,21 +465,21 @@ class CaixaEconomicaFederal {
         }else{
           $f1 = $largo ;
         }
-        $retorno .= "src=../imagens/p.png width={$f1} height={$altura} border=0><img ";
+        $retorno .= "    src=../imagens/p.png width={$f1} height={$altura} border=0><img" . PHP_EOL;
 
         if (substr($f,$i,1) == "0") {
           $f2 = $fino ;
         }else{
           $f2 = $largo ;
         }
-        $retorno .= "src=../imagens/b.png width={$f2} height={$altura} border=0><img ";
+        $retorno .= "    src=../imagens/b.png width={$f2} height={$altura} border=0><img" . PHP_EOL;
       }
     }
 
     // Draw guarda final
     $retorno .= "src=../imagens/p.png width={$largo} height={$altura} border=0><img
-    src=../imagens/b.png width={$fino} height={$altura} border=0><img
-    src=../imagens/p.png width=1 height={$altura} border=0>";
+src=../imagens/b.png width={$fino} height={$altura} border=0><img
+src=../imagens/p.png width=1 height={$altura} border=0>";
     return $retorno;
     }
 
