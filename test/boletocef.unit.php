@@ -8,7 +8,7 @@ class TestFatorVencimento extends PHPUnit_Framework_TestCase {
         $this->assertEquals(fator_vencimento("24/03/2012"), "5282");
         $this->assertEquals(fator_vencimento("14/06/2010"), "4633");
     }
-    
+
     function testeDataVazia(){
         $this->assertEquals(fator_vencimento(""), "0000");
     }
