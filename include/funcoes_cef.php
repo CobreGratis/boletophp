@@ -26,6 +26,7 @@
 // | Desenvolvimento Boleto CEF: Elizeu Alcantara                         |
 // +----------------------------------------------------------------------+
 
+
 $codigobanco = "104";
 $codigo_banco_com_dv = geraCodigoBanco($codigobanco);
 $nummoeda = "9";
@@ -203,25 +204,34 @@ function direita($entra,$comp){
 
 function fator_vencimento($data) {
   if ($data != "") {
-    $data = explode("/",$data);
-    $ano = $data[2];
-    $mes = $data[1];
-    $dia = $data[0];
-
-    $data_inicial = new DateTime("1997-10-07");
-    $data_vencimento = new DateTime("$ano-$mes-$dia");
-    
-    $intervalo = $data_inicial->diff($data_vencimento);
-    $fator_vencimento = $intervalo->format('%r%a');
-    
-    if($fator_vencimento < 0){
-      throw new InvalidArgumentException('Data inválida.');
-    }else{
-      return $fator_vencimento;
-    }
-  } else{
+	$data = explode("/",$data);
+	$ano = $data[2];
+	$mes = $data[1];
+	$dia = $data[0];
+    return(abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia))));
+  } else {
     return "0000";
   }
+}
+
+function _dateToDays($year,$month,$day) {
+    $century = substr($year, 0, 2);
+    $year = substr($year, 2, 2);
+    if ($month > 2) {
+        $month -= 3;
+    } else {
+        $month += 9;
+        if ($year) {
+            $year--;
+        } else {
+            $year = 99;
+            $century --;
+        }
+    }
+    return ( floor((  146097 * $century)    /  4 ) +
+            floor(( 1461 * $year)        /  4 ) +
+            floor(( 153 * $month +  2) /  5 ) +
+                $day +  1721119);
 }
 
 function modulo_10($num) {
