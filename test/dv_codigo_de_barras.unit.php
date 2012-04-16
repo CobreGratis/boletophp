@@ -2,8 +2,9 @@
 
 require_once "../include/funcoes_cef.php";
 
-class TestModulo10 extends PHPUnit_Framework_TestCase {
+class TestDigitoCodigoBarra extends PHPUnit_Framework_TestCase {
 
+	
     function testeDigitoVerificador(){
         $dados['codigo_banco']	 	= '104';
         $dados['codigo_moeda']		= '9';
@@ -19,7 +20,7 @@ class TestModulo10 extends PHPUnit_Framework_TestCase {
 
         $this->assertEquals($dv, 1);
     }
-
+	
 }
 
 
