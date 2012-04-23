@@ -1,33 +1,24 @@
 <?php
 /**
- * Project:  Boletophp
- * File:   Boleto.class.php
+ * This is the main class that does all the calculations and generatens the
+ * Boleto output.
  *
- * This code is released under the GNU General Public License.
- * See COPYRIGHT.txt and LICENSE.txt.
- *
- * This library was built based on Boletophp v0.17
- * Many thanks to the mantainers and collaborators of Boletophp project at
- * boletophp.com.br.
- *
- * If you would like to collaborate by suggesting code and documentation
- * enhancements or
- * by extending new issuer bank implamentations then please check out readme.txt
- *  
- * @file This is the main Boleto class
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
- *
+ * You will also need to install at least one bank plugin for this to work.
+ * 
+ * @mainpage Boleto Libray - Main Class.
  */
 
+/**
+ * Boleto Library main Class.
+ */
 abstract class Boleto {
-  /**
+ /**
   * Indicate that an warning should be issued.
   */
   const BOLETO_WARNING = 'warning';
   /**
-  * Image folder location.
-  */
+   * Image folder location.
+   */
   const BOLETO_IMAGES = '../imagens/';
 
   /**
@@ -61,18 +52,18 @@ abstract class Boleto {
    */
   public $settings = array(
     'bank_logo'       => '',
-    // folder location for images.
+    // Folder location for images.
     'images'        => '',
     'style'         => '',
     'fator_vencimento_base' => '07-10-1997',
-    // location and name of the html template file to render the output.
+    // Location and name of the html template file to render the output.
     'template'        => '',
     'bar_code'        => array(
-      // thinner bar width.
+      // Thinner bar width.
       'fino'    => 1,
-      // thicker bar width.
+      // Thicker bar width.
       'largo'   => 3,
-      // bar height.
+      // Bar height.
       'altura'  => 50,
       'black_bar' => 'p.png',
       'white_bar' => 'b.png',
@@ -196,11 +187,11 @@ abstract class Boleto {
     $this->arguments['data_documento']   = date('d-m-Y');
     $this->arguments['data_processamento'] = $this->arguments['data_documento'];
     
-    // assign the arguments sent through.
+    // Assign the arguments sent through.
     foreach($arguments as $argument => $value){
       $this->arguments[$argument] = $value;
     }
-    // set default html head title.
+    // Set default html head title.
     if (!isset($arguments['title'])){
       $this->arguments['title'] = $this->arguments['cedente'];   
     }
@@ -230,7 +221,7 @@ abstract class Boleto {
       'codigo_banco_com_dv',
       'febraban',
       'linha_digitavel',
-      // generate bar code strips.
+      // Generate bar code strips.
       'barcode', 
     );
 
@@ -240,11 +231,13 @@ abstract class Boleto {
   }
 
   /**
-   * Calculates a check digit from any given number based on the modulo 10 specification.
+   * Calculates a check digit from any given number based on the modulo 10
+   * specification.
    *
    * @param String $num
    *  The number you wish to calcule the check digit from.
-   * @see Documentation at http:// www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+   * @see Documentation at
+   *  http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
    * @return String
    *  The check digit number.
    */
@@ -254,20 +247,20 @@ abstract class Boleto {
 
     //  Separacao dos numeros.
     for ($i = strlen($num); $i > 0; $i--) {
-      //  pega cada numero isoladamente.
+      //  Pega cada numero isoladamente.
       $numeros[$i] = substr($num,$i-1,1);
       //  Efetua multiplicacao do numero pelo (falor 10).
       $temp = $numeros[$i] * $fator; 
       $temp0=0;
       foreach (preg_split('// ',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
       $parcial10[$i] = $temp0; // $numeros[$i] * $fator;
-      //  monta sequencia para soma dos digitos no (modulo 10).
+      //  Monta sequencia para soma dos digitos no (modulo 10).
       $numtotal10 += $parcial10[$i];
       if ($fator == 2) {
         $fator = 1;
       }
       else {
-        // intercala fator de multiplicacao (modulo 10).
+        // Intercala fator de multiplicacao (modulo 10).
         $fator = 2;
       }
     }
@@ -275,37 +268,39 @@ abstract class Boleto {
     $resto  = $numtotal10 % 10;
     $digito = 10 - $resto;
     
-    // make it zero if check digit is 10.
+    // Make it zero if check digit is 10.
     $digito = ($digito == 10) ? 0 : $digito;
 
     return $digito;
   }
   
   /**
-   * Calculates a check digit from any given number based on the modulo 11 specification.
+   * Calculates a check digit from any given number based on the modulo 11
+   * specification.
    *
    * @param string $num
-   *  The number you wish to calcule the check digit from
+   *  The number you wish to calcule the check digit from.
    * @param string $base
-   *  Optional. This is defaulted to 9
-   * @see Documentation at http:// www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+   *  Optional. This is defaulted to 9.
+   * @see Documentation at
+   *  http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
    * @return array
-   *  The returned array keys are digito and resto
+   *  The returned array keys are digito and resto.
    */
   public function modulo_11($num, $base=9){
     $fator = 2;
 
     $soma  = 0;
-    /* Separacao dos numeros */
+    // Separacao dos numeros.
     for ($i = strlen($num); $i > 0; $i--) {
-      //  pega cada numero isoladamente
+      //  Pega cada numero isoladamente.
       $numeros[$i] = substr($num,$i-1,1);
-      //  Efetua multiplicacao do numero pelo falor
+      //  Efetua multiplicacao do numero pelo falor.
       $parcial[$i] = $numeros[$i] * $fator;
-      //  Soma dos digitos
+      //  Soma dos digitos.
       $soma += $parcial[$i];
       if ($fator == $base) {
-        //  restaura fator de multiplicacao para 2 
+        //  Restaura fator de multiplicacao para 2.
         $fator = 1;
       }
       $fator++;
@@ -322,12 +317,14 @@ abstract class Boleto {
   }
 
   /**
-   * Calculation of "Due Date" field
-   * Argument values expected: -1       == Cash against document
-   *               Integer Number == Number of days added on top of issuing date
-   *               dd-mm-yyy    == Set date
+   * Calculation of "Due Date" field.
+   * Argument values expected are:
+   *   -1 for Cash against document.
+   *   An Integer Number which defines the number of days to be added on top of
+   *   issuing date.
+   *   A date formated as dd-mm-yyy.
    *               
-   * If argument is not present then it adds 5 days on top of issuing date.
+   * If argument is empty then it adds 5 days on top of issuing date as default.
    */
   private function data_vencimento(){
     // Set defaults.
@@ -340,7 +337,7 @@ abstract class Boleto {
     // Check if an argument for vencimento has been set.
     if (!empty($this->arguments['data_vencimento'])){
       if (is_numeric($this->arguments['data_vencimento'])){
-        // cash against document.
+        // Cash against document.
         if ($this->arguments['data_vencimento'] == -1){
           $vencimento_value = 'Contra Apresenta&ccedil;&atilde;o';
         }
@@ -367,7 +364,7 @@ abstract class Boleto {
    * Calculates the "Due date" 4 digits factor number.
    * It is the positions from 6 to 9 in the Febraban array.
    * 
-   * Script from http:// phpbrasil.com/articles/print.php/id/1034
+   * Script from http:// phpbrasil.com/articles/print.php/id/1034 .
    */
   private function fator_vencimento(){
     $from = $this->settings['fator_vencimento_base'];
@@ -386,7 +383,7 @@ abstract class Boleto {
       
       $days = round(($to_date - $from_date) / 86400);
     }
-    // assign value to febraban array property.
+    // Assign value to febraban array property.
     $this->febraban['6-9'] = $days;
   }
 
@@ -398,7 +395,7 @@ abstract class Boleto {
       $this->computed['codigo_banco_com_dv'] = $this->bank_code.'-'.$this->arguments['bank_code_cd'];
     }
     else {
-      //  set codigo_banco_com_dv.
+      //  Set codigo_banco_com_dv.
       $bank_code_checkDigit = $this->modulo_11($this->bank_code);
       $this->computed['codigo_banco_com_dv'] = $this->bank_code.'-'.$bank_code_checkDigit['digito'];
       
@@ -406,15 +403,16 @@ abstract class Boleto {
   }
 
   /**
-   * Calculates and construct the FEBRABAN specification.
+   * Calculates and constructs the FEBRABAN specification.
    * 
-   * 01-03 (3)  -> Código do banco sem o digito.
-   * 04-04 (1)  -> Código da Moeda (9-Real).
-   * 05-05 (1)  -> Dígito verificador do código de barras.
-   * 06-09 (4)  -> Fator de vencimento.
-   * 10-19 (10) -> Valor Nominal do Título.
-   * 20-44 (25) -> Campo Livre.
-   *         This is calculated at child's class implementation by febraban20to44().
+   * 01-03 (3)  -> Código do banco sem o digito
+   * 04-04 (1)  -> Código da Moeda (9-Real)
+   * 05-05 (1)  -> Dígito verificador do código de barras
+   * 06-09 (4)  -> Fator de vencimento
+   * 10-19 (10) -> Valor Nominal do Título
+   * 20-44 (25) -> Campo Livre
+   *               This is calculated at the child's class implementation by
+   *               febraban20to44() method.
    *
    * @see Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
    */
@@ -432,7 +430,8 @@ abstract class Boleto {
     if ($this->is_implemented) {
       // Check if method is implemented.
       if (in_array('febraban_20to44', $this->methods['child'])){
-        // Positions 20 to 44 vary from bank to bank, so we call the child extention.
+        // Positions 20 to 44 vary from bank to bank, so we call the child
+        // method.
         $this->febraban_20to44();
       }
     }
@@ -453,7 +452,7 @@ abstract class Boleto {
     $this->febraban['5-5'] = $checkDigit['digito'];
     
     // Check if febraban property is complying with the rules and
-    // Create an array of allowed lenghs for each febraban block.
+    // create an array of allowed lenghs for each febraban block.
     $rules = array('1-3' => 3, '4-4' => 1, '5-5' => 1, '6-9' => 4, '10-19' => 10, '20-44' => 25);
     
     foreach($this->febraban as $key => $value){
@@ -493,7 +492,8 @@ abstract class Boleto {
     // Shift in a dot on block 20-24 (5 characters) at its 2nd position.
     $blocks['20-24'] = substr_replace($blocks['20-24'], '.', 1, 0);
 
-    // Concatenates bankCode + currencyCode + first block of 5 characters + checkDigit.
+    // Concatenates bankCode + currencyCode + first block of 5 characters +
+    // checkDigit.
     $part1 = $this->bank_code.$this->febraban['4-4'].$blocks['20-24'].$checkDigit;
     
     // Calculates part2 check digit from 2nd block of 10 characters.
