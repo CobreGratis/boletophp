@@ -193,29 +193,6 @@ function direita($entra,$comp){
 	return substr($entra,strlen($entra)-$comp,$comp);
 }
 
-function fator_vencimento($data) {
-  if ($data != "") {
-    $data = explode("/",$data);
-    $ano = $data[2];
-    $mes = $data[1];
-    $dia = $data[0];
-
-    $data_inicial = new DateTime("1997-10-07");
-    $data_vencimento = new DateTime("$ano-$mes-$dia");
-    
-    $intervalo = $data_inicial->diff($data_vencimento);
-    $fator_vencimento = $intervalo->format('%r%a');
-    
-    if($fator_vencimento < 0){
-      throw new InvalidArgumentException('Data inv�lida.');
-    }else{
-      return $fator_vencimento;
-    }
-  } else{
-    return "0000";
-  }
-}
-
 function monta_linha_digitavel($codigo) {
 
 		// Posi��o 	Conte�do

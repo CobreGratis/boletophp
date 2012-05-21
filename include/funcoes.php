@@ -1,5 +1,28 @@
 <?php
 
+function fator_vencimento($data) {
+  if ($data != "") {
+    $data = explode("/",$data);
+    $ano = $data[2];
+    $mes = $data[1];
+    $dia = $data[0];
+
+    $data_inicial = new DateTime("1997-10-07");
+    $data_vencimento = new DateTime("$ano-$mes-$dia");
+    
+    $intervalo = $data_inicial->diff($data_vencimento);
+    $fator_vencimento = $intervalo->format('%r%a');
+    
+    if($fator_vencimento < 0){
+      throw new InvalidArgumentException('Data inv�lida.');
+    }else{
+      return $fator_vencimento;
+    }
+  } else{
+    return "0000";
+  }
+}
+
 function digitoVerificador_barra($numero) {
 	$resto2 = modulo_11($numero, 9, 1);
 	if ($resto2 == 0 || $resto2 == 1 || $resto2 == 10) {

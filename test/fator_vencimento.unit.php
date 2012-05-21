@@ -1,6 +1,6 @@
 <?php
 
-require_once "../include/funcoes_cef.php";
+require_once "../include/funcoes.php";
 
 class TestFatorVencimento extends PHPUnit_Framework_TestCase {
     function testeDataPreenchida(){
@@ -13,7 +13,7 @@ class TestFatorVencimento extends PHPUnit_Framework_TestCase {
         $this->assertEquals(fator_vencimento(""), "0000");
     }
 
-    function testeDataInvalida(){
+    function testeDataAbaixoDaDataMinima_07_10_97(){
         $this->setExpectedException('InvalidArgumentException');
         fator_vencimento("07/10/1995");
     }

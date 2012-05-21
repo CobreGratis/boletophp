@@ -208,38 +208,6 @@ function direita($entra,$comp){
 	return substr($entra,strlen($entra)-$comp,$comp);
 }
 
-function fator_vencimento($data) {
-  if ($data != "") {
-	$data = explode("/",$data);
-	$ano = $data[2];
-	$mes = $data[1];
-	$dia = $data[0];
-    return(abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia))));
-  } else {
-    return "0000";
-  }
-}
-
-function _dateToDays($year,$month,$day) {
-    $century = substr($year, 0, 2);
-    $year = substr($year, 2, 2);
-    if ($month > 2) {
-        $month -= 3;
-    } else {
-        $month += 9;
-        if ($year) {
-            $year--;
-        } else {
-            $year = 99;
-            $century --;
-        }
-    }
-    return ( floor((  146097 * $century)    /  4 ) +
-            floor(( 1461 * $year)        /  4 ) +
-            floor(( 153 * $month +  2) /  5 ) +
-                $day +  1721119);
-}
-
 function monta_linha_digitavel($codigo) {
 		
 		// Posi��o 	Conte�do
