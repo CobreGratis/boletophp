@@ -1,6 +1,6 @@
 <?php
 
-require_once "../include/funcoes_cef.php";
+require_once "../include/funcoes.php";
 
 class TestModulo10 extends PHPUnit_Framework_TestCase {
 

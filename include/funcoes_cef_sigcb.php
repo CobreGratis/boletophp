@@ -240,40 +240,6 @@ function _dateToDays($year,$month,$day) {
                 $day +  1721119);
 }
 
-function modulo_10($num) { 
-		$numtotal10 = 0;
-        $fator = 2;
-
-        // Separacao dos numeros
-        for ($i = strlen($num); $i > 0; $i--) {
-            // pega cada numero isoladamente
-            $numeros[$i] = substr($num,$i-1,1);
-            // Efetua multiplicacao do numero pelo (falor 10)
-            $temp = $numeros[$i] * $fator; 
-            $temp0=0;
-            foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
-            $parcial10[$i] = $temp0; //$numeros[$i] * $fator;
-            // monta sequencia para soma dos digitos no (modulo 10)
-            $numtotal10 += $parcial10[$i];
-            if ($fator == 2) {
-                $fator = 1;
-            } else {
-                $fator = 2; // intercala fator de multiplicacao (modulo 10)
-            }
-        }
-		
-        // v�rias linhas removidas, vide fun��o original
-        // Calculo do modulo 10
-        $resto = $numtotal10 % 10;
-        $digito = 10 - $resto;
-        if ($resto == 0) {
-            $digito = 0;
-        }
-		
-        return $digito;
-		
-}
-
 function monta_linha_digitavel($codigo) {
 		
 		// Posi��o 	Conte�do
