@@ -1,5 +1,11 @@
 <?php
 
+
+function formata_numero($numero, $loop) {
+	$numero = str_replace(",","",$numero);
+	return str_pad($numero, $loop, "0", STR_PAD_LEFT);
+}
+
 function monta_linha_digitavel($codigo) {
 
 		// Posi��o 	Conte�do

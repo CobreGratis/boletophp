@@ -34,29 +34,29 @@ $nummoeda = "9";
 $fator_vencimento = fator_vencimento($dadosboleto["data_vencimento"]);
 
 //valor tem 10 digitos, sem virgula
-$valor = formata_numero($dadosboleto["valor_boleto"],10,0,"valor");
+$valor = formata_numero($dadosboleto["valor_boleto"],10);
 //agencia � 4 digitos
-$agencia = formata_numero($dadosboleto["agencia"],4,0);
+$agencia = formata_numero($dadosboleto["agencia"],4);
 //conta � 5 digitos
-$conta = formata_numero($dadosboleto["conta"],5,0);
+$conta = formata_numero($dadosboleto["conta"],5);
 //dv da conta
-$conta_dv = formata_numero($dadosboleto["conta_dv"],1,0);
+$conta_dv = formata_numero($dadosboleto["conta_dv"],1);
 //carteira � 2 caracteres
 $carteira = $dadosboleto["carteira"];
 
 //conta cedente (sem dv) com 6 digitos
-$conta_cedente = formata_numero($dadosboleto["conta_cedente"],6,0);
+$conta_cedente = formata_numero($dadosboleto["conta_cedente"],6);
 //dv da conta cedente
 $conta_cedente_dv = digitoVerificador_cedente($conta_cedente);
 
 //campo livre (sem dv) � 24 digitos
-$campo_livre = $conta_cedente . $conta_cedente_dv . formata_numero($dadosboleto["nosso_numero1"],3,0) . formata_numero($dadosboleto["nosso_numero_const1"],1,0) . formata_numero($dadosboleto["nosso_numero2"],3,0) . formata_numero($dadosboleto["nosso_numero_const2"],1,0) . formata_numero($dadosboleto["nosso_numero3"],9,0);
+$campo_livre = $conta_cedente . $conta_cedente_dv . formata_numero($dadosboleto["nosso_numero1"],3) . formata_numero($dadosboleto["nosso_numero_const1"],1) . formata_numero($dadosboleto["nosso_numero2"],3) . formata_numero($dadosboleto["nosso_numero_const2"],1) . formata_numero($dadosboleto["nosso_numero3"],9);
 //dv do campo livre
 $dv_campo_livre = digitoVerificador_nossonumero($campo_livre);
 $campo_livre_com_dv ="$campo_livre$dv_campo_livre";
 
 //nosso n�mero (sem dv) � 17 digitos
-$nnum = formata_numero($dadosboleto["nosso_numero_const1"],1,0).formata_numero($dadosboleto["nosso_numero_const2"],1,0).formata_numero($dadosboleto["nosso_numero1"],3,0).formata_numero($dadosboleto["nosso_numero2"],3,0).formata_numero($dadosboleto["nosso_numero3"],9,0);
+$nnum = formata_numero($dadosboleto["nosso_numero_const1"],1).formata_numero($dadosboleto["nosso_numero_const2"],1).formata_numero($dadosboleto["nosso_numero1"],3).formata_numero($dadosboleto["nosso_numero2"],3).formata_numero($dadosboleto["nosso_numero3"],9);
 //nosso n�mero completo (com dv) com 18 digitos
 $nossonumero = $nnum . digitoVerificador_nossonumero($nnum);
 
@@ -97,32 +97,6 @@ function digitoVerificador_cedente($numero) {
 
 // FUN��ES
 // Algumas foram retiradas do Projeto PhpBoleto e modificadas para atender as particularidades de cada banco
-
-function formata_numero($numero,$loop,$insert,$tipo = "geral") {
-	if ($tipo == "geral") {
-		$numero = str_replace(",","",$numero);
-		while(strlen($numero)<$loop){
-			$numero = $insert . $numero;
-		}
-	}
-	if ($tipo == "valor") {
-		/*
-		retira as virgulas
-		formata o numero
-		preenche com zeros
-		*/
-		$numero = str_replace(",","",$numero);
-		while(strlen($numero)<$loop){
-			$numero = $insert . $numero;
-		}
-	}
-	if ($tipo == "convenio") {
-		while(strlen($numero)<$loop){
-			$numero = $numero . $insert;
-		}
-	}
-	return $numero;
-}
 
 
 function fbarcode($valor){

@@ -34,23 +34,23 @@ $nummoeda = "9";
 $fator_vencimento = fator_vencimento($dadosboleto["data_vencimento"]);
 
 //valor tem 10 digitos, sem virgula
-$valor = formata_numero($dadosboleto["valor_boleto"],10,0,"valor");
+$valor = formata_numero($dadosboleto["valor_boleto"],10);
 //agencia � 4 digitos
-$agencia = formata_numero($dadosboleto["agencia"],4,0);
+$agencia = formata_numero($dadosboleto["agencia"],4);
 //conta � 5 digitos
-$conta = formata_numero($dadosboleto["conta"],5,0);
+$conta = formata_numero($dadosboleto["conta"],5);
 //dv da conta
-$conta_dv = formata_numero($dadosboleto["conta_dv"],1,0);
+$conta_dv = formata_numero($dadosboleto["conta_dv"],1);
 //carteira � 2 caracteres
 $carteira = $dadosboleto["carteira"];
 
 //conta cedente (sem dv) com 11 digitos   (Operacao de 3 digitos + Cedente de 8 digitos)
-$conta_cedente = formata_numero($dadosboleto["conta_cedente"],11,0);
+$conta_cedente = formata_numero($dadosboleto["conta_cedente"],11);
 //dv da conta cedente
-$conta_cedente_dv = formata_numero($dadosboleto["conta_cedente_dv"],1,0);
+$conta_cedente_dv = formata_numero($dadosboleto["conta_cedente_dv"],1);
 
 //nosso n�mero (sem dv) � 10 digitos
-$nnum = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto["nosso_numero"],8,0);
+$nnum = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto["nosso_numero"],8);
 //nosso n�mero completo (com dv) com 11 digitos
 $nossonumero = $nnum .'-'. digitoVerificador_nossonumero($nnum);
 
@@ -82,33 +82,6 @@ function digitoVerificador_nossonumero($numero) {
 
 // FUN��ES
 // Algumas foram retiradas do Projeto PhpBoleto e modificadas para atender as particularidades de cada banco
-
-function formata_numero($numero,$loop,$insert,$tipo = "geral") {
-	if ($tipo == "geral") {
-		$numero = str_replace(",","",$numero);
-		while(strlen($numero)<$loop){
-			$numero = $insert . $numero;
-		}
-	}
-	if ($tipo == "valor") {
-		/*
-		retira as virgulas
-		formata o numero
-		preenche com zeros
-		*/
-		$numero = str_replace(",","",$numero);
-		while(strlen($numero)<$loop){
-			$numero = $insert . $numero;
-		}
-	}
-	if ($tipo == "convenio") {
-		while(strlen($numero)<$loop){
-			$numero = $numero . $insert;
-		}
-	}
-	return $numero;
-}
-
 
 function fbarcode($valor){
 
