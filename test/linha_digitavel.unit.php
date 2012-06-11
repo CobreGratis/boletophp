@@ -4,7 +4,7 @@ require_once "../include/funcoes.php";
 
 class TestLinhaDigitavel extends PHPUnit_Framework_TestCase{
 
-	function testeDigitoVerificador(){
+	function testeCEF(){
 		$dados['codigo_banco']	 	= '104';
 		$dados['codigo_moeda']		= '9';
 		$dados['dv']				= '1';
@@ -19,7 +19,7 @@ class TestLinhaDigitavel extends PHPUnit_Framework_TestCase{
 		$this->assertEquals($div, '10498.01952 25086.156582 70000.004146 1 52960000295295');
 	}
 
-	function testeSIGCB(){
+	function testeCEFSIGCB(){
 		$dados = Array(
 				'codigo_banco' => '104',
 				'codigo_moeda' => '9',
