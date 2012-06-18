@@ -40,7 +40,20 @@ class TestDigitoCodigoBarra extends PHPUnit_Framework_TestCase {
 
         $this->assertEquals($dv, 6);
     }
+	
+	function testeSINCO(){
+        $dados['codigo_banco']	 	= '104';
+        $dados['codigo_moeda']		= '9';
+        $dados['fator_vencimento']  = '5359';
+        $dados['valor'] 		  	= '0000295295';
+        $dados['campo_fixo_obrigatorio'] = "1";
+		$dados['conta_cedente']     = '057335';
+		$dados['inicio_nosso_numero'] = "9";
+		$dados['nosso_numero'] = "00000000019525086";
+		
+        //Retorna digito verificador do codigo de barra - Trocar nome do metodo para retornaDigitoVerificador
+        $dv = digitoVerificador_barra(implode($dados));
+		
+        $this->assertEquals($dv, 1);
+    }
 }
-
-
-?>
