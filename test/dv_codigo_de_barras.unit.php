@@ -56,4 +56,29 @@ class TestDigitoCodigoBarra extends PHPUnit_Framework_TestCase {
 		
         $this->assertEquals($dv, 1);
     }
+	
+	function testeBancoob()
+	{
+		$dados['codigo_banco'] = '756';
+		$dados['codigo_moeda'] = '9';
+		$dados['fator_vencimento'] = '5380';
+        $dados['valor'] 		   = '0000295295';
+		$dados["carteira"] = "1";
+		$dados["agencia"] = "9999";
+		/*
+		 * campo livre
+		 * $modalidadecobranca
+		 * $convenio
+		 * $nossonumero
+		 * $numeroparcela";
+		*/
+		$dados["modalidade_cobranca"] = "01";
+		$dados["convenio"] = "7777777";
+		$dados["nossonumero"] = "08123456";
+		$dados["numero_parcela"] = "001";
+		
+		//Retorna digito verificador do codigo de barra - Trocar nome do metodo para retornaDigitoVerificador
+        $dv = digitoVerificador_barra(implode($dados));
+		$this->assertEquals($dv, 4);
+	}
 }
