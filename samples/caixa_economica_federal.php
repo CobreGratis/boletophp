@@ -1,6 +1,6 @@
 <?php
 
-require '../library/BoletoPHP/boletos/CaixaEconomicaFederal.php';
+require '../library/BoletoPHP/Boletos/CaixaEconomicaFederal.php';
 
 $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
@@ -46,5 +46,6 @@ $params = array(
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000'
 
     );
-$boleto = new CaixaEconomicaFederal($params);
+
+$boleto = new BoletoPHP\Boletos\CaixaEconomicaFederal($params);
 echo $boleto->gerarBoleto();
