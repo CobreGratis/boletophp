@@ -12,7 +12,6 @@ class CaixaEconomicaFederalTest extends \PHPUnit_Framework_TestCase  {
         $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
         $time = 1342356619;
 
-
         $params = array(
             'data_vencimento' => date("d/m/Y", $time + ($dias_de_prazo_para_pagamento * 86400)),
             'valor_boleto' => number_format($valor_cobrado+$taxa_boleto, 2, ',', ''),
@@ -87,7 +86,5 @@ class CaixaEconomicaFederalTest extends \PHPUnit_Framework_TestCase  {
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
         $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
         $this->assertEquals($view_vars['codigo_barras'], file_get_contents('fixtures/codigo_de_barras'));
-
     }
-
 }
