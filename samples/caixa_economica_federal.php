@@ -1,5 +1,6 @@
 <?php
 
+require '../library/BoletoPHP/Boletos/Boleto.php';
 require '../library/BoletoPHP/Boletos/CaixaEconomicaFederal.php';
 
 $dias_de_prazo_para_pagamento = 5;
