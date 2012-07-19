@@ -110,6 +110,19 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
         <td>Mesmo caso do layout.tpl.php. Dê uma olhada na implementação do Banco do Brasil como exemplo</td>
     </tr>
     <tr>
+        <td>opcional</td>
+        <td>nome_do_banco.example.php</td>
+        <td>Caso você crie este arquivo, as pessoas poderão ver como fica o boleto gerado por seu plugin
+        acessando `http://localhost/boleto-lib/bancos/XXX/nome_do_banco.example.php`. Onde XXX é o código do
+        banco.
+
+        Veja o exemplo do plugin da Caixa Econômica Federal.
+
+        </td>
+    </tr>
+    
+    
+    <tr>
         <td>obrigatório</td>
         <td>unit-testing/simpletest.php</td>
         <td>Veja exemplo de código logo abaixo.</td>
@@ -121,6 +134,11 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
 
 **_3.5_**  O arquivo `unit-testing/simpletest.php` deverá conter no mínimo o seguinte código:  
 
+        <?php
+        /**
+         * @file
+         * Unit testing.
+         */
         require_once "../../../unit-testing/boleto.test.php";  
         
         class TestOfXXX extends BoletoTestCase{  
@@ -243,10 +261,11 @@ adicionar o seu código de testes, além dos elementos obrigatório do item 3.5,
 
 Para que os seus métodos de test sejam chamados você deverá colocar o prefixo test no nome de seus métodos.
 
-Por Exemplo:  
-function testNomeExplicativoDoMeuTesteNoFormatoDesteExemplo() {  
-  // testes aqui.  
-}  
+Por Exemplo:
+
+        function testNomeExplicativoDoMeuTesteNoFormatoDesteExemplo() {  
+           // testes aqui.  
+        }  
 
 Mais exemplos em http://www.simpletest.org/en/first_test_tutorial.html e também no arquivo
 `../boleto-lib/unit-testing/boleto.test.php`
