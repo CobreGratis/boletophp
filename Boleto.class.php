@@ -88,7 +88,7 @@ abstract class Boleto {
   /**
    * Arguments sent by the application using this library.
    */
-  public $arguments = array(
+  protected $arguments = array(
     'merchant_logo' => '',
     'nosso_numero' => '',
     'agencia' => '',
@@ -263,7 +263,7 @@ abstract class Boleto {
    * @return String
    *  The check digit number.
    */
-  public function modulo_10($num) {
+  protected function modulo_10($num) {
     $numtotal10 = 0;
     $fator = 2;
 
@@ -309,7 +309,7 @@ abstract class Boleto {
    * @return array
    *  The returned array keys are digito and resto.
    */
-  public function modulo_11($num, $base=9){
+  protected function modulo_11($num, $base=9){
     $fator = 2;
 
     $soma  = 0;
@@ -348,7 +348,7 @@ abstract class Boleto {
    *               
    * If argument is empty then it adds 5 days on top of issuing date as default.
    */
-  private function data_vencimento(){
+  protected function data_vencimento(){
     // Set defaults.
     // Making sure we got a dash "-" instead of forward slah "/" for vencimento.
     $this->computed['data_vencimento'] = str_replace('/','-', $this->arguments['data_vencimento']);
@@ -388,7 +388,7 @@ abstract class Boleto {
    * 
    * Script from http:// phpbrasil.com/articles/print.php/id/1034 .
    */
-  private function fator_vencimento(){
+  protected function fator_vencimento(){
     $from = self::DUEON_BASE_DATE;
     $to   = $this->computed['data_vencimento'];
     
@@ -412,7 +412,7 @@ abstract class Boleto {
   /**
    * Calculates the check digit for bank code.
    */
-  private function codigo_banco_com_dv() {
+  protected function codigo_banco_com_dv() {
     if (!empty($this->arguments['bank_code_cd'])) {
       $this->computed['codigo_banco_com_dv'] = $this->bank_code.'-'.$this->arguments['bank_code_cd'];
     }
@@ -438,7 +438,7 @@ abstract class Boleto {
    *
    * @see Documentation at http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
    */
-  private function febraban(){
+  protected function febraban(){
     // Positions 1 to 3.
     $this->febraban['1-3'] = $this->bank_code;
     // Position 4 has a pre set value of 9.
