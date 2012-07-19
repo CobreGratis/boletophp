@@ -59,7 +59,9 @@ abstract class BoletoTestCase extends UnitTestCase {
   }
 
   function testTheBankCodeArgumentIsTheSameAsCodeInTheSimpleTestClassName() {
-    $this->assertEqual($this->mockingArguments[0]['bank_code'], $this->bank_code);
+    foreach ($this->mockingArguments as $test_case_key => $test_case_arguments) {
+      $this->assertEqual($this->mockingArguments[$test_case_key]['bank_code'], $this->bank_code);
+    }
   }
 
   function testPluginClassFileExists() {
