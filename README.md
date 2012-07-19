@@ -1,13 +1,16 @@
+![Boleto Library Logo](http://a6.sphotos.ak.fbcdn.net/hphotos-ak-ash3/556061_10151041426758007_738498480_n.jpg)
+
 # TOPICOS  
-1. [Como Usar / Testar a biblioteca](#1-como-usar--testar-a-biblioteca)
+1. [Como Usar e Integrar esta Biblioteca à Sua Aplicação](#1-como-usar--testar-a-biblioteca)
 2. [Reportando Bugs, Pedindo Ajuda e Fazendo Sugestões](#2-reportando-bugs-pedindo-ajuda-e-fazendo-sugest%C3%95es)
 3. [Implementando novos Bancos e Carteiras](#3-implementando-novos-bancos-e-carteiras)
 4. [Contribuindo com Código em Geral](#4-contribuindo-com-c%C3%93digo-em-geral)
 5. [Testes de Unidades (Simple Test)](#5-testes-de-unidades-simple-test)
 
-## 1. COMO USAR / TESTAR A BIBLIOTECA
+## 1. COMO USAR E INTEGRAR ESTA BIBLIOTECA À SUA APLICAÇÃO
 
-**_1.1_** Vá até a pasta pública do seu servidor e baixe a biblioteca com o seguinte comando:  
+**_1.1_** Vá até a pasta pública do seu servidor e baixe a cópia mais recente desta biblioteca
+com o seguinte comando:  
 `$ git clone --branch 1.x-dev https://github.com/drupalista-br/boleto.git boleto-lib`  
 
 ou faça o Download da última versão estável em https://github.com/drupalista-br/Boleto/tags
@@ -30,11 +33,11 @@ ou faça o Download da última versão estável do plugin em https://github.com/
 
 ***
 
-**_1.3_** No seu navegador gere um boleto de teste acessando o arquivo de teste que esta dentro
-da pasta `../boleto-lib/bancos/XXX/NOME_DO_BANCO.test.php`  
+**_1.3_** No seu navegador gere um boleto de teste acessando o script de exemplo que esta dentro
+da pasta `../boleto-lib/bancos/XXX/example.php`  
 
 Por exemplo:  
-`http://localhost/boleto-lib/bancos/001/banco_do_brasil.example.php`  
+`http://localhost/boleto-lib/bancos/001/example.php`  
 
 ***       
 Cada banco implementado possui um script de examplo dentro da pasta `../boleto-lib/bancos/XXX`.  
@@ -44,7 +47,7 @@ Use os arquivos de examplo do(s) banco(s) que você queira integrar à sua aplic
 
 ## 2. REPORTANDO BUGS, PEDINDO AJUDA E FAZENDO SUGESTÕES
 
-Acesse https://github.com/drupalista-br/boleto-lib/issues
+Abra chamados em https://github.com/drupalista-br/boleto-lib/issues
 
 ## 3. IMPLEMENTANDO NOVOS BANCOS E CARTEIRAS
 
@@ -72,9 +75,10 @@ Leia também:
 Onde USUARIO deverá ser substituido pelo seu usuario no Github.  
 
 ***
-**_3.4_** Dentro da pasta boleto-lib/bancos crie uma subpasta e a nomeia com o código do banco que você irá implementar. Por exemplo:  
+**_3.4_** Dentro da pasta `../boleto-lib/bancos` crie uma subpasta e a nomeia com o código
+do banco que você irá implementar. Por exemplo:  
 
-`boleto-lib/bancos/237`  
+`../boleto-lib/bancos/237`  
 
 ***
 
@@ -110,10 +114,11 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
         <td>Mesmo caso do layout.tpl.php. Dê uma olhada na implementação do Banco do Brasil como exemplo</td>
     </tr>
     <tr>
-        <td>opcional</td>
-        <td>nome_do_banco.example.php</td>
-        <td>Caso você crie este arquivo, as pessoas poderão ver como fica o boleto gerado por seu plugin
-        acessando `http://localhost/boleto-lib/bancos/XXX/nome_do_banco.example.php`. Onde XXX é o código do
+        <td>obrigatório</td>
+        <td>example.php</td>
+        <td>Não é obrigatório adicionar código de exemplo, mas este arquivo precisa existi, mesmo que vazio.
+        Este arquivo serve como "use case" para as pessoas poderem ver como fica o boleto gerado por seu plugin
+        acessando `http://localhost/boleto-lib/bancos/XXX/example.php`. Onde XXX é o código do
         banco.
 
         Veja o exemplo do plugin da Caixa Econômica Federal.
@@ -136,26 +141,34 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
 
         <?php
         /**
-         * @file
-         * Unit testing.
-         */
-        require_once "../../../unit-testing/boleto.test.php";  
+        * @file
+        * Unit testing.
+        */
         
-        class TestOfXXX extends BoletoTestCase{  
-          protected $mockingArguments;  
+        require_once "../../../unit-testing/boleto.test.php";
         
-          function mockingArguments() {  
-            $this->mockingArguments = array(  
-               // Adicione aqui os values que influenciam na construção
-               // propriedade $boleto->febraban['20-44'].
+        class TestOfXXX extends BoletoTestCase{
+          protected $mockingArguments;
+        
+          function mockingArguments() {
+            $this->mockingArguments = array(
+              array(
+                // Argumentos do Primeiro test case.
+              ),
+              array(
+                // Argumentos do Segundo test case.
+              ),
+              // E assim por diante. Dê uma olhada no simpletest.php do
+              // Banco do Brasil para um exemplo com mais de um test case.
             );
           }
         }
 
+
 Onde XXX em TestOfXXX é o código do banco.  
 Exemplo:
 
-![Sample code for Simpletest](http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/318763_10151041078913007_339267144_n.jpg)
+![Sample code for Simpletest](http://a1.sphotos.ak.fbcdn.net/hphotos-ak-prn1/532436_10151041714503007_978552871_n.jpg)
 
 ***
 
@@ -207,9 +220,7 @@ Leia também
 >2. Documentação do API:  
    Precisando de um Patrocínio para hospedar o [phpDocumentor](http://www.phpdoc.org)
 
-***         
-
-3. Você deverá seguir o padrão Doxygen ao comentar o seu Código
+>3. Você deverá seguir o padrão Doxygen ao comentar o seu Código
    [http://www.stack.nl/~dimitri/doxygen/docblocks.html](http://www.stack.nl/~dimitri/doxygen/docblocks.html)
 
 ***

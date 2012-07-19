@@ -3,13 +3,7 @@
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
  *
- * This library is built based on Boletophp v0.17
- * Many thanks to the mantainers and collaborators of Boletophp project at
- * boletophp.com.br.
- * 
- * @file Implementation of Bank 001 - Banco do Brasil SA
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
+ * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
 class Banco_001 extends Boleto{
   /**
@@ -27,7 +21,7 @@ class Banco_001 extends Boleto{
     // Set empty variable to avoid any eventuality.
     $convenio = '';
     $nosso_numero = '';
-    
+
     // See readme.txt
     $cc = explode('-', $this->arguments['carteira_nosso_numero']);
     
@@ -50,9 +44,9 @@ class Banco_001 extends Boleto{
     // Pre calculate nosso_numero check digit.
     $checkDigit = $this->modulo_11($convenio.$this->arguments['nosso_numero']);
     $checkDigit['digito'] = '-' . $checkDigit['digito'];
-    
+
     $code = '';
-    
+
     switch($carteira[0]){
       case 18:
         // Now we need to know how many digits convenio number has.
@@ -68,7 +62,7 @@ class Banco_001 extends Boleto{
             // 25 digits long.
             $code = $convenio.$nosso_numero.$carteira[0];
             break;
-          case 7:
+					case 7:
             // 20-32 -> Convenio                   13
             // 33-42 -> Nosso Número (sem dígito)  10
             // 43-44 -> Carteira                    2
@@ -81,7 +75,7 @@ class Banco_001 extends Boleto{
             // No check digit for nosso_numero
             $checkDigit['digito'] = '';
             break;
-	  case 6:
+					case 6:
             if($servico == 21){
               // 20-25 -> Convenio                    6
               // 26-42 -> Nosso Número (sem dígito)  17
@@ -100,9 +94,8 @@ class Banco_001 extends Boleto{
               // 43-44 -> Carteira                   2
               $convenio   = str_pad($convenio, 6, 0, STR_PAD_LEFT);
               $nosso_numero = str_pad($this->arguments['nosso_numero'], 5, 0, STR_PAD_LEFT);
-             
               // 25 digits long.
-              $code  = $convenio.$nosso_numero . $this->arguments['agencia'] . $this->arguments['conta'] . $carteira[0];             
+              $code  = $convenio . $nosso_numero . $this->arguments['agencia'] . $this->arguments['conta'] . $carteira[0];             
             }
             break;
         }

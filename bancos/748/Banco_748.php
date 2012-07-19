@@ -3,20 +3,14 @@
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
  *
- * This library is built based on Boletophp v0.17
- * Many thanks to the mantainers and collaborators of Boletophp project at boletophp.com.br.
- * 
- * @file Implementation of Bank 748 - Sicredi
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
- *    
+ * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
 
 class Banco_748 extends Boleto{
   /**
    * Implementation of setUp().
    */
-  private function setUp(){
+  function setUp(){
     $this->bank_name  = 'Sicredi';
   }
 
@@ -41,7 +35,7 @@ class Banco_748 extends Boleto{
    *            total (resto igual a
    *            0 ou 1 DV cai para 0)
    */
-  protected function febraban_20to44() {
+  function febraban_20to44() {
    /**
     * Read carteira_nosso_numero field.
     * format a-b-cc-d
@@ -107,6 +101,8 @@ class Banco_748 extends Boleto{
    // 44 to 44 Check Digit of febraban 20 to 43
    $cd = $this->modulo_11($this->febraban['20-44']);
    $this->febraban['20-44'] .= $cd['digito'];
+
+
  }
 
   /**

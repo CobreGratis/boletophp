@@ -6,6 +6,7 @@
  * You will also need to install at least one bank plugin for this to work.
  * 
  * @mainpage Boleto Libray - Main Class.
+ * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
 
 /**
@@ -707,11 +708,13 @@ abstract class Boleto {
     // Render the output.
     foreach($img_widths as $key => $width){
       // Rendering.
-      $img = $img_strips[$key];
-      $this->computed['bar_code']['strips'] .= "<img src=$img width=$width height=$height border=0>";
-      
-      // Strip widths for debug checking.
-      $this->computed['bar_code']['widths'] .=  $width;
+      if (isset($img_strips[$key])) {
+        $img = $img_strips[$key];
+        $this->computed['bar_code']['strips'] .= "<img src=$img width=$width height=$height border=0>";
+        
+        // Strip widths for debug checking.
+        $this->computed['bar_code']['widths'] .=  $width;
+      }
     }
   }
 

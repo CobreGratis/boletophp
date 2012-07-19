@@ -3,12 +3,7 @@
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
  *
- * This library is built based on Boletophp v0.17
- * Many thanks to the mantainers and collaborators of Boletophp project at boletophp.com.br.
- * 
- * @file Implementation of Bank 341 - Itau
- * @copyright 2011 boletophp.com.br
- * @package Bradesco
+ * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
 
 class Banco_341 extends Boleto{

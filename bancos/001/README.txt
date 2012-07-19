@@ -1,8 +1,4 @@
-1. INSTALACAO
-   Leia https://github.com/BielSystems/boletophp/blob/refactoring/README.txt
-
-
-2. ARGUMENTOS - CARTEIRA 18
+ARGUMENTOS - CARTEIRA 18
 
    - Carteira 18 com Convenio de 8 digitos
      Nosso número: pode ser até 9 dígitos
