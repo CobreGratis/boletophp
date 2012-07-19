@@ -2,18 +2,8 @@
  /**
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
- *
- * This library is built based on Boletophp v0.17
- * Many thanks to the mantainers and collaborators of Boletophp project at boletophp.com.br.
  * 
  * @file Html template that renders the Boleto output.
- * @link http://www.drupalista.com.br/downloads/bibliotecas/boleto
- * @copyright 2011 Drupalista.com.br
- * @author Francisco Luz <franciscoferreiraluz at yahoo dot com dot au>
- * @package Boleto
- * @version 1.0 Beta
- *
- * 
  */
 
 //convert array into string variables
@@ -27,7 +17,7 @@ foreach($this->output as $key => $value){
   <HEAD>
     <TITLE><?php echo $title; ?></TITLE>
       <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-      <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licen&ccedil;a GPL" />
+      <meta name="Generator" content="Boleto PHP Library - http://drupalista-br.github.com" />
       <link type="text/css" rel="stylesheet" media="all" href="<?php echo $style; ?>" /> 
   </head>
 <BODY>
