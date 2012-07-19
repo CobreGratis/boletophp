@@ -243,10 +243,10 @@ adicionar o seu código de testes, além dos elementos obrigatório do item 3.5,
 
 Para que os seus métodos de test sejam chamados você deverá colocar o prefixo test no nome de seus métodos.
 
-Por Exemplo:
-function testNomeExplicativoDoMeuTesteNoFormatoDesteExemplo() {
-  // testes aqui.
-}
+Por Exemplo:  
+function testNomeExplicativoDoMeuTesteNoFormatoDesteExemplo() {  
+  // testes aqui.  
+}  
 
 Mais exemplos em http://www.simpletest.org/en/first_test_tutorial.html e também no arquivo
 `../boleto-lib/unit-testing/boleto.test.php`
