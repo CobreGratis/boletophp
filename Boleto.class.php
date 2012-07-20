@@ -32,7 +32,7 @@ abstract class Boleto {
   /**
    * Issuer bank code.
    */
-  private $bank_code;
+  protected $bank_code;
 
   /**
    * Issuer bank name.
@@ -206,7 +206,7 @@ abstract class Boleto {
    * @param Array $arguments
    *   TODO: Document this.
    */
-  private function __construct($arguments){
+  protected function __construct($arguments){
     $this->arguments['data_documento']   = date('d-m-Y');
     $this->arguments['data_processamento'] = $this->arguments['data_documento'];
     
@@ -462,7 +462,7 @@ abstract class Boleto {
   /**
    * Assembles the human readable code set (linha digitavel).
    */
-  private function linha_digitavel(){
+  protected function linha_digitavel(){
     // Break down febraban positions 20 to 44 into 3 blocks of 5, 10 and 10
     // characters each.
     $blocks = array(
@@ -515,7 +515,7 @@ abstract class Boleto {
   /**
    * Pre settting.
    */
-  private function settings(){
+  protected function settings(){
     $this->bank_name = 'Ops!!! Aparentemente o banco informado nao esta implementado. No juice for you.';
     $this->settings['bank_logo'] = self::IMAGES_FOLDER . 'bank_logo_default.jpg';
     $this->settings['style'] = '..' . DIRECTORY_SEPARATOR . 'style.css';
@@ -586,7 +586,7 @@ abstract class Boleto {
   /**
    * Generate bar code strips.
    */
-  private function barcode(){
+  protected function barcode(){
     // Assemble code from febraban array.
     $code = '';
     foreach($this->febraban as $value){
@@ -691,7 +691,7 @@ abstract class Boleto {
    * @return String
    *  TODO: Document this.
    */
-  private function direita($entra,$comp){
+  protected function direita($entra,$comp){
     return substr($entra,strlen($entra)-$comp,$comp);
   }
 
