@@ -40,28 +40,15 @@ abstract class Boleto {
   protected $bank_name;
 
   /**
-   * Defines whether or not the bank plugin is installed.
-   */
-  protected $is_implemented = TRUE;
-
-  /**
    * The relative and absolute path locations for the plugin's folder.
    */
-  static protected $plugins_folder_location = array();
+  static protected $plugin_folder_locations = array();
 
   /**
    * Hold warnings issued by the library itself and the bank issuer plugins.
    */
   protected $warnings = array();
 
-  /**
-   * Method registration.
-   */
-  private $methods = array(
-    'child'  => '',
-    'parent' => '',
-  ); 
-  
   /**
    * General settings.
    */
@@ -232,22 +219,6 @@ abstract class Boleto {
       $this->arguments['title'] = $this->arguments['cedente'];   
     }
     $this->bank_code = trim($arguments['bank_code']);
-
-    // Get methods declared in child class.
-    $methods = get_class_methods('Banco_'.$this->bank_code);
-    $child = TRUE;
-    foreach($methods as $key => $method){
-      // Everything listed before construct belongs to the child implementation.
-      if ($method == '__construct'){
-        $child = FALSE;
-      }
-      if ($child){
-        $this->methods['child'][] = $method;
-      }
-      else {
-        $this->methods['parent'][] = $method;
-      }
-    }
 
     $this->constructObject();
   }
@@ -449,13 +420,9 @@ abstract class Boleto {
     // Positions 10 to 19.
     $this->febraban['10-19'] = str_pad($vc, 10, 0, STR_PAD_LEFT);
 
-    if ($this->is_implemented) {
-      // Check if method is implemented.
-      if (in_array('febraban_20to44', $this->methods['child'])){
-        // Positions 20 to 44 vary from bank to bank, so we call the child
-        // method.
-        $this->febraban_20to44();
-      }
+    if (method_exists($this, 'febraban_20to44')) {
+      // Get the positions 20 to 44 from the child implementation.
+      $this->febraban_20to44();
     }
 
     // Calculate the check digit (position 5) of all 43 number set.
@@ -484,15 +451,11 @@ abstract class Boleto {
         $this->setWarning(array("febraban[$key]", "possui $lengh digitos enquanto deveria ter $rules[$key]."));
       }
     }
-    
-    // Check if child class wants to do any custom stuff before object
-    // delivering.
-    if ($this->is_implemented) {    
-      if (in_array('custom', $this->methods['child'])){
-        // When present, this is the last method to be called in the
-        // construction chain.
-        $this->custom();
-      }
+
+    if (method_exists($this, 'custom')) {
+      // When present, this is the last method to be called in the
+      // construction chain.
+      $this->custom();
     }
   }
 
@@ -569,7 +532,7 @@ abstract class Boleto {
     $this->computed['valor_cobrado'] = number_format($this->computed['valor_cobrado'], 2, '.', '');
     
     // Check some basic settings.
-    if ($this->is_implemented){
+    if (method_exists($this, 'setUp')){
       // Check if these files exists.
       $files = array(
         'bank_logo' => array(
@@ -610,7 +573,7 @@ abstract class Boleto {
         }
       }
       // Check if child method is implemented.
-      if (in_array('setUp', $this->methods['child']) && in_array('febraban_20to44', $this->methods['child'])){
+      if (method_exists($this, 'setUp') && method_exists($this, 'febraban_20to44')){
         $this->setUp();
       }
       else {
@@ -794,12 +757,12 @@ abstract class Boleto {
       // Set default.
       $this->output['merchant_logo'] = $this->settings['file_location'] . self::IMAGES_FOLDER . 'merchant_logo.png';
     }
+
     // Check if child class wants to change anything before rendering it out.
-    if ($this->is_implemented) {
-      if (in_array('outputValues', $this->methods['child'])){
-        $this->outputValues();
-      }
+    if (method_exists($this, 'outputValues')) {
+      $this->outputValues();
     }
+
     // It's time for rendering it. Yaaay!!!
     if ($render){
       include_once $this->settings['template'];
@@ -824,14 +787,14 @@ abstract class Boleto {
    */
   static function installedPlugins() {
 
-    $plugins_folder_location = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'bancos';
+    $plugin_folder_locations = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'bancos';
 
-    $bank_codes = scandir($plugins_folder_location);
+    $bank_codes = scandir($plugin_folder_locations);
 
     if (is_array($bank_codes)) {
       foreach ($bank_codes as $key => $bank_code) {
         if (!ctype_alnum($bank_code) ||
-            !is_dir($plugins_folder_location . DIRECTORY_SEPARATOR . $bank_code)) {
+            !is_dir($plugin_folder_locations . DIRECTORY_SEPARATOR . $bank_code)) {
           // Remove all values that have dot(s) in it. (files and . and ..)
           unset($bank_codes[$key]);
         }
