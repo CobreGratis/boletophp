@@ -200,12 +200,6 @@ abstract class Boleto {
     }
   }
   
-  /**
-   * TODO: Document this.
-   *
-   * @param Array $arguments
-   *   TODO: Document this.
-   */
   protected function __construct($arguments){
     $this->arguments['data_documento']   = date('d-m-Y');
     $this->arguments['data_processamento'] = $this->arguments['data_documento'];
@@ -688,6 +682,7 @@ abstract class Boleto {
    *  TODO: Document this.
    * @param String $comp
    *  TODO: Document this.
+   *
    * @return String
    *  TODO: Document this.
    */
@@ -749,6 +744,7 @@ abstract class Boleto {
       'avalista' => $this->arguments['avalista'],
       'codigo_barras' => $this->computed['bar_code']['strips'],
     );
+
     // Check if merchant logo exists.
     if (!empty($this->arguments['merchant_logo'])) {
       $this->output['merchant_logo'] = $this->arguments['merchant_logo'];
@@ -783,7 +779,6 @@ abstract class Boleto {
    *
    * @return Array
    *   An array of bank codes.
-   * 
    */
   static function installedPlugins() {
 

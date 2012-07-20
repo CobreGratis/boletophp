@@ -4,7 +4,7 @@
 1. [Como Usar e Integrar esta Biblioteca à Sua Aplicação](#1-como-usar--testar-a-biblioteca)
 2. [Reportando Bugs, Pedindo Ajuda e Fazendo Sugestões](#2-reportando-bugs-pedindo-ajuda-e-fazendo-sugest%C3%95es)
 3. [Implementando novos Bancos e Carteiras](#3-implementando-novos-bancos-e-carteiras)
-4. [Contribuindo com Código em Geral](#4-contribuindo-com-c%C3%93digo-em-geral)
+4. [Contribuindo com a Biblioteca Principal](#4-contribuindo-com-c%C3%93digo-em-geral)
 5. [Testes de Unidades (Simple Test)](#5-testes-de-unidades-simple-test)
 
 ## 1. COMO USAR E INTEGRAR ESTA BIBLIOTECA À SUA APLICAÇÃO
@@ -51,38 +51,17 @@ Abra chamados em https://github.com/drupalista-br/boleto-lib/issues
 
 ## 3. IMPLEMENTANDO NOVOS BANCOS E CARTEIRAS
 
-Leia também:  
+>NOTA: Caso você queira alterar ou adicionar uma nova carteira a um plugin de banco já existente, então
+vá direto para o passo 4.6.
 
->1. Como Forkear um Repositório e Solicitar Pull Requests no Github: 
-   http://help.github.com/fork-a-repo e  
-   http://help.github.com/send-pull-requests  
-
->2. Documentação API:  
-   AINDA NÃO DISPONÍVEL  
-
-***
-**_3.1_** Você deverá seguir o padrão Doxygen ao comentar o seu Código:  
-   http://www.stack.nl/~dimitri/doxygen/docblocks.html  
-
-***      
-**_3.2_** Acesse https://github.com/drupalista-br/boleto-lib e clique e "Fork".  
-
-***
-**_3.3_** Baixe a sua cópia forkeada com o seguinte comando:  
-
-`$ git clone --branch 1.x-dev git@github.com:USUARIO/boleto.git boleto-fork`  
-
-Onde USUARIO deverá ser substituido pelo seu usuario no Github.  
-
-***
-**_3.4_** Dentro da pasta `../boleto-fork/bancos` crie uma subpasta e a nomeia com o código
+**_3.1_** Dentro da pasta `../boleto/bancos` crie uma subpasta e a nomeie com o código
 do banco que você irá implementar. Por exemplo:  
 
-`../boleto-fork/bancos/237`  
+`../boleto/bancos/237`  
 
 ***
 
-**_3.5_** Crie os seguintes arquivos dentro da subpasta que acabou de criar:
+**_3.2_** Crie os seguintes arquivos dentro da subpasta que acabou de criar:
        
 <table>
     <tr>
@@ -137,7 +116,7 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
     
 ***
 
-**_3.5_**  O arquivo `unit-testing/simpletest.php` deverá conter no mínimo o seguinte código:  
+**_3.3_**  O arquivo `unit-testing/simpletest.php` deverá conter no mínimo o seguinte código:  
 
         <?php
         /**
@@ -169,42 +148,9 @@ Onde XXX em TestOfXXX é o código do banco.
 Exemplo:
 
 ![Sample code for Simpletest](http://a1.sphotos.ak.fbcdn.net/hphotos-ak-prn1/532436_10151041714503007_978552871_n.jpg)
-
 ***
 
-**_3.7_** No arquivo Banco_XXX.php você deverá criar uma classe chamada Banco_XXX  que extends Boleto.  
-
-Por exemplo:  
-
->A sua implementação deverá conter no mínimo o seguinte estrutura de código:
-
-        <?php
-         /**
-         * This code is released under the GNU General Public License.
-         * See COPYRIGHT.txt and LICENSE.txt.
-         *
-         * @author Fulano de Tal <fulanodetal@servidor.com>
-         */
-        
-        class Banco_XXX extends Boleto{  
-          function febraban_20to44() {
-            // Calcule as posições 20 a 44 do número febraban de acordo
-            // com as regras das carteiras do banco.
-            // ...
-        
-            // Salve o número com 25 digitos na propriedade febraban['20-44'].
-            $this->febraban['20-44'] = $numero_calculado;
-          }
-        }  
-
-
-Onde XXX em Banco_XXX é o código do banco sendo implementado.
-
-![Simpletest for Boleto PHP Library](http://a5.sphotos.ak.fbcdn.net/hphotos-ak-snc6/251968_10151043011668007_369008859_n.jpg)
-
-***
-
-**_3.8_** Na classe Banco_XXX que acabara de criar você precisa implementar os seguintes métodos:  
+**_3.4_** Na classe Banco_XXX que acabara de criar você precisa implementar os seguintes métodos:  
 
 <table>
     <tr>
@@ -240,8 +186,14 @@ Onde XXX em Banco_XXX é o código do banco sendo implementado.
 Dê uma olhada nas implementações já existentes na pasta `../boleto-lib/bancos` para usar como exemplo.
 
 ***
+
 ### Especificação do Número Febraban.
->Este número é a base para calcular a linha digitável e o código de barras.
+>Este número é a base para calcular a linha digitável e o código de barras.  
+
+>Você só precisa se preocupar em calcular as posições 20 ao 44.
+
+>As posições 20 a 44 é a única coisa que diferencia boletos de um banco para outro ou mesmo de
+uma carteira para outra de um mesmo banco.
 
 <table>
     <tr>
@@ -283,35 +235,107 @@ Dê uma olhada nas implementações já existentes na pasta `../boleto-lib/banco
     
 ***
 
-**_3.9_** Uma vez que fizer o push dos seus commits, acesse `https://github.com/drupalista-br/Boleto/issues`
-e crie um issue solicitando a criação e listagem de seu novo repositório para o seu novo plugin caso ainda
-não exista.
+**_3.5_** No arquivo Banco_XXX.php você deverá criar uma classe chamada Banco_XXX  que extends Boleto.  
 
-## 4. CONTRIBUINDO COM CÓDIGO EM GERAL
+Por exemplo:  
 
-Leia também
->1. Como Forkear um Repositório e Solicitar Pull Requests no Github  
-   [http://help.github.com/fork-a-repo](http://help.github.com/fork-a-repo) e  
-   [http://help.github.com/send-pull-requests](http://help.github.com/send-pull-requests)  
+>A sua implementação deverá conter no mínimo o seguinte estrutura de código:
 
+        <?php
+         /**
+         * This code is released under the GNU General Public License.
+         * See COPYRIGHT.txt and LICENSE.txt.
+         *
+         * @author Fulano de Tal <fulanodetal@servidor.com>
+         */
+        
+        class Banco_XXX extends Boleto{  
+          function febraban_20to44() {
+            // Calcule as posições 20 a 44 do número febraban de acordo com
+            // os argumentos em $this->arguments e com as regras da(s)
+            // carteira(s) do banco.
+            // ...
+        
+            // Salve o número com 25 digitos na propriedade febraban['20-44'].
+            $this->febraban['20-44'] = $numero_calculado;
+          }
+        }  
+
+
+Onde XXX em Banco_XXX é o código do banco sendo implementado.
+
+![Simpletest for Boleto PHP Library](http://a5.sphotos.ak.fbcdn.net/hphotos-ak-snc6/251968_10151043011668007_369008859_n.jpg)
+
+***
+
+**_3.6_** Uma vez que fizer o push dos seus commits, acesse https://github.com/drupalista-br/Boleto/issues
+e crie um issue solicitando a inserção do link do seu novo plugin na nossa listagem de plugins em
+https://github.com/drupalista-br/Boleto/tree/1.x-dev/bancos .
+
+Não esqueça de informar o link do seu repositório.
+
+## 4. CONTRIBUINDO COM A BIBLIOTECA PRINCIPAL  
+
+Leia também:
+>1. Como Forkear um Repositório e Solicitar Pull Requests no Github nos links http://help.github.com/fork-a-repo e
+http://help.github.com/send-pull-requests
+   
 >2. Documentação do API:  
    Precisando de um Patrocínio para hospedar o [phpDocumentor](http://www.phpdoc.org)
 
->3. Você deverá seguir o padrão Doxygen ao comentar o seu Código
-   [http://www.stack.nl/~dimitri/doxygen/docblocks.html](http://www.stack.nl/~dimitri/doxygen/docblocks.html)
+***
+
+**_4.1_** Você deverá seguir o padrão Doxygen ao comentar o seu Código:  
+   http://www.stack.nl/~dimitri/doxygen/docblocks.html  
 
 ***
 
-**_4.1_** Se você ainda não fez então faça os passos 3.2 e 3.3.
+**_4.2_** Acesse https://github.com/drupalista-br/boleto e clique e "Fork". Feito isto o github criará um
+novo repositório em sua conta contendo uma cópia do repositório Boleto.
 
 ***
 
-**_4.2_** Faça as modificações / correções no código, commit e push para o seu
-       repositório Forkeado.
+**_4.3_** Agora baixe o código de sua cópia forkeada com o seguinte comando:  
+
+`$ git clone --branch 1.x-dev git@github.com:USUARIO/boleto.git boleto-lib`  
+
+Onde USUARIO deverá ser substituido pelo seu usuario no Github.  
+
 ***
 
-**_4.3_** Acesse o seu reposório forkeado no Github e clique em "Pull Request".
-    O Pull Request irá criar automaticamente um issue solicitando que o seu código seja mergido.
+**_4.4_** Uma vez que você fizer as modificações / inserções / correções no código, então você deverá atualizar
+o seu repositório forkeado. Aqui vão os comandos:
+
+`$ git add . `  
+`$ git commit -m "Sua mensagem explicando o que foi feito"`  
+`$ git push origin 1.x-dev`  
+
+A partir de agora o seu repositório forkeado possue um código diferente do repositório Boleto o qual você
+inicialmente fez uma cópia.
+
+O próximo passo mostra como mergir as suas alterações para o repositíro Boleto.
+
+***
+
+**_4.5_** Acesse o seu reposório forkeado no Github e clique em "Pull Request".  
+
+O Pull Request irá criar automaticamente um issue solicitando que o seu código seja mergido.
+
+Uma vez que o seu código for analisado, uma das seguintes ações poderão ser tomadas:  
+
+1. O seu pull request é aceito e o seu código é mergido ou
+2. Poderá ser solicitado que você faça algum ajuste antes que o pull request seja aceito. Neste caso basta repetir
+o processo do passo 4.3 e o github automaticamente insere o seu novo commit no pull request.
+3. Ou o seu pull request é recusado e o issue é fechado. Neste caso será argumentado as razões da recusa.
+
+***
+
+**_4.6_** Caso você queira por exemplo alterar ou adicionar uma nova carteira à um plugin de banco já existente
+você deverá seguir os passos 4.1 ao 4.5, entretanto no passo 4.2 você irá forkear o repositório do plugin do banco
+em questão ao invés de forkear o repositório do Boleto.  
+
+Vale lembrar ainda que o passo 4.3 deverá ser feito dentro da pasta `../boleto/bancos` e a subpasta do repositório
+sendo baixado deverá ser renomeada para o código do banco.
 
 ## 5. TESTES DE UNIDADES (SIMPLE TEST)
 
@@ -344,7 +368,7 @@ O código dos Testes de Unidades estão alojados em dois locais. São eles:
 Onde XXX é o código do banco.
 
 Provavelmente não seja necessário, mas caso queira adicionar testes de unidades em um plugin de banco, você deverá
-adicionar o seu código de testes, além dos elementos obrigatório do item 3.5, em
+adicionar o seu código de testes, além dos elementos obrigatório do item 3.3, em
 `../boleto-lib/bancos/XXX/unit-testing/simpletest.php`
 
 Para que os seus métodos de teste sejam chamados você deverá colocar o prefixo `test` no nome de seus métodos.
