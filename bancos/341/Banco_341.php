@@ -10,7 +10,7 @@ class Banco_341 extends Boleto{
   /**
    * Implementation of setUp().
    */
-  public function setUp(){
+  function setUp(){
     $this->bank_name = 'Itau';
   }
   

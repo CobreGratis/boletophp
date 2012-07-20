@@ -5,18 +5,19 @@
  *
  * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
+
 class Banco_001 extends Boleto{
   /**
    * Implementation of setUp().
    */
-  public function setUp(){
+  function setUp(){
     $this->bank_name  = 'Banco do Brasil SA';
   }
   
   /**
    * Implementation of Febraban free range set from position 20 to 44.
    */
-  public function febraban_20to44(){
+  function febraban_20to44(){
     // Get convenio number (convention) and contract number.
     // Set empty variable to avoid any eventuality.
     $convenio = '';
@@ -114,7 +115,7 @@ class Banco_001 extends Boleto{
   /**
    * Customize object to meet specific needs.
    */
-  public function custom(){
+  function custom(){
     // Calculates check digit for branch number.
     $this->computed['agencia_dv'] = $this->arguments['agencia_dv'];
     if(empty($this->arguments['agencia_dv']) &&  $this->arguments['agencia_dv'] != '0'){
@@ -127,7 +128,7 @@ class Banco_001 extends Boleto{
    * Manipulate output fields before them getting rendered.
    * This method is called by output().
    */
-  public function outputValues(){
+  function outputValues(){
     $this->output['agencia_codigo_cedente'] = $this->arguments['agencia'] . '-' .
     $this->computed['agencia_dv'] . ' / ' . $this->arguments['conta'] . '-' . $this->arguments['conta_dv'];
     

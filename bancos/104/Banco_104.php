@@ -10,7 +10,7 @@ class Banco_104 extends Boleto{
   /**
    * Implementation of setUp().
    */
-  public function setUp(){
+  function setUp(){
     $this->bank_name = 'Caixa Econ&ocirc;mica Federal';
   }
   
@@ -25,14 +25,14 @@ class Banco_104 extends Boleto{
     $this->febraban['20-44'] = $this->computed['nosso_numero'];
     //positons 30 to 33
     $this->febraban['20-44'] .= $this->arguments['agencia'];
-    //positons 34 to 43
+    // Positons 34 to 43
     $this->febraban['20-44'] .= str_pad($this->arguments['conta'], 10, 0, STR_PAD_LEFT);
   }
 
   /**
    * Customize object to meet specific needs.
    */
-  public function custom(){
+  function custom(){
     // Set nosso_numero check digit.
     $checkDigit = $this->modulo_11($this->computed['nosso_numero']);
     // Now concatenate nosso_numero_com_dv with its check digit.
@@ -43,7 +43,7 @@ class Banco_104 extends Boleto{
    * Manipulate output fields before them getting rendered. This method is
    * called by output().
    */
-  public function outputValues(){
+  function outputValues(){
     $this->output['nosso_numero'] = $this->computed['nosso_numero'];
   }
 }

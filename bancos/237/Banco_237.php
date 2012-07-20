@@ -10,14 +10,14 @@ class Banco_237 extends Boleto{
   /**
    * Implementation of setUp().
    */
-  public function setUp(){
+  function setUp(){
     $this->bank_name = 'Bradesco SA';
   }
 
   /**
    * Implementation of Febraban free range set from position 20 to 44.
    */
-  public function febraban_20to44(){
+  function febraban_20to44(){
     // 20-23 -> Código da Agencia (sem dígito)  4
     // 24-25 -> Número da Carteira              2
     // 26-36 -> Nosso Número (sem dígito)      11
@@ -39,7 +39,7 @@ class Banco_237 extends Boleto{
   /**
    * Customize object to meet specific needs.
    */
-  public function custom(){
+  function custom(){
     // Get nosso_numero pieces and bits together.
     $checkDigit = $this->arguments['carteira_nosso_numero'] . $this->computed['nosso_numero'];
 
@@ -53,7 +53,7 @@ class Banco_237 extends Boleto{
   /**
    * Manipulate output fields before them getting rendered. This method is called by output().
    */
-  public function outputValues(){  
+  function outputValues(){  
     $this->output['agencia_codigo_cedente'] = $this->arguments['agencia'] . '-' . $this->arguments['agencia_dv'] .
     ' / ' . $this->arguments['conta'] . '-' . $this->arguments['conta_dv'];
 

@@ -73,7 +73,7 @@ abstract class Boleto {
   );
 
   /**
-   * Arguments sent by the application using this library.
+   * Arguments sent by the application integrating this library.
    */
   protected $arguments = array(
     'merchant_logo' => '',
@@ -385,12 +385,12 @@ abstract class Boleto {
    */
   protected function codigo_banco_com_dv() {
     if (!empty($this->arguments['bank_code_cd'])) {
-      $this->computed['codigo_banco_com_dv'] = $this->bank_code.'-'.$this->arguments['bank_code_cd'];
+      $this->computed['codigo_banco_com_dv'] = $this->bank_code . '-' . $this->arguments['bank_code_cd'];
     }
     else {
       //  Set codigo_banco_com_dv.
       $bank_code_checkDigit = $this->modulo_11($this->bank_code);
-      $this->computed['codigo_banco_com_dv'] = $this->bank_code.'-'.$bank_code_checkDigit['digito'];
+      $this->computed['codigo_banco_com_dv'] = $this->bank_code . '-' . $bank_code_checkDigit['digito'];
       
     }
   }
@@ -448,7 +448,7 @@ abstract class Boleto {
     foreach($this->febraban as $key => $value){
       $lengh = strlen($value);
       if ($lengh != $rules[$key]){
-        $this->setWarning(array("febraban[$key]", "possui $lengh digitos enquanto deveria ter $rules[$key]."));
+        $this->setWarning(array("febraban[$key]", "possui $lengh digitos enquanto deveria ter $rules[$key] ."));
       }
     }
 
@@ -473,14 +473,14 @@ abstract class Boleto {
 
     // Concatenates bankCode + currencyCode + first block of 5 characters and
     // calculates its check digit for part1.
-    $checkDigit = $this->modulo_10($this->bank_code.$this->febraban['4-4'].$blocks['20-24']);
+    $checkDigit = $this->modulo_10($this->bank_code. $this->febraban['4-4'] . $blocks['20-24']);
 
     // Shift in a dot on block 20-24 (5 characters) at its 2nd position.
     $blocks['20-24'] = substr_replace($blocks['20-24'], '.', 1, 0);
 
     // Concatenates bankCode + currencyCode + first block of 5 characters +
     // checkDigit.
-    $part1 = $this->bank_code.$this->febraban['4-4'].$blocks['20-24'].$checkDigit;
+    $part1 = $this->bank_code. $this->febraban['4-4'] . $blocks['20-24'] . $checkDigit;
     
     // Calculates part2 check digit from 2nd block of 10 characters.
     $checkDigit = $this->modulo_10($blocks['25-34']);
@@ -493,7 +493,7 @@ abstract class Boleto {
     $checkDigit = $this->modulo_10($blocks['35-44']);
      
     // As part2, we do the same process again for part3.
-    $part3 = $blocks['35-44'].$checkDigit;
+    $part3 = $blocks['35-44'] . $checkDigit;
     $part3 = substr_replace($part3, '.', 5, 0);
      
     // Check digit for the human readable number.
@@ -558,7 +558,7 @@ abstract class Boleto {
       foreach($files as $key => $value){
         $filename = $value['#file_name'];
         
-        if (@file_exists($true_path. DIRECTORY_SEPARATOR .$filename)){
+        if (@file_exists($true_path. DIRECTORY_SEPARATOR . $filename)){
           if ($key == 'template'){
             $this->settings[$key] = $true_path . DIRECTORY_SEPARATOR . $filename;
           }
@@ -622,7 +622,7 @@ abstract class Boleto {
     for($i = 0; $i <= $total; $i++){
       // White for odd numbers and black for even numbers. Actually what matters
       // is black being the first to start off.
-      if ($i&1){
+      if ($i & 1){
         $img_strips[] = $white;
       }
       else {
@@ -642,7 +642,7 @@ abstract class Boleto {
       $i = round(substr($code, 0, 2));
       $code = $this->direita($code, strlen($code) - 2);
       $f = $barcodes[$i];
-      for($i=1; $i<11; $i+=2){
+      for($i=1; $i < 11; $i += 2){
         if (substr($f, ($i-1), 1) == "0") {
           $f1 = $thinner;
         }
@@ -733,7 +733,7 @@ abstract class Boleto {
       'local_pagamento' => $this->arguments['local_pagamento'],
       'data_documento' => $this->arguments['data_documento'],
       'numero_documento' => $this->arguments['numero_documento'],
-      'agencia_codigo_cedente'=> $this->arguments['agencia'].' / ' . $this->arguments['conta'] . '-' . $this->arguments['conta_dv'],
+      'agencia_codigo_cedente'=> $this->arguments['agencia'] .' / ' . $this->arguments['conta'] . '-' . $this->arguments['conta_dv'],
       'nosso_numero' => $this->computed['nosso_numero'],
       'especie_doc' => $this->arguments['especie_doc'],
       'aceite' => $this->arguments['aceite'],

@@ -200,7 +200,7 @@ Por exemplo:
 
 Onde XXX em Banco_XXX é o código do banco sendo implementado.
 
-![Simpletest for Boleto PHP Library](http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash4/314778_10151042871613007_1252058544_n.jpg)
+![Simpletest for Boleto PHP Library](http://a5.sphotos.ak.fbcdn.net/hphotos-ak-snc6/251968_10151043011668007_369008859_n.jpg)
 
 ***
 
@@ -311,7 +311,7 @@ Leia também
 ***
 
 **_4.3_** Acesse o seu reposório forkeado no Github e clique em "Pull Request".
-    O Pull Request ira criar automaticamente um issue solicitando que o seu código seja mergido.
+    O Pull Request irá criar automaticamente um issue solicitando que o seu código seja mergido.
 
 ## 5. TESTES DE UNIDADES (SIMPLE TEST)
 
@@ -347,7 +347,7 @@ Provavelmente não seja necessário, mas caso queira adicionar testes de unidade
 adicionar o seu código de testes, além dos elementos obrigatório do item 3.5, em
 `../boleto-lib/bancos/XXX/unit-testing/simpletest.php`
 
-Para que os seus métodos de test sejam chamados você deverá colocar o prefixo `test` no nome de seus métodos.
+Para que os seus métodos de teste sejam chamados você deverá colocar o prefixo `test` no nome de seus métodos.
 
 Por Exemplo:
 

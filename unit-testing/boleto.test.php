@@ -87,7 +87,7 @@ abstract class BoletoTestCase extends UnitTestCase {
     }
   }
 
-  function testFebraban20to44PropertyIsNumericAndHas15Digits() {
+  function testFebraban20to44PropertyIsNumericAndHas25Digits() {
     foreach($this->boletoObject as $test_case_obj) {
       $febraban = $test_case_obj->febrabanPropertyGetter();
       $this->assertTrue(is_numeric($febraban['20-44']));
