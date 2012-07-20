@@ -33,14 +33,14 @@ ou faça o Download da última versão estável do plugin em https://github.com/
 
 ***
 
-**_1.3_** No seu navegador gere um boleto de teste acessando o script de exemplo que esta dentro
+**_1.3_** No seu navegador gere um boleto de demonstração acessando o script de exemplo que esta dentro
 da pasta `../boleto-lib/bancos/XXX/example.php`  
 
 Por exemplo:  
 `http://localhost/boleto-lib/bancos/001/example.php`  
 
 ***       
-Cada banco implementado possui um script de examplo dentro da pasta `../boleto-lib/bancos/XXX`.  
+Cada banco implementado possui um script de exemplo dentro da pasta `../boleto-lib/bancos/XXX`.  
 Onde XXX é o código do banco.  
 
 Use os arquivos de examplo do(s) banco(s) que você queira integrar à sua aplicação.
@@ -70,15 +70,15 @@ Leia também:
 ***
 **_3.3_** Baixe a sua cópia forkeada com o seguinte comando:  
 
-`$ git clone --branch 1.x-dev git@github.com:USUARIO/boleto.git boleto`  
+`$ git clone --branch 1.x-dev git@github.com:USUARIO/boleto.git boleto-fork`  
 
 Onde USUARIO deverá ser substituido pelo seu usuario no Github.  
 
 ***
-**_3.4_** Dentro da pasta `../boleto-lib/bancos` crie uma subpasta e a nomeia com o código
+**_3.4_** Dentro da pasta `../boleto-fork/bancos` crie uma subpasta e a nomeia com o código
 do banco que você irá implementar. Por exemplo:  
 
-`../boleto-lib/bancos/237`  
+`../boleto-fork/bancos/237`  
 
 ***
 
@@ -99,7 +99,7 @@ do banco que você irá implementar. Por exemplo:
         <td>Obrigatório</td>
         <td>README.txt ou README.md</td>
         <td>Instruções sobre a formatação dos campos do Boleto para este banco. 
-Pode-se user README.md ao invés de README.txt. Saiba mais sobre Markdown em http://github.github.com/github-flavored-markdown
+Pode-se usar README.md ao invés de README.txt. Saiba mais sobre Markdown em http://github.github.com/github-flavored-markdown
 </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ será usado. Veja a implementação do Banco do Brasil como exemplo</td>
     <tr>
         <td>obrigatório</td>
         <td>example.php</td>
-        <td>Não é obrigatório adicionar código de exemplo, mas este arquivo precisa existi, mesmo que vazio.
+        <td>Não é obrigatório adicionar código de exemplo, mas este arquivo precisa existir, mesmo que vazio.
         Este arquivo serve como "use case" para as pessoas poderem ver como fica o boleto gerado por seu plugin
         acessando `http://localhost/boleto-lib/bancos/XXX/example.php`. Onde XXX é o código do
         banco.
@@ -175,10 +175,33 @@ Exemplo:
 **_3.7_** No arquivo Banco_XXX.php você deverá criar uma classe chamada Banco_XXX  que extends Boleto.  
 
 Por exemplo:  
->class Banco_237 extends Boleto{  
-   // Meu código.  
- }  
-       
+
+>A sua implementação deverá conter no mínimo o seguinte estrutura de código:
+
+        <?php
+         /**
+         * This code is released under the GNU General Public License.
+         * See COPYRIGHT.txt and LICENSE.txt.
+         *
+         * @author Fulano de Tal <fulanodetal@servidor.com>
+         */
+        
+        class Banco_XXX extends Boleto{  
+          function febraban_20to44() {
+            // Calcule as posições 20 a 44 do número febraban de acordo
+            // com as regras das carteiras do banco.
+            // ...
+        
+            // Salve o número com 25 digitos na propriedade febraban['20-44'].
+            $this->febraban['20-44'] = $numero_calculado;
+          }
+        }  
+
+
+Onde XXX em Banco_XXX é o código do banco sendo implementado.
+
+![Simpletest for Boleto PHP Library](http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash4/314778_10151042871613007_1252058544_n.jpg)
+
 ***
 
 **_3.8_** Na classe Banco_XXX que acabara de criar você precisa implementar os seguintes métodos:  
@@ -187,22 +210,76 @@ Por exemplo:
     <tr>
         <td>opcional</td>
         <td>setUp()</td>
+        <td></td>
     </tr>
     <tr>
         <td>Obrigatório</td>
         <td>febraban_20to44()</td>
+        <td>A linha digitável e o código de barras são calculados com base num número com 44 digitos
+        chamado de especificação febraban. Veja abaixo como este número é constituido.  
+        <br><br>
+        As posições 1 a 19 é padrão para todos os bancos. As posições 20 a 44 é livre para os bancos
+        armazenem as informações que quizerem e na forma que quizerem.  
+        <br><br>
+        Assim, este método "febraban_20to44()" deverá construir este número com total de 25 digitos, de acordo
+        com as espeficações das carteiras do banco, e armazena-lo na propriedade $this->febraban['20-44'].  
+        </td>
     </tr>
     <tr>
         <td>opcional</td>
         <td>custom()</td>
+        <td></td>
     </tr>
     <tr>
         <td>opcional</td>
         <td>outputValues()</td>
+        <td></td>
     </tr>
 </table>
     
 Dê uma olhada nas implementações já existentes na pasta `../boleto-lib/bancos` para usar como exemplo.
+
+***
+### Especificação do Número Febraban.
+>Este número é a base para calcular a linha digitável e o código de barras.
+
+<table>
+    <tr>
+        <td>Posição</td>
+        <td>Quant. de Dígitos</td>
+        <td>Descrição</td>
+    </tr>
+    <tr>
+        <td>01-03</td>
+        <td>3</td>
+        <td>Código do banco sem o digito</td>
+    </tr>
+    <tr>
+        <td>04-04</td>
+        <td>1</td>
+        <td>Código da Moeda (9-Real)</td>
+    </tr>
+    <tr>
+        <td>05-05</td>
+        <td>1</td>
+        <td>Dígito verificador do código de barras</td>
+    </tr>
+    <tr>
+        <td>06-09</td>
+        <td>4</td>
+        <td>Fator de vencimento</td>
+    </tr>
+    <tr>
+        <td>10-19</td>
+        <td>10</td>
+        <td>Valor Nominal do Título</td>
+    </tr>
+    <tr>
+        <td>20-44</td>
+        <td>25</td>
+        <td>Campo Livre. Reservado aos bancos.</td>
+    </tr>
+</table>
     
 ***
 
@@ -270,7 +347,7 @@ Provavelmente não seja necessário, mas caso queira adicionar testes de unidade
 adicionar o seu código de testes, além dos elementos obrigatório do item 3.5, em
 `../boleto-lib/bancos/XXX/unit-testing/simpletest.php`
 
-Para que os seus métodos de test sejam chamados você deverá colocar o prefixo test no nome de seus métodos.
+Para que os seus métodos de test sejam chamados você deverá colocar o prefixo `test` no nome de seus métodos.
 
 Por Exemplo:
 
