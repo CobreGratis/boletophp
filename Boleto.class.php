@@ -7,6 +7,7 @@
  * 
  * @mainpage Boleto Libray - Main Class.
  * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
+ * @package BoletoLibraryPHP
  */
 
 /**
@@ -812,7 +813,7 @@ abstract class Boleto {
    *  Whether or not the current warning should be added to the warning
    *  parameter
    */  
-  public function setWarning($message, $action = TRUE){
+  private function setWarning($message, $action = TRUE){
     if ($action){
       $this->warnings[$message[0]][] = $message[1];
     }

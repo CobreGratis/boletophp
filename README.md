@@ -33,17 +33,86 @@ ou faça o Download da última versão estável do plugin em https://github.com/
 
 ***
 
-**_1.3_** No seu navegador gere um boleto de demonstração acessando o script de exemplo que esta dentro
-da pasta `../boleto-lib/bancos/XXX/example.php`  
+**_1.3_** Para integrar esta biblioteca a qualquer aplicação PHP você precisará usar apenas dois métodos.
+São eles:
+>Para mais informações sobre todos os métodos setters and getters disponíveis, acesse a
+[Documentação do API](http://drupalista-br.github.com/Boleto/classes/Boleto.html)
 
-Por exemplo:  
-`http://localhost/boleto-lib/bancos/001/example.php`  
+<table>
+  <tr>
+    <td>Boleto::load_boleto($argumentos = array())</td>
+    <td>Este método é usado para instanciar um novo objeto.<br>Note que este método é chamado estaticamente.</td>
+  </tr>
+  <tr>
+    <td>output($render = TRUE)</td>
+    <td>Este método gera o html do boleto.
+      <br>
+      <br>Se você passar o parâmetro FALSE então
+      <br>somente a propriedade $boleto->output é populada mas o html não é gerado.<br>
+          Neste caso use o método outputPropertyGetter() para salvar o output<br>
+          em uma variável. Por exemplo:<br>
+          $output = $boleto->outputPropertyGetter();
+    </td>
+  </tr>
+</table>
 
-***       
-Cada banco implementado possui um script de exemplo dentro da pasta `../boleto-lib/bancos/XXX`.  
-Onde XXX é o código do banco.  
+* O seu código de integração deverá ter esta estrutura:
+>Note que apesar de todos os possíveis valores dos argumentos estarem listados abaixo, nem sempre você precisa
+enviar todos eles, veja a documentação de cada plugin para determinar o que obrigatoriamente precisa ser
+enviado.
 
-Use os arquivos de examplo do(s) banco(s) que você queira integrar à sua aplicação.
+        <?php
+        $argumentos = array(
+          'bank_code' => '104',
+          'agencia' => 1234,
+          'agencia_dv' => '2',
+          'conta' => 12345678901,
+          'conta_dv' => 3,
+          'valor_boleto' => '2952.95',
+          'numero_documento' => '27030195',
+          'endereco' => 'street name and number',
+          'cidade_uf'=> 'city and state',
+          'cedente'  => 'ABC Company Ltd',
+          'sacado' => 'John Doe',
+          'carteira' => 'A',
+          'carteira_nosso_numero' => '80',
+          'nosso_numero' => '12345678',
+          'cpf_cnpj' => '000.000.000-00', 
+          'endereco1' => 'street name and number',
+          'endereco2' => 'city and state',
+          'demonstrativo1' => 'Your text here',
+          'demonstrativo2' => 'Your text here',
+          'demonstrativo3' => 'Your text here',
+          'instrucoes1' => 'Your text here',
+          'instrucoes2' => 'Your text here',
+          'instrucoes3' => 'Your text here',
+          'instrucoes4' => 'Your text here',
+          'data_vencimento' => '25-07-2011',
+          'desconto_abatimento' => '0.00',
+          'outras_deducoes' => '0.00',
+          'mora_multa' => '0.00',
+          'outros_acrescimos' => '50.55',
+          'title' => 'My title',
+          'local_pagamento' => 'Your text here',
+          'especie' => 'Your value here',
+          'quantidade' => 'Your value here',
+          'valor_unitario' => 'Your value here',
+          'especie_doc' => 'Your value here',
+          'data_processamento' => 'dd/mm/yyy',
+          'avalista' => 'Michael Jackson',
+          'aceite'=> 'Your value here',
+          'merchant_logo' => 'images/logo.jpg',
+        );
+        
+        $boleto = Boleto::load_boleto($argumentos);
+        $boleto->output();
+
+
+Encontre exemplos na pasta `../boleto-lib/bancos/XXX/example.php`. Para ver a demonstração acesse:  
+
+`http://localhost/boleto-lib/bancos/XXX/example.php`
+
+Onde XXX é o código do banco.
 
 ## 2. REPORTANDO BUGS, PEDINDO AJUDA E FAZENDO SUGESTÕES
 
@@ -280,8 +349,8 @@ Leia também:
 >1. Como Forkear um Repositório e Solicitar Pull Requests no Github nos links http://help.github.com/fork-a-repo e
 http://help.github.com/send-pull-requests
    
->2. Documentação do API:  
-   Precisando de um Patrocínio para hospedar o [phpDocumentor](http://www.phpdoc.org)
+>2. Mais informações sobre as propriedades e métodos disponíveis na
+[Documentação do API](http://drupalista-br.github.com/Boleto/classes/Boleto.html)
 
 ***
 
