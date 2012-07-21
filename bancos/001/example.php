@@ -1,27 +1,24 @@
 <?php
 /**
- * @file Test example for Bradesco Bank.
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
- *
+ * @file
+ * Example for Banco do Brasil.
  */
 
 /**
  * Include the main boleto class file.
  */
-include_once('../Boleto.class.php');
+include_once '../../Boleto.class.php';
 
 $myArguments = array(
   // Merchant's bank code (NO check digit). Note that this is not the same as
   // the branch number.
-  'bank_code' => '237',
-  // Bank code check digit.
- // 'bank_code_cd' => 'X',
+  'bank_code' => '001',
+  'bank_code_cd' => 'X',
   // Merchant's branch number (NO check digit).
   'agencia' => 1234,
   'agencia_dv' => '2',
   // Merchant's account number (NO check digit).
-  'conta'    => 12345,
+  'conta'    => 12345678,
   // Check digit of Merchant's account number.
   'conta_dv' => 3,
   // No thousand separator. Full stop for decimal separator. This is the total
@@ -38,11 +35,11 @@ $myArguments = array(
   // Client's name (payer)
   'sacado' => 'John Doe',
   // Vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt .
-  'carteira' => 'A',
+  'carteira' => 18,
   // vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt
-  'carteira_nosso_numero' => '3-1-18-2',
+  'carteira_nosso_numero' => '222222-333333',
   //vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt
-  'nosso_numero' => '13871',
+  'nosso_numero' => '99999999999999999',
   // Merchant's tax file number, see http://en.wikipedia.org/wiki/CNPJ for
   // more info.
   'cpf_cnpj' => '000.000.000-00', 
@@ -154,6 +151,8 @@ $myArguments = array(
 // Instantiate an object and send the array of arguments through.
 $myBoleto = Boleto::load_boleto($myArguments);
 
+// You probably wont need to set this in a real life production enviroment
+$myBoleto->settingsPropertySetter(array('file_location' => '../'));
 
 // You can change stuff around like this:
 // $myBoleto->settings['bank_logo']  = 'path-to-logo/logo.jpg';
@@ -164,6 +163,5 @@ $myBoleto = Boleto::load_boleto($myArguments);
 // If you wanna print out the html then call
 $myBoleto->output();
 
-// Use $myBoleto->output(FALSE); to only populate the output property without
-// rendering the html
+// Use $myBoleto->output(FALSE); to only populate the output property without rendering the html
 

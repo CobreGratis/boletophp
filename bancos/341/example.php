@@ -1,50 +1,51 @@
 <?php
-/**
- * @file Test example for Caixa Economica Bank.
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
+ /**
+ * This code is released under the GNU General Public License.
+ * See COPYRIGHT.txt and LICENSE.txt.
  *
+ * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
  */
 
 /**
  * Include the main boleto class file.
  */
-include_once('../Boleto.class.php');
+include_once '../../Boleto.class.php';
 
 $myArguments = array(
   // Merchant's bank code (NO check digit). Note that this is not the same as
   // the branch number.
-  'bank_code' => '104',
+  'bank_code' => '341',
+  // Bank code check digit.
   // 'bank_code_cd' => 'X',
   // Merchant's branch number (NO check digit).
-  'agencia' => 1234,
-  'agencia_dv' => '2',
+  'agencia' => 1354,
+  'agencia_dv' => 9,
   // Merchant's account number (NO check digit).
-  'conta'    => 12345678901,
+  'conta'    => 25077,
   // Check digit of Merchant's account number.
-  'conta_dv' => 3,
+  'conta_dv' => 9,
   // No thousand separator. Full stop for decimal separator. This is the total
   // amount before deductions/additions.
-  'valor_boleto' => '2952.95',
+  'valor_boleto' => '1.00',
   // Generally this is used for placing the order number.
-  'numero_documento' => '27030195',
+  'numero_documento' => 1000,
   // Merchant's address.
-  'endereco' => 'street name and number',
+  'endereco' => 'Av. Ludovico da Riva Neto, 1226',
   // Merchant's city and state.
-  'cidade_uf'=> 'city and state',
+  'cidade_uf'=> 'Alta Floresta MT 78.580-000',
   // Merchant's name.
-  'cedente'  => 'ABC Company Ltd',
+  'cedente'  => 'Francisco Ferreira Luz',
   // Client's name (payer)
   'sacado' => 'John Doe',
   // Vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt .
-  'carteira' => 'A',
+  'carteira' => '157',
   // vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt
-  'carteira_nosso_numero' => '80',
+  'carteira_nosso_numero' => '157',
   //vary from bank to bank, so see readme file at bancos/BANKCODE/readme.txt
-  'nosso_numero' => '80',
+  'nosso_numero' => '75582605',
   // Merchant's tax file number, see http://en.wikipedia.org/wiki/CNPJ for
   // more info.
-  'cpf_cnpj' => '000.000.000-00', 
+  'cpf_cnpj' => '462.083.893-48', 
   // Client's address line 1, includes street name and number.
   'endereco1' => 'street name and number',
   // Client's address line 2, includes city, state and zip code.
@@ -73,7 +74,7 @@ $myArguments = array(
    * You can set it to -1 to make it "cash against document" ( Contra
    * Apresentação ).
    */
-  // 'data_vencimento' => '25-07-2011',
+   'data_vencimento' => '23-04-2012',
   
   /**
    *  Use period as the decimal separator. This is the discount field (-).
@@ -152,7 +153,8 @@ $myArguments = array(
 
 // Instantiate an object and send the array of arguments through.
 $myBoleto = Boleto::load_boleto($myArguments);
-
+// You probably wont need to set this in a real life production enviroment
+$myBoleto->settingsPropertySetter(array('file_location' => '../'));
 
 // You can change stuff around like this:
 // $myBoleto->settings['bank_logo']  = 'path-to-logo/logo.jpg';
@@ -163,5 +165,6 @@ $myBoleto = Boleto::load_boleto($myArguments);
 // If you wanna print out the html then call
 $myBoleto->output();
 
-// Use $myBoleto->output(FALSE); to only populate the output property without rendering the html
+// Use $myBoleto->output(FALSE); to only populate the output property without
+// rendering the html
 

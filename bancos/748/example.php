@@ -1,22 +1,20 @@
 <?php
 /**
- * @file Test example for Itaú Bank.
- * @copyright 2012 boletophp.com.br
- * @package Boletophp
- *
+ * @file
+ * Example for Caixa Economica Bank.
  */
 
 /**
  * Include the main boleto class file.
  */
-include_once('../Boleto.class.php');
+include_once '../../Boleto.class.php';
 
 $myArguments = array(
   // Merchant's bank code (NO check digit). Note that this is not the same as
   // the branch number.
-  'bank_code' => '341',
+  'bank_code' => '748',
   // Bank code check digit.
-  // 'bank_code_cd' => 'X',
+  'bank_code_cd' => 'X',
   // Merchant's branch number (NO check digit).
   'agencia' => 1234,
   'agencia_dv' => '2',
@@ -153,7 +151,8 @@ $myArguments = array(
 
 // Instantiate an object and send the array of arguments through.
 $myBoleto = Boleto::load_boleto($myArguments);
-
+// You probably wont need to set this in a real life production enviroment
+$myBoleto->settingsPropertySetter(array('file_location' => '../'));
 
 // You can change stuff around like this:
 // $myBoleto->settings['bank_logo']  = 'path-to-logo/logo.jpg';
