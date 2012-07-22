@@ -51,6 +51,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto {
 
     public function  __construct($params) {
         parent::__construct($params);
+        $this->geraNossoNumero();
         $this->geraCampoLivre();
         $this->geraDvCampoLivre();
         $this->geraCampoLivreComDv();

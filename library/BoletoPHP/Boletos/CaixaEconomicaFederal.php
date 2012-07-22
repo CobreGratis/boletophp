@@ -45,6 +45,7 @@ class CaixaEconomicaFederal extends Boleto {
 
     public function  __construct($params) {
         parent::__construct($params);
+        $this->geraNossoNumero();
         $this->geraDv();
         $this->geraLinha();
         $this->geraAgenciaCodigo();

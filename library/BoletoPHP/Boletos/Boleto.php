@@ -34,7 +34,6 @@ abstract class Boleto {
         $this->geraContaCedente();
         $this->geraContaCedenteDv();
         $this->geraNNum();
-        $this->geraNossoNumero();
     }
 
     public function getViewVars(){
