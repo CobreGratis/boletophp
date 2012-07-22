@@ -86,6 +86,6 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase  {
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
         $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
-        $this->assertEquals($view_vars['codigo_barras'], file_get_contents('fixtures/codigo_de_barras_caixa_economica_federal'));
+        $this->assertEquals($view_vars['codigo_barras'], file_get_contents('fixtures/codigo_de_barras_caixa_economica_federal_sinco'));
     }
 }

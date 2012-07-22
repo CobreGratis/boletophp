@@ -87,32 +87,6 @@ class CaixaEconomicaFederalSINCO extends Boleto {
         $this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}";
     }
 
-    protected  function formata_numero($numero,$loop,$insert,$tipo = "geral"){
-        if ($tipo == "geral") {
-            $numero = str_replace(",","",$numero);
-            while(strlen($numero)<$loop){
-                $numero = $insert . $numero;
-            }
-        }
-        if ($tipo == "valor") {
-            /*
-            retira as virgulas
-            formata o numero
-            preenche com zeros
-            */
-            $numero = str_replace(",","",$numero);
-            while(strlen($numero)<$loop){
-                $numero = $insert . $numero;
-            }
-        }
-        if ($tipo == "convenio") {
-            while(strlen($numero)<$loop){
-                $numero = $numero . $insert;
-            }
-        }
-        return $numero;
-    }
-
     private function geraNossoNumeroDv(){
         $dv_nosso_numero = $this->digitoVerificador_nossonumero($this->nnum);
         $this->nossonumero_dv = "{$this->nnum}{$dv_nosso_numero}";
