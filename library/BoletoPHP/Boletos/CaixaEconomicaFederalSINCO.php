@@ -60,7 +60,7 @@ class CaixaEconomicaFederalSINCO extends Boleto {
 
     public function gerarBoleto() {
         extract($this->getViewVars());
-        include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederal.php';
+        include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederalSINCO.php';
     }
 
     protected function geraContaCedente(){
