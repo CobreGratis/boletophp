@@ -2,8 +2,8 @@
 
 namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederal extends Boleto {
-
+class CaixaEconomicaFederal extends Boleto
+{
     public $params = array(
         'data_vencimento',
         'valor_boleto',
@@ -43,7 +43,8 @@ class CaixaEconomicaFederal extends Boleto {
     protected $codigobanco = 104;
     private $nummoeda = 9;
 
-    public function  __construct($params) {
+    public function  __construct($params)
+    {
         parent::__construct($params);
         $this->geraNossoNumero();
         $this->geraDv();
@@ -53,32 +54,39 @@ class CaixaEconomicaFederal extends Boleto {
         $this->geraCodigoDeBarras();
     }
 
-    public function gerarBoleto() {
+    public function gerarBoleto()
+    {
         extract($this->getViewVars());
         include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederal.php';
     }
 
-    protected function geraContaCedente(){
+    protected function geraContaCedente()
+    {
         $this->conta_cedente = $this->formata_numero($this->params['conta_cedente'], 11, 0);
     }
 
-    protected function geraContaCedenteDv(){
+    protected function geraContaCedenteDv()
+    {
         $this->conta_cedente_dv = $this->formata_numero($this->params['conta_cedente_dv'], 1, 0);
     }
 
-    protected function geraNNum(){
+    protected function geraNNum()
+    {
         $this->nnum = $this->params['inicio_nosso_numero'] . $this->formata_numero($this->params['nosso_numero'], 8, 0);
     }
 
-    protected function geraNossoNumero(){
+    protected function geraNossoNumero()
+    {
         $this->nossonumero = $this->nnum .'-'. $this->digitoVerificador_nossonumero($this->nnum);
     }
 
-    protected function geraDv(){
+    protected function geraDv()
+    {
         $this->dv = $this->digitoVerificador_barra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->nnum}{$this->agencia}{$this->conta_cedente}", 9, 0);
     }
 
-    protected function geraLinha(){
+    protected function geraLinha()
+    {
         $this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->nnum}{$this->agencia}{$this->conta_cedente}";
     }
 }

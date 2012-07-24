@@ -2,8 +2,8 @@
 
 namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederalSIGCB extends Boleto {
-
+class CaixaEconomicaFederalSIGCB extends Boleto
+{
     public $params = array(
         'data_vencimento',
         'valor_boleto',
@@ -49,7 +49,8 @@ class CaixaEconomicaFederalSIGCB extends Boleto {
     private $dv_campo_livre;
     private $campo_livre_com_dv;
 
-    public function  __construct($params) {
+    public function  __construct($params)
+    {
         parent::__construct($params);
         $this->geraNossoNumero();
         $this->geraCampoLivre();
@@ -62,20 +63,24 @@ class CaixaEconomicaFederalSIGCB extends Boleto {
         $this->geraCodigoDeBarras();
     }
 
-    public function gerarBoleto() {
+    public function gerarBoleto()
+    {
         extract($this->getViewVars());
         include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederalSIGCB.php';
     }
 
-    protected function geraContaCedente(){
+    protected function geraContaCedente()
+    {
         $this->conta_cedente = $this->formata_numero($this->params['conta_cedente'], 6, 0);
     }
 
-    protected function geraContaCedenteDv(){
+    protected function geraContaCedenteDv()
+    {
         $this->conta_cedente_dv = $this->digitoVerificador_cedente($this->params['conta_cedente'], 1, 0);
     }
 
-    protected function geraNNum(){
+    protected function geraNNum()
+    {
         $this->nnum = $this->formata_numero($this->params["nosso_numero_const1"], 1, 0) .
                       $this->formata_numero($this->params["nosso_numero_const2"], 1, 0) .
                       $this->formata_numero($this->params["nosso_numero1"], 3, 0) .
@@ -83,19 +88,23 @@ class CaixaEconomicaFederalSIGCB extends Boleto {
                       $this->formata_numero($this->params["nosso_numero3"], 9, 0);
     }
 
-    protected function geraNossoNumero(){
+    protected function geraNossoNumero()
+    {
         $this->nossonumero = $this->nnum . $this->digitoVerificador_nossonumero($this->nnum);
     }
 
-    protected function geraDv(){
+    protected function geraDv()
+    {
         $this->dv = $this->digitoVerificador_barra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}", 9, 0);
     }
 
-    protected function geraLinha(){
+    protected function geraLinha()
+    {
         $this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}";
     }
 
-    private function geraCampoLivre(){
+    private function geraCampoLivre()
+    {
         $this->campo_livre = $this->conta_cedente . $this->conta_cedente_dv .
                              $this->formata_numero($this->params["nosso_numero1"], 3, 0) .
                              $this->formata_numero($this->params["nosso_numero_const1"], 1, 0) .
@@ -104,19 +113,23 @@ class CaixaEconomicaFederalSIGCB extends Boleto {
                              $this->formata_numero($this->params["nosso_numero3"], 9, 0);
     }
 
-    private function geraDvCampoLivre(){
+    private function geraDvCampoLivre()
+    {
         $this->dv_campo_livre = $this->digitoVerificador_nossonumero($this->campo_livre);
     }
 
-    private function geraCampoLivreComDv(){
+    private function geraCampoLivreComDv()
+    {
         $this->campo_livre_com_dv ="{$this->campo_livre}{$this->dv_campo_livre}";
     }
 
-    private function digitoVerificador_cedente($numero) {
+    private function digitoVerificador_cedente($numero)
+    {
       $resto2 = $this->modulo_11($numero, 9, 1);
       $digito = 11 - $resto2;
       if ($digito == 10 || $digito == 11) $digito = 0;
       $dv = $digito;
+
       return $dv;
     }
 }

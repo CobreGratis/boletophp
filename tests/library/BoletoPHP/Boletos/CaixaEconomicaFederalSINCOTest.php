@@ -2,9 +2,10 @@
 
 namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase  {
-
-    protected function setUp(){
+class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
+{
+    protected function setUp()
+    {
         $dias_de_prazo_para_pagamento = 5;
         $taxa_boleto = 2.95;
         $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
@@ -53,7 +54,8 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase  {
         $this->boleto = new CaixaEconomicaFederalSINCO($params);
     }
 
-    public function testGetViewVars(){
+    public function testGetViewVars()
+    {
         $view_vars = $this->boleto->getViewVars();
         $this->assertEquals($view_vars['identificacao'], 'BoletoPhp - Código Aberto de Sistema de Boletos');
         $this->assertEquals($view_vars['linha_digitavel'], '10491.05735 35900.000007 00195.250865 1 54070000295295');

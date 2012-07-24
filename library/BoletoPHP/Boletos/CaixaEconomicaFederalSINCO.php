@@ -2,8 +2,8 @@
 
 namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederalSINCO extends Boleto {
-
+class CaixaEconomicaFederalSINCO extends Boleto
+{
     public $params = array(
         'data_vencimento',
         'valor_boleto',
@@ -46,7 +46,8 @@ class CaixaEconomicaFederalSINCO extends Boleto {
     private $nossonumero_dv;
     private $campo_livre;
 
-    public function  __construct($params) {
+    public function  __construct($params)
+    {
         parent::__construct($params);
         $this->geraNossoNumeroDv();
         $this->geraNossoNumero();
@@ -58,41 +59,50 @@ class CaixaEconomicaFederalSINCO extends Boleto {
         $this->geraCodigoDeBarras();
     }
 
-    public function gerarBoleto() {
+    public function gerarBoleto()
+    {
         extract($this->getViewVars());
         include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederalSINCO.php';
     }
 
-    protected function geraContaCedente(){
+    protected function geraContaCedente()
+    {
         $this->conta_cedente = $this->formata_numero($this->params['conta_cedente'], 6, 0);
     }
 
-    protected function geraContaCedenteDv(){
+    protected function geraContaCedenteDv()
+    {
         $this->conta_cedente_dv = $this->formata_numero($this->params['conta_cedente_dv'], 1, 0);
     }
 
-    protected function geraNNum(){
+    protected function geraNNum()
+    {
         $this->nnum = $this->params['inicio_nosso_numero'] . $this->formata_numero($this->params['nosso_numero'], 17, 0);
     }
 
-    protected function geraNossoNumero(){
+    protected function geraNossoNumero()
+    {
         $this->nossonumero = substr($this->nossonumero_dv, 0, 18) . '-' . substr($this->nossonumero_dv, 18, 1);
     }
 
-    protected function geraDv(){
+    protected function geraDv()
+    {
         $this->dv = $this->digitoVerificador_barra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}", 9, 0);
     }
 
-    protected function geraLinha(){
+    protected function geraLinha()
+    {
         $this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}";
     }
 
-    private function geraNossoNumeroDv(){
+    private function geraNossoNumeroDv()
+    {
         $dv_nosso_numero = $this->digitoVerificador_nossonumero($this->nnum);
         $this->nossonumero_dv = "{$this->nnum}{$dv_nosso_numero}";
     }
 
-    private function geraCampoLivre(){
+    private function geraCampoLivre()
+    {
         $this->campo_livre = "{$this->params['campo_fixo_obrigatorio']}{$this->conta_cedente}{$this->nnum}";
     }
 }

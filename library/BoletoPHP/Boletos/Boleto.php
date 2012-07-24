@@ -2,8 +2,8 @@
 
 namespace BoletoPHP\Boletos;
 
-abstract class Boleto {
-
+abstract class Boleto
+{
     protected $codigobanco;
     protected $codigo_banco_com_dv;
     protected $fator_vencimento;
@@ -22,7 +22,8 @@ abstract class Boleto {
     protected $linha_digitavel;
     protected $codigo_barras;
 
-    public function  __construct($params) {
+    public function  __construct($params)
+    {
         $this->params = array_merge($this->params, $params);
         $this->geraCodigoBancoComDv();
         $this->geraFatorVencimento();
@@ -36,7 +37,8 @@ abstract class Boleto {
         $this->geraNNum();
     }
 
-    public function getViewVars(){
+    public function getViewVars()
+    {
         return array(
             'identificacao' => $this->params['identificacao'],
             'linha_digitavel' => $this->linha_digitavel,
@@ -73,54 +75,67 @@ abstract class Boleto {
         );
     }
 
-    protected function geraCodigoBancoComDv(){
+    protected function geraCodigoBancoComDv()
+    {
         $this->codigo_banco_com_dv = $this->geraCodigoBanco();
     }
 
-    protected function geraFatorVencimento(){
+    protected function geraFatorVencimento()
+    {
         $this->fator_vencimento = $this->fator_vencimento($this->params['data_vencimento']);
     }
 
-    protected function geraValor(){
+    protected function geraValor()
+    {
         $this->valor = $this->formata_numero($this->params['valor_boleto'], 10, 0, 'valor');
     }
 
-    protected function geraAgencia(){
+    protected function geraAgencia()
+    {
         $this->agencia = $this->formata_numero($this->params['agencia'], 4, 0);
     }
 
-    protected function geraConta(){
+    protected function geraConta()
+    {
         $this->conta = $this->formata_numero($this->params['conta'], 5, 0);
     }
 
-    protected function geraContaDv(){
+    protected function geraContaDv()
+    {
         $this->conta_dv = $this->formata_numero($this->params['conta_dv'], 1, 0);
     }
 
-    protected function geraCarteira(){
+    protected function geraCarteira()
+    {
         $this->carteira = $this->params['carteira'];
     }
 
-    protected function geraAgenciaCodigo(){
+    protected function geraAgenciaCodigo()
+    {
         $this->agencia_codigo = $this->agencia . " / " . $this->conta_cedente . "-" . $this->conta_cedente_dv;
     }
 
-    protected function geraLinhaDigitavel(){
+    protected function geraLinhaDigitavel()
+    {
         $this->linha_digitavel = $this->monta_linha_digitavel();
     }
 
-    protected function geraCodigoDeBarras(){
+    protected function geraCodigoDeBarras()
+    {
         $this->codigo_barras = $this->fbarcode();
     }
 
-    protected function geraCodigoBanco() {
+    protected function geraCodigoBanco()
+    {
         $numero = $this->codigobanco;
         $parte1 = substr($numero, 0, 3);
         $parte2 = $this->modulo_11($parte1);
+
         return $parte1 . "-" . $parte2;
     }
 
-    protected function modulo_11($num, $base=9, $r=0)  {
+    protected function modulo_11($num, $base=9, $r=0)
+    {
         /**
          *   Autor:
          *           Pablo Costa <pablo@users.sourceforge.net>
@@ -168,26 +183,31 @@ abstract class Boleto {
             if ($digito == 10) {
                 $digito = 0;
             }
+
             return $digito;
-        } elseif ($r == 1){
+        } elseif ($r == 1) {
             $resto = $soma % 11;
+
             return $resto;
         }
     }
 
-    protected function fator_vencimento($data) {
+    protected function fator_vencimento($data)
+    {
       if ($data != "") {
         $data = explode("/",$data);
         $ano = $data[2];
         $mes = $data[1];
         $dia = $data[0];
+
         return(abs(($this->_dateToDays("1997","10","07")) - ($this->_dateToDays($ano, $mes, $dia))));
       } else {
         return "0000";
       }
     }
 
-    protected function _dateToDays($year,$month,$day) {
+    protected function _dateToDays($year,$month,$day)
+    {
         $century = substr($year, 0, 2);
         $year = substr($year, 2, 2);
         if ($month > 2) {
@@ -201,16 +221,18 @@ abstract class Boleto {
                 $century --;
             }
         }
+
         return ( floor((  146097 * $century)    /  4 ) +
                 floor(( 1461 * $year)        /  4 ) +
                 floor(( 153 * $month +  2) /  5 ) +
                     $day +  1721119);
     }
 
-    protected function formata_numero($numero,$loop,$insert,$tipo = "geral") {
+    protected function formata_numero($numero,$loop,$insert,$tipo = "geral")
+    {
         if ($tipo == "geral") {
             $numero = str_replace(",","",$numero);
-            while(strlen($numero)<$loop){
+            while (strlen($numero)<$loop) {
                 $numero = $insert . $numero;
             }
         }
@@ -221,19 +243,21 @@ abstract class Boleto {
             preenche com zeros
             */
             $numero = str_replace(",","",$numero);
-            while(strlen($numero)<$loop){
+            while (strlen($numero)<$loop) {
                 $numero = $insert . $numero;
             }
         }
         if ($tipo == "convenio") {
-            while(strlen($numero)<$loop){
+            while (strlen($numero)<$loop) {
                 $numero = $numero . $insert;
             }
         }
+
         return $numero;
     }
 
-    protected function digitoVerificador_nossonumero($numero) {
+    protected function digitoVerificador_nossonumero($numero)
+    {
         $resto2 = $this->modulo_11($numero, 9, 1);
          $digito = 11 - $resto2;
          if ($digito == 10 || $digito == 11) {
@@ -241,20 +265,24 @@ abstract class Boleto {
          } else {
             $dv = $digito;
          }
+
          return $dv;
     }
 
-    protected function digitoVerificador_barra($numero) {
+    protected function digitoVerificador_barra($numero)
+    {
         $resto2 = $this->modulo_11($numero, 9, 1);
          if ($resto2 == 0 || $resto2 == 1 || $resto2 == 10) {
             $dv = 1;
          } else {
             $dv = 11 - $resto2;
          }
+
          return $dv;
     }
 
-    protected function monta_linha_digitavel() {
+    protected function monta_linha_digitavel()
+    {
             $codigo = $this->linha;
 
             // Posição 	Conteúdo
@@ -306,7 +334,8 @@ abstract class Boleto {
             return "$campo1 $campo2 $campo3 $campo4 $campo5";
     }
 
-    protected function modulo_10($num) {
+    protected function modulo_10($num)
+    {
             $numtotal10 = 0;
             $fator = 2;
 
@@ -317,7 +346,7 @@ abstract class Boleto {
                 // Efetua multiplicacao do numero pelo (falor 10)
                 $temp = $numeros[$i] * $fator;
                 $temp0=0;
-                foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
+                foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v) { $temp0+=$v; }
                 $parcial10[$i] = $temp0; //$numeros[$i] * $fator;
                 // monta sequencia para soma dos digitos no (modulo 10)
                 $numtotal10 += $parcial10[$i];
@@ -339,8 +368,8 @@ abstract class Boleto {
             return $digito;
     }
 
-    protected function fbarcode(){
-
+    protected function fbarcode()
+    {
     $fino = 1 ;
     $largo = 3 ;
     $altura = 50 ;
@@ -356,20 +385,18 @@ abstract class Boleto {
       $barcodes[7] = "00011" ;
       $barcodes[8] = "10010" ;
       $barcodes[9] = "01010" ;
-      for($f1=9;$f1>=0;$f1--){
-        for($f2=9;$f2>=0;$f2--){
+      for ($f1=9;$f1>=0;$f1--) {
+        for ($f2=9;$f2>=0;$f2--) {
           $f = ($f1 * 10) + $f2 ;
           $texto = "" ;
-          for($i=1;$i<6;$i++){
+          for ($i=1;$i<6;$i++) {
             $texto .=  substr($barcodes[$f1],($i-1),1) . substr($barcodes[$f2],($i-1),1);
           }
           $barcodes[$f] = $texto;
         }
       }
 
-
     //Desenho da barra
-
 
     //Guarda inicial
     $retorno = "<img src=../imagens/p.png width={$fino} height={$altura} border=0><img
@@ -378,7 +405,7 @@ src=../imagens/p.png width={$fino} height={$altura} border=0><img
 src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
 
     $texto = $this->linha;
-    if((strlen($texto) % 2) <> 0){
+    if ((strlen($texto) % 2) <> 0) {
         $texto = "0" . $texto;
     }
 
@@ -387,17 +414,17 @@ src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
       $i = round($this->esquerda($texto,2));
       $texto = $this->direita($texto,strlen($texto)-2);
       $f = $barcodes[$i];
-      for($i=1;$i<11;$i+=2){
+      for ($i=1;$i<11;$i+=2) {
         if (substr($f,($i-1),1) == "0") {
           $f1 = $fino ;
-        }else{
+        } else {
           $f1 = $largo ;
         }
         $retorno .= "    src=../imagens/p.png width={$f1} height={$altura} border=0><img" . PHP_EOL;
 
         if (substr($f,$i,1) == "0") {
           $f2 = $fino ;
-        }else{
+        } else {
           $f2 = $largo ;
         }
         $retorno .= "    src=../imagens/b.png width={$f2} height={$altura} border=0><img" . PHP_EOL;
@@ -408,14 +435,17 @@ src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
     $retorno .= "src=../imagens/p.png width={$largo} height={$altura} border=0><img
 src=../imagens/b.png width={$fino} height={$altura} border=0><img
 src=../imagens/p.png width=1 height={$altura} border=0>";
+
     return $retorno;
     }
 
-    protected function esquerda($entra,$comp){
+    protected function esquerda($entra,$comp)
+    {
         return substr($entra,0,$comp);
     }
 
-    protected function direita($entra,$comp){
+    protected function direita($entra,$comp)
+    {
         return substr($entra,strlen($entra)-$comp,$comp);
     }
 }
