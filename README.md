@@ -19,7 +19,7 @@ Para obter ajuda você pode procurar o pessoal na lista do [PHP Rio](http://group
 
 ## Contribuindo
 
-### Antes de tudo
+### Resumo da ópera
 
 1. Faça um Fork
 2. Crie seu feature branch (<code>git checkout -b my-new-feature</code>)
