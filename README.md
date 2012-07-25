@@ -127,7 +127,7 @@ Ps.: Caso observe alguma convenção quebrada, sinta-se livre para corrigir ou rep
 
 * Sempre pode olhar os arquivos de código em <code>library/BoletoPHP/Boletos/</code> e seus testes em <code>tests/library/BoletoPHP/Boletos/</code> caso tenha alguma dúvida.
 * Nos testes é gerado uma variavel <code>$time</code> no <code>setUp</code>, ela é usada para definir a data atual, em que você está escrevendo o boleto, altere-a de acordo com o time do dia e hora em que estiver trabalhando.
-* Acho legal abrir um boleto do <code>v1.0</code> em uma janela, e pegar os valores dele e colocar como o esperado no seu teste. Pois são os válores que estamos esperando no teste um boleto válido.
+* Acho legal abrir um boleto do <code>v1.0</code> em uma janela, e pegar os valores dele e colocar como o esperado no seu teste. Pois são os valores que estamos esperando no teste um boleto válido.
 * Recomendo se possivel, iniciar e terminar um boleto no mesmo dia. Isso por que devido a ter testes sensiveis a data, ao abrir o boleto do <code>v1.0</code> para ver qual o valor que deve ser o experado no teste, no dia seguinte ele tera mudado e seus testes quebraram. Tomei uma porrada por isso =/
 
 ### Rodando os testes
