@@ -145,3 +145,8 @@ Basta acessar o diretório de testes e rodar o phpunit.
 ## Sobre o readme
 
 Deverá ser revisto, antes de integrar no master para representar o estado real do projeto e as novas informações.
+
+## Para o futuro
+
+* Definir licença
+* Usar o [Travis CI](http://travis-ci.org/)
