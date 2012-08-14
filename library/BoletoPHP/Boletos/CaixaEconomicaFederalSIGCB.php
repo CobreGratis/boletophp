@@ -41,7 +41,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         'instrucoes3',
         'instrucoes4',
         'endereco1',
-        'endereco2'
+        'endereco2',
     );
     protected $codigobanco = 104;
     private $nummoeda = 9;

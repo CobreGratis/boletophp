@@ -48,7 +48,7 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
             'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
             'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
             'endereco1' => 'Endereço do seu Cliente',
-            'endereco2' => 'Cidade - Estado -  CEP: 00000-000'
+            'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
 
         );
         $this->boleto = new CaixaEconomicaFederalSINCO($params);

@@ -71,7 +71,7 @@ abstract class Boleto
             'instrucoes4' => $this->params['instrucoes4'],
             'endereco1' => $this->params['endereco1'],
             'endereco2' => $this->params['endereco2'],
-            'codigo_barras' => $this->codigo_barras
+            'codigo_barras' => $this->codigo_barras,
         );
     }
 
