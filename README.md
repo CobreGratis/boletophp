@@ -121,6 +121,8 @@ Já vimos como nomear os arquivos e classes. Veremos mais alguns padrões, **que d
 
 * Siga a definição de [namespace](http://br2.php.net/manual/en/language.namespaces.php).
 
+* Todo último item de um array deve conter a virgula. Baseado na proposta da [PEP8](https://dev.launchpad.net/PythonStyleGuide#Multiline_braces).
+
 Ps.: Caso observe alguma convenção quebrada, sinta-se livre para corrigir ou reportar, para consertarmos e mantermos o projeto sempre melhor.
 
 ### Dicas
