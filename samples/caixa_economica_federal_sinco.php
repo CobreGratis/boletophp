@@ -8,10 +8,9 @@ require '../library/BoletoPHP/Boletos/CaixaEconomicaFederalSINCO.php';
     $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
     $valor_cobrado = str_replace(",", ".",$valor_cobrado);
     $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
-    $time = 1342974464;
 
     $params = array(
-        'data_vencimento' => date("d/m/Y", $time + ($dias_de_prazo_para_pagamento * 86400)),
+        'data_vencimento' => date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400)),
         'valor_boleto' => number_format($valor_cobrado+$taxa_boleto, 2, ',', ''),
         'agencia' => 1565,
         'conta' => 13877,
@@ -34,10 +33,10 @@ require '../library/BoletoPHP/Boletos/CaixaEconomicaFederalSINCO.php';
         'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
         'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
-        'data_documento' => date("d/m/Y", $time),
+        'data_documento' => date("d/m/Y", time()),
         'especie_doc' => '',
         'aceite' => '',
-        'data_processamento' => date("d/m/Y", $time),
+        'data_processamento' => date("d/m/Y", time()),
         'carteira' => 'SR',
         'valor_unitario' => '',
         'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
