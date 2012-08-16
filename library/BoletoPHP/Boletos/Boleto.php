@@ -21,10 +21,14 @@ abstract class Boleto
     protected $agencia_codigo;
     protected $linha_digitavel;
     protected $codigo_barras;
+    private $nome_da_classe;
+    private $diretorio_de_views;
 
     public function  __construct($params)
     {
         $this->params = array_merge($this->params, $params);
+        $this->geraNomeDaClasse();
+        $this->geraDiretorioDeViews();
         $this->geraCodigoBancoComDv();
         $this->geraFatorVencimento();
         $this->geraValor();
@@ -35,6 +39,12 @@ abstract class Boleto
         $this->geraContaCedente();
         $this->geraContaCedenteDv();
         $this->geraNNum();
+    }
+
+    public function gerarBoleto()
+    {
+        extract($this->getViewVars());
+        include "{$this->diretorio_de_views}{$this->nome_da_classe}.php";
     }
 
     public function getViewVars()
@@ -448,4 +458,16 @@ src=../imagens/p.png width=1 height={$altura} border=0>";
     {
         return substr($entra,strlen($entra)-$comp,$comp);
     }
+
+    private function geraNomeDaClasse()
+    {
+        $classe_com_caminho = explode('\\', get_class($this));
+        $this->nome_da_classe = end($classe_com_caminho);
+    }
+
+    private function geraDiretorioDeViews()
+    {
+        $this->diretorio_de_views = dirname(dirname(__FILE__)) . '/views/';
+    }
+
 }

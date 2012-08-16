@@ -54,12 +54,6 @@ class CaixaEconomicaFederal extends Boleto
         $this->geraCodigoDeBarras();
     }
 
-    public function gerarBoleto()
-    {
-        extract($this->getViewVars());
-        include dirname(dirname(__FILE__)) . '/views/CaixaEconomicaFederal.php';
-    }
-
     protected function geraContaCedente()
     {
         $this->conta_cedente = $this->formata_numero($this->params['conta_cedente'], 11, 0);
