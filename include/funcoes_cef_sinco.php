@@ -28,7 +28,6 @@
 
 include_once 'funcoes.php';
 
-
 $codigobanco = "104";
 $codigo_banco_com_dv = geraCodigoBanco($codigobanco);
 $nummoeda = "9";
