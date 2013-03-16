@@ -1,5 +1,2 @@
-.*.sw?
-nohup.out
 vendor
 bin
-.DS_Store
