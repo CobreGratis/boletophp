@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Vers„o Beta                                              |
+// | BoletoPhp - Vers√£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo est· disponÌvel sob a LicenÁa GPL disponÌvel pela Web   |
+// | Este arquivo est√° dispon√≠vel sob a Licen√ßa GPL dispon√≠vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | VocÍ deve ter recebido uma cÛpia da GNU Public License junto com     |
-// | esse pacote; se n„o, escreva para:                                   |
+// | Voc√™ deve ter recebido uma c√≥pia da GNU Public License junto com     |
+// | esse pacote; se n√£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,23 +13,23 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaboraÁıes de Daniel |
-// | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de Jo„o Prado Maia e Pablo Martins F. Costa                |
+// | Originado do Projeto BBBoletoFree que tiveram colabora√ß√µes de Daniel |
+// | William Schultz e Leandro Maniezo que por sua vez foi derivado do    |
+// | PHPBoleto de Jo√£o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Equipe CoordenaÁ„o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Equipe Coordena√ß√£o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
 // | Desenvolvimento Boleto BANCOOB/SICOOB: Marcelo de Souza              |
 // | Ajuste de algumas rotinas: Anderson Nuernberg                        |
 // +----------------------------------------------------------------------+
 
 
-// ------------------------- DADOS DIN¬MICOS DO SEU CLIENTE PARA A GERA«√O DO BOLETO (FIXO OU VIA GET) -------------------- //
-// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formul·rio c/ POST, GET ou de BD (MySql,Postgre,etc)	//
+// ------------------------- DADOS DIN√ÇMICOS DO SEU CLIENTE PARA A GERA√á√ÉO DO BOLETO (FIXO OU VIA GET) -------------------- //
+// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formul√°rio c/ POST, GET ou de BD (MySql,Postgre,etc)	//
 
 // DADOS DO BOLETO PARA O SEU CLIENTE
 $dias_de_prazo_para_pagamento = 5;
@@ -39,27 +39,102 @@ $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz c
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
 $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 
-$dadosboleto["nosso_numero"] = "08123456";  // AtÈ 8 digitos, sendo os 2 primeiros o ano atual (Ex.: 08 se for 2008)
+//$dadosboleto["nosso_numero"] = "08123456";  // At√© 8 digitos, sendo os 2 primeiros o ano atual (Ex.: 08 se for 2008)
+
+
+
+/*************************************************************************
+ * +++
+ *************************************************************************/
+
+// http://www.bancoob.com.br/atendimentocobranca/CAS/2_Implanta%C3%A7%C3%A3o_do_Servi%C3%A7o/Sistema_Proprio/DigitoVerificador.htm
+// http://blog.inhosting.com.br/calculo-do-nosso-numero-no-boleto-bancoob-sicoob-do-boletophp/
+// http://www.samuca.eti.br
+
+// Contribui√ß√£o de script por:
+// Samuel de L. Hantschel
+// 
+// Samuca Webdesign
+// Fone: (47) 3633 7506
+// Celular: (47) 8421 1481 (Tim)
+// Site: www.samuca.eti.br
+
+
+if(!function_exists(formata_numdoc))
+{
+	function formata_numdoc($num,$tamanho)
+	{
+		while(strlen($num)<$tamanho)
+		{
+			$num="0".$num; 
+		}
+	return $num;
+	}
+}
+
+$IdDoSeuSistemaAutoIncremento = '123456'; // At√© 6 d√≠gitos
+$agencia = "9999"; // Num da agencia, sem digito
+$conta = "99999"; // Num da conta, sem digito
+$NossoNumero = '1'.formata_numdoc($IdDoSeuSistemaAutoIncremento,6); // At√© 7 d√≠gitos, obrigatoriamente iniciado em 1 (Ex.: 1000001, 1000002...)
+$qtde_nosso_numero = strlen($NossoNumero);
+$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$conta),10).formata_numdoc($NossoNumero,7);
+$cont=0;
+	for($num=0;$num<=strlen($sequencia);$num++)
+	{
+		$cont++;
+		if($cont == 1)
+		{
+			// constante fixa Sicoob ¬ª 3197 
+			$constante = 3;
+		}
+		if($cont == 2)
+		{
+			$constante = 1;
+		}
+		if($cont == 3)
+		{
+			$constante = 9;
+		}
+		if($cont == 4)
+		{
+			$constante = 7;
+			$cont = 0;
+		}
+		$calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
+	}
+$Resto = $calculoDv % 11;
+$Dv = 11 - $Resto;
+if ($Dv == 0) $Dv = 0;
+if ($Dv == 1) $Dv = 0;
+if ($Dv > 9) $Dv = 0;
+$dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
+
+/*************************************************************************
+ * +++
+ *************************************************************************/
+
+
+
 $dadosboleto["numero_documento"] = "27.030195.10";	// Num do pedido ou do documento
 $dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emiss„o do Boleto
+$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emiss√£o do Boleto
 $dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
-$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vÌrgula e sempre com duas casas depois da virgula
+$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com v√≠rgula e sempre com duas casas depois da virgula
 
 // DADOS DO SEU CLIENTE
 $dadosboleto["sacado"] = "Nome do seu Cliente";
-$dadosboleto["endereco1"] = "EndereÁo do seu Cliente";
+$dadosboleto["endereco1"] = "Endere√ßo do seu Cliente";
 $dadosboleto["endereco2"] = "Cidade - Estado -  CEP: 00000-000";
 
 // INFORMACOES PARA O CLIENTE
 $dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Nonononono";
-$dadosboleto["demonstrativo2"] = "Mensalidade referente a nonon nonooon nononon<br>Taxa banc·ria - R$ ".number_format($taxa_boleto, 2, ',', '');
+$dadosboleto["demonstrativo2"] = "Mensalidade referente a nonon nonooon nononon<br>Taxa banc√°ria - R$ ".number_format($taxa_boleto, 2, ',', '');
 $dadosboleto["demonstrativo3"] = "BoletoPhp - http://www.boletophp.com.br";
 
-// INSTRU«’ES PARA O CAIXA
-$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% apÛs o vencimento";
-$dadosboleto["instrucoes2"] = "- Receber atÈ 10 dias apÛs o vencimento";
-$dadosboleto["instrucoes3"] = "- Em caso de d˙vidas entre em contato conosco: xxxx@xxxx.com.br";
+// INSTRU√á√ïES PARA O CAIXA
+$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% ap√≥s o vencimento";
+$dadosboleto["instrucoes2"] = "- Receber at√© 10 dias ap√≥s o vencimento";
+$dadosboleto["instrucoes3"] = "- Em caso de d√∫vidas entre em contato conosco: xxxx@xxxx.com.br";
 $dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
 
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
@@ -70,7 +145,7 @@ $dadosboleto["especie"] = "R$";
 $dadosboleto["especie_doc"] = "DM";
 
 
-// ---------------------- DADOS FIXOS DE CONFIGURA«√O DO SEU BOLETO --------------- //
+// ---------------------- DADOS FIXOS DE CONFIGURA√á√ÉO DO SEU BOLETO --------------- //
 // DADOS ESPECIFICOS DO SICOOB
 $dadosboleto["modalidade_cobranca"] = "01";
 $dadosboleto["numero_parcela"] = "001";
@@ -81,17 +156,17 @@ $dadosboleto["agencia"] = "9999"; // Num da agencia, sem digito
 $dadosboleto["conta"] = "99999"; 	// Num da conta, sem digito
 
 // DADOS PERSONALIZADOS - SICOOB
-$dadosboleto["convenio"] = "7777777";  // Num do convÍnio - REGRA: No m·ximo 7 dÌgitos
+$dadosboleto["convenio"] = "7777777";  // Num do conv√™nio - REGRA: No m√°ximo 7 d√≠gitos
 $dadosboleto["carteira"] = "1";
 
 // SEUS DADOS
-$dadosboleto["identificacao"] = "BoletoPhp - CÛdigo Aberto de Sistema de Boletos";
+$dadosboleto["identificacao"] = "BoletoPhp - C√≥digo Aberto de Sistema de Boletos";
 $dadosboleto["cpf_cnpj"] = "";
-$dadosboleto["endereco"] = "Coloque o endereÁo da sua empresa aqui";
+$dadosboleto["endereco"] = "Coloque o endere√ßo da sua empresa aqui";
 $dadosboleto["cidade_uf"] = "Cidade / Estado";
-$dadosboleto["cedente"] = "Coloque a Raz„o Social da sua empresa aqui";
+$dadosboleto["cedente"] = "Coloque a Raz√£o Social da sua empresa aqui";
 
-// N√O ALTERAR!
+// N√ÉO ALTERAR!
 include("include/funcoes_bancoob.php");
 include("include/layout_bancoob.php");
 ?>
