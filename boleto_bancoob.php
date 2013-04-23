@@ -71,11 +71,10 @@ if(!function_exists(formata_numdoc))
 
 $IdDoSeuSistemaAutoIncremento = '123456'; // Até 6 dígitos
 $agencia = "9999"; // Num da agencia, sem digito
-$conta = "99999"; // Num da conta, sem digito
-$NossoNumero = preg_replace('/[^0-9]*/', '', $IdDoSeuSistemaAutoIncremento); // Até 7 dígitos
-$NossoNumero = ltrim($NossoNumero, '0');
+$convenio = "7777777"; // Num do convênio - REGRA: No máximo 7 dígitos
+$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7); // Até 7 dígitos
 $qtde_nosso_numero = strlen($NossoNumero);
-$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$conta),10).formata_numdoc($NossoNumero,7);
+$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),10).formata_numdoc($NossoNumero,7);
 $cont=0;
 	for($num=0;$num<=strlen($sequencia);$num++)
 	{
