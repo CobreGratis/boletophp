@@ -14,7 +14,7 @@
 
 // +----------------------------------------------------------------------+
 // | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
-// | William Schultz e Leandro Maniezo que por sua vez foi derivado do    |
+// | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
 // | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
@@ -52,13 +52,10 @@ $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 // http://www.samuca.eti.br
 
 // Contribuição de script por:
-// Samuel de L. Hantschel
 // 
-// Samuca Webdesign
-// Fone: (47) 3633 7506
-// Celular: (47) 8421 1481 (Tim)
+// Samuel de L. Hantschel
 // Site: www.samuca.eti.br
-
+// 
 
 if(!function_exists(formata_numdoc))
 {
@@ -75,7 +72,8 @@ if(!function_exists(formata_numdoc))
 $IdDoSeuSistemaAutoIncremento = '123456'; // Até 6 dígitos
 $agencia = "9999"; // Num da agencia, sem digito
 $conta = "99999"; // Num da conta, sem digito
-$NossoNumero = '1'.formata_numdoc($IdDoSeuSistemaAutoIncremento,6); // Até 7 dígitos, obrigatoriamente iniciado em 1 (Ex.: 1000001, 1000002...)
+$NossoNumero = preg_replace('/[^0-9]*/', '', $IdDoSeuSistemaAutoIncremento); // Até 7 dígitos
+$NossoNumero = ltrim($NossoNumero, '0');
 $qtde_nosso_numero = strlen($NossoNumero);
 $sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$conta),10).formata_numdoc($NossoNumero,7);
 $cont=0;
