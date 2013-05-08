@@ -57,7 +57,7 @@ $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 // Site: www.samuca.eti.br
 // 
 
-if(!function_exists(formata_numdoc))
+if(!function_exists('formata_numdoc'))
 {
 	function formata_numdoc($num,$tamanho)
 	{
@@ -76,6 +76,7 @@ $NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7); // Até 7 dígit
 $qtde_nosso_numero = strlen($NossoNumero);
 $sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),10).formata_numdoc($NossoNumero,7);
 $cont=0;
+$calculoDv = '';
 	for($num=0;$num<=strlen($sequencia);$num++)
 	{
 		$cont++;
