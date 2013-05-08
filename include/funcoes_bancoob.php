@@ -85,8 +85,7 @@ if(!function_exists('formata_numdoc'))
 	}
 }
 
-$IdDoSeuSistemaAutoIncremento = $dadosboleto["nosso_numero"]; // Até 6 dígitos
-$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7); // Até 7 dígitos
+$NossoNumero = formata_numdoc($dadosboleto["nosso_numero"],7);
 $qtde_nosso_numero = strlen($NossoNumero);
 $sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),10).formata_numdoc($NossoNumero,7);
 $cont=0;
