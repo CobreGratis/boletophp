@@ -54,76 +54,7 @@ $agencia_codigo = $agencia ." / ". $convenio;
 
 // Nosso número de até 8 dígitos - 2 digitos para o ano e outros 6 numeros sequencias por ano 
 // deve ser gerado no programa boleto_bancoob.php
-//$nossonumero = formata_numero($dadosboleto["nosso_numero"],8,0);
-
-
-/*************************************************************************
- * +++
- *************************************************************************/
-
-// http://www.bancoob.com.br/atendimentocobranca/CAS/2_Implanta%C3%A7%C3%A3o_do_Servi%C3%A7o/Sistema_Proprio/DigitoVerificador.htm
-// http://blog.inhosting.com.br/calculo-do-nosso-numero-no-boleto-bancoob-sicoob-do-boletophp/
-// http://www.samuca.eti.br
-// 
-// http://www.bancoob.com.br/atendimentocobranca/CAS/2_Implanta%C3%A7%C3%A3o_do_Servi%C3%A7o/Sistema_Proprio/LinhaDigitavelCodicodeBarras.htm
-
-// Contribuição de script por:
-// 
-// Samuel de L. Hantschel
-// Site: www.samuca.eti.br
-// 
-
-if(!function_exists('formata_numdoc'))
-{
-	function formata_numdoc($num,$tamanho)
-	{
-		while(strlen($num)<$tamanho)
-		{
-			$num="0".$num; 
-		}
-	return $num;
-	}
-}
-
-$NossoNumero = formata_numdoc($dadosboleto["nosso_numero"],7);
-$qtde_nosso_numero = strlen($NossoNumero);
-$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),10).formata_numdoc($NossoNumero,7);
-$cont=0;
-$calculoDv = '';
-	for($num=0;$num<=strlen($sequencia);$num++)
-	{
-		$cont++;
-		if($cont == 1)
-		{
-			// constante fixa Sicoob » 3197 
-			$constante = 3;
-		}
-		if($cont == 2)
-		{
-			$constante = 1;
-		}
-		if($cont == 3)
-		{
-			$constante = 9;
-		}
-		if($cont == 4)
-		{
-			$constante = 7;
-			$cont = 0;
-		}
-		$calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
-	}
-$Resto = $calculoDv % 11;
-$Dv = 11 - $Resto;
-if ($Dv == 0) $Dv = 0;
-if ($Dv == 1) $Dv = 0;
-if ($Dv > 9) $Dv = 0;
-$nossonumero = $NossoNumero . $Dv;
-
-/*************************************************************************
- * +++
- *************************************************************************/
-
+$nossonumero = formata_numero($dadosboleto["nosso_numero"],8,0);
 $campolivre  = "$modalidadecobranca$convenio$nossonumero$numeroparcela";
 
 $dv=modulo_11("$codigobanco$nummoeda$fator_vencimento$valor$carteira$agencia$campolivre");
