@@ -83,11 +83,11 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
   <span class="campo"><?php echo $dadosboleto["cedente"]; ?></span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top width=126 height=12> 
   <span class="campo">
-  <? $tmp2 = $dadosboleto["codigo_cliente"];
+  <?php $tmp2 = $dadosboleto["codigo_cliente"];
      $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
   ?>
 
-  <? echo $dadosboleto["ponto_venda"]." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
+  <?php echo $dadosboleto["ponto_venda"]." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top  width=34 height=12><span class="campo">
   <?php echo $dadosboleto["especie"]?>
@@ -99,7 +99,7 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
  </td>
 <td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=120 height=12> 
   <span class="campo">
-  <? $tmp = $dadosboleto["nosso_numero"];
+  <?php $tmp = $dadosboleto["nosso_numero"];
      $tmp = substr($tmp,0,strlen($tmp)-1).'-'.substr($tmp,strlen($tmp)-1,1);
      print $tmp; ?>
   </span></td>
@@ -161,11 +161,11 @@ cedente</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 sr
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12> 
   <span class="campo">
-  <? $tmp2 = $dadosboleto["codigo_cliente"];
+  <?php $tmp2 = $dadosboleto["codigo_cliente"];
      $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
   ?>
 
-  <? echo $dadosboleto["ponto_venda"]." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
+  <?php echo $dadosboleto["ponto_venda"]." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13> 
 <img height=13 src=imagens/1.png width=1 border=0></td><td class=ct valign=top width=113 height=13>Data 
@@ -192,7 +192,7 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
    <?php echo $dadosboleto["data_processamento"]?>
    </span></div></td><td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12> 
      <span class="campo">
-     <? echo $tmp; ?>
+     <?php echo $tmp; ?>
      </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=imagens/2.png width=113 border=0></td><td valign=top width=7 height=1> 
 <img height=1 src=imagens/2.png width=7 border=0></td><td valign=top width=153 height=1><img height=1 src=imagens/2.png width=153 border=0></td><td valign=top width=7 height=1> 
