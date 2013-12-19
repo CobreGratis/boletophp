@@ -58,6 +58,7 @@ abstract class Boleto
             'cidade_uf' => $this->params['cidade_uf'],
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
             'linha_digitavel' => $this->linha_digitavel,
+            'carteira' => $this->params['carteira'],
             'cedente' => $this->params['cedente'],
             'agencia_codigo' => $this->agencia_codigo,
             'especie' => $this->params['especie'],
@@ -73,7 +74,7 @@ abstract class Boleto
             'especie_doc' => $this->params['especie_doc'],
             'aceite' => $this->params['aceite'],
             'data_processamento' => $this->params['data_processamento'],
-            'carteira' => $this->params['carteira'],
+            'carteira_descricao' => $this->params['carteira_descricao'],
             'valor_unitario' => $this->params['valor_unitario'],
             'instrucoes1' => $this->params['instrucoes1'],
             'instrucoes2' => $this->params['instrucoes2'],
@@ -150,22 +151,22 @@ abstract class Boleto
          *   Autor:
          *           Pablo Costa <pablo@users.sourceforge.net>
          *
-         *   Função:
+         *   Funï¿½ï¿½o:
          *    Calculo do Modulo 11 para geracao do digito verificador
          *    de boletos bancarios conforme documentos obtidos
          *    da Febraban - www.febraban.org.br
          *
          *   Entrada:
-         *     $num: string numérica para a qual se deseja calcularo digito verificador;
+         *     $num: string numï¿½rica para a qual se deseja calcularo digito verificador;
          *     $base: valor maximo de multiplicacao [2-$base]
          *     $r: quando especificado um devolve somente o resto
          *
-         *   Saída:
+         *   Saï¿½da:
          *     Retorna o Digito verificador.
          *
-         *   Observações:
-         *     - Script desenvolvido sem nenhum reaproveitamento de código pré existente.
-         *     - Assume-se que a verificação do formato das variáveis de entrada é feita antes da execução deste script.
+         *   Observaï¿½ï¿½es:
+         *     - Script desenvolvido sem nenhum reaproveitamento de cï¿½digo prï¿½ existente.
+         *     - Assume-se que a verificaï¿½ï¿½o do formato das variï¿½veis de entrada ï¿½ feita antes da execuï¿½ï¿½o deste script.
          */
 
         $soma = 0;
@@ -295,15 +296,15 @@ abstract class Boleto
     {
             $codigo = $this->linha;
 
-            // Posição 	Conteúdo
-            // 1 a 3    Número do banco
-            // 4        Código da Moeda - 9 para Real
-            // 5        Digito verificador do Código de Barras
+            // Posiï¿½ï¿½o 	Conteï¿½do
+            // 1 a 3    Nï¿½mero do banco
+            // 4        Cï¿½digo da Moeda - 9 para Real
+            // 5        Digito verificador do Cï¿½digo de Barras
             // 6 a 9   Fator de Vencimento
             // 10 a 19 Valor (8 inteiros e 2 decimais)
             // 20 a 44 Campo Livre definido por cada banco (25 caracteres)
 
-            // 1. Campo - composto pelo código do banco, código da moéda, as cinco primeiras posições
+            // 1. Campo - composto pelo cï¿½digo do banco, cï¿½digo da moï¿½da, as cinco primeiras posiï¿½ï¿½es
             // do campo livre e DV (modulo10) deste campo
             $p1 = substr($codigo, 0, 4);
             $p2 = substr($codigo, 19, 5);
@@ -313,7 +314,7 @@ abstract class Boleto
             $p6 = substr($p4, 5);
             $campo1 = "$p5.$p6";
 
-            // 2. Campo - composto pelas posiçoes 6 a 15 do campo livre
+            // 2. Campo - composto pelas posiï¿½oes 6 a 15 do campo livre
             // e livre e DV (modulo10) deste campo
             $p1 = substr($codigo, 24, 10);
             $p2 = $this->modulo_10($p1);
@@ -367,7 +368,7 @@ abstract class Boleto
                 }
             }
 
-            // várias linhas removidas, vide função original
+            // vï¿½rias linhas removidas, vide funï¿½ï¿½o original
             // Calculo do modulo 10
             $resto = $numtotal10 % 10;
             $digito = 10 - $resto;
