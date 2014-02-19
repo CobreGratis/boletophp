@@ -223,7 +223,7 @@ function fator_vencimento($data) {
 	$dia = $data[0];
 	$fator = abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia)));
 	if($fator > 9999){
-		$fator = ($fator%10)+1000;
+	    $fator = ($fator%9000)<1000?(($fator%9000)+9000):($fator%9000);
 	}
 	return($fator);
 }
