@@ -221,7 +221,11 @@ function fator_vencimento($data) {
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];
-    return(abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia))));
+	$fator = abs((_dateToDays("1997","10","07")) - (_dateToDays($ano, $mes, $dia)));
+	if($fator > 9999){
+	    $fator = ($fator%9000)<1000?(($fator%9000)+9000):($fator%9000);
+	}
+	return($fator);
 }
 
 function _dateToDays($year,$month,$day) {
@@ -398,5 +402,4 @@ function geraCodigoBanco($numero) {
     $parte2 = modulo_11($parte1);
     return $parte1 . "-" . $parte2;
 }
-
 ?>
