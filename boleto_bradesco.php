@@ -33,7 +33,7 @@
 // DADOS DO BOLETO PARA O SEU CLIENTE
 $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
-$data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006"; 
+$data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006";
 $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
 $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
@@ -62,7 +62,7 @@ $dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto BoletoPhp - w
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 $dadosboleto["quantidade"] = "001";
 $dadosboleto["valor_unitario"] = $valor_boleto;
-$dadosboleto["aceite"] = "";		
+$dadosboleto["aceite"] = "";
 $dadosboleto["especie"] = "R$";
 $dadosboleto["especie_doc"] = "DS";
 
@@ -71,14 +71,14 @@ $dadosboleto["especie_doc"] = "DS";
 
 
 // DADOS DA SUA CONTA - Bradesco
-$dadosboleto["agencia"] = "1172"; // Num da agencia, sem digito
+$dadosboleto["agencia"] = "1100"; // Num da agencia, sem digito
 $dadosboleto["agencia_dv"] = "0"; // Digito do Num da agencia
-$dadosboleto["conta"] = "0403005"; 	// Num da conta, sem digito
-$dadosboleto["conta_dv"] = "2"; 	// Digito do Num da conta
+$dadosboleto["conta"] = "0102003"; 	// Num da conta, sem digito
+$dadosboleto["conta_dv"] = "4"; 	// Digito do Num da conta
 
 // DADOS PERSONALIZADOS - Bradesco
-$dadosboleto["conta_cedente"] = "0403005"; // ContaCedente do Cliente, sem digito (Somente Números)
-$dadosboleto["conta_cedente_dv"] = "2"; // Digito da ContaCedente do Cliente
+$dadosboleto["conta_cedente"] = "0102003"; // ContaCedente do Cliente, sem digito (Somente Números)
+$dadosboleto["conta_cedente_dv"] = "4"; // Digito da ContaCedente do Cliente
 $dadosboleto["carteira"] = "06";  // Código da Carteira: pode ser 06 ou 03
 
 // SEUS DADOS
@@ -89,6 +89,6 @@ $dadosboleto["cidade_uf"] = "Cidade / Estado";
 $dadosboleto["cedente"] = "Coloque a Razão Social da sua empresa aqui";
 
 // NÃO ALTERAR!
-include("include/funcoes_bradesco.php"); 
+include("include/funcoes_bradesco.php");
 include("include/layout_bradesco.php");
 ?>
