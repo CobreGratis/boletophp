@@ -58,6 +58,7 @@ abstract class Boleto
             'cidade_uf' => $this->params['cidade_uf'],
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
             'linha_digitavel' => $this->linha_digitavel,
+            'carteira' => $this->params['carteira'],
             'cedente' => $this->params['cedente'],
             'agencia_codigo' => $this->agencia_codigo,
             'especie' => $this->params['especie'],
@@ -73,7 +74,7 @@ abstract class Boleto
             'especie_doc' => $this->params['especie_doc'],
             'aceite' => $this->params['aceite'],
             'data_processamento' => $this->params['data_processamento'],
-            'carteira' => $this->params['carteira'],
+            'carteira_descricao' => $this->params['carteira_descricao'],
             'valor_unitario' => $this->params['valor_unitario'],
             'instrucoes1' => $this->params['instrucoes1'],
             'instrucoes2' => $this->params['instrucoes2'],
@@ -150,22 +151,22 @@ abstract class Boleto
          *   Autor:
          *           Pablo Costa <pablo@users.sourceforge.net>
          *
-         *   FunÁ„o:
+         *   Fun√ß√£o:
          *    Calculo do Modulo 11 para geracao do digito verificador
          *    de boletos bancarios conforme documentos obtidos
          *    da Febraban - www.febraban.org.br
          *
          *   Entrada:
-         *     $num: string numÈrica para a qual se deseja calcularo digito verificador;
+         *     $num: string num√©rica para a qual se deseja calcularo digito verificador;
          *     $base: valor maximo de multiplicacao [2-$base]
          *     $r: quando especificado um devolve somente o resto
          *
-         *   SaÌda:
+         *   Sa√≠da:
          *     Retorna o Digito verificador.
          *
-         *   ObservaÁıes:
-         *     - Script desenvolvido sem nenhum reaproveitamento de cÛdigo prÈ existente.
-         *     - Assume-se que a verificaÁ„o do formato das vari·veis de entrada È feita antes da execuÁ„o deste script.
+         *   Observa√ß√µes:
+         *     - Script desenvolvido sem nenhum reaproveitamento de c√≥digo pr√© existente.
+         *     - Assume-se que a verifica√ß√£o do formato das vari√°veis de entrada √© feita antes da execu√ß√£o deste script.
          */
 
         $soma = 0;
@@ -295,15 +296,15 @@ abstract class Boleto
     {
             $codigo = $this->linha;
 
-            // PosiÁ„o 	Conte˙do
-            // 1 a 3    N˙mero do banco
-            // 4        CÛdigo da Moeda - 9 para Real
-            // 5        Digito verificador do CÛdigo de Barras
+            // Posi√ß√£o 	Conte√∫do
+            // 1 a 3    N√∫mero do banco
+            // 4        C√≥digo da Moeda - 9 para Real
+            // 5        Digito verificador do C√≥digo de Barras
             // 6 a 9   Fator de Vencimento
             // 10 a 19 Valor (8 inteiros e 2 decimais)
             // 20 a 44 Campo Livre definido por cada banco (25 caracteres)
 
-            // 1. Campo - composto pelo cÛdigo do banco, cÛdigo da moÈda, as cinco primeiras posiÁıes
+            // 1. Campo - composto pelo c√≥digo do banco, c√≥digo da moeda, as cinco primeiras posi√ß√µes
             // do campo livre e DV (modulo10) deste campo
             $p1 = substr($codigo, 0, 4);
             $p2 = substr($codigo, 19, 5);
@@ -313,7 +314,7 @@ abstract class Boleto
             $p6 = substr($p4, 5);
             $campo1 = "$p5.$p6";
 
-            // 2. Campo - composto pelas posiÁoes 6 a 15 do campo livre
+            // 2. Campo - composto pelas posi√ß√µes 6 a 15 do campo livre
             // e livre e DV (modulo10) deste campo
             $p1 = substr($codigo, 24, 10);
             $p2 = $this->modulo_10($p1);
@@ -322,7 +323,7 @@ abstract class Boleto
             $p5 = substr($p3, 5);
             $campo2 = "$p4.$p5";
 
-            // 3. Campo composto pelas posicoes 16 a 25 do campo livre
+            // 3. Campo - composto pelas posi√ß√µes 16 a 25 do campo livre
             // e livre e DV (modulo10) deste campo
             $p1 = substr($codigo, 34, 10);
             $p2 = $this->modulo_10($p1);
@@ -331,12 +332,12 @@ abstract class Boleto
             $p5 = substr($p3, 5);
             $campo3 = "$p4.$p5";
 
-            // 4. Campo - digito verificador do codigo de barras
+            // 4. Campo - d√≠gito verificador do c√≥digo de barras
             $campo4 = substr($codigo, 4, 1);
 
             // 5. Campo composto pelo fator vencimento e valor nominal do documento, sem
-            // indicacao de zeros a esquerda e sem edicao (sem ponto e virgula). Quando se
-            // tratar de valor zerado, a representacao deve ser 000 (tres zeros).
+            // indica√ß√£o de zeros √† esquerda e sem edi√ß√£o (sem ponto e v√≠rgula). Quando se
+            // tratar de valor zerado, a representa√ß√£o deve ser 000 (tr√™s zeros).
             $p1 = substr($codigo, 5, 4);
             $p2 = substr($codigo, 9, 10);
             $campo5 = "$p1$p2";
@@ -349,26 +350,26 @@ abstract class Boleto
             $numtotal10 = 0;
             $fator = 2;
 
-            // Separacao dos numeros
+            // Separa√ß√£o dos n√∫meros
             for ($i = strlen($num); $i > 0; $i--) {
-                // pega cada numero isoladamente
+                // pega cada n√∫meros isoladamente
                 $numeros[$i] = substr($num,$i-1,1);
-                // Efetua multiplicacao do numero pelo (falor 10)
+                // Efetua multiplica√ß√£o do n√∫meros pelo (falor 10)
                 $temp = $numeros[$i] * $fator;
                 $temp0=0;
                 foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v) { $temp0+=$v; }
                 $parcial10[$i] = $temp0; //$numeros[$i] * $fator;
-                // monta sequencia para soma dos digitos no (modulo 10)
+                // monta sequ√™ncia para soma dos d√≠gitos no (modulo 10)
                 $numtotal10 += $parcial10[$i];
                 if ($fator == 2) {
                     $fator = 1;
                 } else {
-                    $fator = 2; // intercala fator de multiplicacao (modulo 10)
+                    $fator = 2; // intercala fator de multiplica√ß√£o (modulo 10)
                 }
             }
 
-            // v·rias linhas removidas, vide funÁ„o original
-            // Calculo do modulo 10
+            // v√°rias linhas removidas, vide fun√ß√£o original
+            // C√°lculo do modulo 10
             $resto = $numtotal10 % 10;
             $digito = 10 - $resto;
             if ($resto == 0) {
@@ -409,10 +410,10 @@ abstract class Boleto
     //Desenho da barra
 
     //Guarda inicial
-    $retorno = "<img src=../imagens/p.png width={$fino} height={$altura} border=0><img
-src=../imagens/b.png width={$fino} height={$altura} border=0><img
-src=../imagens/p.png width={$fino} height={$altura} border=0><img
-src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
+    $retorno = "<img src=\"../imagens/p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+src=\"../imagens/p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img" . PHP_EOL;
 
     $texto = $this->linha;
     if ((strlen($texto) % 2) <> 0) {
@@ -430,21 +431,21 @@ src=../imagens/b.png width={$fino} height={$altura} border=0><img" . PHP_EOL;
         } else {
           $f1 = $largo ;
         }
-        $retorno .= "    src=../imagens/p.png width={$f1} height={$altura} border=0><img" . PHP_EOL;
+        $retorno .= " src=\"../imagens/p.png\" width={$f1} height={$altura} border=0 alt=\"\"><img" . PHP_EOL;
 
         if (substr($f,$i,1) == "0") {
           $f2 = $fino ;
         } else {
           $f2 = $largo ;
         }
-        $retorno .= "    src=../imagens/b.png width={$f2} height={$altura} border=0><img" . PHP_EOL;
+        $retorno .= " src=\"../imagens/b.png\" width={$f2} height={$altura} border=0 alt=\"\"><img" . PHP_EOL;
       }
     }
 
     // Draw guarda final
-    $retorno .= "src=../imagens/p.png width={$largo} height={$altura} border=0><img
-src=../imagens/b.png width={$fino} height={$altura} border=0><img
-src=../imagens/p.png width=1 height={$altura} border=0>";
+    $retorno .= " src=\"../imagens/p.png\" width={$largo} height={$altura} border=0 alt=\"\"><img
+src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+src=\"../imagens/p.png\" width=1 height={$altura} border=0 alt=\"\">";
 
     return $retorno;
     }
