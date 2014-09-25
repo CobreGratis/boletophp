@@ -1,0 +1,14 @@
+{
+    "name": "bielsystems/boletophp",
+    "description": "Projeto Código-Aberto de Sistema de Boletos bancários em PHP",
+    "type": "library",
+    "keywords": [
+        "php",
+        "boleto",
+        "boletophp"
+    ],
+    "homepage": "http://boletophp.com.br/",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
