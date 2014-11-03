@@ -104,10 +104,10 @@ $calculoDv = '';
 		$calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
 	}
 $Resto = $calculoDv % 11;
-$Dv = 11 - $Resto;
-if ($Dv == 0) $Dv = 0;
-if ($Dv == 1) $Dv = 0;
-if ($Dv > 9) $Dv = 0;
+if($Resto == 0 || $Resto == 1)
+    $Dv = 0;
+else
+    $Dv = 11 - $Resto;
 $dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
 
 /*************************************************************************
