@@ -105,8 +105,8 @@ $calculoDv = '';
 	}
 $Resto = $calculoDv % 11;
 $Dv = 11 - $Resto;
-if ($Dv == 0) $Dv = 0;
-if ($Dv == 1) $Dv = 0;
+//if ($Dv == 0) $Dv = 0;
+//if ($Dv == 1) $Dv = 0;
 if ($Dv > 9) $Dv = 0;
 $dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
 
