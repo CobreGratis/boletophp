@@ -57,7 +57,6 @@ abstract class Boleto
             'endereco' => $this->params['endereco'],
             'cidade_uf' => $this->params['cidade_uf'],
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
-            'linha_digitavel' => $this->linha_digitavel,
             'carteira' => $this->params['carteira'],
             'cedente' => $this->params['cedente'],
             'agencia_codigo' => $this->agencia_codigo,
