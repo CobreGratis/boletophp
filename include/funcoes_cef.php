@@ -43,20 +43,22 @@ $conta_dv = formata_numero($dadosboleto["conta_dv"],1,0);
 //carteira é 2 caracteres
 $carteira = $dadosboleto["carteira"];
 
-//conta cedente (sem dv) com 11 digitos   (Operacao de 3 digitos + Cedente de 8 digitos)
-$conta_cedente = formata_numero($dadosboleto["conta_cedente"],11,0);
+//conta cedente (sem dv) com 6 digitos
+$conta_cedente = formata_numero($dadosboleto["conta_cedente"],6,0);
 //dv da conta cedente
-$conta_cedente_dv = formata_numero($dadosboleto["conta_cedente_dv"],1,0);
+$conta_cedente_dv = modulo_10($conta_cedente);
 
-//nosso número (sem dv) é 10 digitos
-$nnum = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto["nosso_numero"],8,0);
-//nosso número completo (com dv) com 11 digitos
-$nossonumero = $nnum .'-'. digitoVerificador_nossonumero($nnum);
+//nosso número (sem dv) é 17 digitos
+$nossonumero = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto["nosso_numero"],15,0);
+$sequenciaNossoNumero = sequenciaNossoNumero($nossonumero);
 
-// 43 numeros para o calculo do digito verificador do codigo de barras
-$dv = digitoVerificador_barra("$codigobanco$nummoeda$fator_vencimento$valor$nnum$agencia$conta_cedente", 9, 0);
+// Campo livre
+$livre = rand(1, 9);
+
+// 44 numeros para o calculo do digito verificador do codigo de barras
+$dv = digitoVerificador_barra("$codigobanco$nummoeda$fator_vencimento$valor$conta_cedente$conta_cedente_dv$sequenciaNossoNumero$livre", 9, 0);
 // Numero para o codigo de barras com 44 digitos
-$linha = "$codigobanco$nummoeda$dv$fator_vencimento$valor$nnum$agencia$conta_cedente";
+$linha = "$codigobanco$nummoeda$dv$fator_vencimento$valor$conta_cedente$conta_cedente_dv$sequenciaNossoNumero$livre";
 
 $agencia_codigo = $agencia." / ". $conta_cedente ."-". $conta_cedente_dv;
 
@@ -65,6 +67,17 @@ $dadosboleto["linha_digitavel"] = monta_linha_digitavel($linha);
 $dadosboleto["agencia_codigo"] = $agencia_codigo;
 $dadosboleto["nosso_numero"] = $nossonumero;
 $dadosboleto["codigo_banco_com_dv"] = $codigo_banco_com_dv;
+
+function sequenciaNossoNumero($nossoNumero) {
+    $constante1 = substr($nossoNumero, 0, 1);
+    $constante2 = substr($nossoNumero, 1, 1);
+
+    $sequencia1 = substr($nossoNumero, 2, 3);
+    $sequencia2 = substr($nossoNumero, 5, 3);
+    $sequencia3 = substr($nossoNumero, 8, 9);
+
+    return $sequencia1 . $constante1 . $sequencia2 . $constante2 . $sequencia3;
+}
 
 function digitoVerificador_nossonumero($numero) {
 	$resto2 = modulo_11($numero, 9, 1);
