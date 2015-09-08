@@ -46,7 +46,7 @@ $carteira = $dadosboleto["carteira"];
 //conta cedente (sem dv) com 6 digitos
 $conta_cedente = formata_numero($dadosboleto["conta_cedente"],6,0);
 //dv da conta cedente
-$conta_cedente_dv = modulo_10($conta_cedente);
+$conta_cedente_dv = $dadosboleto["conta_cedente_dv"];
 
 //nosso número (sem dv) é 17 digitos
 $nossonumero = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto["nosso_numero"],15,0);
