@@ -53,7 +53,7 @@ $nossonumero = $dadosboleto["inicio_nosso_numero"] . formata_numero($dadosboleto
 $sequenciaNossoNumero = sequenciaNossoNumero($nossonumero);
 
 // Campo livre
-$livre = rand(1, 9);
+$livre = modulo_11($conta_cedente.$conta_cedente_dv.$sequenciaNossoNumero, 9, 0);
 
 // 44 numeros para o calculo do digito verificador do codigo de barras
 $dv = digitoVerificador_barra("$codigobanco$nummoeda$fator_vencimento$valor$conta_cedente$conta_cedente_dv$sequenciaNossoNumero$livre", 9, 0);
