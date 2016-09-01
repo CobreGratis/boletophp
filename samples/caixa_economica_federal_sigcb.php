@@ -1,7 +1,8 @@
 <?php
+require_once __DIR__."/../vendor/autoload.php";
 
-require '../library/BoletoPHP/Boletos/Boleto.php';
-require '../library/BoletoPHP/Boletos/CaixaEconomicaFederalSIGCB.php';
+use BoletoPHP\Boletos\Boleto;
+use BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB;
 
 header('Content-type: text/html; charset=ISO-8859-1'); 
 

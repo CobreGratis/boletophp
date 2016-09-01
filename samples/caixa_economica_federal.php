@@ -1,7 +1,8 @@
 <?php
+require_once __DIR__."/../vendor/autoload.php";
 
-require '../library/BoletoPHP/Boletos/Boleto.php';
-require '../library/BoletoPHP/Boletos/CaixaEconomicaFederal.php';
+use BoletoPHP\Boletos\Boleto;
+use BoletoPHP\Boletos\CaixaEconomicaFederal;
 
 $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
