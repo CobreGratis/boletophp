@@ -3,12 +3,13 @@
 require '../library/BoletoPHP/Boletos/Boleto.php';
 require '../library/BoletoPHP/Boletos/CaixaEconomicaFederalSIGCB.php';
 
+header('Content-type: text/html; charset=ISO-8859-1'); 
+
 $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
 $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
 $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
-
 
 $params = array(
         'data_vencimento' => date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400)),

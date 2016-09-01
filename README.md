@@ -13,6 +13,16 @@ Apenas fazer download do projeto e colocar no diretório de sua preferência.
 
 Os boletos criados possuem exemplos que podem ser encontrados em **/samples**
 
+### Utilizando docker
+1. Já tendo docker e docker-compose instalado em sua máquina, esteja na raíz deste projeto e utilize o seguinte comando:
+```
+  docker-compose up -d
+```
+2. Acesse http://localhost:8080/samples/caixa_economica_federal_sigcb.php 
+3. Para parar o container só rodar:
+```
+  docker-compose stop 
+```
 ## Onde obter ajuda
 
 Para obter ajuda você pode procurar o pessoal na lista do [PHP Rio](http://groups.google.com/group/phprio-org).
