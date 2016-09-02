@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
-<HTML>
-  <HEAD>
-    <TITLE><?php echo $identificacao; ?></TITLE>
-    <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
+<html>
+  <head>
+    <title><?php echo $identificacao; ?></title>
+    <meta http-equiv=Content-Type content=text/html charset=ISO-8859-1>
     <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
     <style type=text/css>
       <!--.cp {  font: bold 10px Arial; color: black}
@@ -99,13 +99,13 @@
       <tr>
         <td class="cp" width="150">
           <span class="campo">
-          <img src="../imagens/logocaixa.jpg" width="150" height="40" border="0" />
+          <img src="../imagens/logocaixa.jpg" width="130" height="30" border="0" />
           </span>
         </td>
         <td width="3" valign="bottom">
           <img height="22" src="../imagens/3.png" width="2" border="0" /> 
         </td>
-        <td class="cpt" width="58" valign="bottom">
+        <td class="cpt" width="68" valign="bottom">
           <div align="center">
             <font class="bc">
             <?php echo $codigo_banco_com_dv; ?>
@@ -135,57 +135,74 @@
       <tbody>
         <tr>
           <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="ct" valign="top" width="268" height="13">Cedente</td>
+          <td class="ct" valign="top" width="368" height="13">Beneficiário</td>
           <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="ct" valign="top" width="156" height="13">Agência/Código
-            do Cedente
+          <td class="ct" valign="top" width="136" height="13">
+            CPF/CNPJ
           </td>
           <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="ct" valign="top" width="34" height="13">Espécie</td>
-          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="ct" valign="top" width="53" height="13">Quantidade</td>
-          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="ct" valign="top" width="120" height="13">Nosso
-            número
-          </td>
+          <td class="ct" valign="top" width="134" height="13">Agência / Código do Beneficiário</td>
         </tr>
         <tr>
           <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="cp" valign="top" width="268" height="12">
+          <td class="cp" valign="top" width="368" height="12">
             <span class="campo"><?php echo $cedente; ?></span>
           </td>
           <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
           <td class="cp" valign="top" width="156" height="12">
             <span class="campo">
+            <?php echo $cpf_cnpj; ?>
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top"  width="134" height="12"><span class="campo">
             <?php echo $agencia_codigo; ?>
             </span>
           </td>
+          
+        </tr>
+        <tr>
+          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
+          <td valign=top width=368 height=1><img height=1 src="../imagens/2.png" width=368 border=0></td>
+          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
+          <td valign=top width=156 height=1><img height=1 src="../imagens/2.png" width=156 border=0></td>
+          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
+          <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
+        </tr>
+      </tbody>
+    </table>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="490" height="13">Endereço do Beneficiário</td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="34" height="13">UF</td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="107" height="13">CEP</td>
+        </tr>
+        <tr>
           <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="cp" valign="top"  width="34" height="12"><span class="campo">
-            <?php echo $especie; ?>
-            </span>
+          <td class="cp" valign="top" width="490" height="12">
+            <span class="campo"><?= $endereco; ?></span>
           </td>
           <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="cp" valign="top"  width="53" height="12"><span class="campo">
-            <?php echo $quantidade; ?>
-            </span>
-          </td>
-          <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
-          <td class="cp" valign="top" align="right" width="120" height="12">
+          <td class="cp" valign="top" width="34" height="12">
             <span class="campo">
-            <?php echo $nosso_numero; ?>
+            <?= $uf ?>
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top"  width="107" height="12"><span class="campo">
+            <?= $cep ?>
             </span>
           </td>
         </tr>
         <tr>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=268 height=1><img height=1 src="../imagens/2.png" width=268 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=156 height=1><img height=1 src="../imagens/2.png" width=156 border=0></td>
+          <td valign=top width=490 height=1><img height=1 src="../imagens/2.png" width=490 border=0></td>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
           <td valign=top width=34 height=1><img height=1 src="../imagens/2.png" width=34 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=53 height=1><img height=1 src="../imagens/2.png" width=53 border=0></td>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
           <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
         </tr>
@@ -195,130 +212,71 @@
       <tbody>
         <tr>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top colspan=3 height=13>Número
-            do documento
+          <td class=ct valign=top width=90 height=13>
+            Data do documento
           </td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=132 height=13>CPF/CNPJ</td>
+          <td class=ct valign=top width=132 height=13>Nr. do documento</td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=134 height=13>Vencimento</td>
+          <td class=ct valign=top width=134 height=13>Aceite</td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=180 height=13>Valor
-            documento
+          <td class=ct valign=top width=154 height=13>
+            Data de processamento
+          </td>
+          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+          <td class=ct valign=top width=120 height=13>
+            Nosso Número
           </td>
         </tr>
         <tr>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top colspan=3 height=12>
+          <td class=cp valign=top width=90 height=12>
             <span class="campo">
-            <?php echo $numero_documento; ?>
+            <?= $data_documento ?>
             </span>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
           <td class=cp valign=top width=132 height=12>
             <span class="campo">
-            <?php echo $cpf_cnpj; ?>
+            <?= $numero_documento ?>
             </span>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
           <td class=cp valign=top width=134 height=12>
             <span class="campo">
-            <?php echo ($data_vencimento != "") ? $data_vencimento : "Contra Apresentação" ?>
+            <?= $aceite ?>
             </span>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=180 height=12>
+          <td class=cp valign=top width=154 height=12>
             <span class="campo">
-            <?php echo $valor_boleto; ?>
+            <?= $data_processamento ?>
+            </span>
+          </td>
+          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+          <td class=cp valign=top width=120 height=12>
+            <span class="campo">
+            <?php echo $nosso_numero; ?>
             </span>
           </td>
         </tr>
         <tr>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=113 height=1><img height=1 src="../imagens/2.png" width=113 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=72 height=1><img height=1 src="../imagens/2.png" width=72 border=0></td>
+          <td valign=top width=90 height=1><img height=1 src="../imagens/2.png" width=90 border=0></td>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
           <td valign=top width=132 height=1><img height=1 src="../imagens/2.png" width=132 border=0></td>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
           <td valign=top width=134 height=1><img height=1 src="../imagens/2.png" width=134 border=0></td>
           <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+          <td valign=top width=154 height=1><img height=1 src="../imagens/2.png" width=154 border=0></td>
+          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
+          <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
         </tr>
       </tbody>
     </table>
-    <table cellspacing=0 cellpadding=0 border=0>
-      <tbody>
-        <tr>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=113 height=13>(-)
-            Desconto / Abatimentos
-          </td>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=112 height=13>(-)
-            Outras deduções
-          </td>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=113 height=13>(+)
-            Mora / Multa
-          </td>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=113 height=13>(+)
-            Outros acréscimos
-          </td>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=180 height=13>(=)
-            Valor cobrado
-          </td>
-        </tr>
-        <tr>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=113 height=12></td>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=112 height=12></td>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=113 height=12></td>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=113 height=12></td>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top align=right width=180 height=12></td>
-        </tr>
-        <tr>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=113 height=1><img height=1 src="../imagens/2.png" width=113 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=112 height=1><img height=1 src="../imagens/2.png" width=112 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=113 height=1><img height=1 src="../imagens/2.png" width=113 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=113 height=1><img height=1 src="../imagens/2.png" width=113 border=0></td>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
-        </tr>
-      </tbody>
-    </table>
-    <table cellspacing=0 cellpadding=0 border=0>
-      <tbody>
-        <tr>
-          <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=659 height=13>Sacado</td>
-        </tr>
-        <tr>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top width=659 height=12>
-            <span class="campo">
-            <?php echo $sacado; ?>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-          <td valign=top width=659 height=1><img height=1 src="../imagens/2.png" width=659 border=0></td>
-        </tr>
-      </tbody>
-    </table>
-    <table cellspacing=0 cellpadding=0 border=0>
-      <tbody>
+   
+    <table cellspacing=0 cellpadding=0 border=0 height="300">
+      <tbody >
         <tr>
           <td class=ct  width=7 height=12></td>
           <td class=ct  width=564 >Demonstrativo</td>
@@ -327,17 +285,50 @@
             mecânica
           </td>
         </tr>
-        <tr>
+        <tr height="20">
           <td  width=7 ></td>
-          <td class=cp width=564 >
+          <td class=cp width=564>
             <span class="campo">
             <?php echo $demonstrativo1; ?><br>
+            </span>
+          </td>
+          <td  width=7 ></td>
+          <td  width=88 ></td>
+        </tr>
+        <tr height="20">
+          <td  width=7 ></td>
+          <td class=cp width=564>
+            <span class="campo">
             <?php echo $demonstrativo2; ?><br>
+            </span>
+          </td>
+          <td  width=7 ></td>
+          <td  width=88 ></td>
+        </tr>
+        <tr height="20">
+          <td  width=7 ></td>
+          <td class=cp width=564>
+            <span class="campo">
             <?php echo $demonstrativo3; ?><br>
             </span>
           </td>
           <td  width=7 ></td>
           <td  width=88 ></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <table cellspacing="0" cellpadding="0" width="666" border="0">
+      <tbody>
+        <tr>
+          <td colspan="5">
+            <img height="1" src="../imagens/2.png" width="666" border="0">
+          </td>
         </tr>
       </tbody>
     </table>
@@ -901,46 +892,46 @@
         </tr>
       </tbody>
     </table>
-    <TABLE cellSpacing=0 cellPadding=0 border=0 width=666>
-      <TBODY>
-        <TR>
-          <TD class=ct  width=7 height=12></TD>
-          <TD class=ct  width=409 >Sacador/Avalista</TD>
-          <TD class=ct  width=250 >
+    <table cellSpacing=0 cellPadding=0 border=0 width=666>
+      <tbody>
+        <tr>
+          <td class=ct  width=7 height=12></td>
+          <td class=ct  width=409 >Sacador/Avalista</td>
+          <td class=ct  width=250 >
             <div align=right>Autenticação
               mecânica - <b class=cp>Ficha de Compensação</b>
             </div>
-          </TD>
-        </TR>
-        <TR>
-          <TD class=ct  colspan=3 ></TD>
+          </td>
+        </tr>
+        <tr>
+          <td class=ct  colspan=3 ></td>
         </tr>
       </tbody>
     </table>
-    <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
-      <TBODY>
-        <TR>
-          <TD vAlign=bottom align=left height=50><?php echo $codigo_barras; ?>
-          </TD>
+    <table cellSpacing=0 cellPadding=0 width=666 border=0>
+      <tbody>
+        <tr>
+          <td vAlign=bottom align=left height=50><?php echo $codigo_barras; ?>
+          </td>
         </tr>
       </tbody>
     </table>
-    <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
-      <TR>
-        <TD class=ct width=666></TD>
-      </TR>
-      <TBODY>
-        <TR>
-          <TD class=ct width=666>
+    <table cellSpacing=0 cellPadding=0 width=666 border=0>
+      <tr>
+        <td class=ct width=666></td>
+      </tr>
+      <tbody>
+        <tr>
+          <td class=ct width=666>
             <div align=right>Corte
               na linha pontilhada
             </div>
-          </TD>
-        </TR>
-        <TR>
-          <TD class=ct width=666><img height=1 src="../imagens/6.png" width=665 border=0></TD>
+          </td>
+        </tr>
+        <tr>
+          <td class=ct width=666><img height=1 src="../imagens/6.png" width=665 border=0></td>
         </tr>
       </tbody>
     </table>
-  </BODY>
-</HTML>
+  </body>
+</html>
