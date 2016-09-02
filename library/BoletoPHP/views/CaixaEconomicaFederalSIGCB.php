@@ -275,7 +275,7 @@
       </tbody>
     </table>
    
-    <table cellspacing=0 cellpadding=0 border=0 height="300">
+    <table cellspacing=0 cellpadding=0 border=0 height="200">
       <tbody >
         <tr>
           <td class=ct  width=7 height=12></td>
@@ -332,12 +332,157 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- AQUI NOVOS -->
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="490" height="13">Pagador: </td>
+          <td class="ct" valign="top" width="43" height="13">CPF/CNPJ: </td>
+          <td class="ct" valign="top" width="127" height="13"><?= $cpf_cnpj; ?></td>
+        </tr>
+        <tr>
+          <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="490" height="12">
+            <span class="campo"><?= $pagador; ?></span>
+          </td>
+          <td class="ct" valign="top" width="43" height="12">
+            <span class="campo">
+            UF:
+            </span>
+          </td>
+          <td class="ct" valign="top"  width="127" height="12"><span class="campo">
+            CEP:
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
+          <td valign=top width=490 height=1><img height=1 src="../imagens/2.png" width=490 border=0></td>
+          <td valign=top width=43 height=1><img height=1 src="../imagens/2.png" width=43 border=0></td>
+          <td valign=top width=127 height=1><img height=1 src="../imagens/2.png" width=127 border=0></td>
+        </tr>
+      </tbody>
+    </table>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="80" height="13">
+            Carteira
+          </td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="102" height="13">Espécie</td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="144" height="13">Vencimento</td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="164" height="13">
+            Valor do Documento
+          </td>
+          <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="ct" valign="top" width="140" height="13">
+            Valor Cobrado
+          </td>
+        </tr>
+        <tr>
+          <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="80" height="16">
+            <span class="campo">
+            <?= $carteira ?>          
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="102" height="16">
+            <span class="campo">
+              <?= $especie; ?>
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="144" height="16">
+            <span class="campo">
+            <?= $data_vencimento ?>
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="164" height="16">
+            <span class="campo">
+              <?= $valor_boleto ?>            
+            </span>
+          </td>
+          <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+          <td class="cp" valign="top" width="140" height="16">
+            <span class="campo">
+            240000000000000195            </span>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
+          <td valign="top" width="80" height="1"><img height="1" src="../imagens/2.png" width="80" border="0"></td>
+          <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
+          <td valign="top" width="102" height="1"><img height="1" src="../imagens/2.png" width="102" border="0"></td>
+          <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
+          <td valign="top" width="144" height="1"><img height="1" src="../imagens/2.png" width="144" border="0"></td>
+          <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
+          <td valign="top" width="164" height="1"><img height="1" src="../imagens/2.png" width="164" border="0"></td>
+          <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
+          <td valign="top" width="140" height="1"><img height="1" src="../imagens/2.png" width="140" border="0"></td>
+        </tr>
+      </tbody>
+    </table>
+    <table cellpadding="2" cellspacing="0" border="0">
+      <tbody> 
+          <tr>
+            <td class="cp" width="400" align="center">
+              <span class="campo" align="center">
+                SAC CAIXA:
+              </span>
+               0800 726 0101 (informações, reclamações, sugestões e elogios)
+            </td>
+            <td class="cp" width="266" align="center">
+              <span class="campo" align="center">
+                Autenticação Mecânica - Recibo do Pagador
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="cp" width="400" align="center">
+              <span class="campo" align="center">
+                Para pessoas com deficiência auditiva ou de fala:
+              </span>
+               0800 726 2492
+            </td>
+            <td class="cp" width="266">
+            </td>
+          </tr>
+          <tr>
+            <td class="cp" width="400"  align="center">
+              <span class="campo" align="center">
+                Ouvidoria:
+              </span>
+               0800 725 7474
+            </td>
+            <td class="cp" width="266">
+            </td>
+          </tr>
+          <tr>
+            <td class="cp" width="400"  align="center">
+              <span class="campo">
+                caixa.gov.br
+              </span>
+            </td>
+            <td class="cp" width="266">
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <!-- INICIO LINHA PONTILHADA -->
     <table cellspacing=0 cellpadding=0 width=666 border=0>
       <tbody>
         <tr>
           <td width=7></td>
           <td  width=500 class=cp>
-            <br><br><br>
           </td>
           <td width=159></td>
         </tr>
