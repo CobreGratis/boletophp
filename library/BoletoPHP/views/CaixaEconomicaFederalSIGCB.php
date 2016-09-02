@@ -433,33 +433,31 @@
     <table cellpadding="2" cellspacing="0" border="0">
       <tbody> 
           <tr>
-            <td class="cp" width="400" align="center">
-              <span class="campo" align="center">
+            <td width="400" align="center" style="font: normal 10px Arial;">
+              <strong class="campo" align="center">
                 SAC CAIXA:
-              </span>
+              </strong>
                0800 726 0101 (informações, reclamações, sugestões e elogios)
             </td>
-            <td class="cp" width="266" align="center">
-              <span class="campo" align="center">
-                Autenticação Mecânica - Recibo do Pagador
-              </span>
+            <td width="266" align="center" style="font: normal 10px Arial;">
+              Autenticação Mecânica - <strong>Recibo do Pagador</strong>
             </td>
           </tr>
           <tr>
-            <td class="cp" width="400" align="center">
-              <span class="campo" align="center">
+            <td width="400" align="center" style="font: normal 10px Arial;" >
+              <strong class="campo" align="center" > 
                 Para pessoas com deficiência auditiva ou de fala:
-              </span>
+              </strong>
                0800 726 2492
             </td>
             <td class="cp" width="266">
             </td>
           </tr>
           <tr>
-            <td class="cp" width="400"  align="center">
-              <span class="campo" align="center">
+            <td width="400"  align="center" style="font: normal 10px Arial;">
+              <strong class="campo" align="center">
                 Ouvidoria:
-              </span>
+              </strong>
                0800 725 7474
             </td>
             <td class="cp" width="266">
@@ -467,7 +465,7 @@
           </tr>
           <tr>
             <td class="cp" width="400"  align="center">
-              <span class="campo">
+              <span class="campo" style="color: blue;">
                 caixa.gov.br
               </span>
             </td>
