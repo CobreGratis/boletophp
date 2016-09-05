@@ -1,5 +1,4 @@
 <?php
-
 namespace BoletoPHP\Boletos;
 
 class CaixaEconomicaFederalSIGCB extends Boleto
@@ -43,6 +42,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         'endereco1',
         'endereco2',
     );
+    
     protected $codigobanco = 104;
     private $nummoeda = 9;
     private $campo_livre;
@@ -65,31 +65,31 @@ class CaixaEconomicaFederalSIGCB extends Boleto
 
     protected function geraContaCedente()
     {
-        $this->conta_cedente = $this->formata_numero($this->params['conta_cedente'], 6, 0);
+        $this->conta_cedente = $this->formataNumero($this->params['conta_cedente'], 6, 0);
     }
 
     protected function geraContaCedenteDv()
     {
-        $this->conta_cedente_dv = $this->digitoVerificador_cedente($this->params['conta_cedente'], 1, 0);
+        $this->conta_cedente_dv = $this->digitoVerificadorCedente($this->params['conta_cedente'], 1, 0);
     }
 
     protected function geraNNum()
     {
-        $this->nnum = $this->formata_numero($this->params["nosso_numero_const1"], 1, 0) .
-                      $this->formata_numero($this->params["nosso_numero_const2"], 1, 0) .
-                      $this->formata_numero($this->params["nosso_numero1"], 3, 0) .
-                      $this->formata_numero($this->params["nosso_numero2"], 3, 0) .
-                      $this->formata_numero($this->params["nosso_numero3"], 9, 0);
+        $this->nnum = $this->formataNumero($this->params["nosso_numero_const1"], 1, 0) .
+                      $this->formataNumero($this->params["nosso_numero_const2"], 1, 0) .
+                      $this->formataNumero($this->params["nosso_numero1"], 3, 0) .
+                      $this->formataNumero($this->params["nosso_numero2"], 3, 0) .
+                      $this->formataNumero($this->params["nosso_numero3"], 9, 0);
     }
 
     protected function geraNossoNumero()
     {
-        $this->nossonumero = $this->nnum . $this->digitoVerificador_nossonumero($this->nnum);
+        $this->nossonumero = $this->nnum . $this->digitoVerificadorNossonumero($this->nnum);
     }
 
     protected function geraDv()
     {
-        $this->dv = $this->digitoVerificador_barra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}", 9, 0);
+        $this->dv = $this->digitoVerificadorBarra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}", 9, 0);
     }
 
     protected function geraLinha()
@@ -100,16 +100,16 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private function geraCampoLivre()
     {
         $this->campo_livre = $this->conta_cedente . $this->conta_cedente_dv .
-                             $this->formata_numero($this->params["nosso_numero1"], 3, 0) .
-                             $this->formata_numero($this->params["nosso_numero_const1"], 1, 0) .
-                             $this->formata_numero($this->params["nosso_numero2"], 3, 0) .
-                             $this->formata_numero($this->params["nosso_numero_const2"], 1, 0) .
-                             $this->formata_numero($this->params["nosso_numero3"], 9, 0);
+                             $this->formataNumero($this->params["nosso_numero1"], 3, 0) .
+                             $this->formataNumero($this->params["nosso_numero_const1"], 1, 0) .
+                             $this->formataNumero($this->params["nosso_numero2"], 3, 0) .
+                             $this->formataNumero($this->params["nosso_numero_const2"], 1, 0) .
+                             $this->formataNumero($this->params["nosso_numero3"], 9, 0);
     }
 
     private function geraDvCampoLivre()
     {
-        $this->dv_campo_livre = $this->digitoVerificador_nossonumero($this->campo_livre);
+        $this->dv_campo_livre = $this->digitoVerificadorNossonumero($this->campo_livre);
     }
 
     private function geraCampoLivreComDv()
@@ -117,9 +117,9 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         $this->campo_livre_com_dv ="{$this->campo_livre}{$this->dv_campo_livre}";
     }
 
-    private function digitoVerificador_cedente($numero)
+    private function digitoVerificadorCedente($numero)
     {
-      $resto2 = $this->modulo_11($numero, 9, 1);
+      $resto2 = $this->moduloOnze($numero, 9, 1);
       $digito = 11 - $resto2;
       if ($digito == 10 || $digito == 11) $digito = 0;
       $dv = $digito;
