@@ -4,6 +4,10 @@ namespace BoletoPHP\Boletos;
 
 abstract class Boleto
 {
+    const FORMATO_GERAL = "geral";
+    const FORMATO_CONVENIO = "convenio";
+    const FORMATO_VALOR = "valor";
+
     protected $codigobanco;
     protected $codigo_banco_com_dv;
     protected $fator_vencimento;
@@ -98,7 +102,7 @@ abstract class Boleto
 
     protected function geraValor()
     {
-        $this->valor = $this->formataNumero($this->params['valor_boleto'], 10, 0, 'valor');
+        $this->valor = $this->formataNumero($this->params['valor_boleto'], 10, 0, self::FORMATO_VALOR);
     }
 
     protected function geraAgencia()
@@ -145,7 +149,7 @@ abstract class Boleto
         return $parte1 . "-" . $parte2;
     }
 
-    protected function moduloOnze($num, $base=9, $r=0)
+    protected function moduloOnze($num, $base = 9, $r = 0)
     {
         /**
          *   Autor:
@@ -168,24 +172,21 @@ abstract class Boleto
          *     - Script desenvolvido sem nenhum reaproveitamento de código pré existente.
          *     - Assume-se que a verificação do formato das variáveis de entrada é feita antes da execução deste script.
          */
-
-        $soma = 0;
         $fator = 2;
+        /** Transforma string de numeros em array **/
+        $numerosArray = str_split((string)$num);
+        /** Reverte o array, pois, as o calculo é feito de trás pra frente **/
+        $arrayReverso = array_reverse($numbers);
 
-        /* Separacao dos numeros */
-        for ($i = strlen($num); $i > 0; $i--) {
-            // pega cada numero isoladamente
-            $numeros[$i] = substr($num,$i-1,1);
-            // Efetua multiplicacao do numero pelo falor
-            $parcial[$i] = $numeros[$i] * $fator;
-            // Soma dos digitos
-            $soma += $parcial[$i];
-            if ($fator == $base) {
-                // restaura fator de multiplicacao para 2
-                $fator = 1;
-            }
-            $fator++;
-        }
+        /** Varre todo array remapeando para um array com a multiplicações dos fatores **/
+        $resultadoMultiplicacao = array_map(function($item) use($base, &$fator) {
+            if($fator > $base) 
+                $fator = 2;
+            return (int) $item * $fator++;
+        }, $arrayReverso);
+
+        /** Efetua a soma do array**/
+        $soma = array_sum($resultadoMultiplicacao);
 
         /* Calculo do modulo 11 */
         if ($r == 0) {
@@ -198,67 +199,46 @@ abstract class Boleto
             return $digito;
         } elseif ($r == 1) {
             $resto = $soma % 11;
-
             return $resto;
         }
     }
 
-    protected function fatorVencimento($data)
+    /**
+     * Calcula o fator de vencimento - diferença de dias com database de "07/10/1997"
+     * $data 
+     */
+    protected function fatorVencimento($data, $baseData = "07/10/1997")
     {
         if ($data != "") {
-            $data = explode("/",$data);
-            $ano = $data[2];
-            $mes = $data[1];
-            $dia = $data[0];
-
-            return(abs(($this->dateToDays("1997","10","07")) - ($this->dateToDays($ano, $mes, $dia))));
+            $date = \DateTime::createFromFormat("d/m/Y", $data);
+            $dateBase = \DateTime::createFromFormat("d/m/Y", $baseData);
+            $diff = $dateBase->diff($date);
+            return $diff->format("%a");
         } else {
             return "0000";
         }
     }
 
-    protected function dateToDays($year,$month,$day)
-    {
-        $century = substr($year, 0, 2);
-        $year = substr($year, 2, 2);
-        if ($month > 2) {
-            $month -= 3;
-        } else {
-            $month += 9;
-            if ($year) {
-                $year--;
-            } else {
-                $year = 99;
-                $century --;
-            }
-        }
-
-        return ( floor((  146097 * $century)    /  4 ) +
-                floor(( 1461 * $year)        /  4 ) +
-                floor(( 153 * $month +  2) /  5 ) +
-                    $day +  1721119);
-    }
-
     protected function formataNumero($numero,$loop,$insert,$tipo = "geral")
     {
-        if ($tipo == "geral") {
+        if ($tipo == self::FORMATO_GERAL) {
             $numero = str_replace(",","",$numero);
             while (strlen($numero)<$loop) {
                 $numero = $insert . $numero;
             }
         }
-        if ($tipo == "valor") {
+        if ($tipo == self::FORMATO_VALOR) {
             /*
             retira as virgulas
             formata o numero
             preenche com zeros
             */
             $numero = str_replace(",","",$numero);
-            while (strlen($numero)<$loop) {
+            while (strlen($numero) < $loop) {
                 $numero = $insert . $numero;
             }
         }
-        if ($tipo == "convenio") {
+        if ($tipo == self::FORMATO_CONVENIO) {
             while (strlen($numero)<$loop) {
                 $numero = $numero . $insert;
             }
@@ -281,7 +261,7 @@ abstract class Boleto
     }
 
     protected function digitoVerificadorBarra($numero)
-    {
+    {   
         $resto2 = $this->moduloOnze($numero, 9, 1);
         if ($resto2 == 0 || $resto2 == 1 || $resto2 == 10) {
             $dv = 1;

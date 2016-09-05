@@ -21,7 +21,7 @@ $params = array(
         'carteira' => "SR",
         'conta_cedente' => 123456,
         'nosso_numero1' => '000',
-        'nosso_numero_const1' => '2',
+        'nosso_numero_const1' => '1',
         'nosso_numero2' => '000',
         'nosso_numero_const2' => '4',
         'nosso_numero3' => '000000019',
@@ -54,3 +54,4 @@ $params = array(
 
 $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params);
 echo $boleto->gerarBoleto();
+// $boleto->salvarRemessa();
