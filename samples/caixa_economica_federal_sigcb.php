@@ -18,7 +18,7 @@ $params = array(
         'agencia' => 1234,
         'conta' => 123,
         'conta_dv' => 0,
-        'carteira' => "SR",
+        'carteira' => "RG",
         'conta_cedente' => 123456,
         'nosso_numero1' => '000',
         'nosso_numero_const1' => '1',
@@ -41,7 +41,6 @@ $params = array(
         'especie_doc' => '',
         'aceite' => '',
         'data_processamento' => date("d/m/Y"),
-        'carteira' => 'SR',
         'valor_unitario' => '',
         'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
         'instrucoes2' => '- Receber até 10 dias após o vencimento',
@@ -54,4 +53,5 @@ $params = array(
 
 $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params);
 echo $boleto->gerarBoleto();
+$boleto->salvarRemessa();
 // $boleto->salvarRemessa();

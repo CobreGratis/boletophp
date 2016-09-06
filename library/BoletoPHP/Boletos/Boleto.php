@@ -262,11 +262,11 @@ abstract class Boleto
 
     protected function digitoVerificadorBarra($numero)
     {   
-        $resto2 = $this->moduloOnze($numero, 9, 1);
-        if ($resto2 == 0 || $resto2 == 1 || $resto2 == 10) {
+        $resto = $this->moduloOnze($numero, 9, 1);
+        if ($resto == 0 || $resto == 1 || $resto == 10) {
             $dv = 1;
         } else {
-            $dv = 11 - $resto2;
+            $dv = 11 - $resto;
         }
 
         return $dv;

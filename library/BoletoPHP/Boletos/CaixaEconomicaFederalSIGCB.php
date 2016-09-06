@@ -1,6 +1,8 @@
 <?php
 namespace BoletoPHP\Boletos;
 
+use BoletoPHP\Model\Remessa;
+
 class CaixaEconomicaFederalSIGCB extends Boleto
 {
     public $params = array(
@@ -61,6 +63,11 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         $this->geraAgenciaCodigo();
         $this->geraLinhaDigitavel();
         $this->geraCodigoDeBarras();
+    }
+
+    public function salvarRemessa()
+    {
+        $retorno = new Remessa();
     }
 
     protected function geraContaCedente()
