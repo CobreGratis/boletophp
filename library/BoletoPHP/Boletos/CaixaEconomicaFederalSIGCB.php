@@ -4,7 +4,8 @@ namespace BoletoPHP\Boletos;
 use BoletoPHP\Model\Remessa;
 
 class CaixaEconomicaFederalSIGCB extends Boleto
-{
+{   
+
     public $params = array(
         'data_vencimento',
         'valor_boleto',
@@ -52,7 +53,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private $campo_livre_com_dv;
 
     public function  __construct($params)
-    {
+    {   
         parent::__construct($params);
         $this->geraNossoNumero();
         $this->geraCampoLivre();

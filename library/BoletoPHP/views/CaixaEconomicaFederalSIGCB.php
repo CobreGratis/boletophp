@@ -537,7 +537,9 @@
           <td class=ct valign=top width=180 height=13>Vencimento</td>
         </tr>
         <tr>
-          <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+          <td class=cp valign=top width=7 height=12>
+              <img height=12 src="../imagens/1.png" width=1 border=0>
+            </td>
           <td class=cp valign=top width=472 height=12>Pagável
             em qualquer Banco até o vencimento
           </td>

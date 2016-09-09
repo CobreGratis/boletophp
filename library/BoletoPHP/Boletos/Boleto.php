@@ -127,7 +127,7 @@ abstract class Boleto
 
     protected function geraAgenciaCodigo()
     {
-        $this->agencia_codigo = $this->agencia . " / " . $this->conta_cedente . "-" . $this->conta_cedente_dv;
+        $this->agencia_codigo = sprintf("%d / %d-%d ", $this->agencia, $this->conta_cedente, $this->conta_cedente_dv);
     }
 
     protected function geraLinhaDigitavel()
@@ -188,19 +188,13 @@ abstract class Boleto
         /** Efetua a soma do array**/
         $soma = array_sum($resultadoMultiplicacao);
 
+        if ($r == 1)
+            return $soma % 11;
+        
         /* Calculo do modulo 11 */
-        if ($r == 0) {
-            $soma *= 10;
-            $digito = $soma % 11;
-            if ($digito == 10) {
-                $digito = 0;
-            }
-
-            return $digito;
-        } elseif ($r == 1) {
-            $resto = $soma % 11;
-            return $resto;
-        }
+        $soma *= 10;
+        $digito = $soma % 11;
+        return $digito == 10 ? 0 : $digito;
     }
 
     /**

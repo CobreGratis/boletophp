@@ -1,6 +1,6 @@
 <?php
-
 namespace BoletoPHP\Boletos;
+use BoletoPHP\Types\{EspecieDoc, Carteira};
 
 class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,6 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
             'agencia' => 1234,
             'conta' => 123,
             'conta_dv' => 0,
-            'carteira' => "SR",
             'conta_cedente' => 123456,
             'nosso_numero1' => '000',
             'nosso_numero_const1' => '2',
@@ -39,10 +38,10 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
             'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
             'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
             'data_documento' => date("d/m/Y", $time),
-            'especie_doc' => '',
+            'especie_doc' => EspecieDoc::DUPLICATA_MERCANTIL,
             'aceite' => '',
             'data_processamento' => date("d/m/Y", $time),
-            'carteira' => 'SR',
+            'carteira' => Carteira::COM_REGISTRO,
             'valor_unitario' => '',
             'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
             'instrucoes2' => '- Receber até 10 dias após o vencimento',

@@ -2,6 +2,7 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\Boleto;
+use BoletoPHP\Types\{EspecieDoc, Carteira};
 use BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB;
 
 header('Content-type: text/html; charset=ISO-8859-1'); 
@@ -18,7 +19,7 @@ $params = array(
         'agencia' => 1234,
         'conta' => 123,
         'conta_dv' => 0,
-        'carteira' => "RG",
+        'carteira' => Carteira::COM_REGISTRO,
         'conta_cedente' => 123456,
         'nosso_numero1' => '000',
         'nosso_numero_const1' => '1',
@@ -38,7 +39,7 @@ $params = array(
         'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
         'data_documento' => date("d/m/Y"),
-        'especie_doc' => '',
+        'especie_doc' => EspecieDoc::DUPLICATA_MERCANTIL,
         'aceite' => '',
         'data_processamento' => date("d/m/Y"),
         'valor_unitario' => '',
