@@ -279,10 +279,9 @@
       <tbody >
         <tr>
           <td class=ct  width=7 height=12></td>
-          <td class=ct  width=564 >Demonstrativo</td>
+          <td class=ct  width=564 ><strong>Instruções (Texto de Responsabilidade do Beneficiário):</strong></td>
           <td class=ct  width=7 height=12></td>
-          <td class=ct  width=88 >Autenticação
-            mecânica
+          <td class=ct  width=88 >
           </td>
         </tr>
         <tr height="20">
@@ -562,10 +561,10 @@
       <tbody>
         <tr>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=472 height=13>Cedente</td>
+          <td class=ct valign=top width=472 height=13>Beneficiário: </td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top width=180 height=13>Agência/Código
-            cedente
+            do Beneficiário
           </td>
         </tr>
         <tr>
@@ -600,19 +599,19 @@
             do documento
           </td>
           <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=133 height=13>N<u>o</u>
+          <td class=ct valign=top width=133 height=13>Nr. do
             documento
           </td>
           <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top width=62 height=13>Espécie
-            doc.
+            DOC
           </td>
           <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top width=34 height=13>Aceite</td>
           <td class=ct valign=top width=7 height=13>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
-          <td class=ct valign=top width=102 height=13>Data
+          <td class=ct valign=top width=102 height=13>Data de
             processamento
           </td>
           <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
@@ -697,23 +696,23 @@
         <tr>
           <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top COLSPAN="3" height=13>Uso
-            do banco
+            do Banco
           </td>
           <td class=ct valign=top height=13 width=7> <img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top width=83 height=13>Carteira</td>
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
-          <td class=ct valign=top width=43 height=13>Espécie</td>
+          <td class=ct valign=top width=63 height=13>Espécie Moeda</td>
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
-          <td class=ct valign=top width=103 height=13>Quantidade</td>
+          <td class=ct valign=top width=83 height=13>Qtde moeda</td>
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
           <td class=ct valign=top width=102 height=13>
-            Valor Documento
+            xValor
           </td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
           <td class=ct valign=top width=180 height=13>(=)
@@ -734,14 +733,14 @@
             </div>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top  width=43>
+          <td class=cp valign=top  width=63>
             <div align=left><span class="campo">
               <?php echo $especie; ?>
               </span>
             </div>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top  width=103><span class="campo">
+          <td class=cp valign=top  width=83><span class="campo">
             <?php echo $quantidade; ?>
             </span>
           </td>
@@ -770,11 +769,11 @@
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=43 height=1><img height=1 src="../imagens/2.png" width=43 border=0></td>
+          <td valign=top width=63 height=1><img height=1 src="../imagens/2.png" width=63 border=0></td>
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=103 height=1><img height=1 src="../imagens/2.png" width=103 border=0></td>
+          <td valign=top width=83 height=1><img height=1 src="../imagens/2.png" width=83 border=0></td>
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
