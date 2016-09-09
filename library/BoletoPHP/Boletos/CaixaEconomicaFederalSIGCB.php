@@ -6,10 +6,46 @@ use BoletoPHP\Model\Remessa;
 class CaixaEconomicaFederalSIGCB extends Boleto
 {   
 
-    public $params = array(
+    protected $required = [
         'data_vencimento',
         'valor_boleto',
         'agencia',
+        'conta',
+        'conta_dv',
+        'carteira',
+        'conta_cedente',
+        'nosso_numero1',
+        'nosso_numero_const1',
+        'nosso_numero2',
+        'nosso_numero_const2',
+        'nosso_numero3',
+        'identificacao',
+        'cpf_cnpj',
+        'endereco',
+        'cidade_uf',
+        'cedente',
+        'especie',
+        'numero_documento',
+        'sacado',
+        'demonstrativo1',
+        'especie_doc',
+        'aceite',
+        'data_processamento',
+        'instrucoes1',
+        'endereco1',
+        'endereco2',
+        'pagador_nome',
+        'pagador_cpf',
+        'pagador_endereco',
+    ];
+
+    public $params = [
+        'data_vencimento',
+        'valor_boleto',
+        'agencia',
+        'pagador_nome',
+        'pagador_cpf',
+        'pagador_endereco',
         'conta',
         'conta_dv',
         'carteira',
@@ -44,7 +80,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         'instrucoes4',
         'endereco1',
         'endereco2',
-    );
+    ];
     
     protected $codigobanco = 104;
     private $nummoeda = 9;

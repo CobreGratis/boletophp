@@ -1,12 +1,19 @@
 <?php
-
 namespace BoletoPHP\Boletos;
+
+use BoletoPHP\Types\InvalidParamException;
+use Respect\Validation\Validator as v;
 
 abstract class Boleto
 {
     const FORMATO_GERAL = "geral";
     const FORMATO_CONVENIO = "convenio";
     const FORMATO_VALOR = "valor";
+
+    protected $required = [
+        'codigo',
+        'carteira'
+    ];
 
     protected $codigobanco;
     protected $codigo_banco_com_dv;
@@ -29,8 +36,9 @@ abstract class Boleto
     private $diretorio_de_views;
 
     public function  __construct($params)
-    {
+    {           
         $this->params = array_merge($this->params, $params);
+        $this->validateParams();
         $this->geraNomeDaClasse();
         $this->geraDiretorioDeViews();
         $this->geraCodigoBancoComDv();
@@ -43,6 +51,14 @@ abstract class Boleto
         $this->geraContaCedente();
         $this->geraContaCedenteDv();
         $this->geraNNum();
+    }
+
+    protected function validateParams()
+    {
+        foreach ($this->required as $name) {
+            if(! v::notOptional()->validate($this->params[$name]) )
+                throw new InvalidParamException(sprintf("Param '%s' is required", $name));
+        }
     }
 
     public function gerarBoleto()

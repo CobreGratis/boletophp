@@ -2,7 +2,7 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\Boleto;
-use BoletoPHP\Types\{EspecieDoc, Carteira};
+use BoletoPHP\Types\{EspecieDoc, Carteira, Aceite};
 use BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB;
 
 header('Content-type: text/html; charset=ISO-8859-1'); 
@@ -27,7 +27,7 @@ $params = array(
         'nosso_numero_const2' => '4',
         'nosso_numero3' => '000000019',
         'identificacao' => 'BoletoPhp - Código Aberto de Sistema de Boletos',
-        'cpf_cnpj' => '',
+        'cpf_cnpj' => '0212164-545/0000',
         'endereco' => 'Coloque o endereço da sua empresa aqui',
         'cidade_uf' => 'Cidade / Estado',
         'cedente' => 'Coloque a Razão Social da sua empresa aqui',
@@ -40,7 +40,7 @@ $params = array(
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
         'data_documento' => date("d/m/Y"),
         'especie_doc' => EspecieDoc::DUPLICATA_MERCANTIL,
-        'aceite' => '',
+        'aceite' => Aceite::COM_ACEITE,
         'data_processamento' => date("d/m/Y"),
         'valor_unitario' => '',
         'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
@@ -49,10 +49,18 @@ $params = array(
         'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
         'endereco1' => 'Endereço do seu Cliente',
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
-
+        'pagador_nome' => 'Luiz Fernando Popota',
+        'pagador_cpf' => '265.857.562-90',
+        'pagador_endereco' => 'Av. 24 de Outubro'
     );
 
-$boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params);
-echo $boleto->gerarBoleto();
-$boleto->salvarRemessa();
+try {
+
+    $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params);
+    echo $boleto->gerarBoleto();
+    $boleto->salvarRemessa();
 // $boleto->salvarRemessa();
+} catch(\RuntimeException $e) 
+{
+    echo $e->getMessage();die;
+}
