@@ -699,7 +699,7 @@
             do Banco
           </td>
           <td class=ct valign=top height=13 width=7> <img height=13 src="../imagens/1.png" width=1 border=0></td>
-          <td class=ct valign=top width=83 height=13>Carteira</td>
+          <td class=ct valign=top width=133 height=13>Carteira</td>
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
@@ -707,11 +707,11 @@
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
-          <td class=ct valign=top width=83 height=13>Qtde moeda</td>
+          <td class=ct valign=top width=33 height=13>Qtde moeda</td>
           <td class=ct valign=top height=13 width=7>
             <img height=13 src="../imagens/1.png" width=1 border=0>
           </td>
-          <td class=ct valign=top width=102 height=13>
+          <td class=ct valign=top width=82 height=13>
             xValor
           </td>
           <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
@@ -726,7 +726,7 @@
             </div>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top  width=83>
+          <td class=cp valign=top  width=133>
             <div align=left> <span class="campo">
               <?php echo $carteira; ?>
               </span>
@@ -740,12 +740,12 @@
             </div>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top  width=83><span class="campo">
+          <td class=cp valign=top  width=53><span class="campo">
             <?php echo $quantidade; ?>
             </span>
           </td>
           <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
-          <td class=cp valign=top  width=102>
+          <td class=cp valign=top  width=82>
             <span class="campo">
             <?php echo $valor_unitario; ?>
             </span>
@@ -765,7 +765,7 @@
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=83 height=1><img height=1 src="../imagens/2.png" width=83 border=0></td>
+          <td valign=top width=133 height=1><img height=1 src="../imagens/2.png" width=133 border=0></td>
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
@@ -773,15 +773,15 @@
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=83 height=1><img height=1 src="../imagens/2.png" width=83 border=0></td>
+          <td valign=top width=53 height=1><img height=1 src="../imagens/2.png" width=53 border=0></td>
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=102 height=1><img height=1 src="../imagens/2.png" width=102 border=0></td>
+          <td valign=top width=82 height=1><img height=1 src="../imagens/2.png" width=82 border=0></td>
           <td valign=top width=7 height=1>
             <img height=1 src="../imagens/2.png" width=7 border=0>
           </td>
-          <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+          <td valign=top width=160 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
         </tr>
       </tbody>
     </table>
