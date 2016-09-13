@@ -8,6 +8,6 @@ php:
 
 before_script:
   - composer selfupdate
-  - composer install --prefer-dist -o
+  - composer install -o
 
 script: bin/phpunit tests
