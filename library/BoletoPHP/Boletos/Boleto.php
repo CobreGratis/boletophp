@@ -93,7 +93,7 @@ abstract class Boleto
             'especie_doc' => $this->params['especie_doc'],
             'aceite' => $this->params['aceite'],
             'data_processamento' => $this->params['data_processamento'],
-            'carteira_descricao' => $this->params['carteira_descricao'] ? $this->params['carteira_descricao'] : '',
+            'carteira_descricao' => array_key_exists('carteira_descricao', $this->params) ? $this->params['carteira_descricao'] : '',
             'valor_unitario' => $this->params['valor_unitario'],
             'instrucoes1' => $this->params['instrucoes1'],
             'instrucoes2' => $this->params['instrucoes2'],
