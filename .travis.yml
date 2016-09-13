@@ -9,5 +9,5 @@ php:
 before_script:
   - composer selfupdate
   - composer install --prefer-dist -o
-  
-script: bin/phpunit
+
+script: bin/phpunit tests
