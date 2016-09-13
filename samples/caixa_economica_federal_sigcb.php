@@ -2,7 +2,9 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\Boleto;
-use BoletoPHP\Types\{EspecieDoc, Carteira, Aceite};
+use BoletoPHP\Types\EspecieDoc,
+    BoletoPHP\Types\Carteira,
+    BoletoPHP\Types\Aceite;
 use BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB;
 
 header('Content-type: text/html; charset=ISO-8859-1');

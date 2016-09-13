@@ -1,6 +1,9 @@
 <?php
 namespace BoletoPHP\Boletos;
-use BoletoPHP\Types\{EspecieDoc, Carteira, Aceite};
+
+use BoletoPHP\Types\EspecieDoc,
+    BoletoPHP\Types\Carteira,
+    BoletoPHP\Types\Aceite;
 
 class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
 {
