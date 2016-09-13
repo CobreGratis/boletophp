@@ -11,7 +11,6 @@ abstract class Boleto
     const FORMATO_VALOR = "valor";
 
     protected $required = [
-        'codigo',
         'carteira'
     ];
 
@@ -36,7 +35,7 @@ abstract class Boleto
     private $diretorio_de_views;
 
     public function  __construct($params)
-    {           
+    {
         $this->params = array_merge($this->params, $params);
         $this->validateParams();
         $this->geraNomeDaClasse();
@@ -56,13 +55,13 @@ abstract class Boleto
     protected function validateParams()
     {
         foreach ($this->required as $name) {
-            if(! v::notOptional()->validate($this->params[$name]) )
+            if(! array_key_exists($name, $this->params) || ! v::notOptional()->validate($this->params[$name]) )
                 throw new InvalidParamException(sprintf("Param '%s' is required", $name));
         }
     }
 
     public function gerarBoleto()
-    {   
+    {
         extract($this->getViewVars());
         include "{$this->diretorio_de_views}{$this->nome_da_classe}.php";
     }
@@ -94,7 +93,7 @@ abstract class Boleto
             'especie_doc' => $this->params['especie_doc'],
             'aceite' => $this->params['aceite'],
             'data_processamento' => $this->params['data_processamento'],
-            'carteira_descricao' => $this->params['carteira_descricao'],
+            'carteira_descricao' => $this->params['carteira_descricao'] ?? '',
             'valor_unitario' => $this->params['valor_unitario'],
             'instrucoes1' => $this->params['instrucoes1'],
             'instrucoes2' => $this->params['instrucoes2'],
@@ -143,7 +142,7 @@ abstract class Boleto
 
     protected function geraAgenciaCodigo()
     {
-        $this->agencia_codigo = sprintf("%d / %d-%d ", $this->agencia, $this->conta_cedente, $this->conta_cedente_dv);
+        $this->agencia_codigo = sprintf("%d / %s-%d", $this->agencia, (string)$this->conta_cedente, $this->conta_cedente_dv);
     }
 
     protected function geraLinhaDigitavel()
@@ -192,11 +191,11 @@ abstract class Boleto
         /** Transforma string de numeros em array **/
         $numerosArray = str_split((string)$num);
         /** Reverte o array, pois, as o calculo é feito de trás pra frente **/
-        $arrayReverso = array_reverse($numbers);
+        $arrayReverso = array_reverse($numerosArray);
 
         /** Varre todo array remapeando para um array com a multiplicações dos fatores **/
         $resultadoMultiplicacao = array_map(function($item) use($base, &$fator) {
-            if($fator > $base) 
+            if($fator > $base)
                 $fator = 2;
             return (int) $item * $fator++;
         }, $arrayReverso);
@@ -206,7 +205,7 @@ abstract class Boleto
 
         if ($r == 1)
             return $soma % 11;
-        
+
         /* Calculo do modulo 11 */
         $soma *= 10;
         $digito = $soma % 11;
@@ -215,7 +214,7 @@ abstract class Boleto
 
     /**
      * Calcula o fator de vencimento - diferença de dias com database de "07/10/1997"
-     * $data 
+     * $data
      */
     protected function fatorVencimento($data, $baseData = "07/10/1997")
     {
@@ -271,7 +270,7 @@ abstract class Boleto
     }
 
     protected function digitoVerificadorBarra($numero)
-    {   
+    {
         $resto = $this->moduloOnze($numero, 9, 1);
         if ($resto == 0 || $resto == 1 || $resto == 10) {
             $dv = 1;

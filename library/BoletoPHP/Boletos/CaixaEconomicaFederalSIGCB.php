@@ -4,7 +4,7 @@ namespace BoletoPHP\Boletos;
 use BoletoPHP\Model\Remessa;
 
 class CaixaEconomicaFederalSIGCB extends Boleto
-{   
+{
 
     protected $required = [
         'data_vencimento',
@@ -81,7 +81,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         'endereco1',
         'endereco2',
     ];
-    
+
     protected $codigobanco = 104;
     private $nummoeda = 9;
     private $campo_livre;
@@ -89,7 +89,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private $campo_livre_com_dv;
 
     public function  __construct($params)
-    {   
+    {
         parent::__construct($params);
         $this->geraNossoNumero();
         $this->geraCampoLivre();

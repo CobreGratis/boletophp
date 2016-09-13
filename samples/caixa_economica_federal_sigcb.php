@@ -5,7 +5,7 @@ use BoletoPHP\Boletos\Boleto;
 use BoletoPHP\Types\{EspecieDoc, Carteira, Aceite};
 use BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB;
 
-header('Content-type: text/html; charset=ISO-8859-1'); 
+header('Content-type: text/html; charset=ISO-8859-1');
 
 $dias_de_prazo_para_pagamento = 5;
 $taxa_boleto = 2.95;
@@ -26,28 +26,28 @@ $params = array(
         'nosso_numero2' => '000',
         'nosso_numero_const2' => '4',
         'nosso_numero3' => '000000019',
-        'identificacao' => 'BoletoPhp - Código Aberto de Sistema de Boletos',
+        'identificacao' => 'BoletoPhp - Cï¿½digo Aberto de Sistema de Boletos',
         'cpf_cnpj' => '0212164-545/0000',
-        'endereco' => 'Coloque o endereço da sua empresa aqui',
+        'endereco' => 'Coloque o endereï¿½o da sua empresa aqui',
         'cidade_uf' => 'Cidade / Estado',
-        'cedente' => 'Coloque a Razão Social da sua empresa aqui',
+        'cedente' => 'Coloque a Razï¿½o Social da sua empresa aqui',
         'especie' => 'R$',
         'quantidade' => '',
         'numero_documento' => '27.030195.10',
         'sacado' => 'Nome do seu Cliente',
         'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
-        'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
+        'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancï¿½ria - R$ ' . number_format($taxa_boleto, 2, ',', ''),
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
         'data_documento' => date("d/m/Y"),
         'especie_doc' => EspecieDoc::DUPLICATA_MERCANTIL,
         'aceite' => Aceite::COM_ACEITE,
         'data_processamento' => date("d/m/Y"),
         'valor_unitario' => '',
-        'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
-        'instrucoes2' => '- Receber até 10 dias após o vencimento',
-        'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
+        'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% apï¿½s o vencimento',
+        'instrucoes2' => '- Receber atï¿½ 10 dias apï¿½s o vencimento',
+        'instrucoes3' => '- Em caso de dï¿½vidas entre em contato conosco: xxxx@xxxx.com.br',
         'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
-        'endereco1' => 'Endereço do seu Cliente',
+        'endereco1' => 'Endereï¿½o do seu Cliente',
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
         'pagador_nome' => 'Luiz Fernando Popota',
         'pagador_cpf' => '265.857.562-90',
@@ -60,7 +60,7 @@ try {
     echo $boleto->gerarBoleto();
     $boleto->salvarRemessa();
 // $boleto->salvarRemessa();
-} catch(\RuntimeException $e) 
+} catch(\RuntimeException $e)
 {
     echo $e->getMessage();die;
 }

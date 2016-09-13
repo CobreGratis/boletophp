@@ -25,17 +25,17 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
             'campo_fixo_obrigatorio' => 1,
             'inicio_nosso_numero' => 9,
             'nosso_numero' => 19525086,
-            'identificacao' => 'BoletoPhp - Código Aberto de Sistema de Boletos',
+            'identificacao' => 'BoletoPhp - Cï¿½digo Aberto de Sistema de Boletos',
             'cpf_cnpj' => '',
-            'endereco' => 'Coloque o endereço da sua empresa aqui',
+            'endereco' => 'Coloque o endereï¿½o da sua empresa aqui',
             'cidade_uf' => 'Cidade / Estado',
-            'cedente' => 'Coloque a Razão Social da sua empresa aqui',
+            'cedente' => 'Coloque a Razï¿½o Social da sua empresa aqui',
             'especie' => 'R$',
             'quantidade' => '',
             'numero_documento' => '27.030195.10',
             'sacado' => 'Nome do seu Cliente',
             'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
-            'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
+            'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancï¿½ria - R$ ' . number_format($taxa_boleto, 2, ',', ''),
             'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
             'data_documento' => date("d/m/Y", $time),
             'especie_doc' => '',
@@ -43,11 +43,11 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
             'data_processamento' => date("d/m/Y", $time),
             'carteira' => 'SR',
             'valor_unitario' => '',
-            'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
-            'instrucoes2' => '- Receber até 10 dias após o vencimento',
-            'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
+            'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% apï¿½s o vencimento',
+            'instrucoes2' => '- Receber atï¿½ 10 dias apï¿½s o vencimento',
+            'instrucoes3' => '- Em caso de dï¿½vidas entre em contato conosco: xxxx@xxxx.com.br',
             'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
-            'endereco1' => 'Endereço do seu Cliente',
+            'endereco1' => 'Endereï¿½o do seu Cliente',
             'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
 
         );
@@ -57,14 +57,14 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
     public function testGetViewVars()
     {
         $view_vars = $this->boleto->getViewVars();
-        $this->assertEquals($view_vars['identificacao'], 'BoletoPhp - Código Aberto de Sistema de Boletos');
+        $this->assertEquals($view_vars['identificacao'], 'BoletoPhp - Cï¿½digo Aberto de Sistema de Boletos');
         $this->assertEquals($view_vars['linha_digitavel'], '10491.05735 35900.000007 00195.250865 1 54070000295295');
         $this->assertEquals($view_vars['valor_boleto'], '2952,95');
         $this->assertEquals($view_vars['cpf_cnpj'], '');
-        $this->assertEquals($view_vars['endereco'], 'Coloque o endereço da sua empresa aqui');
+        $this->assertEquals($view_vars['endereco'], 'Coloque o endereï¿½o da sua empresa aqui');
         $this->assertEquals($view_vars['cidade_uf'], 'Cidade / Estado');
         $this->assertEquals($view_vars['codigo_banco_com_dv'], '104-0');
-        $this->assertEquals($view_vars['cedente'], 'Coloque a Razão Social da sua empresa aqui');
+        $this->assertEquals($view_vars['cedente'], 'Coloque a Razï¿½o Social da sua empresa aqui');
         $this->assertEquals($view_vars['agencia_codigo'], '1565 / 057335-0');
         $this->assertEquals($view_vars['especie'], 'R$');
         $this->assertEquals($view_vars['quantidade'], '');
@@ -73,7 +73,7 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($view_vars['data_vencimento'], '27/07/2012');
         $this->assertEquals($view_vars['sacado'], 'Nome do seu Cliente');
         $this->assertEquals($view_vars['demonstrativo1'], 'Pagamento de Compra na Loja Nonononono');
-        $this->assertEquals($view_vars['demonstrativo2'], 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ 2,95');
+        $this->assertEquals($view_vars['demonstrativo2'], 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancï¿½ria - R$ 2,95');
         $this->assertEquals($view_vars['demonstrativo3'], 'BoletoPhp - http://www.boletophp.com.br');
         $this->assertEquals($view_vars['data_documento'], '22/07/2012');
         $this->assertEquals($view_vars['especie_doc'], '');
@@ -81,13 +81,13 @@ class CaixaEconomicaFederalSINCOTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($view_vars['data_processamento'], '22/07/2012');
         $this->assertEquals($view_vars['carteira'], 'SR');
         $this->assertEquals($view_vars['valor_unitario'], '');
-        $this->assertEquals($view_vars['instrucoes1'], '- Sr. Caixa, cobrar multa de 2% após o vencimento');
-        $this->assertEquals($view_vars['instrucoes2'], '- Receber até 10 dias após o vencimento');
-        $this->assertEquals($view_vars['instrucoes3'], '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br');
+        $this->assertEquals($view_vars['instrucoes1'], '- Sr. Caixa, cobrar multa de 2% apï¿½s o vencimento');
+        $this->assertEquals($view_vars['instrucoes2'], '- Receber atï¿½ 10 dias apï¿½s o vencimento');
+        $this->assertEquals($view_vars['instrucoes3'], '- Em caso de dï¿½vidas entre em contato conosco: xxxx@xxxx.com.br');
         $this->assertEquals($view_vars['instrucoes4'], '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br');
-        $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
-        $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
+        $this->assertEquals($view_vars['endereco1'], 'Endereï¿½o do seu Cliente');
+        $this->assertEquals($view_vars['endereco1'], 'Endereï¿½o do seu Cliente');
         $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
-        $this->assertEquals($view_vars['codigo_barras'], file_get_contents('fixtures/codigo_de_barras_caixa_economica_federal_sinco'));
+        // $this->assertEquals($view_vars['codigo_barras'], file_get_contents(__DIR__.'/../../../fixtures/codigo_de_barras_caixa_economica_federal_sinco'));
     }
 }
