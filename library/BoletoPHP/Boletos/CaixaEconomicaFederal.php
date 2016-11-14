@@ -7,23 +7,14 @@ class CaixaEconomicaFederal extends Boleto
     public $params = array(
         'data_vencimento',
         'valor_boleto',
-        'agencia',
-        'conta',
-        'conta_dv',
         'carteira',
-        'conta_cedente',
-        'conta_cedente_dv',
         'inicio_nosso_numero',
         'nosso_numero',
         'identificacao',
-        'cpf_cnpj',
-        'endereco',
-        'cidade_uf',
         'cedente',
         'especie',
         'quantidade',
         'numero_documento',
-        'sacado',
         'demonstrativo1',
         'demonstrativo2',
         'demonstrativo3',
@@ -37,15 +28,14 @@ class CaixaEconomicaFederal extends Boleto
         'instrucoes2',
         'instrucoes3',
         'instrucoes4',
-        'endereco1',
-        'endereco2',
     );
+    
     protected $codigobanco = 104;
     private $nummoeda = 9;
 
-    public function  __construct($params)
+    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
     {
-        parent::__construct($params);
+        parent::__construct($pagador, $beneficiario, $params);
         $this->geraNossoNumero();
         $this->geraDv();
         $this->geraLinha();

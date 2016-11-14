@@ -46,9 +46,9 @@ class CaixaEconomicaFederalSINCO extends Boleto
     private $nossonumero_dv;
     private $campo_livre;
 
-    public function  __construct($params)
+    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
     {
-        parent::__construct($params);
+        parent::__construct($pagador, $beneficiario, $params);
         $this->geraNossoNumeroDv();
         $this->geraNossoNumero();
         $this->geraCampoLivre();
