@@ -2,6 +2,8 @@
 namespace BoletoPHP\Boletos;
 
 use BoletoPHP\Model\Remessa;
+use BoletoPHP\Types\Pagador;
+use BoletoPHP\Types\Beneficiario;
 
 class CaixaEconomicaFederalSIGCB extends Boleto
 {
@@ -9,62 +11,26 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     protected $required = [
         'data_vencimento',
         'valor_boleto',
-        'agencia',
-        'conta',
-        'conta_dv',
         'carteira',
-        'conta_cedente',
-        'nosso_numero1',
-        'nosso_numero_const1',
-        'nosso_numero2',
-        'nosso_numero_const2',
-        'nosso_numero3',
         'identificacao',
-        'cpf_cnpj',
-        'endereco',
-        'cidade_uf',
-        'cedente',
         'especie',
         'numero_documento',
-        'sacado',
         'demonstrativo1',
         'especie_doc',
         'aceite',
         'data_processamento',
-        'instrucoes1',
-        'endereco1',
-        'endereco2',
-        'pagador_nome',
-        'pagador_cpf',
-        'pagador_endereco',
+        'instrucoes1'
     ];
 
     public $params = [
         'data_vencimento',
         'valor_boleto',
-        'agencia',
-        'pagador_nome',
-        'pagador_cpf',
-        'pagador_endereco',
-        'conta',
-        'conta_dv',
         'carteira',
-        'conta_cedente',
         'conta_cedente_dv',
-        'nosso_numero1' => '000',
-        'nosso_numero_const1',
-        'nosso_numero2',
-        'nosso_numero_const2',
-        'nosso_numero3',
         'identificacao',
-        'cpf_cnpj',
-        'endereco',
-        'cidade_uf',
-        'cedente',
         'especie',
         'quantidade',
         'numero_documento',
-        'sacado',
         'demonstrativo1',
         'demonstrativo2',
         'demonstrativo3',
@@ -77,9 +43,7 @@ class CaixaEconomicaFederalSIGCB extends Boleto
         'instrucoes1',
         'instrucoes2',
         'instrucoes3',
-        'instrucoes4',
-        'endereco1',
-        'endereco2',
+        'instrucoes4'
     ];
 
     protected $codigobanco = 104;
@@ -88,9 +52,9 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private $dv_campo_livre;
     private $campo_livre_com_dv;
 
-    public function  __construct($params)
+    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
     {
-        parent::__construct($params);
+        parent::__construct($pagador, $beneficiario, $params);
         $this->geraNossoNumero();
         $this->geraCampoLivre();
         $this->geraDvCampoLivre();
@@ -119,11 +83,11 @@ class CaixaEconomicaFederalSIGCB extends Boleto
 
     protected function geraNNum()
     {
-        $this->nnum = $this->formataNumero($this->params["nosso_numero_const1"], 1, 0) .
-                      $this->formataNumero($this->params["nosso_numero_const2"], 1, 0) .
-                      $this->formataNumero($this->params["nosso_numero1"], 3, 0) .
-                      $this->formataNumero($this->params["nosso_numero2"], 3, 0) .
-                      $this->formataNumero($this->params["nosso_numero3"], 9, 0);
+        $this->nnum = $this->formataNumero($this->beneficiario->getNumeroConst1(), 1, 0) .
+                      $this->formataNumero($this->beneficiario->getNumeroConst2(), 1, 0) .
+                      $this->formataNumero($this->beneficiario->getNossoNumero1(), 3, 0) .
+                      $this->formataNumero($this->beneficiario->getNossoNumero2(), 3, 0) .
+                      $this->formataNumero($this->beneficiario->getNossoNumero3(), 9, 0);
     }
 
     protected function geraNossoNumero()

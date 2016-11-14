@@ -1,8 +1,11 @@
 <?php
 namespace BoletoPHP\Boletos;
 
+use BoletoPHP;
 use BoletoPHP\Types\InvalidParamException;
 use Respect\Validation\Validator as v;
+use BoletoPHP\Types\Pagador;
+use BoletoPHP\Types\Beneficiario;
 
 abstract class Boleto
 {
@@ -34,8 +37,20 @@ abstract class Boleto
     private $nome_da_classe;
     private $diretorio_de_views;
 
-    public function  __construct($params)
+    /**
+     * @var BoletoPHP\Types\Beneficiario
+     */
+    protected $beneficiario;
+
+    /**
+     * @var BoletoPHP\Types\Pagador
+     */
+    protected $pagador;
+
+    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
     {
+        $this->pagador = $pagador;
+        $this->beneficiario = $beneficiario;
         $this->params = array_merge($this->params, $params);
         $this->validateParams();
         $this->geraNomeDaClasse();
@@ -72,20 +87,20 @@ abstract class Boleto
             'identificacao' => $this->params['identificacao'],
             'linha_digitavel' => $this->linha_digitavel,
             'valor_boleto' => $this->params['valor_boleto'],
-            'cpf_cnpj' => $this->params['cpf_cnpj'],
-            'endereco' => $this->params['endereco'],
-            'cidade_uf' => $this->params['cidade_uf'],
+            'cpf_cnpj' => $this->beneficiario->getCpnj(),
+            'endereco' => $this->beneficiario->getEndereco(),
+            'cidade_uf' => $this->beneficiario->getCidadeEstado(),
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
             'linha_digitavel' => $this->linha_digitavel,
             'carteira' => $this->params['carteira'],
-            'cedente' => $this->params['cedente'],
+            'cedente' => $this->beneficiario->getRazaoSocial(),
             'agencia_codigo' => $this->agencia_codigo,
             'especie' => $this->params['especie'],
             'quantidade' => $this->params['quantidade'],
             'nosso_numero' => $this->nossonumero,
             'numero_documento' => $this->params['numero_documento'],
             'data_vencimento' => $this->params['data_vencimento'],
-            'sacado' => $this->params['sacado'],
+            'sacado' => $this->pagador->getNome(),
             'demonstrativo1' => $this->params['demonstrativo1'],
             'demonstrativo2' => $this->params['demonstrativo2'],
             'demonstrativo3' => $this->params['demonstrativo3'],
@@ -99,11 +114,11 @@ abstract class Boleto
             'instrucoes2' => $this->params['instrucoes2'],
             'instrucoes3' => $this->params['instrucoes3'],
             'instrucoes4' => $this->params['instrucoes4'],
-            'endereco1' => $this->params['endereco1'],
-            'endereco2' => $this->params['endereco2'],
-            'pagador_nome' => $this->params['pagador_nome'],
-            'pagador_cpf' => $this->params['pagador_cpf'],
-            'pagador_endereco' => $this->params['pagador_endereco'],
+            'endereco1' => $this->pagador->getEndereco(),
+            'endereco2' => $this->pagador->getEnderecoSegundaLinha(),
+            'pagador_nome' => $this->pagador->getNome(),
+            'pagador_cpf' => $this->pagador->getCpfCnpj(),
+            'pagador_endereco' => $this->pagador->getEndereco(),
             'codigo_barras' => $this->codigo_barras,
         );
     }
@@ -125,17 +140,17 @@ abstract class Boleto
 
     protected function geraAgencia()
     {
-        $this->agencia = $this->formataNumero($this->params['agencia'], 4, 0);
+        $this->agencia = $this->formataNumero($this->beneficiario->getAgencia(), 4, 0);
     }
 
     protected function geraConta()
     {
-        $this->conta = $this->formataNumero($this->params['conta'], 5, 0);
+        $this->conta = $this->formataNumero($this->beneficiario->getConta(), 5, 0);
     }
 
     protected function geraContaDv()
     {
-        $this->conta_dv = $this->formataNumero($this->params['conta_dv'], 1, 0);
+        $this->conta_dv = $this->formataNumero($this->beneficiario->getContaDv(), 1, 0);
     }
 
     protected function geraCarteira()
@@ -463,4 +478,41 @@ abstract class Boleto
         $this->diretorio_de_views = dirname(dirname(__FILE__)) . '/views/';
     }
 
+    /**
+     * @return BoletoPHP\Types\Pagador
+     */
+    public function getPagador()
+    {
+        return $this->pagador;
+    }
+
+    /**
+     * @param BoletoPHP\Types\Pagador $pagador
+     *
+     * @return static
+     */
+    public function setPagador(Pagador $pagador)
+    {
+        $this->pagador = $pagador;
+        return $this;
+    }
+
+    /**
+     * @return BoletoPHP\Types\Beneficiario
+     */
+    public function getBeneficiario()
+    {
+        return $this->beneficiario;
+    }
+
+    /**
+     * @param BoletoPHP\Types\Beneficiario $beneficiario
+     *
+     * @return static
+     */
+    public function setBeneficiario(Beneficiario $beneficiario)
+    {
+        $this->beneficiario = $beneficiario;
+        return $this;
+    }
 }
