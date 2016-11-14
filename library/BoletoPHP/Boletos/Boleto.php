@@ -101,6 +101,9 @@ abstract class Boleto
             'instrucoes4' => $this->params['instrucoes4'],
             'endereco1' => $this->params['endereco1'],
             'endereco2' => $this->params['endereco2'],
+            'pagador_nome' => $this->params['pagador_nome'],
+            'pagador_cpf' => $this->params['pagador_cpf'],
+            'pagador_endereco' => $this->params['pagador_endereco'],
             'codigo_barras' => $this->codigo_barras,
         );
     }
