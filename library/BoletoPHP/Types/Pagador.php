@@ -41,10 +41,10 @@ class Pagador
     public function hydrate(array $dados)
     {
         $enderecoArray = explode(' - ', $dados['endereco2']);
-        $enderecoArray[2] = str_replace('CEP: ', '', $enderecoArray);
+        $enderecoArray[2] = str_replace('CEP: ', '', end($enderecoArray));
 
-        return $this->setNome($dados['nome'])
-                    ->setCpfCnpj($dados['cpf_cpnpj'])
+        return $this->setNome($dados['pagador_nome'])
+                    ->setCpfCnpj($dados['pagador_cpf_cnpj'])
                     ->setEndereco($dados['endereco1'])
                     ->setCidade($enderecoArray[0])
                     ->setEstado($enderecoArray[1])

@@ -19,20 +19,15 @@ $beneficiario->hydrate([
     'agencia' => 1234,
     'conta' => 123,
     'conta_dv' => 0,
-    'conta_cedente' => 123456,
-    'nosso_numero1' => '000',
-    'nosso_numero_const1' => '1',
-    'nosso_numero2' => '000',
-    'nosso_numero_const2' => '4',
-    'nosso_numero3' => '000000019'
+    'conta_cedente' => 123456
 ]);
 
 $pagador = new Pagador();
 $pagador->hydrate([
     'endereco1' => 'Endereço do seu Cliente',
     'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
-    'nome' => 'Luiz Fernando Popota',
-    'cpf_cpnpj' => '265.857.562-90'
+    'pagador_nome' => 'Luiz Fernando Popota',
+    'pagador_cpf_cpnpj' => '265.857.562-90'
 ]);
 
 $params = array(
@@ -46,17 +41,17 @@ $params = array(
         'conta_cedente_dv' => 3,
         'inicio_nosso_numero' => 80,
         'nosso_numero' => 19525086,
-        'identificacao' => 'BoletoPhp - C�digo Aberto de Sistema de Boletos',
+        'identificacao' => 'BoletoPhp - Código Aberto de Sistema de Boletos',
         'cpf_cnpj' => '',
-        'endereco' => 'Coloque o endere�o da sua empresa aqui',
+        'endereco' => 'Coloque o endereço da sua empresa aqui',
         'cidade_uf' => 'Cidade / Estado',
-        'cedente' => 'Coloque a Raz�o Social da sua empresa aqui',
+        'cedente' => 'Coloque a Razão Social da sua empresa aqui',
         'especie' => 'R$',
         'quantidade' => '',
         'numero_documento' => '27.030195.10',
         'sacado' => 'Nome do seu Cliente',
         'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
-        'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa banc�ria - R$ ' . number_format($taxa_boleto, 2, ',', ''),
+        'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
         'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
         'data_documento' => date("d/m/Y"),
         'especie_doc' => '',
@@ -64,14 +59,15 @@ $params = array(
         'data_processamento' => date("d/m/Y"),
         'carteira_descricao' => 'SR',
         'valor_unitario' => '',
-        'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% ap�s o vencimento',
+        'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% após o vencimento',
         'instrucoes2' => '- Receber até 10 dias após o vencimento',
         'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
         'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
         'endereco1' => 'Endereço do seu Cliente',
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
-
+        'pagador_nome' => 'Luiz Fernando Popota',
+        'pagador_cpf_cpnpj' => '265.857.562-90'
     );
 
-$boleto = new BoletoPHP\Boletos\CaixaEconomicaFederal($params);
+$boleto = new BoletoPHP\Boletos\CaixaEconomicaFederal($params, $pagador, $beneficiario);
 echo $boleto->gerarBoleto();

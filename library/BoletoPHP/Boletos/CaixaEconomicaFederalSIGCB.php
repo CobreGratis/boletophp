@@ -52,9 +52,9 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private $dv_campo_livre;
     private $campo_livre_com_dv;
 
-    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
+    public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
     {
-        parent::__construct($pagador, $beneficiario, $params);
+        parent::__construct($params, $pagador, $beneficiario);
         $this->geraNossoNumero();
         $this->geraCampoLivre();
         $this->geraDvCampoLivre();
@@ -68,12 +68,12 @@ class CaixaEconomicaFederalSIGCB extends Boleto
 
     protected function geraContaCedente()
     {
-        $this->conta_cedente = $this->formataNumero($this->params['conta_cedente'], 6, 0);
+        $this->conta_cedente = $this->formataNumero($this->beneficiario->getContaCedente(), 6, 0);
     }
 
     protected function geraContaCedenteDv()
     {
-        $this->conta_cedente_dv = $this->digitoVerificadorCedente($this->params['conta_cedente'], 1, 0);
+        $this->conta_cedente_dv = $this->digitoVerificadorCedente($this->beneficiario->getContaCedenteDv(), 1, 0);
     }
 
     protected function geraNNum()
@@ -103,11 +103,11 @@ class CaixaEconomicaFederalSIGCB extends Boleto
     private function geraCampoLivre()
     {
         $this->campo_livre = $this->conta_cedente . $this->conta_cedente_dv .
-                             $this->formataNumero($this->params["nosso_numero1"], 3, 0) .
-                             $this->formataNumero($this->params["nosso_numero_const1"], 1, 0) .
-                             $this->formataNumero($this->params["nosso_numero2"], 3, 0) .
-                             $this->formataNumero($this->params["nosso_numero_const2"], 1, 0) .
-                             $this->formataNumero($this->params["nosso_numero3"], 9, 0);
+                             $this->formataNumero($this->beneficiario->getNossoNumero1(), 3, 0) .
+                             $this->formataNumero($this->beneficiario->getNumeroConst1(), 1, 0) .
+                             $this->formataNumero($this->beneficiario->getNossoNumero2(), 3, 0) .
+                             $this->formataNumero($this->beneficiario->getNumeroConst2(), 1, 0) .
+                             $this->formataNumero($this->beneficiario->getNossoNumero3(), 9, 0);
     }
 
     private function geraDvCampoLivre()

@@ -97,7 +97,7 @@ abstract class Boleto
             'identificacao' => $this->params['identificacao'],
             'linha_digitavel' => $this->linha_digitavel,
             'valor_boleto' => $this->params['valor_boleto'],
-            'cpf_cnpj' => $this->beneficiario->getCpnj(),
+            'cpf_cnpj' => $this->beneficiario->getCpfCpnj(),
             'endereco' => $this->beneficiario->getEndereco(),
             'cidade_uf' => $this->beneficiario->getCidadeEstado(),
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,

@@ -4,9 +4,9 @@ namespace BoletoPHP\Boletos;
 use BoletoPHP\Types\Pagador;
 use BoletoPHP\Types\Beneficiario;
 
-use BoletoPHP\Types\EspecieDoc,
-    BoletoPHP\Types\Carteira,
-    BoletoPHP\Types\Aceite;
+use BoletoPHP\Consts\EspecieDoc,
+    BoletoPHP\Consts\Carteira,
+    BoletoPHP\Consts\Aceite;
 
 class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,10 +38,10 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
 
         $pagador = new Pagador();
         $pagador->hydrate(array(
-            'nome' => 'Fulano Sicrano Beltrano',
-            'cpf_cpnpj' => '265.857.562-90',
+            'pagador_nome' => 'Fulano Sicrano Beltrano',
+            'pagador_cpf_cnpj' => '265.857.562-90',
             'endereco1' => 'Endereço do seu Cliente',
-            'endereco2' => 'Cidade - Estado -  CEP: 00000-000'
+            'endereco2' => 'Cidade - Estado - CEP: 00000-000'
         ));
 
         $params = array(
@@ -65,9 +65,8 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
             'instrucoes2' => '- Receber até 10 dias após o vencimento',
             'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
             'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br'
-
         );
-        $this->boleto = new CaixaEconomicaFederalSIGCB($pagador, $beneficiario, $params);
+        $this->boleto = new CaixaEconomicaFederalSIGCB($params, $pagador, $beneficiario);
     }
 
     public function testGetViewVars()
@@ -87,7 +86,7 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($view_vars['nosso_numero'], '240000000000000195');
         $this->assertEquals($view_vars['numero_documento'], '27.030195.10');
         $this->assertEquals($view_vars['data_vencimento'], '20/07/2012');
-        $this->assertEquals($view_vars['sacado'], 'Nome do seu Cliente');
+        $this->assertEquals($view_vars['sacado'], 'Fulano Sicrano Beltrano');
         $this->assertEquals($view_vars['demonstrativo1'], 'Pagamento de Compra na Loja Nonononono');
         $this->assertEquals($view_vars['demonstrativo2'], 'Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ 2,95');
         $this->assertEquals($view_vars['demonstrativo3'], 'BoletoPhp - http://www.boletophp.com.br');
@@ -102,7 +101,7 @@ class CaixaEconomicaFederalSIGCBTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($view_vars['instrucoes3'], '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br');
         $this->assertEquals($view_vars['instrucoes4'], '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br');
         $this->assertEquals($view_vars['endereco1'], 'Endereço do seu Cliente');
-        $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado -  CEP: 00000-000');
+        $this->assertEquals($view_vars['endereco2'], 'Cidade - Estado - CEP: 00000-000');
         // $this->assertEquals($view_vars['codigo_barras'], file_get_contents(__DIR__.'/../../../fixtures/codigo_de_barras_caixa_economica_federal_sigcb'));
     }
 }

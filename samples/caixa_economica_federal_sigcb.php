@@ -32,8 +32,8 @@ $pagador = new Pagador();
 $pagador->hydrate([
     'endereco1' => 'Endereço do seu Cliente',
     'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
-    'nome' => 'Luiz Fernando Popota',
-    'cpf_cpnpj' => '265.857.562-90'
+    'pagador_nome' => 'Luiz Fernando Popota',
+    'pagador_cpf_cnpj' => '265.857.562-90'
 ]);
 
 $dias_de_prazo_para_pagamento = 5;
@@ -80,7 +80,6 @@ $params = array(
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
         'pagador_nome' => 'Luiz Fernando Popota',
         'pagador_cpf' => '265.857.562-90',
-        'pagador_endereco' => 'Av. 24 de Outubro'
     );
 
 try {

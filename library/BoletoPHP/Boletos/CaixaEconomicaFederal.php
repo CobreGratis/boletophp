@@ -29,13 +29,13 @@ class CaixaEconomicaFederal extends Boleto
         'instrucoes3',
         'instrucoes4',
     );
-    
+
     protected $codigobanco = 104;
     private $nummoeda = 9;
 
-    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
+    public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
     {
-        parent::__construct($pagador, $beneficiario, $params);
+        parent::__construct($params, $pagador, $beneficiario);
         $this->geraNossoNumero();
         $this->geraDv();
         $this->geraLinha();
@@ -46,7 +46,7 @@ class CaixaEconomicaFederal extends Boleto
 
     protected function geraContaCedente()
     {
-        $this->conta_cedente = $this->formataNumero($this->params['conta_cedente'], 11, 0);
+        $this->conta_cedente = $this->formataNumero($this->beneficiario->getContaCedente(), 11, 0);
     }
 
     protected function geraContaCedenteDv()
