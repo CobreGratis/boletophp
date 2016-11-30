@@ -1,5 +1,5 @@
 <?php
-namespace BoletoPHP\Types;
+namespace BoletoPHP\Consts;
 
 class Carteira
 {

@@ -2,9 +2,9 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\Boleto;
-use BoletoPHP\Types\EspecieDoc,
-    BoletoPHP\Types\Carteira,
-    BoletoPHP\Types\Aceite;
+use BoletoPHP\Consts\EspecieDoc,
+    BoletoPHP\Consts\Carteira,
+    BoletoPHP\Consts\Aceite;
 use BoletoPHP\Types\Pagador;
 use BoletoPHP\Types\Beneficiario;
 
@@ -85,11 +85,8 @@ $params = array(
 
 try {
 
-    $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($pagador, $beneficiario, $params);
-
+    $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params, $pagador, $beneficiario);
     echo $boleto->gerarBoleto();
-
-    $boleto->salvarRemessa();
 } catch(\RuntimeException $e)
 {
     echo $e->getMessage();die;

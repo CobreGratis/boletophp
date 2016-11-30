@@ -10,6 +10,30 @@ $valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz c
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
 $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 
+$beneficiario = new Beneficiario();
+$beneficiario->hydrate([
+    'cedente' => 'Coloque a Razão Social da sua empresa aqui',
+    'cidade_uf' => 'Cidade / Estado',
+    'cpf_cnpj' => '0212164-545/0000',
+    'endereco' => 'Coloque o endereço da sua empresa aqui',
+    'agencia' => 1234,
+    'conta' => 123,
+    'conta_dv' => 0,
+    'conta_cedente' => 123456,
+    'nosso_numero1' => '000',
+    'nosso_numero_const1' => '1',
+    'nosso_numero2' => '000',
+    'nosso_numero_const2' => '4',
+    'nosso_numero3' => '000000019'
+]);
+
+$pagador = new Pagador();
+$pagador->hydrate([
+    'endereco1' => 'Endereço do seu Cliente',
+    'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
+    'nome' => 'Luiz Fernando Popota',
+    'cpf_cpnpj' => '265.857.562-90'
+]);
 
 $params = array(
         'data_vencimento' => date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400)),
@@ -41,10 +65,10 @@ $params = array(
         'carteira_descricao' => 'SR',
         'valor_unitario' => '',
         'instrucoes1' => '- Sr. Caixa, cobrar multa de 2% ap�s o vencimento',
-        'instrucoes2' => '- Receber at� 10 dias ap�s o vencimento',
-        'instrucoes3' => '- Em caso de d�vidas entre em contato conosco: xxxx@xxxx.com.br',
+        'instrucoes2' => '- Receber até 10 dias após o vencimento',
+        'instrucoes3' => '- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br',
         'instrucoes4' => '&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br',
-        'endereco1' => 'Endere�o do seu Cliente',
+        'endereco1' => 'Endereço do seu Cliente',
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
 
     );

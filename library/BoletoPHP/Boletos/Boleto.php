@@ -2,7 +2,7 @@
 namespace BoletoPHP\Boletos;
 
 use BoletoPHP;
-use BoletoPHP\Types\InvalidParamException;
+use BoletoPHP\Exceptions\InvalidParamException;
 use Respect\Validation\Validator as v;
 use BoletoPHP\Types\Pagador;
 use BoletoPHP\Types\Beneficiario;
@@ -47,8 +47,18 @@ abstract class Boleto
      */
     protected $pagador;
 
-    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
+    public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
     {
+        if(! $pagador) {
+            $pagador = new Pagador();
+            $pagador->hydrate($params);
+        }
+
+        if(! $beneficiario) {
+            $beneficiario = new Beneficiario();
+            $beneficiario->hydrate($params);
+        }
+
         $this->pagador = $pagador;
         $this->beneficiario = $beneficiario;
         $this->params = array_merge($this->params, $params);

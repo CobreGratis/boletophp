@@ -1,7 +1,7 @@
 <?php
-namespace BoletoPHP\Types;
+namespace BoletoPHP\Exceptions;
 
 class InvalidParamException extends \RuntimeException
 {
-  
+
 }
