@@ -1,7 +1,7 @@
-<?php 
-namespace BoletoPHP\Types;
+<?php
+namespace BoletoPHP\Consts;
 
-class Aceite 
+class Aceite
 {
     const COM_ACEITE = "A";
     const SEM_ACEITE = "N";

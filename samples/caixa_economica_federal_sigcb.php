@@ -2,9 +2,9 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\Boleto;
-use BoletoPHP\Types\EspecieDoc,
-    BoletoPHP\Types\Carteira,
-    BoletoPHP\Types\Aceite;
+use BoletoPHP\Consts\EspecieDoc,
+    BoletoPHP\Consts\Carteira,
+    BoletoPHP\Consts\Aceite;
 use BoletoPHP\Types\Pagador;
 use BoletoPHP\Types\Beneficiario;
 
@@ -32,8 +32,8 @@ $pagador = new Pagador();
 $pagador->hydrate([
     'endereco1' => 'Endereço do seu Cliente',
     'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
-    'nome' => 'Luiz Fernando Popota',
-    'cpf_cpnpj' => '265.857.562-90'
+    'pagador_nome' => 'Luiz Fernando Popota',
+    'pagador_cpf_cnpj' => '265.857.562-90'
 ]);
 
 $dias_de_prazo_para_pagamento = 5;
@@ -80,16 +80,12 @@ $params = array(
         'endereco2' => 'Cidade - Estado -  CEP: 00000-000',
         'pagador_nome' => 'Luiz Fernando Popota',
         'pagador_cpf' => '265.857.562-90',
-        'pagador_endereco' => 'Av. 24 de Outubro'
     );
 
 try {
 
-    $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($pagador, $beneficiario, $params);
-
+    $boleto = new BoletoPHP\Boletos\CaixaEconomicaFederalSIGCB($params, $pagador, $beneficiario);
     echo $boleto->gerarBoleto();
-
-    $boleto->salvarRemessa();
 } catch(\RuntimeException $e)
 {
     echo $e->getMessage();die;

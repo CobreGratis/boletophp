@@ -34,7 +34,7 @@ class Beneficiario
      * CPNPJ completo - ex: 0212164-545/0000
      * @var string
      */
-    private $cpnj;
+    private $cpf_cpnj;
 
     /**
      * Numero de agencia
@@ -59,6 +59,12 @@ class Beneficiario
      * @var int
      */
     private $contaCedente;
+
+    /**
+     * Conta cedente dv
+     * @var int
+     */
+    private $contaCedenteDv;
 
     /**
      * Numero do beneficiario 1
@@ -103,15 +109,16 @@ class Beneficiario
              ->setAgencia($dados['agencia'])
              ->setConta($dados['conta'])
              ->setContaCedente($dados['conta_cedente'])
+             ->setContaCedenteDv(array_key_exists('conta_cedente_dv', $dados) ? $dados['conta_cedente_dv'] : 0)
              ->setContaDv($dados['conta_dv'])
-             ->setCpnj($dados['cpf_cnpj'])
+             ->setCpfCpnj($dados['cpf_cnpj'])
              ->setCidade(current($cidadeUfArray))
              ->setEstado(end($cidadeUfArray))
-             ->setNossoNumero1($dados['nosso_numero1'])
-             ->setNossoNumero2($dados['nosso_numero2'])
-             ->setNossoNumero3($dados['nosso_numero3'])
-             ->setNumeroConst1($dados['nosso_numero_const1'])
-             ->setNumeroConst2($dados['nosso_numero_const2']);
+             ->setNossoNumero1(array_key_exists('nosso_numero1', $dados) ? $dados['nosso_numero1'] : null)
+             ->setNossoNumero2(array_key_exists('nosso_numero2', $dados) ? $dados['nosso_numero2'] : null)
+             ->setNossoNumero3(array_key_exists('nosso_numero3', $dados) ? $dados['nosso_numero3'] : null)
+             ->setNumeroConst1(array_key_exists('nosso_numero_const1', $dados) ? $dados['nosso_numero_const1'] : null)
+             ->setNumeroConst2(array_key_exists('nosso_numero_const2', $dados) ? $dados['nosso_numero_const2'] : null);
     }
 
     public function getCidadeEstado()
@@ -179,19 +186,19 @@ class Beneficiario
     /**
      * @return string
      */
-    public function getCpnj()
+    public function getCpfCpnj()
     {
-        return $this->cpnj;
+        return $this->cpf_cpnj;
     }
 
     /**
-     * @param string $cpnj
+     * @param string $cpf_cpnj
      *
      * @return static
      */
-    public function setCpnj($cpnj)
+    public function setCpfCpnj($cpf_cpnj)
     {
-        $this->cpnj = $cpnj;
+        $this->cpf_cpnj = $cpf_cpnj;
         return $this;
     }
 
@@ -382,6 +389,25 @@ class Beneficiario
     public function setContaCedente($contaCedente)
     {
         $this->contaCedente = $contaCedente;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getContaCedenteDv()
+    {
+        return $this->contaCedenteDv;
+    }
+
+    /**
+     * @param int $contaCedenteDv
+     *
+     * @return static
+     */
+    public function setContaCedenteDv($contaCedenteDv)
+    {
+        $this->contaCedenteDv = $contaCedenteDv;
         return $this;
     }
 

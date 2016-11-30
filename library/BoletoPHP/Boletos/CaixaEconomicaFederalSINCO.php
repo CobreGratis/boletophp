@@ -46,9 +46,9 @@ class CaixaEconomicaFederalSINCO extends Boleto
     private $nossonumero_dv;
     private $campo_livre;
 
-    public function  __construct(Pagador $pagador, Beneficiario $beneficiario, $params)
+    public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
     {
-        parent::__construct($pagador, $beneficiario, $params);
+        parent::__construct($params, $pagador, $beneficiario);
         $this->geraNossoNumeroDv();
         $this->geraNossoNumero();
         $this->geraCampoLivre();
@@ -61,12 +61,12 @@ class CaixaEconomicaFederalSINCO extends Boleto
 
     protected function geraContaCedente()
     {
-        $this->conta_cedente = $this->formataNumero($this->params['conta_cedente'], 6, 0);
+        $this->conta_cedente = $this->formataNumero($this->beneficiario->getContaCedente(), 6, 0);
     }
 
     protected function geraContaCedenteDv()
     {
-        $this->conta_cedente_dv = $this->formataNumero($this->params['conta_cedente_dv'], 1, 0);
+        $this->conta_cedente_dv = $this->formataNumero($this->beneficiario->getContaCedenteDv(), 1, 0);
     }
 
     protected function geraNNum()
