@@ -75,39 +75,37 @@ $agencia = "3087"; // Num da agencia, sem digito
 $conta = "4593"; // Num da conta, sem digito
 $convenio = "56235"; //Número do convênio indicado no frontend
 
-$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7);
+$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento, 7);
 $qtde_nosso_numero = strlen($NossoNumero);
-$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),10).formata_numdoc($NossoNumero,7);
-$cont=0;
+$sequencia = formata_numdoc($agencia, 4) . formata_numdoc(str_replace("-", "", $convenio), 10) . formata_numdoc($NossoNumero, 7);
+$cont = 0;
 $calculoDv = '';
-	for($num=0;$num<=strlen($sequencia);$num++)
-	{
-		$cont++;
-		if($cont == 1)
-		{
-			// constante fixa Sicoob » 3197 
-			$constante = 3;
-		}
-		if($cont == 2)
-		{
-			$constante = 1;
-		}
-		if($cont == 3)
-		{
-			$constante = 9;
-		}
-		if($cont == 4)
-		{
-			$constante = 7;
-			$cont = 0;
-		}
-		$calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
-	}
+for ($num = 0; $num <= strlen($sequencia); $num++) {
+    $cont++;
+    if ($cont == 1) {
+        $constante = 3;
+    }
+    if ($cont == 2) {
+        $constante = 1;
+    }
+    if ($cont == 3) {
+        $constante = 9;
+    }
+    if ($cont == 4) {
+        $constante = 7;
+        $cont = 0;
+    }
+
+    $calculoDv = $calculoDv + (substr($sequencia, $num, 1) * $constante);
+}
+
 $Resto = $calculoDv % 11;
-$Dv = 11 - $Resto;
-if ($Dv == 0) $Dv = 0;
-if ($Dv == 1) $Dv = 0;
-if ($Dv > 9) $Dv = 0;
+if ($Resto == 0 || $Resto == 1) {
+    $Dv = 0;
+} else {
+    $Dv = 11 - $Resto;
+}
+
 $dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
 
 /*************************************************************************
