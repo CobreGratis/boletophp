@@ -46,7 +46,8 @@ $nnum = formata_numero($dadosboleto["nosso_numero"],7,0);
 //dv do nosso número
 $dv_nosso_numero = modulo_11($nnum,9,0);
 // nosso número (com dvs) são 13 digitos
-$nossonumero = "00000".$nnum.$dv_nosso_numero;
+$nossonumero = str_pad($nnum.$dv_nosso_numero, 13, "0", STR_PAD_LEFT);
+
 
 $vencimento = $dadosboleto["data_vencimento"];
 
@@ -382,10 +383,18 @@ function monta_linha_digitavel($codigo)
   $campo2 = substr($campo2, 0, 5).'.'.substr($campo2, 5);
 
 
-	// 3. Terceiro Grupo - Composto por : Restante do Nosso Numero (6 digitos), IOS, Modalidade da Carteira
+	// 3. Terceiro Grupo - Composto por : Restante do Nosso Numero (6 digitos) sem o DV, IOS, Modalidade da Carteira
 	// e DV (modulo10) deste campo
-	$campo3 = substr($codigo,34,10);
-	$campo3 = $campo3 . modulo_10($campo3);
+
+  //Restante Nosso Número (6 dígitos)
+  $campo3 = substr($codigo,34,5);
+  //IOS
+  $campo3 = $campo3 . substr($codigo,40,1);
+  //Modalidade da carteira
+  $campo3 = $campo3 . substr($codigo,41,3);
+  //DV do Campo (módulo 10)
+  $campo3 = $campo3 . modulo_10($campo3);
+  //Formatação do Campo
   $campo3 = substr($campo3, 0, 5).'.'.substr($campo3, 5);
 
 
