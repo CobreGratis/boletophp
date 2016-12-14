@@ -16,8 +16,8 @@
     </head>
 
     <body text=#000000 bgColor=#ffffff topMargin=0 rightMargin=0>
-        <table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">Instruções
-                        de Impressão</DIV></TD></TR><TR><TD valign=top class=cp><DIV ALIGN="left">
+        <table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><div ALIGN="CENTER">Instruções
+                        de Impressão</div></td></tr><tr><td valign=top class=cp><div ALIGN="left">
                         <p>
                         <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
                         <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
@@ -28,8 +28,8 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;Linha Digitável: &nbsp;<?php echo $linha_digitavel ?><br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;Valor: &nbsp;&nbsp;R$ <?php echo $valor_boleto ?><br>
                             </span>
-                    </DIV></td></tr></table><br><table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD class=ct width=666><img height=1 src=../imagens/6.png width=665 border=0></TD></TR><TR><TD class=ct width=666><div align=right><b class=cp>Recibo
-                                do Sacado</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cellpadding=0 border=0><tr><td width=41></TD></tr></table>
+                    </div></td></tr></table><br><table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><tr><td class=ct width=666><img height=1 src=../imagens/6.png width=665 border=0></td></tr><tr><td class=ct width=666><div align=right><b class=cp>Recibo
+                                do Sacado</b></div></td></tr></tbody></table><table width=666 cellspacing=5 cellpadding=0 border=0><tr><td width=41></td></tr></table>
 
         <BR><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=cp width=150>
                     <span class="campo"><img
@@ -45,11 +45,11 @@
                         <span class="campo"><?php echo $cedente; ?></span></td>
                     <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top width=126 height=12>
                         <span class="campo">
-                            <? $tmp2 = $codigo_cliente;
+                            <?php $tmp2 = $codigo_cliente;
                             $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
                             ?>
 
-                            <? echo $ponto_venda." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
+                            <?php echo $ponto_venda." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
                         </span></td>
                     <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top  width=34 height=12><span class="campo">
                             <?php echo $especie ?>
@@ -61,7 +61,7 @@
                     </td>
                     <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=120 height=12>
                         <span class="campo">
-                            <? $tmp = $nosso_numero;
+                            <?php $tmp = $nosso_numero;
                             $tmp = substr($tmp,0,strlen($tmp)-1).'-'.substr($tmp,strlen($tmp)-1,1);
                             print $tmp; ?>
                         </span></td>
@@ -123,11 +123,11 @@
                         </span></td>
                     <td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
-                            <? $tmp2 = $codigo_cliente;
+                            <?php $tmp2 = $codigo_cliente;
                             $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
                             ?>
 
-                            <? echo $ponto_venda." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
+                            <?php echo $ponto_venda." <img src='imagens/b.png' width=10 height=1> ".$tmp2?>
                         </span></td>
                 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=../imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13>
                         <img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=113 height=13>Data
@@ -154,7 +154,7 @@
                                 <?php echo $data_processamento ?>
                             </span></div></td><td class=cp valign=top width=7 height=12><img height=12 src=../imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
-                            <? echo $tmp; ?>
+                            <?php echo $tmp; ?>
                         </span></td>
                 </tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=113 height=1><img height=1 src=../imagens/2.png width=113 border=0></td><td valign=top width=7 height=1>
                         <img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=153 height=1><img height=1 src=../imagens/2.png width=153 border=0></td><td valign=top width=7 height=1>
@@ -232,9 +232,9 @@
                             <?php echo $endereco2 ?>
                         </span></td>
                     <td class=ct valign=top width=7 height=13><img height=13 src=../imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Cód.
-                        baixa</td></tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=../imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 border=0 width=666><TBODY><TR><TD class=ct  width=7 height=12></TD><TD class=ct  width=409 >Sacador/Avalista</TD><TD class=ct  width=250 ><div align=right>Autenticação
-                            mecânica - <b class=cp>Ficha de Compensação</b></div></TD></TR><TR><TD class=ct  colspan=3 ></TD></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TBODY><TR><TD vAlign=bottom align=left height=50><?php echo $codigo_barras; ?>
-                    </TD>
-                </tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TR><TD class=ct width=666></TD></TR><TBODY><TR><TD class=ct width=666><div align=right>Corte
-                            na linha pontilhada</div></TD></TR><TR><TD class=ct width=666><img height=1 src=../imagens/6.png width=665 border=0></TD></tr></tbody></table>
+                        baixa</td></tr><tr><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=472 height=1><img height=1 src=../imagens/2.png width=472 border=0></td><td valign=top width=7 height=1><img height=1 src=../imagens/2.png width=7 border=0></td><td valign=top width=180 height=1><img height=1 src=../imagens/2.png width=180 border=0></td></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 border=0 width=666><TBODY><tr><td class=ct  width=7 height=12></td><td class=ct  width=409 >Sacador/Avalista</td><td class=ct  width=250 ><div align=right>Autenticação
+                            mecânica - <b class=cp>Ficha de Compensação</b></div></td></tr><tr><td class=ct  colspan=3 ></td></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TBODY><tr><td vAlign=bottom align=left height=50><?php echo $codigo_barras; ?>
+                    </td>
+                </tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><tr><td class=ct width=666></td></tr><TBODY><tr><td class=ct width=666><div align=right>Corte
+                            na linha pontilhada</div></td></tr><tr><td class=ct width=666><img height=1 src=../imagens/6.png width=665 border=0></td></tr></tbody></table>
     </body></html>
