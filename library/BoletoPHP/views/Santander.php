@@ -32,7 +32,7 @@
                                 do Sacado</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cellpadding=0 border=0><tr><td width=41></TD></tr></table>
         <table width=666 cellspacing=5 cellpadding=0 border=0 align=Default>
             <tr>
-                <td width=41><IMG SRC="imagens/logo_empresa.png"></td>
+                <td width=41><img src="../imagens/logo_empresa.png"></td>
                 <td class=ti width=455><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj)
         ? "<br>".$cpf_cnpj : '' ?><br>
                     <?php echo $endereco; ?><br>

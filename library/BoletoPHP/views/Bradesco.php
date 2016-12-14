@@ -32,7 +32,7 @@
                                 do Sacado</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cellpadding=0 border=0><tr><td width=41></TD></tr></table>
         <table width=666 cellspacing=5 cellpadding=0 border=0 align=Default>
             <tr>
-                <td width=41><IMG SRC="imagens/logo_empresa.png"></td>
+                <td width=41><img src="../imagens/logo_empresa.png"></td>
                 <td class=ti width=455><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj)
         ? "<br>".$cpf_cnpj : '' ?><br>
                     <?php echo $endereco; ?><br>
@@ -42,8 +42,7 @@
             </tr>
         </table>
         <BR><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=cp width=150>
-                    <span class="campo"><IMG
-                            src="imagens/logobradesco.jpg" width="150" height="40"
+                    <span class="campo"><img src="../imagens/logobradesco.jpg" width="150" height="40"
                             border=0></span></td>
                 <td width=3 valign=bottom><img height=22 src=imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">
