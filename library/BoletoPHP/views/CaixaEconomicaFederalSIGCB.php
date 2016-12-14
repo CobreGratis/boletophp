@@ -79,21 +79,7 @@
         <td width="41"></td>
       </tr>
     </table>
-    <table width="666" cellspacing="5" cellpadding="0" border="0" align="Default">
-      <tr>
-        <td width="41">
-          <img src="../imagens/logo_empresa.png" />
-        </td>
-        <td class=ti width=455>
-          <?php echo $identificacao; ?>
-          <?php echo isset($cpf_cnpj) ? "<br>" . $cpf_cnpj : '' ?>
-          <br />
-          <?php echo $endereco; ?><br />
-          <?php echo $cidade_uf; ?> <br />
-        </td>
-        <td align="right" width="150" class="ti">&nbsp;</td>
-      </tr>
-    </table>
+    
     <br />
     <table cellspacing="0" cellpadding="0" width="666" border="0">
       <tr>

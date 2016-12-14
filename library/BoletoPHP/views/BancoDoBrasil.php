@@ -463,13 +463,7 @@
 
     <div id="container">
 
-        <div id="instr_header">
-            <h1><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj) ? $cpf_cnpj
-        : ''
-?></h1>
-            <address><?php echo $endereco; ?><br></address>
-            <address><?php echo $cidade_uf; ?></address>
-        </div>	<!-- id="instr_header" -->
+       
 
         <div id="">
             <!--
@@ -807,7 +801,7 @@
             </table>
             <table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD width=666 align=right ><font style="font-size: 10px;">Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensação</font></TD></tr></tbody></table>
             <div class="barcode">
-                <p><?php fbarcode($codigo_barras); ?></p>
+                <p><?php echo $codigo_barras; ?></p>
             </div>
             <div class="cut">
                 <p>Corte na linha pontilhada</p>
