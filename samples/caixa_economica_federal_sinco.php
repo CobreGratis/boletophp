@@ -2,19 +2,18 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 use BoletoPHP\Boletos\CaixaEconomicaFederalSINCO;
-
 use BoletoPHP\Consts\EspecieDoc,
     BoletoPHP\Consts\Carteira,
     BoletoPHP\Consts\Aceite;
-
 use BoletoPHP\Types\Pagador;
 use BoletoPHP\Types\Beneficiario;
 
 $dias_de_prazo_para_pagamento = 5;
-$taxa_boleto = 2.95;
-$valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
-$valor_cobrado = str_replace(",", ".",$valor_cobrado);
-$valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
+$taxa_boleto                  = 2.95;
+$valor_cobrado                = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
+$valor_cobrado                = str_replace(",", ".", $valor_cobrado);
+$valor_boleto                 = number_format($valor_cobrado + $taxa_boleto, 2,
+    ',', '');
 
 $beneficiario = new Beneficiario();
 $beneficiario->hydrate([
@@ -37,8 +36,9 @@ $pagador->hydrate([
 ]);
 
 $params = array(
-    'data_vencimento' => date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400)),
-    'valor_boleto' => number_format($valor_cobrado+$taxa_boleto, 2, ',', ''),
+    'data_vencimento' => date("d/m/Y",
+        time() + ($dias_de_prazo_para_pagamento * 86400)),
+    'valor_boleto' => number_format($valor_cobrado + $taxa_boleto, 2, ',', ''),
     'agencia' => 1565,
     'conta' => 13877,
     'conta_dv' => 4,
@@ -59,8 +59,8 @@ $params = array(
     'sacado' => 'Nome do seu Cliente',
     'demonstrativo1' => 'Pagamento de Compra na Loja Nonononono',
     'demonstrativo2' => 'Mensalidade referente a nonon nonooon nononon<br>Taxa
-    bancária - R$ ' . number_format($taxa_boleto, 2, ',', ''),
-    'demonstrativo3' =>"BoletoPhp - http://www.boletophp.com.br",
+    bancária - R$ '.number_format($taxa_boleto, 2, ',', ''),
+    'demonstrativo3' => "BoletoPhp - http://www.boletophp.com.br",
     'data_documento' => date("d/m/Y", time()),
     'especie_doc' => EspecieDoc::DUPLICATA_MERCANTIL,
     'aceite' => Aceite::COM_ACEITE,
@@ -79,6 +79,6 @@ $params = array(
 try {
     $boleto = new CaixaEconomicaFederalSINCO($params, $pagador, $beneficiario);
     echo $boleto->gerarBoleto();
-} catch(\Exception $e) {
+} catch (\Exception $e) {
 
 }

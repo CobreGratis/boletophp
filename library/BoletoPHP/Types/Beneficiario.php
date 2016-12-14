@@ -1,4 +1,5 @@
 <?php
+
 namespace BoletoPHP\Types;
 
 /**
@@ -105,25 +106,31 @@ class Beneficiario
     {
         $cidadeUfArray = explode(' / ', $dados['cidade_uf']);
         return $this->setEndereco($dados['endereco'])
-             ->setRazaoSocial($dados['cedente'])
-             ->setAgencia($dados['agencia'])
-             ->setConta($dados['conta'])
-             ->setContaCedente($dados['conta_cedente'])
-             ->setContaCedenteDv(array_key_exists('conta_cedente_dv', $dados) ? $dados['conta_cedente_dv'] : 0)
-             ->setContaDv($dados['conta_dv'])
-             ->setCpfCpnj($dados['cpf_cnpj'])
-             ->setCidade(current($cidadeUfArray))
-             ->setEstado(end($cidadeUfArray))
-             ->setNossoNumero1(array_key_exists('nosso_numero1', $dados) ? $dados['nosso_numero1'] : null)
-             ->setNossoNumero2(array_key_exists('nosso_numero2', $dados) ? $dados['nosso_numero2'] : null)
-             ->setNossoNumero3(array_key_exists('nosso_numero3', $dados) ? $dados['nosso_numero3'] : null)
-             ->setNumeroConst1(array_key_exists('nosso_numero_const1', $dados) ? $dados['nosso_numero_const1'] : null)
-             ->setNumeroConst2(array_key_exists('nosso_numero_const2', $dados) ? $dados['nosso_numero_const2'] : null);
+                ->setRazaoSocial($dados['cedente'])
+                ->setAgencia($dados['agencia'])
+                ->setConta($dados['conta'])
+                ->setContaCedente($dados['conta_cedente'])
+                ->setContaCedenteDv(array_key_exists('conta_cedente_dv', $dados)
+                            ? $dados['conta_cedente_dv'] : 0)
+                ->setContaDv($dados['conta_dv'])
+                ->setCpfCpnj($dados['cpf_cnpj'])
+                ->setCidade(current($cidadeUfArray))
+                ->setEstado(end($cidadeUfArray))
+                ->setNossoNumero1(array_key_exists('nosso_numero1', $dados) ? $dados['nosso_numero1']
+                            : null)
+                ->setNossoNumero2(array_key_exists('nosso_numero2', $dados) ? $dados['nosso_numero2']
+                            : null)
+                ->setNossoNumero3(array_key_exists('nosso_numero3', $dados) ? $dados['nosso_numero3']
+                            : null)
+                ->setNumeroConst1(array_key_exists('nosso_numero_const1', $dados)
+                            ? $dados['nosso_numero_const1'] : null)
+                ->setNumeroConst2(array_key_exists('nosso_numero_const2', $dados)
+                            ? $dados['nosso_numero_const2'] : null);
     }
 
     public function getCidadeEstado()
     {
-        return $this->getCidade() . ' / ' . $this->getEstado();
+        return $this->getCidade().' / '.$this->getEstado();
     }
 
     /**
@@ -414,21 +421,21 @@ class Beneficiario
     public function toArray()
     {
         return [
-            'endereco'            => $this->getEndereco(),
-            'cidade_uf'           => $this->getCidade() . '/' . $this->getEstado(),
-            'cedente'             => $this->getRazaoSocial(),
-            'agencia'             => $this->getAgencia(),
-            'conta'               => $this->getConta(),
-            'conta_dv'            => $this->getContaDv(),
-            'conta_cedente'       => $this->getContaCedente(),
-            'nosso_numero1'       => $this->getNossoNumero1(),
+            'endereco' => $this->getEndereco(),
+            'cidade_uf' => $this->getCidade().'/'.$this->getEstado(),
+            'cedente' => $this->getRazaoSocial(),
+            'agencia' => $this->getAgencia(),
+            'conta' => $this->getConta(),
+            'conta_dv' => $this->getContaDv(),
+            'conta_cedente' => $this->getContaCedente(),
+            'nosso_numero1' => $this->getNossoNumero1(),
             'nosso_numero_const1' => $this->getNumeroConst1(),
-            'nosso_numero2'       => $this->getNossoNumero2(),
+            'nosso_numero2' => $this->getNossoNumero2(),
             'nosso_numero_const2' => $this->getNumeroConst2(),
-            'nosso_numero3'       => $this->getNossoNumero3(),
-            'demonstrativo1'      => $this->getDemonstrativo1(),
-            'demonstrativo2'      => $this->getDemonstrativo2(),
-            'demonstrativo3'      => $this->getDemonstrativo3()
+            'nosso_numero3' => $this->getNossoNumero3(),
+            'demonstrativo1' => $this->getDemonstrativo1(),
+            'demonstrativo2' => $this->getDemonstrativo2(),
+            'demonstrativo3' => $this->getDemonstrativo3()
         ];
     }
 }

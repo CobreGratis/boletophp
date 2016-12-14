@@ -463,7 +463,7 @@
 
     <div id="container">
 
-       
+
 
         <div id="">
             <!--
@@ -668,9 +668,9 @@
                     </tr>
                     <tr class="campos">
                         <td class="reservado">&nbsp;</td>
-                        <td class="carteira"><?php echo $carteira ?> <?php echo isset($variacao_carteira)
-                                    ? $variacao_carteira : '&nbsp;'
-?></td>
+                        <td class="carteira"><?php echo $carteira ?> <?php
+                            echo isset($variacao_carteira) ? $variacao_carteira : '&nbsp;'
+                            ?></td>
                         <td class="especie2"><?php echo $especie ?></td>
                         <td class="qtd2"><?php echo $quantidade ?></td>
                         <td class="xvalor"><?php echo $valor_unitario ?></td>

@@ -4,7 +4,7 @@ namespace BoletoPHP\Boletos;
 
 class CaixaEconomicaFederal extends Boleto
 {
-    public $params = array(
+    public $params         = array(
         'data_vencimento',
         'valor_boleto',
         'carteira',
