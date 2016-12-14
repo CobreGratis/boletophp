@@ -69,5 +69,5 @@ $params = array(
         'pagador_cpf_cpnpj' => '265.857.562-90'
     );
 
-$boleto = new BoletoPHP\Boletos\CaixaEconomicaFederal($params, $pagador, $beneficiario);
+$boleto = new BoletoPHP\Boletos\Bradesco($params, $pagador, $beneficiario);
 echo $boleto->gerarBoleto();
