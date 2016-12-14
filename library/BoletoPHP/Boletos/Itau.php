@@ -30,7 +30,7 @@ class Itau extends Boleto
         'instrucoes4',
     );
 
-    protected $codigobanco = 104;
+    protected $codigobanco = 341;
     private $nummoeda = 9;
 
     public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)

@@ -30,7 +30,7 @@ class Bradesco extends Boleto
         'instrucoes4',
     );
 
-    protected $codigobanco = 104;
+    protected $codigobanco = 237;
     private $nummoeda = 9;
 
     public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
