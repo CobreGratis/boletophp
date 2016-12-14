@@ -2,7 +2,7 @@
 
 namespace BoletoPHP\Boletos;
 
-class Itau extends Boleto
+class Bradesco extends Boleto
 {
     public $params = array(
         'data_vencimento',

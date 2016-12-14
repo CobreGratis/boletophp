@@ -2,7 +2,7 @@
 
 namespace BoletoPHP\Boletos;
 
-class CaixaEconomicaFederal extends Boleto
+class Santander extends Boleto
 {
     public $params = array(
         'data_vencimento',
