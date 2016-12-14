@@ -465,7 +465,8 @@
 
         <div id="instr_header">
             <h1><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj) ? $cpf_cnpj
-        : '' ?></h1>
+        : ''
+?></h1>
             <address><?php echo $endereco; ?><br></address>
             <address><?php echo $cidade_uf; ?></address>
         </div>	<!-- id="instr_header" -->
@@ -674,7 +675,8 @@
                     <tr class="campos">
                         <td class="reservado">&nbsp;</td>
                         <td class="carteira"><?php echo $carteira ?> <?php echo isset($variacao_carteira)
-        ? $variacao_carteira : '&nbsp;' ?></td>
+                                    ? $variacao_carteira : '&nbsp;'
+?></td>
                         <td class="especie2"><?php echo $especie ?></td>
                         <td class="qtd2"><?php echo $quantidade ?></td>
                         <td class="xvalor"><?php echo $valor_unitario ?></td>
