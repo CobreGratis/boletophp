@@ -463,13 +463,7 @@
 
     <div id="container">
 
-        <div id="instr_header">
-            <h1><?php echo $identificacao; ?> <?php echo isset($cpf_cnpj) ? $cpf_cnpj
-        : ''
-?></h1>
-            <address><?php echo $endereco; ?><br></address>
-            <address><?php echo $cidade_uf; ?></address>
-        </div>	<!-- id="instr_header" -->
+
 
         <div id="">
             <!--
@@ -513,7 +507,7 @@
             <table class="header" border=0 cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td width=150><IMG SRC="imagens/logobb.jpg"></td>
+                        <td width=150><img src="../imagens/logobb.jpg"></td>
                         <td width=50>
                             <div class="field_cod_banco"><?php echo $codigo_banco_com_dv ?></div>
                         </td>
@@ -606,7 +600,7 @@
             <table class="header" border=0 cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td width=150><IMG SRC="imagens/logobb.jpg"></td>
+                        <td width=150><img src="../imagens/logobb.jpg"></td>
                         <td width=50>
                             <div class="field_cod_banco"><?php echo $codigo_banco_com_dv ?></div>
                         </td>
@@ -674,9 +668,9 @@
                     </tr>
                     <tr class="campos">
                         <td class="reservado">&nbsp;</td>
-                        <td class="carteira"><?php echo $carteira ?> <?php echo isset($variacao_carteira)
-                                    ? $variacao_carteira : '&nbsp;'
-?></td>
+                        <td class="carteira"><?php echo $carteira ?> <?php
+                            echo isset($variacao_carteira) ? $variacao_carteira : '&nbsp;'
+                            ?></td>
                         <td class="especie2"><?php echo $especie ?></td>
                         <td class="qtd2"><?php echo $quantidade ?></td>
                         <td class="xvalor"><?php echo $valor_unitario ?></td>
@@ -807,7 +801,7 @@
             </table>
             <table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD width=666 align=right ><font style="font-size: 10px;">Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensação</font></TD></tr></tbody></table>
             <div class="barcode">
-                <p><?php fbarcode($codigo_barras); ?></p>
+                <p><?php echo $codigo_barras; ?></p>
             </div>
             <div class="cut">
                 <p>Corte na linha pontilhada</p>

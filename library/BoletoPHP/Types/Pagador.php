@@ -1,4 +1,5 @@
 <?php
+
 namespace BoletoPHP\Types;
 
 class Pagador
@@ -40,22 +41,22 @@ class Pagador
      */
     public function hydrate(array $dados)
     {
-        $enderecoArray = explode(' - ', $dados['endereco2']);
+        $enderecoArray    = explode(' - ', $dados['endereco2']);
         $enderecoArray[2] = str_replace('CEP: ', '', end($enderecoArray));
 
         return $this->setNome($dados['pagador_nome'])
-                    ->setCpfCnpj($dados['pagador_cpf_cnpj'])
-                    ->setEndereco($dados['endereco1'])
-                    ->setCidade($enderecoArray[0])
-                    ->setEstado($enderecoArray[1])
-                    ->setCep($enderecoArray[2]);
+                ->setCpfCnpj($dados['pagador_cpf_cnpj'])
+                ->setEndereco($dados['endereco1'])
+                ->setCidade($enderecoArray[0])
+                ->setEstado($enderecoArray[1])
+                ->setCep($enderecoArray[2]);
     }
 
     public function getEnderecoSegundaLinha()
     {
-        return $this->getCidade() . ' - ' .
-                $this->getEstado() . ' - CEP: ' .
-                $this->getCep();
+        return $this->getCidade().' - '.
+            $this->getEstado().' - CEP: '.
+            $this->getCep();
     }
 
     /**

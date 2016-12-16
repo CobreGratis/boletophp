@@ -4,7 +4,7 @@ namespace BoletoPHP\Boletos;
 
 class CaixaEconomicaFederalSINCO extends Boleto
 {
-    public $params = array(
+    public $params         = array(
         'data_vencimento',
         'valor_boleto',
         'agencia',
@@ -42,11 +42,12 @@ class CaixaEconomicaFederalSINCO extends Boleto
         'endereco2',
     );
     protected $codigobanco = 104;
-    private $nummoeda = 9;
+    private $nummoeda      = 9;
     private $nossonumero_dv;
     private $campo_livre;
 
-    public function  __construct($params, Pagador $pagador = null, Beneficiario $beneficiario = null)
+    public function __construct($params, Pagador $pagador = null,
+                                Beneficiario $beneficiario = null)
     {
         parent::__construct($params, $pagador, $beneficiario);
         $this->geraNossoNumeroDv();
@@ -61,27 +62,32 @@ class CaixaEconomicaFederalSINCO extends Boleto
 
     protected function geraContaCedente()
     {
-        $this->conta_cedente = $this->formataNumero($this->beneficiario->getContaCedente(), 6, 0);
+        $this->conta_cedente = $this->formataNumero($this->beneficiario->getContaCedente(),
+            6, 0);
     }
 
     protected function geraContaCedenteDv()
     {
-        $this->conta_cedente_dv = $this->formataNumero($this->beneficiario->getContaCedenteDv(), 1, 0);
+        $this->conta_cedente_dv = $this->formataNumero($this->beneficiario->getContaCedenteDv(),
+            1, 0);
     }
 
     protected function geraNNum()
     {
-        $this->nnum = $this->params['inicio_nosso_numero'] . $this->formataNumero($this->params['nosso_numero'], 17, 0);
+        $this->nnum = $this->params['inicio_nosso_numero'].$this->formataNumero($this->params['nosso_numero'],
+                17, 0);
     }
 
     protected function geraNossoNumero()
     {
-        $this->nossonumero = substr($this->nossonumero_dv, 0, 18) . '-' . substr($this->nossonumero_dv, 18, 1);
+        $this->nossonumero = substr($this->nossonumero_dv, 0, 18).'-'.substr($this->nossonumero_dv,
+                18, 1);
     }
 
     protected function geraDv()
     {
-        $this->dv = $this->digitoVerificadorBarra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}", 9, 0);
+        $this->dv = $this->digitoVerificadorBarra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}",
+            9, 0);
     }
 
     protected function geraLinha()
@@ -91,7 +97,7 @@ class CaixaEconomicaFederalSINCO extends Boleto
 
     private function geraNossoNumeroDv()
     {
-        $dv_nosso_numero = $this->digitoVerificadorNossonumero($this->nnum);
+        $dv_nosso_numero      = $this->digitoVerificadorNossonumero($this->nnum);
         $this->nossonumero_dv = "{$this->nnum}{$dv_nosso_numero}";
     }
 
