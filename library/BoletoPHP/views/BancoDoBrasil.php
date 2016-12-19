@@ -2,7 +2,7 @@
     <head>
         <title><?php echo $identificacao; ?></title>
         <meta http-equiv=Content-Type content=text/html charset=UTF-8>
-        <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+        <meta name="Generator" content="Boleto" />
 
         <style type="text/css">
             <!--
@@ -507,9 +507,9 @@
             <table class="header" border=0 cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td width=150><img src="../imagens/logobb.jpg"></td>
+                        <td width=150><img src="<?php echo $this->baseDir;?>/imagens/logobb.jpg"></td>
                         <td width=50>
-                            <div class="field_cod_banco"><?php echo $codigo_banco_com_dv ?></div>
+                            <div class="field_cod_banco">00<?php echo $codigo_banco_com_dv ?></div>
                         </td>
                         <td class="linha_digitavel"><?php echo $linha_digitavel ?></td>
                     </tr>
@@ -600,9 +600,9 @@
             <table class="header" border=0 cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td width=150><img src="../imagens/logobb.jpg"></td>
+                        <td width=150><img src="<?php echo $this->baseDir;?>/imagens/logobb.jpg"></td>
                         <td width=50>
-                            <div class="field_cod_banco"><?php echo $codigo_banco_com_dv ?></div>
+                            <div class="field_cod_banco">00<?php echo $codigo_banco_com_dv ?></div>
                         </td>
                         <td class="linha_digitavel"><?php echo $linha_digitavel ?></td>
                     </tr>

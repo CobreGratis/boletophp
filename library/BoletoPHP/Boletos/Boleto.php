@@ -37,6 +37,8 @@ abstract class Boleto
     private $nome_da_classe;
     private $diretorio_de_views;
 
+    protected $baseDir;
+
     /**
      * @var BoletoPHP\Types\Beneficiario
      */
@@ -50,6 +52,8 @@ abstract class Boleto
     public function __construct($params, Pagador $pagador = null,
                                 Beneficiario $beneficiario = null)
     {
+        $this->baseDir = '';
+      //  var_dump($this->baseDir);die;
         if (!$pagador) {
             $pagador = new Pagador();
             $pagador->hydrate($params);
