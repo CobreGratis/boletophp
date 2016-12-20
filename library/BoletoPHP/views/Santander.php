@@ -3,7 +3,7 @@
     <head>
         <title><?php echo $identificacao; ?></title>
         <meta http-equiv=Content-Type content=text/html charset=UTF-8>
-        <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+        <meta name="Generator" content="Boleto" />
         <style type=text/css>
             <!--.cp {  font: bold 10px Arial; color: black}
             <!--.ti {  font: 9px Arial, Helvetica, sans-serif}
@@ -33,7 +33,7 @@
 
         <BR><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=cp width=150>
                     <span class="campo"><img
-                            src="../imagens/logo_santander.png" width="140" height="37"
+                            src="<?php echo $this->baseDir;?>/imagens/logo_santander.png" width="140" height="37"
                             border=0></span></td>
                 <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">
@@ -104,7 +104,7 @@
                     </td><td width=159></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=ct width=666></td></tr><tbody><tr><td class=ct width=666>
                         <div align=right>Corte na linha pontilhada</div></td></tr><tr><td class=ct width=666><img height=1 src=../imagens/6.png width=665 border=0></td></tr></tbody></table><br><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=cp width=150>
                     <span class="campo"><img
-                            src="../imagens/logo_santander.png" width="140" height="37"
+                            src="<?php echo $this->baseDir;?>/imagens/logo_santander.png" width="140" height="37"
                             border=0></span></td>
                 <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">

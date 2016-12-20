@@ -85,11 +85,11 @@
             <tr>
                 <td class="cp" width="150">
                     <span class="campo">
-                        <img src="../imagens/logocaixa.jpg" width="130" height="30" border="0" />
+                        <img src="<?php echo $this->baseDir;?>/imagens/logocaixa.jpg" width="130" height="30" border="0" />
                     </span>
                 </td>
                 <td width="3" valign="bottom">
-                    <img height="22" src="../imagens/3.png" width="2" border="0" />
+                    <img height="22" src="<?php echo $this->baseDir;?>/imagens/3.png" width="2" border="0" />
                 </td>
                 <td class="cpt" width="68" valign="bottom">
                     <div align="center">
@@ -99,7 +99,7 @@
                     </div>
                 </td>
                 <td width="3" valign="bottom">
-                    <img height="22" src="../imagens/3.png" width="2" border="0" />
+                    <img height="22" src="<?php echo $this->baseDir;?>/imagens/3.png" width="2" border="0" />
                 </td>
                 <td class="ld" align="right" width="453" valign="bottom">
                     <span class="ld">
@@ -112,7 +112,7 @@
             <tbody>
                 <tr>
                     <td colspan="5">
-                        <img height="2" src="../imagens/2.png" width="666" border="0">
+                        <img height="2" src="<?php echo $this->baseDir;?>/imagens/2.png" width="666" border="0">
                     </td>
                 </tr>
             </tbody>
@@ -120,27 +120,27 @@
         <table cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="368" height="13">Beneficiário</td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="136" height="13">
                         CPF/CNPJ
                     </td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="134" height="13">Agência / Código do Beneficiário</td>
                 </tr>
                 <tr>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="368" height="12">
                         <span class="campo"><?php echo $cedente; ?></span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="156" height="12">
                         <span class="campo">
                             <?php echo $cpf_cnpj; ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top"  width="134" height="12"><span class="campo">
                             <?php echo $agencia_codigo; ?>
                         </span>
@@ -148,98 +148,98 @@
 
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=368 height=1><img height=1 src="../imagens/2.png" width=368 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=156 height=1><img height=1 src="../imagens/2.png" width=156 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=368 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=368 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=156 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=156 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=120 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=120 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="490" height="13">Endereço do Beneficiário</td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="34" height="13">UF</td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="107" height="13">CEP</td>
                 </tr>
                 <tr>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="490" height="12">
                         <span class="campo"><?= $endereco; ?></span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="34" height="12">
                         <span class="campo">
                             <?= $uf ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top"  width="107" height="12"><span class="campo">
                             <?= $cep ?>
                         </span>
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=490 height=1><img height=1 src="../imagens/2.png" width=490 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=34 height=1><img height=1 src="../imagens/2.png" width=34 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=490 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=490 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=34 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=34 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=120 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=120 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=90 height=13>
                         Data do documento
                     </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=132 height=13>Nr. do documento</td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=134 height=13>Aceite</td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=154 height=13>
                         Data de processamento
                     </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=120 height=13>
                         Nosso Número
                     </td>
                 </tr>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=90 height=12>
                         <span class="campo">
                             <?= $data_documento ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=132 height=12>
                         <span class="campo">
                             <?= $numero_documento ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=134 height=12>
                         <span class="campo">
                             <?= $aceite ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=154 height=12>
                         <span class="campo">
                             <?= $data_processamento ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=120 height=12>
                         <span class="campo">
                             <?php echo $nosso_numero; ?>
@@ -247,16 +247,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=90 height=1><img height=1 src="../imagens/2.png" width=90 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=132 height=1><img height=1 src="../imagens/2.png" width=132 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=134 height=1><img height=1 src="../imagens/2.png" width=134 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=154 height=1><img height=1 src="../imagens/2.png" width=154 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=120 height=1><img height=1 src="../imagens/2.png" width=120 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=90 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=90 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=132 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=132 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=134 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=134 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=154 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=154 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=120 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=120 border=0></td>
                 </tr>
             </tbody>
         </table>
@@ -312,7 +312,7 @@
             <tbody>
                 <tr>
                     <td colspan="5">
-                        <img height="1" src="../imagens/2.png" width="666" border="0">
+                        <img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="666" border="0">
                     </td>
                 </tr>
             </tbody>
@@ -322,13 +322,13 @@
         <table cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="490" height="13">Pagador: </td>
                     <td class="ct" valign="top" width="43" height="13">CPF/CNPJ: </td>
                     <td class="ct" valign="top" width="127" height="13"><?= $cpf_cnpj; ?></td>
                 </tr>
                 <tr>
-                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="12"><img height="12" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="490" height="12">
                         <span class="campo"><?= $pagador; ?></span>
                     </td>
@@ -343,75 +343,75 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=490 height=1><img height=1 src="../imagens/2.png" width=490 border=0></td>
-                    <td valign=top width=43 height=1><img height=1 src="../imagens/2.png" width=43 border=0></td>
-                    <td valign=top width=127 height=1><img height=1 src="../imagens/2.png" width=127 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=490 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=490 border=0></td>
+                    <td valign=top width=43 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=43 border=0></td>
+                    <td valign=top width=127 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=127 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="80" height="13">
                         Carteira
                     </td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="102" height="13">Espécie</td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="144" height="13">Vencimento</td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="164" height="13">
                         Valor do Documento
                     </td>
-                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="ct" valign="top" width="7" height="13"><img height="13" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="ct" valign="top" width="140" height="13">
                         Valor Cobrado
                     </td>
                 </tr>
                 <tr>
-                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="80" height="16">
                         <span class="campo">
                             <?= $carteira ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="102" height="16">
                         <span class="campo">
                             <?= $especie; ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="144" height="16">
                         <span class="campo">
                             <?= $data_vencimento ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="164" height="16">
                         <span class="campo">
                             <?= $valor_boleto ?>
                         </span>
                     </td>
-                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="../imagens/1.png" width="1" border="0"></td>
+                    <td class="cp" valign="top" width="7" height="16"><img height="16" src="<?php echo $this->baseDir;?>/imagens/1.png" width="1" border="0"></td>
                     <td class="cp" valign="top" width="140" height="16">
                         <span class="campo">
                             240000000000000195  </span>
                     </td>
                 </tr>
                 <tr>
-                    <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
-                    <td valign="top" width="80" height="1"><img height="1" src="../imagens/2.png" width="80" border="0"></td>
-                    <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
-                    <td valign="top" width="102" height="1"><img height="1" src="../imagens/2.png" width="102" border="0"></td>
-                    <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
-                    <td valign="top" width="144" height="1"><img height="1" src="../imagens/2.png" width="144" border="0"></td>
-                    <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
-                    <td valign="top" width="164" height="1"><img height="1" src="../imagens/2.png" width="164" border="0"></td>
-                    <td valign="top" width="7" height="1"><img height="1" src="../imagens/2.png" width="7" border="0"></td>
-                    <td valign="top" width="140" height="1"><img height="1" src="../imagens/2.png" width="140" border="0"></td>
+                    <td valign="top" width="7" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="7" border="0"></td>
+                    <td valign="top" width="80" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="80" border="0"></td>
+                    <td valign="top" width="7" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="7" border="0"></td>
+                    <td valign="top" width="102" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="102" border="0"></td>
+                    <td valign="top" width="7" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="7" border="0"></td>
+                    <td valign="top" width="144" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="144" border="0"></td>
+                    <td valign="top" width="7" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="7" border="0"></td>
+                    <td valign="top" width="164" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="164" border="0"></td>
+                    <td valign="top" width="7" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="7" border="0"></td>
+                    <td valign="top" width="140" height="1"><img height="1" src="<?php echo $this->baseDir;?>/imagens/2.png" width="140" border="0"></td>
                 </tr>
             </tbody>
         </table>
@@ -482,7 +482,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class=ct width=666><img height=1 src="../imagens/6.png" width=665 border=0></td>
+                    <td class=ct width=666><img height=1 src="<?php echo $this->baseDir;?>/imagens/6.png" width=665 border=0></td>
                 </tr>
             </tbody>
         </table>
@@ -491,14 +491,14 @@
             <tr>
                 <td class=cp width=150>
                     <span class="campo"><IMG
-                            src="../imagens/logocaixa.jpg" width="150" height="40"
+                            src="<?php echo $this->baseDir;?>/imagens/logocaixa.jpg" width="150" height="40"
                             border=0></span>
                 </td>
-                <td width=3 valign=bottom><img height=22 src="../imagens/3.png" width=2 border=0></td>
+                <td width=3 valign=bottom><img height=22 src="<?php echo $this->baseDir;?>/imagens/3.png" width=2 border=0></td>
                 <td class=cpt width=58 valign=bottom>
                     <div align=center><font class=bc><?php echo $codigo_banco_com_dv; ?></font></div>
                 </td>
-                <td width=3 valign=bottom><img height=22 src="../imagens/3.png" width=2 border=0></td>
+                <td width=3 valign=bottom><img height=22 src="<?php echo $this->baseDir;?>/imagens/3.png" width=2 border=0></td>
                 <td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">
                             <?php echo $linha_digitavel; ?>
@@ -507,28 +507,28 @@
             </tr>
             <tbody>
                 <tr>
-                    <td colspan=5><img height=2 src="../imagens/2.png" width=666 border=0></td>
+                    <td colspan=5><img height=2 src="<?php echo $this->baseDir;?>/imagens/2.png" width=666 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=472 height=13>Local
                         de pagamento
                     </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=180 height=13>Vencimento</td>
                 </tr>
                 <tr>
                     <td class=cp valign=top width=7 height=12>
-                        <img height=12 src="../imagens/1.png" width=1 border=0>
+                        <img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=cp valign=top width=472 height=12>Pagável
                         em qualquer Banco até o vencimento
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
                             <?php echo ($data_vencimento
@@ -538,31 +538,31 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=472 height=1><img height=1 src="../imagens/2.png" width=472 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=472 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=472 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=472 height=13>Beneficiário: </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=180 height=13>Agência/Código
                         do Beneficiário
                     </td>
                 </tr>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=472 height=12>
                         <span class="campo">
 <?php echo $cedente; ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
 <?php echo $agencia_codigo; ?>
@@ -570,10 +570,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=472 height=1><img height=1 src="../imagens/2.png" width=472 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=472 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=472 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                 </tr>
             </tbody>
         </table>
@@ -581,34 +581,34 @@
             <tbody>
                 <tr>
                     <td class=ct valign=top width=7 height=13>
-                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=ct valign=top width=113 height=13>Data
                         do documento
                     </td>
-                    <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=133 height=13>Nr. do
                         documento
                     </td>
-                    <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=62 height=13>Espécie
                         DOC
                     </td>
-                    <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=34 height=13>Aceite</td>
                     <td class=ct valign=top width=7 height=13>
-                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=ct valign=top width=102 height=13>Data de
                         processamento
                     </td>
-                    <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=180 height=13>Nosso
                         número
                     </td>
                 </tr>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=113 height=12>
                         <div align=left>
                             <span class="campo">
@@ -616,27 +616,27 @@
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=133 height=12>
                         <span class="campo">
 <?php echo $numero_documento; ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=62 height=12>
                         <div align=left><span class="campo">
 <?php echo $especie_doc; ?>
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=34 height=12>
                         <div align=left><span class="campo">
 <?php echo $aceite; ?>
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=102 height=12>
                         <div align=left>
                             <span class="campo">
@@ -644,7 +644,7 @@
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
 <?php echo $nosso_numero; ?>
@@ -652,29 +652,29 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=113 height=1><img height=1 src="../imagens/2.png" width=113 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=113 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=113 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=133 height=1><img height=1 src="../imagens/2.png" width=133 border=0></td>
+                    <td valign=top width=133 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=133 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=62 height=1><img height=1 src="../imagens/2.png" width=62 border=0></td>
+                    <td valign=top width=62 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=62 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=34 height=1><img height=1 src="../imagens/2.png" width=34 border=0></td>
+                    <td valign=top width=34 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=34 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=102 height=1><img height=1 src="../imagens/2.png" width=102 border=0></td>
+                    <td valign=top width=102 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=102 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
                     <td valign=top width=180 height=1>
-                        <img height=1 src="../imagens/2.png" width=180 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0>
                     </td>
                 </tr>
             </tbody>
@@ -682,63 +682,63 @@
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top COLSPAN="3" height=13>Uso
                         do Banco
                     </td>
-                    <td class=ct valign=top height=13 width=7> <img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top height=13 width=7> <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=133 height=13>Carteira</td>
                     <td class=ct valign=top height=13 width=7>
-                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=ct valign=top width=63 height=13>Espécie Moeda</td>
                     <td class=ct valign=top height=13 width=7>
-                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=ct valign=top width=33 height=13>Qtde moeda</td>
                     <td class=ct valign=top height=13 width=7>
-                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                     </td>
                     <td class=ct valign=top width=82 height=13>
                         xValor
                     </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=180 height=13>(=)
                         Valor documento
                     </td>
                 </tr>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td valign=top class=cp height=12 COLSPAN="3">
                         <div align=left>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=133>
                         <div align=left> <span class="campo">
 <?php echo $carteira; ?>
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=63>
                         <div align=left><span class="campo">
 <?php echo $especie; ?>
                             </span>
                         </div>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=53><span class="campo">
 <?php echo $quantidade; ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top  width=82>
                         <span class="campo">
 <?php echo $valor_unitario; ?>
                         </span>
                     </td>
-                    <td class=cp valign=top width=7 height=12> <img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12> <img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top align=right width=180 height=12>
                         <span class="campo">
 <?php echo $valor_boleto; ?>
@@ -746,30 +746,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1> <img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=75 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=31 height=1><img height=1 src="../imagens/2.png" width=31 border=0></td>
+                    <td valign=top width=7 height=1> <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=75 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=31 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=31 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=133 height=1><img height=1 src="../imagens/2.png" width=133 border=0></td>
+                    <td valign=top width=133 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=133 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=63 height=1><img height=1 src="../imagens/2.png" width=63 border=0></td>
+                    <td valign=top width=63 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=63 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=53 height=1><img height=1 src="../imagens/2.png" width=53 border=0></td>
+                    <td valign=top width=53 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=53 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=82 height=1><img height=1 src="../imagens/2.png" width=82 border=0></td>
+                    <td valign=top width=82 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=82 border=0></td>
                     <td valign=top width=7 height=1>
-                        <img height=1 src="../imagens/2.png" width=7 border=0>
+                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0>
                     </td>
-                    <td valign=top width=160 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                    <td valign=top width=160 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                 </tr>
             </tbody>
         </table>
@@ -780,13 +780,13 @@
                         <table cellspacing=0 cellpadding=0 border=0 align=left>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=1 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=1 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -803,18 +803,18 @@
                         <table cellspacing=0 cellpadding=0 border=0>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=ct valign=top width=180 height=13>(-)
                                         Desconto / Abatimentos
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=cp valign=top align=right width=180 height=12></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -825,14 +825,14 @@
                         <table cellspacing=0 cellpadding=0 border=0 align=left>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
                                     <td valign=top width=7 height=1>
-                                        <img height=1 src="../imagens/2.png" width=1 border=0>
+                                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=1 border=0>
                                     </td>
                                 </tr>
                             </tbody>
@@ -842,18 +842,18 @@
                         <table cellspacing=0 cellpadding=0 border=0>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=ct valign=top width=180 height=13>(-)
                                         Outras deduções
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12> <img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12> <img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=cp valign=top align=right width=180 height=12></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -865,14 +865,14 @@
                             <tbody>
                                 <tr>
                                     <td class=ct valign=top width=7 height=13>
-                                        <img height=13 src="../imagens/1.png" width=1 border=0>
+                                        <img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=1 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=1 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -881,19 +881,19 @@
                         <table cellspacing=0 cellpadding=0 border=0>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=ct valign=top width=180 height=13>(+)
                                         Mora / Multa
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=cp valign=top align=right width=180 height=12></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1> <img height=1 src="../imagens/2.png" width=7 border=0></td>
+                                    <td valign=top width=7 height=1> <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
                                     <td valign=top width=180 height=1>
-                                        <img height=1 src="../imagens/2.png" width=180 border=0>
+                                        <img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0>
                                     </td>
                                 </tr>
                             </tbody>
@@ -905,13 +905,13 @@
                         <table cellspacing=0 cellpadding=0 border=0 align=left>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=1 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=1 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -920,18 +920,18 @@
                         <table cellspacing=0 cellpadding=0 border=0>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=ct valign=top width=180 height=13>(+)
                                         Outros acréscimos
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=cp valign=top align=right width=180 height=12></td>
                                 </tr>
                                 <tr>
-                                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -942,10 +942,10 @@
                         <table cellspacing=0 cellpadding=0 border=0 align=left>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -954,13 +954,13 @@
                         <table cellspacing=0 cellpadding=0 border=0>
                             <tbody>
                                 <tr>
-                                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=ct valign=top width=180 height=13>(=)
                                         Valor cobrado
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                                     <td class=cp valign=top align=right width=180 height=12></td>
                                 </tr>
                             </tbody>
@@ -972,19 +972,19 @@
         <table cellspacing=0 cellpadding=0 width=666 border=0>
             <tbody>
                 <tr>
-                    <td valign=top width=666 height=1><img height=1 src="../imagens/2.png" width=666 border=0></td>
+                    <td valign=top width=666 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=666 border=0></td>
                 </tr>
             </tbody>
         </table>
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=300 height=13>PAGADOR</td>
                     <td class=ct valign=top width=359 height=13>CPF/CNPJ</td>
                 </tr>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=300 height=12><span class="campo">
 <?php echo $sacado; ?>
                         </span>
@@ -999,7 +999,7 @@
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=cp valign=top width=7 height=12><img height=12 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=659 height=12><span class="campo">
 <?php echo $endereco1; ?>
                         </span>
@@ -1010,22 +1010,22 @@
         <table cellspacing=0 cellpadding=0 border=0>
             <tbody>
                 <tr>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=cp valign=top width=472 height=13>
                         <span class="campo">
 <?php echo $endereco2; ?>
                         </span>
                     </td>
-                    <td class=ct valign=top width=7 height=13><img height=13 src="../imagens/1.png" width=1 border=0></td>
+                    <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $this->baseDir;?>/imagens/1.png" width=1 border=0></td>
                     <td class=ct valign=top width=180 height=13>Cód.
                         baixa
                     </td>
                 </tr>
                 <tr>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=472 height=1><img height=1 src="../imagens/2.png" width=472 border=0></td>
-                    <td valign=top width=7 height=1><img height=1 src="../imagens/2.png" width=7 border=0></td>
-                    <td valign=top width=180 height=1><img height=1 src="../imagens/2.png" width=180 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=472 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=472 border=0></td>
+                    <td valign=top width=7 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=7 border=0></td>
+                    <td valign=top width=180 height=1><img height=1 src="<?php echo $this->baseDir;?>/imagens/2.png" width=180 border=0></td>
                 </tr>
             </tbody>
         </table>
@@ -1067,7 +1067,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class=ct width=666><img height=1 src="../imagens/6.png" width=665 border=0></td>
+                    <td class=ct width=666><img height=1 src="<?php echo $this->baseDir;?>/imagens/6.png" width=665 border=0></td>
                 </tr>
             </tbody>
         </table>

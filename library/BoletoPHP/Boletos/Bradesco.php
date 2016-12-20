@@ -44,7 +44,7 @@ class Bradesco extends Boleto
         'instrucoes3',
         'instrucoes4'
     ];
-    protected $codigobanco = 104;
+    protected $codigobanco = 237;
     private $nummoeda      = 9;
     private $campo_livre;
     private $dv_campo_livre;

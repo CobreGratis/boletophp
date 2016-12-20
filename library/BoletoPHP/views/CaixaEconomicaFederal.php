@@ -3,7 +3,7 @@
     <head>
         <title><?php echo $identificacao; ?></title>
         <meta http-equiv=Content-Type content=text/html charset=UTF-8>
-        <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+        <meta name="Generator" content="Boleto" />
         <style type=text/css>
             <!--.cp {  font: bold 10px Arial; color: black}
             <!--.ti {  font: 9px Arial, Helvetica, sans-serif}
