@@ -51,7 +51,7 @@ abstract class Boleto
     public function __construct($params, Pagador $pagador = null,
                                 Beneficiario $beneficiario = null)
     {
-        if (PASTA_LOGOS == null) define(PASTA_LOGOS, '/imagens');
+        if (PASTA_LOGOS == null) define(PASTA_LOGOS, '/imagens/');
 
         $this->baseDir = PASTA_LOGOS;
 
