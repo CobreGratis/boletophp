@@ -109,7 +109,6 @@ abstract class Boleto
             'endereco' => $this->beneficiario->getEndereco(),
             'cidade_uf' => $this->beneficiario->getCidadeEstado(),
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
-            'linha_digitavel' => $this->linha_digitavel,
             'carteira' => $this->params['carteira'],
             'cedente' => $this->beneficiario->getRazaoSocial(),
             'agencia_codigo' => $this->agencia_codigo,
