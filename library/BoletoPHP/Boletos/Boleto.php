@@ -440,10 +440,10 @@ abstract class Boleto
 
         //Desenho da barra
         //Guarda inicial
-        $retorno = "<img src=\"../imagens/p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
-                    src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
-                    src=\"../imagens/p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
-                    src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
+        $retorno = "<img src=\"{$this->baseDir}p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+                    src=\"{$this->baseDir}b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+                    src=\"{$this->baseDir}p.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+                    src=\"{$this->baseDir}b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
 
         $texto = $this->linha;
         if ((strlen($texto) % 2) <> 0) {
@@ -461,21 +461,21 @@ abstract class Boleto
                 } else {
                     $f1 = $largo;
                 }
-                $retorno .= " src=\"../imagens/p.png\" width={$f1} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
+                $retorno .= " src=\"{$this->baseDir}p.png\" width={$f1} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
 
                 if (substr($f, $i, 1) == "0") {
                     $f2 = $fino;
                 } else {
                     $f2 = $largo;
                 }
-                $retorno .= " src=\"../imagens/b.png\" width={$f2} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
+                $retorno .= " src=\"{$this->baseDir}b.png\" width={$f2} height={$altura} border=0 alt=\"\"><img".PHP_EOL;
             }
         }
 
         // Draw guarda final
-        $retorno .= " src=\"../imagens/p.png\" width={$largo} height={$altura} border=0 alt=\"\"><img
-                    src=\"../imagens/b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
-                    src=\"../imagens/p.png\" width=1 height={$altura} border=0 alt=\"\">";
+        $retorno .= " src=\"{$this->baseDir}p.png\" width={$largo} height={$altura} border=0 alt=\"\"><img
+                    src=\"{$this->baseDir}b.png\" width={$fino} height={$altura} border=0 alt=\"\"><img
+                    src=\"{$this->baseDir}p.png\" width=1 height={$altura} border=0 alt=\"\">";
 
         return $retorno;
     }

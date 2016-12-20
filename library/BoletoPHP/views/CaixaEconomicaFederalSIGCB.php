@@ -60,7 +60,7 @@
             <tbody>
                 <tr>
                     <td class=ct width=666>
-                        <img height=1 src=../imagens/6.png width=665 border=0>
+                        <img height=1 src=<?php echo $this->baseDir;?>6.png width=665 border=0>
                     </td>
                 </tr>
                 <tr>
