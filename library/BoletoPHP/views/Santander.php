@@ -35,7 +35,7 @@
                     <span class="campo"><img
                             src="<?php echo $this->baseDir;?>logo_santander.png" width="140" height="37"
                             border=0></span></td>
-                <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
+                <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc>0<?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">
                             <?php echo $linha_digitavel ?>
                         </span></span></td>
@@ -106,7 +106,7 @@
                     <span class="campo"><img
                             src="<?php echo $this->baseDir;?>logo_santander.png" width="140" height="37"
                             border=0></span></td>
-                <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
+                <td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc>0<?php echo $codigo_banco_com_dv ?></font></div></td><td width=3 valign=bottom><img height=22 src=../imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld>
                         <span class="campotitulo">
                             <?php echo $linha_digitavel ?>
                         </span></span></td>
