@@ -600,7 +600,7 @@
             <table class="header" border=0 cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td width=150><img src="<?php echo $this->baseDir;?>logobb.jpg"></td>
+                        <td width=150><img src="<?php echo PASTA_LOGOS?>logobb.jpg"></td>
                         <td width=50>
                             <div class="field_cod_banco">00<?php echo $codigo_banco_com_dv ?></div>
                         </td>
