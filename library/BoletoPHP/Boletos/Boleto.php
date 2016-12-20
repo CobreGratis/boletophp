@@ -36,7 +36,6 @@ abstract class Boleto
     protected $codigo_barras;
     private $nome_da_classe;
     private $diretorio_de_views;
-
     protected $baseDir;
 
     /**
@@ -52,8 +51,11 @@ abstract class Boleto
     public function __construct($params, Pagador $pagador = null,
                                 Beneficiario $beneficiario = null)
     {
-        $this->baseDir = '';
-      //  var_dump($this->baseDir);die;
+        if(! defined(PASTA_LOGOS))
+            define(PASTA_LOGOS, '../imagens/');
+
+        $this->baseDir = PASTA_LOGOS;
+
         if (!$pagador) {
             $pagador = new Pagador();
             $pagador->hydrate($params);
