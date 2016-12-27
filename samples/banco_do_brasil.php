@@ -84,7 +84,6 @@ $params = array(
 );
 
 try {
-
     $boleto = new BoletoPHP\Boletos\BancoDoBrasil($params, $pagador,
         $beneficiario);
     echo $boleto->gerarBoleto();
