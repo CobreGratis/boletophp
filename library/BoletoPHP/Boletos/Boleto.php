@@ -186,7 +186,7 @@ abstract class Boleto
 
     protected function geraAgenciaCodigo()
     {
-        $this->agencia_codigo = sprintf("%d / %s-%d", $this->agencia,
+        $this->agencia_codigo = sprintf("%04d / %s-%d", $this->agencia,
             (string) $this->conta_cedente, $this->conta_cedente_dv);
     }
 
