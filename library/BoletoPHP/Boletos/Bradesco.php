@@ -79,28 +79,23 @@ class Bradesco extends Boleto
 
 	protected function geraNNum()
 	{
-		$this->nnum = $this->formataNumero($this->beneficiario->getNumeroConst1(),
-				1, 0).
-			$this->formataNumero($this->beneficiario->getNumeroConst2(), 1, 0).
-			$this->formataNumero($this->beneficiario->getNossoNumero1(), 3, 0).
-			$this->formataNumero($this->beneficiario->getNossoNumero2(), 3, 0).
-			$this->formataNumero($this->beneficiario->getNossoNumero3(), 9, 0);
+		$this->nnum = $this->formataNumero($this->beneficiario->getNossoNumero1(), 11, 0);
 	}
 
 	protected function geraNossoNumero()
 	{
-		$this->nossonumero = $this->nnum.$this->digitoVerificadorNossonumero($this->nnum);
+		$this->nossonumero = sprintf("%02d/%011d-%d", $this->carteira, $this->nnum, $this->digitoVerificadorNossonumero($this->nnum));
 	}
 
 	protected function geraDv()
 	{
-		$this->dv = $this->digitoVerificadorBarra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}",
+		$this->dv = $this->digitoVerificadorBarra("{$this->codigobanco}{$this->nummoeda}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}",
 			9, 0);
 	}
 
 	protected function geraLinha()
 	{
-		$this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->campo_livre_com_dv}";
+		$this->linha = "{$this->codigobanco}{$this->nummoeda}{$this->dv}{$this->fator_vencimento}{$this->valor}{$this->campo_livre}";
 	}
 
 	private function geraCampoLivre()
@@ -108,8 +103,8 @@ class Bradesco extends Boleto
 		$this->campo_livre =
 			$this->formataNumero($this->beneficiario->getAgencia(),4, 0).
 			$this->formataNumero($this->carteira, 2, 0).
-			$this->formataNumero($this->beneficiario->getNossoNumero1(), 12, 0).
-			$this->formataNumero($this->beneficiario->getConta(),6, 0).
+			$this->formataNumero($this->nnum, 11, 0).
+			$this->formataNumero($this->beneficiario->getConta(),7, 0).
 			'0';
 	}
 
