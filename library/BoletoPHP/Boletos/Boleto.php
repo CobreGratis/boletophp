@@ -51,8 +51,8 @@ abstract class Boleto
     public function __construct($params, Pagador $pagador = null,
                                 Beneficiario $beneficiario = null)
     {
-        if(! defined(PASTA_LOGOS))
-            define(PASTA_LOGOS, '../imagens/');
+        if(! defined('PASTA_LOGOS'))
+            define('PASTA_LOGOS', '../imagens/');
 
         $this->baseDir = PASTA_LOGOS;
 
@@ -109,12 +109,11 @@ abstract class Boleto
             'endereco' => $this->beneficiario->getEndereco(),
             'cidade_uf' => $this->beneficiario->getCidadeEstado(),
             'codigo_banco_com_dv' => $this->codigo_banco_com_dv,
-            'linha_digitavel' => $this->linha_digitavel,
-            'carteira' => $this->params['carteira']?$this->params['carteira']:'N/A',
-            'convenio' => $this->params['convenio']?$this->params['convenio']:'N/A',
-            'contrato' => $this->params['contrato']?$this->params['contrato']:'N/A',
-            'codigo_cliente' => $this->params['codigo_cliente']?$this->params['codigo_cliente']:'N/A',
-            'ponto_venda' => $this->params['ponto_venda']?$this->params['ponto_venda']:'N/A',
+            'carteira' => (!empty($this->params['carteira']))?$this->params['carteira']:'N/A',
+            'convenio' => (!empty($this->params['convenio']))?$this->params['convenio']:'N/A',
+            'contrato' => (!empty($this->params['contrato']))?$this->params['contrato']:'N/A',
+            'codigo_cliente' => (!empty($this->params['codigo_cliente']))?$this->params['codigo_cliente']:'N/A',
+            'ponto_venda' => (!empty($this->params['ponto_venda']))?$this->params['ponto_venda']:'N/A',
             'cedente' => $this->beneficiario->getRazaoSocial(),
             'agencia_codigo' => $this->agencia_codigo,
             'especie' => $this->params['especie'],
@@ -187,7 +186,7 @@ abstract class Boleto
 
     protected function geraAgenciaCodigo()
     {
-        $this->agencia_codigo = sprintf("%d / %s-%d", $this->agencia,
+        $this->agencia_codigo = sprintf("%04d / %s-%d", $this->agencia,
             (string) $this->conta_cedente, $this->conta_cedente_dv);
     }
 
