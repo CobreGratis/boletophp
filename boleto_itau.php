@@ -1,91 +1,81 @@
 <?php
-// +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
-// +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
-// | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
-// |                                                                      |
-// | Free Software Foundation, Inc.                                       |
-// | 59 Temple Place - Suite 330                                          |
-// | Boston, MA 02111-1307, USA.                                          |
-// +----------------------------------------------------------------------+
 
-// +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
-// | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				        |
-// | 														                                   			  |
-// | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
-// | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
-// +----------------------------------------------------------------------+
+//Importando a classe BoletoItau
+require_once("./Class/BoletoItau.php");
 
-// +----------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
-// | Desenvolvimento Boleto Itaú: Glauber Portella                        |
-// +----------------------------------------------------------------------+
+//Instanciando a classe Boleto
+$boleto = new BoletoItau();
 
+// -------------------------------
 
-// ------------------------- DADOS DINÂMICOS DO SEU CLIENTE PARA A GERAÇÃO DO BOLETO (FIXO OU VIA GET) -------------------- //
-// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
+//Informe quantos dias o comprador terÃ¡ para pagar o boleto
+$boleto->setVencimento(5);
 
-// DADOS DO BOLETO PARA O SEU CLIENTE
-$dias_de_prazo_para_pagamento = 5;
-$taxa_boleto = 2.95;
-$data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006"; 
-$valor_cobrado = "2950,00"; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
-$valor_cobrado = str_replace(",", ".",$valor_cobrado);
-$valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
+//Informe o valor da taxa do boleto, que serÃ¡ somada ao valor final
+$boleto->setTaxa('2,99');
 
-$dadosboleto["nosso_numero"] = '12345678';  // Nosso numero - REGRA: Máximo de 8 caracteres!
-$dadosboleto["numero_documento"] = '0123';	// Num do pedido ou nosso numero
-$dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissão do Boleto
-$dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
-$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
+//Informe o valor do boleto
+$boleto->setValor('199,90');
 
-// DADOS DO SEU CLIENTE
-$dadosboleto["sacado"] = "Nome do seu Cliente";
-$dadosboleto["endereco1"] = "Endereço do seu Cliente";
-$dadosboleto["endereco2"] = "Cidade - Estado -  CEP: 00000-000";
+//Informe aqui os dados referente ao boleto
+$boleto->setDadosBoleto([
+    'nosso_numero'=>'12345678',
+    'numero_documento'=>'0123',
+    'agencia'=>'3159',
+    'conta'=>'30220',
+    'conta_dv'=>'4',
+    'carteira'=>'175'
+]);
 
-// INFORMACOES PARA O CLIENTE
-$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Nonononono";
-$dadosboleto["demonstrativo2"] = "Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ".number_format($taxa_boleto, 2, ',', '');
-$dadosboleto["demonstrativo3"] = "BoletoPhp - http://www.boletophp.com.br";
-$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
-$dadosboleto["instrucoes2"] = "- Receber até 10 dias após o vencimento";
-$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: xxxx@xxxx.com.br";
-$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
+//Informe aqui os dados do comprador
+$boleto->setDadosCliente([
+    'sacado'=>'Nome do seu cliente',
+    'endereco1'=>'Primeira linha do endereÃ§o',
+    'endereco2'=>'Segunda linha do endereÃ§o'
+]);
 
-// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
-$dadosboleto["quantidade"] = "";
-$dadosboleto["valor_unitario"] = "";
-$dadosboleto["aceite"] = "";		
-$dadosboleto["especie"] = "R$";
-$dadosboleto["especie_doc"] = "";
+//Informe aqui as mensagens de informaÃ§Ãµes do boleto. Limite de trÃªs linhas.
+$boleto->setInformacoes([
+    'Primeira linha de demonstrativo do boleto',
+    'Segunda linha de demonstrativo do boleto',
+    'Terceira linha de demonstrativo do boleto'
+]);
 
+//Informe aqui as instruÃ§Ãµes do pagamento do boleto. Limite de quatro linhas.
+$boleto->setInstrucoes([
+    'Primeira linha das instruÃ§Ãµes', 
+    'Segunda linha das instruÃ§Ãµes',
+    'Terceira linha das instruÃ§Ãµes',
+    'Quarta linha das instruÃ§Ãµes'
+]);
 
-// ---------------------- DADOS FIXOS DE CONFIGURAÇÃO DO SEU BOLETO --------------- //
+//Informe aqui as informaÃ§Ãµes do cedente (sua empresa)
+$boleto->setCedente([
+    'identificacao'=>'BoletoPhp - ModificaÃ§Ã£o para Banco ItaÃº por Roberto Griel Filho',
+    'cpf_cnpj'=>'00.000.000/0001-00',
+    'endereco'=>'EndereÃ§o da Empresa',
+    'cidade_uf'=>'Cidade, Estado',
+    'cedente'=>'RazÃ£o Social da Empresa'
+]);
 
+//InformaÃ§Ãµes opcionais do boleto
+$boleto->setOpcionais([
+    /**
+     * Dados opcionais do boleto, de acordo com o banco ou cliente.
+     * Remova o comentÃ¡rio da linha cuja informaÃ§Ã£o precise ser alterada.
+     * Ou permaneÃ§a como estÃ¡ para utilizar os valores padrÃ£o.
+     */
 
-// DADOS DA SUA CONTA - ITAÚ
-$dadosboleto["agencia"] = "1565"; // Num da agencia, sem digito
-$dadosboleto["conta"] = "13877";	// Num da conta, sem digito
-$dadosboleto["conta_dv"] = "4"; 	// Digito do Num da conta
+    //'quantidade'=>'1',
+    //'valor_unitario'=>'',
+    //'aceite'=>'',
+    //'especie'=>'US$',
+    //'especie_doc'=>''
+]);
 
-// DADOS PERSONALIZADOS - ITAÚ
-$dadosboleto["carteira"] = "175";  // Código da Carteira: pode ser 175, 174, 104, 109, 178, ou 157
+//Gerando o cÃ³digo de barras
+$boleto->criarCodigoDeBarras();
 
-// SEUS DADOS
-$dadosboleto["identificacao"] = "BoletoPhp - Código Aberto de Sistema de Boletos";
-$dadosboleto["cpf_cnpj"] = "";
-$dadosboleto["endereco"] = "Coloque o endereço da sua empresa aqui";
-$dadosboleto["cidade_uf"] = "Cidade / Estado";
-$dadosboleto["cedente"] = "Coloque a Razão Social da sua empresa aqui";
-
-// NÃO ALTERAR!
-include("include/funcoes_itau.php"); 
+//Reunindo os dados e importando o layout do boleto
+$dados = $boleto->getDados();
 include("include/layout_itau.php");
-?>
