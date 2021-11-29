@@ -1,4 +1,4 @@
-Se você encontrou algum problema com o BoletoPhp, por favor entre
-em contato com a Equipe Coordenação Projeto BoletoPhp pelo email
+Se vocÃª encontrou algum problema com o BoletoPhp, por favor entre
+em contato com a Equipe CoordenaÃ§Ã£o Projeto BoletoPhp pelo email
 boletophp@boletophp.com.br para termos conhecimento sobre o fato e
-assim darmos início a revisão ou ajustes em caso de necessidades.
+assim darmos inÃ­cio a revisÃ£o ou ajustes em caso de necessidades.
