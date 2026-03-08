@@ -200,23 +200,25 @@ Em resposta as várias perguntas que recebemos sobre o uso do BoletoPhp, informa
 
 ## Créditos / Colaboradores
 
-- **Elizeu Alcantara** — Mantenedor e Coordenador do Projeto BoletoPhp / Boletos Unibanco e Caixa Econômica
-- **João Prado Maia e Pablo Martins F. Costa** — PhpBoleto
-- **Daniel William Schultz / Leandro Maniezo / Rodrigo Dias Pereira** — BBBoletoFree e Boleto Banco do Brasil
-- **Glauber Portella** — Boleto Itaú
-- **Bruno Leonardo Gonçalves** — Boleto Hsbc
-- **Ramon Soares** — Boleto Bradesco
-- **Fernando José de Oliveira Chagas** — Boleto Banestes
-- **Juan Basso** — Boleto Real
-- **Keitty Suélen** — Boleto NossaCaixa
-- **Flávio Yutaka Nakamura** — Boleto Sudameris
-- **Fábio Rogério Lenharo** — Boleto Santander-Banespa 353
-- **Fábio Gabbay** — Boleto Santander-Banespa 033
-- **Carlos Magno / Reinaldo Silva / Alberto Braschi / Alan Camilo** — Boleto Caixa - Padrão SINCO
-- **Davi Camargo / Leandro Vieira Pinho** — Boleto Caixa - Padrão SIGCB
-- **Marcelo Souza** — Boleto Bancoob
-- **Lucas Ferreira** — Boleto Besc
-- **Rafael Azenha Aquini / Marco Antonio Righi / Marcelo Belinato** — Boleto Sicredi
+| Foto | Colaborador | Contribuição |
+| :---: | --- | --- |
+| <img src="img/creditos/foto_elizeu_alcantara.jpg" width="80"> | **Elizeu Alcantara** | Mantenedor e Coordenador do Projeto BoletoPhp / Boletos Unibanco e Caixa Econômica |
+| <img src="img/creditos/foto_joao_prado.jpg" width="80"> | **João Prado Maia e Pablo Martins F. Costa** | PhpBoleto |
+| <img src="img/creditos/foto_leandro_maniezo.jpg" width="80"> | **Daniel William Schultz / Leandro Maniezo / Rodrigo Dias Pereira** | BBBoletoFree e Boleto Banco do Brasil |
+| <img src="img/creditos/foto_glauber_portella.jpg" width="80"> | **Glauber Portella** | Boleto Itaú |
+| <img src="img/creditos/foto_bruno_leonardo.jpg" width="80"> | **Bruno Leonardo Gonçalves** | Boleto Hsbc |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Ramon Soares** | Boleto Bradesco |
+| <img src="img/creditos/foto_fernando_chagas.jpg" width="80"> | **Fernando José de Oliveira Chagas** | Boleto Banestes |
+| <img src="img/creditos/foto_juan_basso.jpg" width="80"> | **Juan Basso** | Boleto Real |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Keitty Suélen** | Boleto NossaCaixa |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Flávio Yutaka Nakamura** | Boleto Sudameris |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Fábio Rogério Lenharo** | Boleto Santander-Banespa 353 |
+| <img src="img/creditos/foto_fabio_gabbay.jpg" width="80"> | **Fábio Gabbay** | Boleto Santander-Banespa 033 |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Carlos Magno / Reinaldo Silva / Alberto Braschi / Alan Camilo** | Boleto Caixa - Padrão SINCO |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Davi Camargo / Leandro Vieira Pinho** | Boleto Caixa - Padrão SIGCB |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Marcelo Souza** | Boleto Bancoob |
+| <img src="img/creditos/foto_lucas_ferreira.jpg" width="80"> | **Lucas Ferreira** | Boleto Besc |
+| <img src="img/creditos/foto_sem_imagem.gif" width="80"> | **Rafael Azenha Aquini / Marco Antonio Righi / Marcelo Belinato** | Boleto Sicredi |
 
 ---
 
