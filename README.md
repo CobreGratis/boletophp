@@ -98,7 +98,7 @@ Para você iniciar o desenvolvimento de um dos boletos basta fazer o Download do
 | Bancoob | 01 (SICOOB) | Marcelo Souza | Sim |
 | Sicredi | A (Simples) | Rafael Azenha Aquini / Marco Antonio Righi / Marcelo Belinato | Sim |
 
-Após a conclusão de um Novo Boleto, envie os arquivos com o código desenvolvido do Boleto para [boletophp@boletophp.com.br](mailto:boletophp@boletophp.com.br). Na sequência será realizado testes e agregado ao BoletoPhp e disponibilizado a nova versão para Download. Será colocado o seu nome na área de Créditos do site e do arquivo de Download do BoletoPhp.
+Após a conclusão de um Novo Boleto, abra uma [issue no GitHub](https://github.com/CobreGratis/boletophp/issues) com os arquivos do código desenvolvido do Boleto. Na sequência será realizado testes e agregado ao BoletoPhp e disponibilizado a nova versão para Download. Será colocado o seu nome na área de Créditos do site e do arquivo de Download do BoletoPhp.
 
 ---
 
@@ -194,7 +194,7 @@ Em resposta as várias perguntas que recebemos sobre o uso do BoletoPhp, informa
 2. É de inteira responsabilidade do profissional/programador a instalação e funcionamento do BoletoPhp em seus aplicativos.
 3. É de inteira responsabilidade do profissional/programador os testes de pagamentos e compensação do mesmo em conta bancária, para que seja integrado e ajustado de forma responsável no desenvolvimento dos seus negócios e/ou aplicações web ANTES de que seja colocado em produção para emissão dos seus boletos junto aos seus clientes.
 
-**As mensagens que são enviadas a nós com dúvidas gerais, técnicas ou solicitações de Suporte não serão respondidas**. Somente daremos retorno para mensagens referente a contatos comerciais ou notificações de bugs, através do email [boletophp@boletophp.com.br](mailto:boletophp@boletophp.com.br)
+**As mensagens que são enviadas a nós com dúvidas gerais, técnicas ou solicitações de Suporte não serão respondidas**. Para notificações de bugs, abra uma [issue no GitHub](https://github.com/CobreGratis/boletophp/issues).
 
 ---
 
@@ -228,4 +228,4 @@ Projeto disponível sob a Licença [GPL](http://pt.wikipedia.org/wiki/GNU_Genera
 
 ---
 
-Contatos comerciais ou Notificações de bugs: [boletophp@boletophp.com.br](mailto:boletophp@boletophp.com.br). Mensagens com dúvidas gerais, técnicas ou solicitações de Suporte não serão respondidas.
+Notificações de bugs ou sugestões: abra uma [issue no GitHub](https://github.com/CobreGratis/boletophp/issues). Mensagens com dúvidas gerais, técnicas ou solicitações de Suporte não serão respondidas.
