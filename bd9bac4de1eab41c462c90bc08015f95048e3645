@@ -1,0 +1,23 @@
+README.md
+  f41f87569d951d67 1,5-10,15,17,19,25-31,33-37,39,41,44,62-229
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "bd9bac4de1eab41c462c90bc08015f95048e3645",
+  "prompts": {
+    "f41f87569d951d67": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "52a37158-8801-413c-8c19-33659dc7df2d",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 210,
+      "total_deletions": 25,
+      "accepted_lines": 196,
+      "overriden_lines": 0
+    }
+  }
+}
